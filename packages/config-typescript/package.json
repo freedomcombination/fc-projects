@@ -1,0 +1,9 @@
+{
+  "name": "@fc/config-typescript",
+  "version": "0.0.0",
+  "private": true,
+  "license": "PROPRIETARY",
+  "publishConfig": {
+    "access": "public"
+  }
+}

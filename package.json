@@ -6,16 +6,25 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{js,jsx,css,ts,tsx,md,json}\"",
+    "storybook": "turbo run storybook --filter=@fc/ui",
+    "add-component": "cd packages/ui && pnpm dlx shadcn add && pnpm lint",
+    "type-check": "turbo run type-check"
+  },
+  "dependencies": {
+    "@fc/ui": "workspace:*",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
-    "@workspace/eslint-config": "workspace:*",
-    "@workspace/typescript-config": "workspace:*",
-    "prettier": "^3.2.5",
-    "turbo": "^2.3.0",
-    "typescript": "5.5.4"
+    "@fc/config-typescript": "workspace:*",
+    "@turbo/gen": "^2.3.3",
+    "@types/node": "^20.17.11",
+    "turbo": "^2.3.3",
+    "prettier": "^3.4.2",
+    "prettier-plugin-tailwindcss": "^0.6.9",
+    "typescript": "5.7.2"
   },
-  "packageManager": "pnpm@9.12.3",
+  "packageManager": "pnpm@9.15.3",
   "engines": {
     "node": ">=20"
   }

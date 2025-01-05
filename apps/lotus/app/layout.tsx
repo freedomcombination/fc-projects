@@ -1,0 +1,28 @@
+import { Providers } from '@fc/ui/components/providers'
+import '@fc/ui/globals.css'
+
+import { Geist, Geist_Mono } from 'next/font/google'
+
+const fontSans = Geist({
+  subsets: ['latin'],
+  variable: '--font-sans',
+})
+
+const fontMono = Geist_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
+})
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased `}>
+        <Providers>{children}</Providers>
+      </body>
+    </html>
+  )
+}

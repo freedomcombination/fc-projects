@@ -1,0 +1,22 @@
+{
+  "name": "@fc/config-tailwind",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "license": "PROPRIETARY",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "lint": "eslint . --config=../../packages/ui/eslint.config.js --fix"
+  },
+  "exports": {
+    ".": "./tailwind.config.ts"
+  },
+  "dependencies": {
+    "@fc/config-eslint": "workspace:*",
+    "@fc/config-typescript": "workspace:*",
+    "tailwindcss": "^3.4.17",
+    "tailwindcss-animate": "^1.0.7"
+  }
+}
