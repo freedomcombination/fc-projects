@@ -7,9 +7,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "scripts": {
-    "lint": "eslint . --config=../../packages/ui/eslint.config.js --fix"
-  },
   "exports": {
     ".": "./tailwind.config.ts"
   },
