@@ -1,0 +1,17 @@
+{
+  "name": "intl",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "lint": "eslint \"**/*.ts*\"",
+    "clean": "rm -rf .turbo node_modules",
+    "tsc": "npx tsc --noEmit"
+  },
+  "dependencies": {
+    "next-intl": "^3.26.3"
+  }
+}
