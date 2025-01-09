@@ -7,8 +7,13 @@
     "build": "strapi build",
     "deploy": "strapi deploy",
     "develop": "strapi develop",
+    "api": "pnpm develop",
     "start": "strapi start",
-    "strapi": "strapi"
+    "strapi": "strapi",
+    "export": "strapi export --no-encrypt --exclude files --file export",
+    "seed": "strapi import --exclude files --file export.tar.gz",
+    "db": "chmod +x scripts/db.sh && scripts/db.sh",
+    "import": "pnpm db && pnpm seed"
   },
   "dependencies": {
     "@strapi/plugin-graphql": "^5.6.0",
