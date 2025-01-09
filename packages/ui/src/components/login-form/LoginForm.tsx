@@ -21,6 +21,7 @@ export const LoginForm = () => {
           setError(error.message)
         },
         onSuccess: (data) => {
+          setError('Login successful')
           console.log(data)
         },
       },
