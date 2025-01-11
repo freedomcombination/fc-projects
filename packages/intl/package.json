@@ -1,16 +1,13 @@
 {
-  "name": "intl",
+  "name": "@fc/intl",
   "version": "1.0.0",
   "private": true,
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./getRequestConfig": "./src/getRequestConfig.js"
+  },
   "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
-  "scripts": {
-    "lint": "eslint \"**/*.ts*\"",
-    "clean": "rm -rf .turbo node_modules",
-    "tsc": "npx tsc --noEmit"
-  },
   "dependencies": {
     "next-intl": "^3.26.3"
   }

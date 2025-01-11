@@ -2,7 +2,7 @@
 
 import { createNavigation } from 'next-intl/navigation'
 
-import { routing } from './src/i18n/routing'
+import { routing } from './routing'
 
 // that will consider the routing configuration
 const navigation = createNavigation(routing)
