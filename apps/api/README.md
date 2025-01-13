@@ -12,50 +12,34 @@ npm run develop
 yarn develop
 ```
 
-### `start`
+# *fc_project*
 
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
+### **Available Scripts**
 
-```
-npm run start
-# or
-yarn start
-```
+The following scripts are available to help with data management and setup:
 
-### `build`
+* **Export**: `pnpm export`
+	+ Exports the Strapi database to a file named `export.tar.gz` without encrypting the data and excluding files.
+* **Seed**: `pnpm seed`
+	+ Imports data from the `export.tar.gz` file into the Strapi database, excluding files.
+* **DB**: `pnpm db`
+	+ Runs the script `scripts/db.sh` to set up the database. This will create and give needed permission to postgres user.
+* **Import**: `pnpm import`
+	+ Runs the `db` script to set up the database and then runs the `seed` script to import data into the database.
+  + Don't forget to set `DATABASE_URL=postgres://username:password@localhost/fc_projects` in your .env file before use `pnpm import`
 
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
 
-```
-npm run build
-# or
-yarn build
-```
 
-## ⚙️ Deployment
+Note: Make sure to replace `pnpm` with your package manager of choice (e.g. `npm` or `yarn`) if you're not using pnpm.
 
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
 
-```
-yarn strapi deploy
-```
+### **Strapi Admin Credentials**
 
-## 📚 Learn more
+* **Username:** `dev@fc.com`
+* **Password:** `Test?123`
 
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
+### **Admin User Credentials**
 
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
 
-## ✨ Community
-
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
-
----
-
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+* **Username:** `admin@fc.com`
+* **Password:** `Test?123`
