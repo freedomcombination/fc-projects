@@ -2,9 +2,11 @@ import { Suspense } from 'react'
 
 import { Button } from '@fc/ui/base/button'
 import { LocaleSwitcher } from '@fc/ui/components/locale-switcher'
+import { LoginForm } from '@fc/ui/components/login-form'
 import { ModeToggle } from '@fc/ui/components/mode-toggle'
 
 import { useTranslations } from 'next-intl'
+import '@fc/ui/globals.css'
 
 export default function Page() {
   const t = useTranslations('HomePage')
@@ -18,6 +20,7 @@ export default function Page() {
         <Suspense>
           <ModeToggle />
           <LocaleSwitcher />
+          <LoginForm />
         </Suspense>
       </div>
     </div>
