@@ -11,6 +11,6 @@
   },
   "devDependencies": {
     "@fc/config-eslint": "workspace:*",
-    "typescript": "5.7.2"
+    "typescript": "5.7.3"
   }
 }
