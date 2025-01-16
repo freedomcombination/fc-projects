@@ -24,7 +24,7 @@
     "@fc/intl": "workspace:*",
     "@fc/ui": "workspace:*",
     "@types/node": "^20.17.14",
-    "@types/react": "^19.0.5",
+    "@types/react": "^19.0.7",
     "@types/react-dom": "^19.0.3",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.5.1",
