@@ -29,6 +29,7 @@
     "next": "^15.1.4",
     "next-intl": "^3.26.3",
     "next-themes": "^0.4.4",
+    "payload": "^3.17.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwind-merge": "^2.6.0",
@@ -36,6 +37,8 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.3",
+    "@fc/codegen": "workspace:*",
+    "@fc/types": "workspace:*",
     "@fc/config-eslint": "workspace:*",
     "@fc/config-typescript": "workspace:*",
     "@fc/config-tailwind": "workspace:*",
