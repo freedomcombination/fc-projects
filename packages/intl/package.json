@@ -21,6 +21,6 @@
   },
   "devDependencies": {
     "@fc/config-typescript": "workspace:*",
-    "@types/react": "^19.0.5"
+    "@types/react": "^19.0.7"
   }
 }
