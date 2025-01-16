@@ -18,13 +18,13 @@
   "devDependencies": {
     "@fc/config-typescript": "workspace:*",
     "@turbo/gen": "^2.3.3",
-    "@types/node": "^20.17.11",
+    "@types/node": "^20.17.14",
     "turbo": "^2.3.3",
     "prettier": "^3.4.2",
-    "prettier-plugin-tailwindcss": "^0.6.9",
-    "typescript": "5.7.2"
+    "prettier-plugin-tailwindcss": "^0.6.10",
+    "typescript": "5.7.3"
   },
-  "packageManager": "pnpm@9.15.3",
+  "packageManager": "pnpm@9.15.4",
   "engines": {
     "node": ">=20"
   }

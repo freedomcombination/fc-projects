@@ -1,0 +1,26 @@
+{
+  "name": "@fc/intl",
+  "version": "1.0.0",
+  "private": true,
+  "main": "src/index.js",
+  "scripts": {
+    "type-check": "tsc --noEmit"
+  },
+  "exports": {
+    "./getRequestConfig": "./src/request.ts",
+    "./messages/*": "./src/messages/*.json",
+    "./navigation": "./src/navigation.ts",
+    "./next.config": "./next.config.mjs",
+    "./routing": "./src/routing.ts",
+    "./middleware": "./src/middleware.ts"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "next": "^15.1.4",
+    "next-intl": "^3.26.3"
+  },
+  "devDependencies": {
+    "@fc/config-typescript": "workspace:*",
+    "@types/react": "^19.0.7"
+  }
+}
