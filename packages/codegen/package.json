@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "generate": "graphql-codegen",
-    "lint": "eslint . --fix"
+    "lint": "eslint . --fix",
+    "type-check": "tsc --noEmit"
   },
   "exports": {
     "./generates": "./generates.ts"
