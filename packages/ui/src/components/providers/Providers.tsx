@@ -2,9 +2,12 @@
 
 import * as React from 'react'
 
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ThemeProvider as NextThemesProvider } from 'next-themes'
 
 export function Providers({ children }: { children: React.ReactNode }) {
+  const [queryClient] = React.useState(() => new QueryClient())
+
   return (
     <NextThemesProvider
       attribute="class"
@@ -13,7 +16,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
       enableColorScheme
       enableSystem
     >
-      {children}
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
     </NextThemesProvider>
   )
 }

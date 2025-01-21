@@ -22,8 +22,10 @@
       "persistent": true
     },
     "type-check": {
-      "cache": false,
-      "persistent": true
+      "dependsOn": ["^type-check"]
+    },
+    "codegen": {
+      "dependsOn": ["^codegen"]
     }
   }
 }

@@ -1,0 +1,19 @@
+query GetBlogs($draft: Boolean, $where: Blog_where, $limit: Int, $page: Int, $sort: String) {
+  Blogs(draft: $draft, where: $where, limit: $limit, page: $page, sort: $sort) {
+    docs {
+      id
+      title_en
+      title_nl
+      title_tr
+    }
+    hasNextPage
+    hasPrevPage
+    limit
+    offset
+    page
+    pagingCounter
+    prevPage
+    totalDocs
+    totalPages
+  }
+}

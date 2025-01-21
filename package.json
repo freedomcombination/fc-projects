@@ -9,7 +9,8 @@
     "format": "prettier --write \"**/*.{js,jsx,css,ts,tsx,md,json}\"",
     "storybook": "turbo run storybook --filter=@fc/ui",
     "add-component": "cd packages/ui && pnpm dlx shadcn add && pnpm lint",
-    "type-check": "turbo run type-check"
+    "type-check": "turbo run type-check",
+    "codegen": "turbo run codegen"
   },
   "dependencies": {
     "@fc/ui": "workspace:*",

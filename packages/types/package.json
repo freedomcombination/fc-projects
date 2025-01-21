@@ -9,6 +9,9 @@
   "exports": {
     "./*": "./*.ts"
   },
+  "dependencies": {
+    "payload": "latest"
+  },
   "devDependencies": {
     "@fc/config-eslint": "workspace:*",
     "typescript": "5.7.3"
