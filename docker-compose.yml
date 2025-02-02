@@ -1,0 +1,45 @@
+services:
+  lotus:
+    container_name: lotus
+    build:
+      context: .
+      dockerfile: ./apps/lotus/Dockerfile
+    restart: always
+    ports:
+      - 3000:3000
+    networks:
+      - app_network
+
+  cms:
+    container_name: cms
+    build:
+      context: .
+      dockerfile: ./apps/cms/Dockerfile
+    restart: always
+    depends_on:
+      - mongo
+    ports:
+      - 1337:1337
+    networks:
+      - app_network
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - '27017:27017'
+    command:
+      - --storageEngine=wiredTiger
+    volumes:
+      - data:/data/db
+    logging:
+      driver: none
+
+# Define a network, which allows containers to communicate
+# with each other, by using their container name as a hostname
+networks:
+  app_network:
+    external: true
+
+# Define the volume
+volumes:
+  data:
