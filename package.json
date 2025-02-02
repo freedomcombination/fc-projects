@@ -20,7 +20,6 @@
     "@fc/config-typescript": "workspace:*",
     "@turbo/gen": "^2.4.0",
     "@types/node": "^20.17.16",
-    "payload": "^3.20.0",
     "prettier": "^3.4.2",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "turbo": "^2.4.0",
