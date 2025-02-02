@@ -1,0 +1,19 @@
+{
+  "name": "@fc/types",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "lint": "eslint . --fix"
+  },
+  "exports": {
+    "./*": "./*.ts"
+  },
+  "dependencies": {
+    "payload": "^3.20.0"
+  },
+  "devDependencies": {
+    "@fc/config-eslint": "workspace:*",
+    "typescript": "5.7.3"
+  }
+}

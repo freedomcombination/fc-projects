@@ -4,6 +4,8 @@ import * as React from 'react'
 
 import { ThemeProvider as NextThemesProvider } from 'next-themes'
 
+import { QueryProvider } from './QueryProvider'
+
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <NextThemesProvider
@@ -13,7 +15,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
       enableColorScheme
       enableSystem
     >
-      {children}
+      <QueryProvider>{children}</QueryProvider>
     </NextThemesProvider>
   )
 }
