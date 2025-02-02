@@ -1,5 +1,18 @@
 # FC Projects Monorepo
 
+## Getting started
+
+```bash
+pnpm install
+pnpm dev
+```
+
+### Projects
+
+- PayloadCMS http://localhost:1337
+- Lotus http://localhost:3000
+- HVN http://localhost:3001
+
 ### Adding components
 
 To add components to your app, run the following command at the root monorepo directory:

@@ -98,6 +98,64 @@ importers:
         specifier: 5.7.3
         version: 5.7.3
 
+  apps/hvn:
+    dependencies:
+      '@fc/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
+      '@tanstack/react-query':
+        specifier: ^5.66.0
+        version: 5.66.0(react@19.0.0)
+      next:
+        specifier: ^15.1.6
+        version: 15.1.6(@babel/core@7.26.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4)
+      next-intl:
+        specifier: ^3.26.3
+        version: 3.26.3(next@15.1.6(@babel/core@7.26.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(react@19.0.0)
+      react:
+        specifier: ^19.0.0
+        version: 19.0.0
+      react-dom:
+        specifier: ^19.0.0
+        version: 19.0.0(react@19.0.0)
+    devDependencies:
+      '@fc/codegen':
+        specifier: workspace:*
+        version: link:../../packages/codegen
+      '@fc/config-eslint':
+        specifier: workspace:*
+        version: link:../../packages/config-eslint
+      '@fc/config-tailwind':
+        specifier: workspace:*
+        version: link:../../packages/config-tailwind
+      '@fc/config-typescript':
+        specifier: workspace:*
+        version: link:../../packages/config-typescript
+      '@fc/intl':
+        specifier: workspace:*
+        version: link:../../packages/intl
+      '@types/node':
+        specifier: ^20.17.16
+        version: 20.17.16
+      '@types/react':
+        specifier: ^19.0.8
+        version: 19.0.8
+      '@types/react-dom':
+        specifier: ^19.0.3
+        version: 19.0.3(@types/react@19.0.8)
+      autoprefixer:
+        specifier: ^10.4.20
+        version: 10.4.20(postcss@8.5.1)
+      postcss:
+        specifier: ^8.5.1
+        version: 8.5.1
+      tailwindcss:
+        specifier: ^3.4.17
+        version: 3.4.17(ts-node@10.9.2(@types/node@20.17.16)(typescript@5.7.3))
+      typescript:
+        specifier: ^5.7.3
+        version: 5.7.3
+
   apps/lotus:
     dependencies:
       '@fc/ui':
