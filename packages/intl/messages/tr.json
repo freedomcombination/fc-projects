@@ -1,6 +1,27 @@
 {
+  "Header": {
+    "home": "Ana Sayfa",
+    "application": "Başvuru",
+    "about": "Hakkımızda",
+    "contact": "İletişim",
+    "support": "Destek"
+  },
   "HomePage": {
     "title": "Merhaba Dünya!",
-    "about": "Hakkinda sayfasina git"
+    "about": "Hakkında sayfasına git"
+  },
+  "Contact": {
+    "title": "Bize Ulaşın",
+    "subtitle": "Sorularınız mı var? Sizden haber almaktan mutluluk duyarız. Bize mesaj gönderin, en kısa sürede yanıt vereceğiz.",
+    "contactInfo": "İletişim Bilgileri",
+    "email": "E-posta",
+    "phone": "Telefon",
+    "address": "Adres",
+    "firstName": "Ad",
+    "lastName": "Soyad",
+    "subject": "Konu",
+    "message": "Mesaj",
+    "send": "Mesaj Gönder",
+    "sending": "Gönderiliyor..."
   }
 }

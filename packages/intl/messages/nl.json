@@ -1,6 +1,27 @@
 {
+  "Header": {
+    "home": "Home",
+    "application": "Aanvragen",
+    "about": "Over ons",
+    "contact": "Contact",
+    "support": "Ondersteuning"
+  },
   "HomePage": {
-    "title": "Hallo wereld!",
-    "about": "Ga naar de over-pagina"
+    "title": "Welkom",
+    "about": "Ga naar over ons"
+  },
+  "Contact": {
+    "title": "Contact",
+    "subtitle": "Heeft u vragen? We horen graag van u. Stuur ons een bericht en we reageren zo snel mogelijk.",
+    "contactInfo": "Contactgegevens",
+    "email": "E-mail",
+    "phone": "Telefoon",
+    "address": "Adres",
+    "firstName": "Voornaam",
+    "lastName": "Achternaam",
+    "subject": "Onderwerp",
+    "message": "Bericht",
+    "send": "Verstuur Bericht",
+    "sending": "Verzenden..."
   }
 }
