@@ -1,0 +1,23 @@
+{
+    "Header": {
+        "home": "Home",
+        "application": "Application",
+        "about": "About",
+        "contact": "Contact",
+        "support": "Support"
+    },
+    "Contact": {
+        "title": "Contact Us",
+        "subtitle": "Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.",
+        "contactInfo": "Contact Information",
+        "email": "Email",
+        "phone": "Phone",
+        "address": "Address",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "subject": "Subject",
+        "message": "Message",
+        "send": "Send Message",
+        "sending": "Sending..."
+    }
+}
