@@ -23,5 +23,32 @@
     "message": "Mesaj",
     "send": "Mesaj Gönder",
     "sending": "Gönderiliyor..."
+  },
+  "About": {
+    "cultural": {
+      "title": "Kültürel Diyalog",
+      "content": "Hollanda'da yaşayan farklı kültürlerden gelen bireylerin ve özellikle mülteci konumundaki toplulukların kültürel zenginliklerini paylaşabilecekleri, birbirlerini daha yakından tanıyabilecekleri ve toplumun farklı kesimlerinin bir araya gelerek entegrasyon sürecini hızlandırabilecekleri bir kültürel etkinlik projesi. Etkinlik, kültürel çeşitliliği kutlamak ve bireylerin birbirlerinden öğrenmesini teşvik etmek amacıyla tasarlanmıştır."
+    },
+    "platform": {
+      "title": "Kültürel Platform",
+      "content": "Katılımcıların kendi kültürlerini sergileyebilecekleri, geleneksel yemeklerini, müziklerini, el sanatlarını ve hikayelerini paylaşabilecekleri interaktif bir platform. Bu platform sayesinde, farklı kültürler arasında köprüler kurulacak ve karşılıklı anlayış geliştirilecek. Ayrıca, kültürel mirasın gelecek nesillere aktarılması ve yaşatılması sağlanacak."
+    },
+    "activities": {
+      "title": "Kültürel Etkinlikler",
+      "content": "Hollanda toplumunda kültürel çeşitlilik hakkında farkındalık oluşturmak ve ön yargıları azaltmak için düzenli etkinlikler, workshoplar ve festivaller düzenliyoruz. Bu etkinlikler arasında kültürel yemek günleri, dans gösterileri, müzik performansları, sanat sergileri ve interaktif atölyeler yer alıyor. Her etkinlik, farklı kültürlerin zenginliğini ve benzersizliğini vurguluyor."
+    },
+    "integration": {
+      "title": "Sosyal Entegrasyon",
+      "content": "Farklı kültürlerden gelen insanların Hollanda toplumuna uyum sağlamasını kolaylaştırmak için özel programlar sunuyoruz. Dil kursları, kültürel oryantasyon programları, meslek edinme workshopları ve sosyal aktiviteler düzenliyoruz. Bu programlar, katılımcıların özgüvenlerini artırırken, Hollanda toplumunda aktif rol almalarını destekliyor."
+    },
+    "unity": {
+      "title": "Kültürel Birlik",
+      "content": "Hollanda'nın kültürel çeşitliliğini kutlayan ve bu zenginliği toplumun her kesimine yansıtan projeler geliştiriyoruz. Farklı kültürlerin bir arada yaşamasının getirdiği avantajları vurgulayarak, toplumsal barış ve uyumu güçlendirmeyi hedefliyoruz. Kültürlerarası diyalog ve işbirliği sayesinde, daha kapsayıcı ve anlayışlı bir toplum oluşturmaya katkıda bulunuyoruz."
+    }
+  },
+  "Hero": {
+    "title": "Hollanda'nın Uyumu",
+    "subtitle": "Hollanda'nın Kültürel Uyumu",
+    "cta": "Daha Fazla Bilgi"
   }
 }

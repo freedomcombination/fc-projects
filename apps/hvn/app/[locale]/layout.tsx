@@ -8,6 +8,8 @@ import { notFound } from 'next/navigation'
 
 import '@fc/ui/globals.css'
 
+import { Header } from './components/header/Header'
+
 const fontSans = Geist({
   subsets: ['latin'],
   variable: '--font-sans',
@@ -40,7 +42,11 @@ export default async function RootLayout({
         suppressHydrationWarning
       >
         <NextIntlClientProvider messages={messages}>
-          <Providers>{children}</Providers>
+          <Providers>  <Header />
+            <main className="flex-1">
+              {children}
+            </main>
+          </Providers>
         </NextIntlClientProvider>
       </body>
     </html>

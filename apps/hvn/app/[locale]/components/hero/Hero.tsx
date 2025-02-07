@@ -1,25 +1,69 @@
-// apps/hvn/app/[locale]/components/hero/Hero.tsx
-export const Hero = () => {
-  return (
-    <div className="relative h-screen w-full">
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url('https://scontent.fgrq1-1.fna.fbcdn.net/v/t39.30808-6/326271554_3294849614164030_6799821227351578884_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=110&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=XRH23MQ1n3cQ7kNvgFmePcc&_nc_oc=Adjb6UpSoCZ62rmC5yKxG0ZTSSQ2wPOad_W5tVwBlxqaobN5xpDZtKNn-tB-4FJMsV4&_nc_zt=23&_nc_ht=scontent.fgrq1-1.fna&_nc_gid=AC1C2kgijVTVAS4E7PFqKAf&oh=00_AYD-FBEF2DmlPwHyb5kriVzoieKb7T8Ns-aZ7PQTf4165w&oe=67AAD54D')`,
-        }}
-      >
-        <div className="absolute inset-0 bg-black/50" />
-      </div>
+'use client'
 
-      <div className="relative z-10 flex h-full items-center justify-center px-4">
-        <div className="text-center">
-          <h1 className="mb-4 text-5xl font-bold text-white md:text-6xl">Harmonie van Nederland</h1>
-          <p className="mb-8 text-xl text-white/90 md:text-2xl">Cultural Harmony of Netherlands</p>
-          <button className="rounded-lg bg-orange-500 px-8 py-3 text-lg font-semibold text-white transition-colors hover:bg-orange-600">
-            Learn More
-          </button>
-        </div>
-      </div>
-    </div>
-  )
+import { useTranslations } from 'next-intl'
+import { motion } from 'framer-motion'
+import Image from 'next/image'
+
+export const Hero = () => {
+    const t = useTranslations('Hero')
+
+    return (
+        <section id="home" className="relative h-screen w-full ">
+            {/* Background Image Container */}
+            <div className="absolute inset-0">
+                <Image
+                    src="/images/hero-bg.jpg"
+                    alt="Hero background"
+                    fill
+                    priority
+                    quality={100}
+                    className="object-cover"
+                    sizes="100vw"
+                    style={{
+                        width: '100%',
+                        height: '100%'
+                    }}
+                />
+                <div className="absolute inset-0 bg-black/50" />
+            </div>
+
+            {/* Content */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="relative z-10 flex h-screen items-center justify-center px-4"
+            >
+                <div className="text-center">
+                    <motion.h1
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="mb-4 text-4xl font-bold text-white sm:text-5xl md:text-6xl lg:text-7xl"
+                    >
+                        {t('title')}
+                    </motion.h1>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
+                        className="mb-8 text-lg text-white/90 sm:text-xl md:text-2xl lg:text-3xl"
+                    >
+                        {t('subtitle')}
+                    </motion.p>
+                    <motion.button
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.6 }}
+                        className="rounded-lg bg-orange-500 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-orange-600 sm:px-8 sm:py-4 sm:text-lg"
+                        onClick={() => {
+                            document.getElementById('about-cultural')?.scrollIntoView({ behavior: 'smooth' })
+                        }}
+                    >
+                        {t('cta')}
+                    </motion.button>
+                </div>
+            </motion.div>
+        </section>
+    )
 }

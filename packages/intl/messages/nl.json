@@ -23,5 +23,32 @@
     "message": "Bericht",
     "send": "Verstuur Bericht",
     "sending": "Verzenden..."
+  },
+  "About": {
+    "cultural": {
+      "title": "Culturele Dialoog",
+      "content": "Een cultureel evenementenproject waar individuen uit verschillende culturen in Nederland, met name vluchtelingengemeenschappen, hun culturele rijkdom kunnen delen, elkaar beter kunnen leren kennen en het integratieproces kunnen versnellen door verschillende delen van de samenleving samen te brengen. Het evenement is ontworpen om culturele diversiteit te vieren en individuen aan te moedigen van elkaar te leren."
+    },
+    "platform": {
+      "title": "Cultureel Platform",
+      "content": "Een interactief platform waar deelnemers hun cultuur kunnen presenteren en hun traditionele gerechten, muziek, handwerk en verhalen kunnen delen. Via dit platform worden bruggen gebouwd tussen verschillende culturen en wordt wederzijds begrip ontwikkeld. Daarnaast zorgt het voor het behoud en de overdracht van cultureel erfgoed aan toekomstige generaties."
+    },
+    "activities": {
+      "title": "Culturele Activiteiten",
+      "content": "We organiseren regelmatig evenementen, workshops en festivals om bewustzijn te creëren over culturele diversiteit in de Nederlandse samenleving en vooroordelen te verminderen. Deze evenementen omvatten culturele foodfestivals, dansvoorstellingen, muziekoptredens, kunsttentoonstellingen en interactieve workshops. Elk evenement benadrukt de rijkdom en uniekheid van verschillende culturen."
+    },
+    "integration": {
+      "title": "Sociale Integratie",
+      "content": "We bieden speciale programma's aan om de aanpassing van mensen uit verschillende culturen aan de Nederlandse samenleving te vergemakkelijken. We organiseren taalcursussen, culturele oriëntatieprogramma's, beroepsworkshops en sociale activiteiten. Deze programma's ondersteunen deelnemers bij het nemen van een actieve rol in de Nederlandse samenleving en vergroten hun zelfvertrouwen."
+    },
+    "unity": {
+      "title": "Culturele Eenheid",
+      "content": "We ontwikkelen projecten die de culturele diversiteit van Nederland vieren en deze rijkdom weerspiegelen naar alle lagen van de samenleving. Door de voordelen van het samenleven van verschillende culturen te benadrukken, streven we ernaar de sociale vrede en harmonie te versterken. Door interculturele dialoog en samenwerking dragen we bij aan het creëren van een meer inclusieve en begripvolle samenleving."
+    }
+  },
+  "Hero": {
+    "title": "Harmonie van Nederland",
+    "subtitle": "Culturele Harmonie van Nederland",
+    "cta": "Meer Informatie"
   }
 }

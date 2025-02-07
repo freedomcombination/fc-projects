@@ -23,5 +23,32 @@
     "message": "Message",
     "send": "Send Message",
     "sending": "Sending..."
+  },
+  "About": {
+    "cultural": {
+      "title": "Cultural Dialogue",
+      "content": "A cultural event project where individuals from different cultures living in the Netherlands, especially refugee communities, can share their cultural richness, get to know each other more closely, and accelerate the integration process by bringing different segments of society together. The event is designed to celebrate cultural diversity and encourage individuals to learn from each other."
+    },
+    "platform": {
+      "title": "Cultural Platform",
+      "content": "An interactive platform where participants can showcase their cultures, share their traditional foods, music, handicrafts, and stories. Through this platform, bridges will be built between different cultures and mutual understanding will be developed. Additionally, it ensures the preservation and transmission of cultural heritage to future generations."
+    },
+    "activities": {
+      "title": "Cultural Activities",
+      "content": "We organize regular events, workshops, and festivals to raise awareness about cultural diversity in Dutch society and reduce prejudices. These events include cultural food days, dance performances, music performances, art exhibitions, and interactive workshops. Each event emphasizes the richness and uniqueness of different cultures."
+    },
+    "integration": {
+      "title": "Social Integration",
+      "content": "We offer special programs to facilitate the adaptation of people from different cultures to Dutch society. We organize language courses, cultural orientation programs, vocational workshops, and social activities. These programs support participants in taking an active role in Dutch society while increasing their self-confidence."
+    },
+    "unity": {
+      "title": "Cultural Unity",
+      "content": "We develop projects that celebrate the cultural diversity of the Netherlands and reflect this richness to all segments of society. By emphasizing the advantages of different cultures living together, we aim to strengthen social peace and harmony. Through intercultural dialogue and cooperation, we contribute to creating a more inclusive and understanding society."
+    }
+  },
+  "Hero": {
+    "title": "Harmony of the Netherlands",
+    "subtitle": "Cultural Harmony of the Netherlands",
+    "cta": "Learn More"
   }
 }

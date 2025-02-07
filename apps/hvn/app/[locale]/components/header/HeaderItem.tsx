@@ -1,27 +1,36 @@
-
 'use client'
 
-import Link from 'next/link'
-import { useTranslations } from 'next-intl'
-import { usePathname } from 'next/navigation'
+import { cn } from '@fc/ui/lib/utils'
 
 interface HeaderItemProps {
     href: string
-    translationKey: string
+    children: React.ReactNode
+    onClick?: () => void
+    className?: string
 }
 
-export const HeaderItem = ({ href, translationKey }: HeaderItemProps) => {
-    const pathname = usePathname()
-    const t = useTranslations('Header')
-    const isActive = pathname === href
+export const HeaderItem = ({ href, children, onClick, className }: HeaderItemProps) => {
+    const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault()
+        const element = document.getElementById(href.replace('#', ''))
+        element?.scrollIntoView({ behavior: 'smooth' })
+        onClick?.()
+    }
 
     return (
-        <Link
-            className={`text-sm transition-colors hover:text-foreground/80 ${isActive ? 'text-foreground' : 'text-foreground/60'
-                }`}
+        <a
+            className={cn(
+                'nav-item relative group',
+                'text-lg transition-colors duration-300',
+                'hover:text-primary',
+                'md:text-base',
+                className
+            )}
             href={href}
+            onClick={handleClick}
         >
-            {t(translationKey)}
-        </Link>
+            {children}
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full md:block hidden" />
+        </a>
     )
 }
