@@ -4,7 +4,14 @@
     "application": "Aanvragen",
     "about": "Over ons",
     "contact": "Contact",
-    "support": "Ondersteuning"
+    "support": "Ondersteuning",
+    "privacy": "Privacybeleid",
+    "terms": "Gebruiksvoorwaarden",
+    "cookies": "Cookiebeleid",
+    "navigation": "Navigatie",
+    "legal": "Juridisch",
+    "footerDescription": "Wij zijn gericht op het leveren van de beste service voor u.",
+    "allRightsReserved": "Alle rechten voorbehouden"
   },
   "HomePage": {
     "title": "Welkom",

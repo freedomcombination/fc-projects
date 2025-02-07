@@ -42,19 +42,19 @@ export default function HomePage() {
   return (
     <main className="relative">
       {/* Hero section */}
-      <section id="home" className="relative min-h-screen">
+      <section className="relative min-h-screen" id="home">
         <div className="container mx-auto px-4 pt-16">
           <Hero />
         </div>
       </section>
 
       {/* About section */}
-      <section id="about" className="relative">
+      <section className="relative" id="about">
         <AboutSection />
       </section>
 
       {/* Application section */}
-      <section id="application" className="relative min-h-screen flex items-center">
+      <section className="relative min-h-screen flex items-center" id="application">
         <div className="container mx-auto px-4 py-20">
           <h2 className="text-4xl font-bold mb-8">{t('Header.application')}</h2>
           {/* Application section content */}
@@ -62,7 +62,7 @@ export default function HomePage() {
       </section>
 
       {/* Contact section */}
-      <section id="contact" className="relative min-h-screen flex items-center">
+      <section className="relative min-h-screen flex items-center" id="contact">
         <div className="container mx-auto px-4 py-20">
           <h2 className="text-4xl font-bold mb-8">{t('Header.contact')}</h2>
           {/* Contact section content */}
@@ -70,7 +70,7 @@ export default function HomePage() {
       </section>
 
       {/* Support section */}
-      <section id="support" className="relative min-h-screen flex items-center">
+      <section className="relative min-h-screen flex items-center" id="support">
         <div className="container mx-auto px-4 py-20">
           <h2 className="text-4xl font-bold mb-8">{t('Header.support')}</h2>
           {/* Support section content */}
@@ -78,11 +78,8 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <div className="fixed bottom-0 left-0 right-0 bg-background/80 backdrop-blur-sm z-50">
-        <div className="container mx-auto px-4">
-          <Footer />
-        </div>
-      </div>
+
+      <Footer />
     </main>
   )
 }

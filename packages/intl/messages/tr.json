@@ -4,7 +4,14 @@
     "application": "Başvuru",
     "about": "Hakkımızda",
     "contact": "İletişim",
-    "support": "Destek"
+    "support": "Destek",
+    "privacy": "Gizlilik Politikası",
+    "terms": "Kullanım Koşulları",
+    "cookies": "Çerez Politikası",
+    "navigation": "Menü",
+    "legal": "Yasal",
+    "footerDescription": "Sizin için en iyi hizmeti sunmaya odaklanıyoruz.",
+    "allRightsReserved": "Tüm hakları saklıdır."
   },
   "HomePage": {
     "title": "Merhaba Dünya!",
