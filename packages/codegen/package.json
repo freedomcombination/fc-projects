@@ -1,0 +1,29 @@
+{
+  "name": "@fc/codegen",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "codegen": "graphql-codegen",
+    "lint": "eslint . --fix"
+  },
+  "exports": {
+    "./generated": "./src/generated.ts"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.66.0",
+    "graphql": "^16.10.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@fc/config-eslint": "workspace:*",
+    "@graphql-codegen/add": "^5.0.3",
+    "@graphql-codegen/cli": "^5.0.4",
+    "@graphql-codegen/typescript-operations": "^4.4.1",
+    "@graphql-codegen/typescript-react-query": "^6.1.0",
+    "@graphql-typed-document-node/core": "^3.2.0",
+    "next": "^15.1.6",
+    "typescript": "5.7.3"
+  }
+}
