@@ -8,6 +8,8 @@ import { notFound } from 'next/navigation'
 
 import '@fc/ui/globals.css'
 
+import { Header } from './components/header/Header'
+
 const fontSans = Geist({
   subsets: ['latin'],
   variable: '--font-sans',
@@ -26,7 +28,6 @@ export default async function RootLayout({
   params: Promise<{ locale: AppLocale }>
 }>) {
   const { locale } = await params
-  // Ensure that the incoming `locale` is valid
   if (!routing.locales.includes(locale)) {
     notFound()
   }
@@ -35,9 +36,13 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased `}>
+      <head />
+      <body className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased`} suppressHydrationWarning>
         <NextIntlClientProvider messages={messages}>
-          <Providers>{children}</Providers>
+          <Providers>
+            <Header />
+            <main className="flex-1">{children}</main>
+          </Providers>
         </NextIntlClientProvider>
       </body>
     </html>
