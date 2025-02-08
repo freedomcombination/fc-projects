@@ -28,42 +28,44 @@ export const Hero = () => {
       </div>
 
       {/* Content */}
-      <motion.div
-        animate={{ opacity: 1, y: 0 }}
-        className="relative z-10 flex h-screen items-center justify-center px-4"
-        initial={{ opacity: 0, y: 20 }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="text-center">
-          <motion.h1
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-4 text-4xl font-bold text-white sm:text-5xl md:text-6xl lg:text-7xl"
-            initial={{ opacity: 0, y: 20 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-          >
-            {t('title')}
-          </motion.h1>
-          <motion.p
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-8 text-lg text-white/90 sm:text-xl md:text-2xl lg:text-3xl"
-            initial={{ opacity: 0, y: 20 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-          >
-            {t('subtitle')}
-          </motion.p>
-          <motion.button
-            animate={{ opacity: 1 }}
-            className="rounded-lg bg-orange-500 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-orange-600 sm:px-8 sm:py-4 sm:text-lg"
-            initial={{ opacity: 0 }}
-            onClick={() => {
-              document.getElementById('about-cultural')?.scrollIntoView({ behavior: 'smooth' })
-            }}
-            transition={{ delay: 0.6 }}
-          >
-            {t('cta')}
-          </motion.button>
-        </div>
-      </motion.div>
+      <div className="container relative mx-auto">
+        <motion.div
+          animate={{ opacity: 1, y: 0 }}
+          className="relative z-10 flex h-screen items-center justify-center px-4"
+          initial={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="text-center">
+            <motion.h1
+              animate={{ opacity: 1, y: 0 }}
+              className="mb-4 text-4xl font-bold text-white sm:text-5xl md:text-6xl lg:text-7xl"
+              initial={{ opacity: 0, y: 20 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+            >
+              {t('title')}
+            </motion.h1>
+            <motion.p
+              animate={{ opacity: 1, y: 0 }}
+              className="mb-8 text-lg text-white/90 sm:text-xl md:text-2xl lg:text-3xl"
+              initial={{ opacity: 0, y: 20 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+            >
+              {t('subtitle')}
+            </motion.p>
+            <motion.button
+              animate={{ opacity: 1 }}
+              className="rounded-lg bg-orange-500 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-orange-600 sm:px-8 sm:py-4 sm:text-lg"
+              initial={{ opacity: 0 }}
+              onClick={() => {
+                document.getElementById('about-cultural')?.scrollIntoView({ behavior: 'smooth' })
+              }}
+              transition={{ delay: 0.6 }}
+            >
+              {t('cta')}
+            </motion.button>
+          </div>
+        </motion.div>
+      </div>
     </section>
   )
 }

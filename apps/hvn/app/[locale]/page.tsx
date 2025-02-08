@@ -43,9 +43,7 @@ export default function HomePage() {
     <main className="relative">
       {/* Hero section */}
       <section className="relative min-h-screen" id="home">
-        <div className="container mx-auto px-4 pt-16">
-          <Hero />
-        </div>
+        <Hero />
       </section>
 
       {/* About section */}

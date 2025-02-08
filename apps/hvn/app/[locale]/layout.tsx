@@ -37,15 +37,11 @@ export default async function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <head />
-      <body
-        className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased`}
-        suppressHydrationWarning
-      >
+      <body className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased`} suppressHydrationWarning>
         <NextIntlClientProvider messages={messages}>
-          <Providers>  <Header />
-            <main className="flex-1">
-              {children}
-            </main>
+          <Providers>
+            <Header />
+            <main className="flex-1">{children}</main>
           </Providers>
         </NextIntlClientProvider>
       </body>
