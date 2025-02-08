@@ -2,23 +2,17 @@
 
 import { cn } from '@fc/ui/lib/utils'
 
+import Link from 'next/link'
+
 interface HeaderItemProps {
   href: string
   children: React.ReactNode
-  onClick?: () => void
   className?: string
 }
 
-export const HeaderItem = ({ children, className, href, onClick }: HeaderItemProps) => {
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault()
-    const element = document.getElementById(href.replace('#', ''))
-    element?.scrollIntoView({ behavior: 'smooth' })
-    onClick?.()
-  }
-
+export const HeaderItem = ({ children, className, href }: HeaderItemProps) => {
   return (
-    <a
+    <Link
       className={cn(
         'nav-item relative group',
         'text-lg transition-colors duration-300',
@@ -27,10 +21,9 @@ export const HeaderItem = ({ children, className, href, onClick }: HeaderItemPro
         className,
       )}
       href={href}
-      onClick={handleClick}
     >
       {children}
       <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full md:block hidden" />
-    </a>
+    </Link>
   )
 }

@@ -66,7 +66,6 @@ export const Header = () => {
                     className="w-full p-4 rounded-lg hover:bg-primary/10 text-center text-lg"
                     href={item.href}
                     key={item.href}
-                    onClick={() => setIsMenuOpen(false)}
                   >
                     {item.label}
                   </HeaderItem>
