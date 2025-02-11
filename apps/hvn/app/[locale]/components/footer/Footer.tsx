@@ -23,9 +23,9 @@ export const Footer = () => {
   ]
 
   const legalLinks = [
-    { href: `${paramsLocale}/legal/privacy-policy`, label: legalTranslations('privacy.title') },
-    { href: `${paramsLocale}/legal/terms-of-use`, label: legalTranslations('terms.title') },
-    { href: `${paramsLocale}/legal/cookie-policy`, label: legalTranslations('cookies.title') },
+    { href: `/${paramsLocale}/legal/privacy-policy`, label: legalTranslations('privacy.title') },
+    { href: `/${paramsLocale}/legal/terms-of-use`, label: legalTranslations('terms.title') },
+    { href: `/${paramsLocale}/legal/cookie-policy`, label: legalTranslations('cookies.title') },
   ]
 
   return (

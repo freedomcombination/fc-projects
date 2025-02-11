@@ -5,13 +5,22 @@
     "about": "Over ons",
     "contact": "Contact",
     "support": "Ondersteuning",
-    "privacy": "Privacybeleid",
-    "terms": "Gebruiksvoorwaarden",
-    "cookies": "Cookiebeleid",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use",
+    "cookies": "Cookies",
     "navigation": "Navigatie",
     "legal": "Juridisch",
     "footerDescription": "Wij zijn gericht op het leveren van de beste service voor u.",
-    "allRightsReserved": "Alle rechten voorbehouden"
+    "allRightsReserved": "Alle rechten voorbehouden",
+    "privacyPolicy": "Ons privacybeleid is gericht op het beschermen van uw persoonlijke gegevens.",
+    "termsOfUse": "Onze gebruiksvoorwaarden zijn van toepassing op alle diensten die wij aanbieden.",
+    "cookiePolicy": "Ons cookiebeleid is gericht op het verbeteren van uw ervaring op onze website.",
+    "privacyPolicyDescription": "Wij respecteren uw privacy en zullen uw persoonlijke gegevens niet delen met derden.",
+    "termsOfUseDescription": "Door onze diensten te gebruiken, gaat u akkoord met onze gebruiksvoorwaarden.",
+    "cookiePolicyDescription": "Wij gebruiken cookies om uw ervaring op onze website te verbeteren.",
+    "privacyPolicyTitle": "Privacy Policy",
+    "termsOfUseTitle": "Terms of Use",
+    "cookiePolicyTitle": "Cookies"
   },
   "HomePage": {
     "title": "Welkom",
@@ -27,7 +36,8 @@
     "firstName": "Voornaam",
     "lastName": "Achternaam",
     "subject": "Onderwerp",
-    "message": "Bericht",
+    "message": "Vertel ons over uw evenementideeën en motivatie",
+    "messagePlaceholder": "Geef aan in welke categorie u wilt deelnemen aan het evenement en uw motivatie.",
     "send": "Verstuur Bericht",
     "sending": "Verzenden..."
   },
@@ -53,9 +63,88 @@
       "content": "We ontwikkelen projecten die de culturele diversiteit van Nederland vieren en deze rijkdom weerspiegelen naar alle lagen van de samenleving. Door de voordelen van het samenleven van verschillende culturen te benadrukken, streven we ernaar de sociale vrede en harmonie te versterken. Door interculturele dialoog en samenwerking dragen we bij aan het creëren van een meer inclusieve en begripvolle samenleving."
     }
   },
+  "Application": {
+    "title": "Aanvraagformulier",
+    "subtitle": "Vul alstublieft uw gegevens in",
+    "fullName": "Volledige naam",
+    "dateOfBirth": "Geboortedatum",
+    "phone": "Telefoonnummer",
+    "event": "Selecteer evenement",
+    "city": "Selecteer stad",
+    "message": "Typ hier uw bericht...",
+    "acceptTerms": "Ik accepteer de gebruiksvoorwaarden",
+    "submitting": "Verzenden...",
+    "submit": "Verzenden",
+    "general": {
+      "title": "Algemene Informatie",
+      "description": "Vul alstublieft de onderstaande gegevens in om uw aanvraag te starten."
+    }
+  },
+  "donation": {
+    "title": "Donatie maken",
+    "name": "Naam",
+    "email": "E-mail",
+    "button": "Doneren",
+    "amountPrefix": "€",
+    "success": {
+      "title": "Bedankt voor uw donatie!",
+      "message": "Uw gulle bijdrage zal ons helpen een verschil te maken. We hebben u een bevestigingsmail gestuurd met de details van uw donatie.",
+      "backHome": "Terug naar Home"
+    }
+  },
   "Hero": {
     "title": "Harmonie van Nederland",
     "subtitle": "Culturele Harmonie van Nederland",
     "cta": "Meer Informatie"
+  },
+  "legalPages": {
+    "privacy": {
+      "title": "Privacybeleid",
+      "content": "Dit privacybeleid legt uit hoe wij uw persoonlijke gegevens verzamelen, gebruiken en beschermen. Wanneer u onze website bezoekt, stemt u in met de verwerking van uw persoonlijke gegevens.",
+      "userInformation": {
+        "title": "Gebruikersinformatie",
+        "description": "Persoonlijke gebruikersinformatie wordt uitsluitend verzameld voor het leveren van onze diensten."
+      },
+      "userRights": {
+        "title": "Gebruikersrechten",
+        "description": "Gebruikers hebben het recht om hun persoonlijke informatie op te vragen, te corrigeren en te verwijderen."
+      },
+      "contact": {
+        "title": "Contact",
+        "description": "Als u vragen heeft, neem dan contact met ons op via info@harmonievannederland.com."
+      }
+    },
+    "terms": {
+      "title": "Gebruiksvoorwaarden",
+      "content": "Deze gebruiksvoorwaarden leggen de voorwaarden uit voor het gebruik van onze website. Wanneer u onze website bezoekt of een contract met ons aangaat, gaat u akkoord met deze gebruiksvoorwaarden.",
+      "userAgreement": {
+        "title": "Servicegebruik",
+        "description": "Gebruikers mogen onze diensten alleen gebruiken voor wettelijke doeleinden."
+      },
+      "responsibilities": {
+        "title": "Gebruikersverantwoordelijkheden",
+        "description": "Gebruikers mogen geen schade toebrengen aan anderen en moeten verboden gedragingen vermijden bij het gebruik van onze diensten."
+      },
+      "contact": {
+        "title": "Contact",
+        "description": "Als u vragen heeft, neem dan contact met ons op via info@harmonievannederland.com."
+      }
+    },
+    "cookies": {
+      "title": "Cookiebeleid",
+      "content": "Dit cookiebeleid legt uit hoe cookies worden gebruikt op onze website. Wanneer u onze website bezoekt, stemt u in met het gebruik van cookies.",
+      "cookieTypes": {
+        "title": "Wat zijn Cookies?",
+        "description": "Cookies zijn kleine gegevensbestanden die door websites worden gebruikt om de gebruikerservaring te verbeteren."
+      },
+      "userConsent": {
+        "title": "Cookiegebruik",
+        "description": "Onze website gebruikt cookies om de gebruikerservaring te verbeteren."
+      },
+      "contact": {
+        "title": "Contact",
+        "description": "Als u vragen heeft, neem dan contact met ons op via info@harmonievannederland.com."
+      }
+    }
   }
 }
