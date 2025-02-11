@@ -12,13 +12,18 @@
   },
   "dependencies": {
     "@fc/ui": "workspace:*",
+    "@hookform/resolvers": "^3.10.0",
     "@tanstack/react-query": "^5.66.0",
+    "axios": "^1.7.9",
     "framer-motion": "^12.4.1",
     "next": "^15.1.6",
     "next-intl": "^3.26.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-icons": "^5.4.0"
+    "react-hook-form": "^7.54.2",
+    "react-icons": "^5.4.0",
+    "stripe": "^17.6.0",
+    "yup": "^1.6.1"
   },
   "devDependencies": {
     "@fc/codegen": "workspace:*",
