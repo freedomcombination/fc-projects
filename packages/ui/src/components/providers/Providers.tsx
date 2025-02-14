@@ -8,13 +8,7 @@ import { QueryProvider } from './QueryProvider'
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <NextThemesProvider
-      attribute="class"
-      defaultTheme="system"
-      disableTransitionOnChange
-      enableColorScheme
-      enableSystem
-    >
+    <NextThemesProvider attribute="class" defaultTheme="light" disableTransitionOnChange enableColorScheme enableSystem>
       <QueryProvider>{children}</QueryProvider>
     </NextThemesProvider>
   )

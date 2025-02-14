@@ -33,6 +33,7 @@
     "email": "E-mail",
     "phone": "Telefoon",
     "address": "Adres",
+    "name": "Naam",
     "firstName": "Voornaam",
     "lastName": "Achternaam",
     "subject": "Onderwerp",
@@ -79,6 +80,12 @@
       "title": "Algemene Informatie",
       "description": "Vul alstublieft de onderstaande gegevens in om uw aanvraag te starten."
     }
+  },
+
+  "support": {
+    "value": "Jouw steun is voor ons heel waardevol!",
+    "bankTransfer": "Ondersteuning bij bankoverschrijving",
+    "improvement": "We werken continu aan onze site om u betere diensten te bieden."
   },
   "donation": {
     "title": "Donatie maken",
