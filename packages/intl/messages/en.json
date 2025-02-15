@@ -5,13 +5,11 @@
     "about": "About",
     "contact": "Contact",
     "support": "Support",
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Use",
-    "cookies": "Cookie Policy",
     "navigation": "Navigation",
     "legal": "Legal",
     "footerDescription": "We are focused on providing the best service for you.",
-    "allRightsReserved": "All rights reserved."
+    "allRightsReserved": "All rights reserved.",
+    "acceptTerms": "I accept the terms of use."
   },
   "HomePage": {
     "title": "Welcome",
@@ -24,10 +22,11 @@
     "email": "Email",
     "phone": "Phone",
     "address": "Address",
+    "name": "Name",
     "firstName": "First Name",
     "lastName": "Last Name",
     "subject": "Subject",
-    "message": "Message",
+    "message": "Tell us about your event participation and motivation",
     "send": "Send Message",
     "sending": "Sending..."
   },
@@ -53,9 +52,93 @@
       "content": "We develop projects that celebrate the cultural diversity of the Netherlands and reflect this richness to all segments of society. By emphasizing the advantages of different cultures living together, we aim to strengthen social peace and harmony. Through intercultural dialogue and cooperation, we contribute to creating a more inclusive and understanding society."
     }
   },
+  "Application": {
+    "title": "Application Form",
+    "subtitle": "Please fill in your details",
+    "fullName": "Full Name",
+    "dateOfBirth": "Date of Birth",
+    "phone": "Phone Number",
+    "event": "Select Event",
+    "city": "Select City",
+    "message": "Tell us about your event participation and motivation",
+    "acceptTerms": "I accept the terms of use",
+    "submitting": "Submitting...",
+    "submit": "Submit",
+    "general": {
+      "title": "General Information",
+      "description": "Please provide the following information to help us process your application."
+    }
+  },
+  "donation": {
+    "title": "Make a Donation",
+    "name": "Name",
+    "email": "Email",
+    "button": "Donate",
+    "amountPrefix": "€",
+    "success": {
+      "title": "Thank you for your donation!",
+      "message": "Your donation has been received. We appreciate your support.",
+      "backHome": "Back to Home"
+    }
+  },
   "Hero": {
     "title": "Harmony of the Netherlands",
     "subtitle": "Cultural Harmony of the Netherlands",
     "cta": "Learn More"
+  },
+  "support": {
+    "value": "Your support is invaluable to us!",
+    "bankTransfer": "Support Us via Bank Transfer",
+    "improvement": "We are continuously improving our page to make it easier for you to support us."
+  },
+  "legalPages": {
+    "privacy": {
+      "title": "Privacy Policy",
+      "content": "This privacy policy explains how we collect, use, and protect your personal data. When you visit our website, you consent to the processing of your personal data.",
+      "userInformation": {
+        "title": "User Information",
+        "description": "Personal user information is collected solely for the purpose of providing our services."
+      },
+      "userRights": {
+        "title": "User Rights",
+        "description": "Users have the right to request, correct, and delete their personal information."
+      },
+      "contact": {
+        "title": "Contact",
+        "description": "If you have any questions, please contact us at info@harmonievannederland.com."
+      }
+    },
+    "terms": {
+      "title": "Terms of Use",
+      "content": "These terms of use explain the conditions for using our website. When you visit our website or enter into a contract with us, you agree to these terms of use.",
+      "userAgreement": {
+        "title": "Service Usage",
+        "description": "Users must use our services only for legal purposes."
+      },
+      "responsibilities": {
+        "title": "User Responsibilities",
+        "description": "Users must not cause harm to others and must avoid prohibited behaviors while using our services."
+      },
+      "contact": {
+        "title": "Contact",
+        "description": "If you have any questions, please contact us at info@harmonievannederland.com."
+      }
+    },
+    "cookies": {
+      "title": "Cookie Policy",
+      "content": "This cookie policy explains the use of cookies on our website. When you visit our website, you consent to the use of cookies.",
+      "cookieTypes": {
+        "title": "What are Cookies?",
+        "description": "Cookies are small data files used by websites to improve user experience."
+      },
+      "userConsent": {
+        "title": "Cookie Usage",
+        "description": "Our website uses cookies to enhance user experience."
+      },
+      "contact": {
+        "title": "Contact",
+        "description": "If you have any questions, please contact us at info@harmonievannederland.com."
+      }
+    }
   }
 }
