@@ -1,6 +1,144 @@
 {
+  "Header": {
+    "home": "Ana Sayfa",
+    "application": "Başvuru",
+    "about": "Hakkımızda",
+    "contact": "İletişim",
+    "support": "Destek",
+    "navigation": "Menü",
+    "legal": "Hukuki",
+    "footerDescription": "En iyi hizmeti sunmaya çalışıyoruz.",
+    "allRightsReserved": "Tüm hakları saklıdır.",
+    "acceptTerms": "Kullanım şartlarını kabul ediyorum."
+  },
   "HomePage": {
     "title": "Merhaba Dünya!",
-    "about": "Hakkinda sayfasina git"
+    "about": "Hakkımızda sayfasına git"
+  },
+  "Contact": {
+    "title": "İletişim",
+    "subtitle": "Sorularınız varsa bize ulaşmaktan çekinmeyin. Size en kısa sürede geri döneceğiz.",
+    "contactInfo": "İletişim Bilgileri",
+    "email": "E-posta",
+    "phone": "Telefon",
+    "address": "Adres",
+    "firstName": "Ad",
+    "lastName": "Soyad",
+    "subject": "Konu",
+    "message": "Mesajınızı buraya yazın...",
+    "send": "Mesajı Gönder",
+    "sending": "Gönderiliyor..."
+  },
+  "About": {
+    "cultural": {
+      "title": "Kültürel Diyalog",
+      "content": "Hollanda'da yaşayan farklı kültürlerden bireylerin, özellikle mülteci topluluklarının, kültürel zenginliklerini paylaşmalarına, birbirlerini daha iyi tanımalarına ve entegrasyon sürecini hızlandırmak için toplumun farklı kesimlerini bir araya getirmelerine olanak tanıyan bir kültürel etkinlik projesi."
+    },
+    "platform": {
+      "title": "Kültürel Platform",
+      "content": "Katılımcıların kültürlerini, geleneksel yemeklerini, müziklerini, el sanatlarını ve hikayelerini sergileyebilecekleri bir platform. Bu platform, farklı kültürler arasında köprüler kuracak ve karşılıklı anlayışı teşvik edecek. Ayrıca, kültürel mirası gelecek nesillere aktarılmasına yardımcı olacak."
+    },
+    "activities": {
+      "title": "Kültürel Etkinlikler",
+      "content": "Hollanda toplumunda kültürel çeşitliliği artırma ve önyargıları azaltma amacıyla düzenli etkinlikler, atölye çalışmaları ve festivaller düzenliyoruz. Bu etkinlikler, kültürel yemek günleri, dans gösterileri, müzik gösterileri, sanat sergileri ve etkileşimli atölye çalışmaları içermektedir. Her etkinlik, farklı kültürlerin zenginliğini ve özgünlüğünü vurgulamaktadır."
+    },
+    "integration": {
+      "title": "Sosyal Entegrasyon",
+      "content": "Farklı kültürlerden insanların Hollanda toplumuna entegrasyonunu kolaylaştırmak için özel programlar sunuyoruz. Dil kursları, kültürel uyum programları, mesleki eğitim atölyeleri ve sosyal etkinlikler düzenliyoruz. Bu programlar, katılımcıların kendilerine güvenlerini artırırken, Hollanda toplumunda aktif olarak katılmasına yardımcı olmaktadır."
+    },
+    "unity": {
+      "title": "Kültürel Birlik",
+      "content": "Hollanda'nın kültürel çeşitliliğini kutlayan ve bu zenginliği toplumun tüm kesimlerine yansıtan projeler geliştiriyoruz. Farklı kültürlerin bir arada yaşamasının avantajlarını vurgulayarak, sosyal barış ve uyumun güçlendirilmesine katkıda bulunmayı amaçlıyoruz. Kültürler arası diyalog ve işbirliği yoluyla, daha kapsayıcı ve anlayışlı bir toplum yaratılmasına katkıda bulunmayı hedefliyoruz."
+    }
+  },
+  "Application": {
+    "title": "Başvuru Formu",
+    "subtitle": "Lütfen bilgilerinizi doldurun",
+    "fullName": "Tam Ad",
+    "dateOfBirth": "Doğum Tarihi",
+    "phone": "Telefon Numarası",
+    "event": "Etkinlik Seçin",
+    "city": "Şehir Seçin",
+    "message": "Lütfen hangi kategoriye katılmak istediğinizi ve motivasyonunuzu belirtin.",
+    "acceptTerms": "Kullanım şartlarını kabul ediyorum",
+    "submitting": "Gönderiliyor...",
+    "submit": "Gönder",
+    "general": {
+      "title": "Genel Bilgiler",
+      "description": "Lütfen aşağıdaki alanları doldurun.",
+      "label": "Genel Bilgiler"
+    }
+  },
+  "support": {
+    "value": "Destekleriniz bizim için çok değerli!",
+    "bankTransfer": "Banka Havalesi ile Destek Olun",
+    "improvement": "Sayfamızı size daha iyi hizmet sunmak için sürekli olarak geliştiriyoruz."
+  },
+  "donation": {
+    "title": "Bağış Yap",
+    "name": "Ad",
+    "email": "E-posta",
+    "button": "Bağış Yap",
+    "amountPrefix": "₺",
+    "success": {
+      "title": "Bağışınız için teşekkür ederiz!",
+      "message": "Cömert katkılarınız fark yaratacak. Bağışınızın detaylarıyla ilgili bir onay e-postası gönderdik.",
+      "backHome": "Ana Sayfaya Dön"
+    }
+  },
+  "Hero": {
+    "title": "Hollanda'da Birlik",
+    "subtitle": "Hollanda'da Kültürel Birlik",
+    "cta": "Daha Fazla Bilgi"
+  },
+  "legalPages": {
+    "privacy": {
+      "title": "Gizlilik Politikası",
+      "content": "Bu gizlilik politikası, kişisel verilerinizin nasıl toplandığını, kullanıldığını ve korunduğunu açıklamaktadır. Web sitemizi ziyaret ettiğinizde, kişisel verilerinizin işlenmesine izin vermiş olursunuz.",
+      "userInformation": {
+        "title": "Kullanıcı Bilgileri",
+        "description": "Kişisel kullanıcı bilgileri yalnızca hizmetlerimizi sağlamak amacıyla toplanmaktadır."
+      },
+      "userRights": {
+        "title": "Kullanıcı Hakları",
+        "description": "Kullanıcılar, kişisel bilgilerini talep etme, düzeltme ve silme hakkına sahiptir."
+      },
+      "contact": {
+        "title": "İletişim",
+        "description": "Herhangi bir sorunuz varsa, lütfen info@harmonievannederland.com adresinden bizimle iletişime geçin."
+      }
+    },
+    "terms": {
+      "title": "Kullanım Şartları",
+      "content": "Bu kullanım şartları, web sitemizin kullanım koşullarını açıklamaktadır. Web sitemizi ziyaret ettiğinizde veya bizimle bir sözleşme yaptığınızda, bu kullanım şartlarını kabul etmiş olursunuz.",
+      "userAgreement": {
+        "title": "Hizmet Kullanımı",
+        "description": "Kullanıcılar hizmetlerimizi yalnızca yasal amaçlarla kullanmalıdır."
+      },
+      "responsibilities": {
+        "title": "Kullanıcı Sorumlulukları",
+        "description": "Kullanıcılar, hizmetlerimizi kullanırken başkalarına zarar vermemeli ve yasaklı davranışlardan kaçınmalıdır."
+      },
+      "contact": {
+        "title": "İletişim",
+        "description": "Herhangi bir sorunuz varsa, lütfen info@harmonievannederland.com adresinden bizimle iletişime geçin."
+      }
+    },
+    "cookies": {
+      "title": "Çerez Politikası",
+      "content": "Bu çerez politikası, web sitemizde çerezlerin nasıl kullanıldığını açıklamaktadır. Web sitemizi ziyaret ettiğinizde, çerezlerin kullanımına izin vermiş olursunuz.",
+      "cookieTypes": {
+        "title": "Çerez Nedir?",
+        "description": "Çerezler, web sitelerinin kullanıcı deneyimini iyileştirmek için kullandığı küçük veri dosyalarıdır."
+      },
+      "userConsent": {
+        "title": "Çerez Kullanımı",
+        "description": "Web sitemiz, kullanıcı deneyimini geliştirmek için çerezler kullanmaktadır."
+      },
+      "contact": {
+        "title": "İletişim",
+        "description": "Herhangi bir sorunuz varsa, lütfen info@harmonievannederland.com adresinden bizimle iletişime geçin."
+      }
+    }
   }
 }
