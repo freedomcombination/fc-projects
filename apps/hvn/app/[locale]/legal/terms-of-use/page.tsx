@@ -1,6 +1,7 @@
+import { FaBook, FaEnvelope, FaGavel } from 'react-icons/fa'
+
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
-import { FaBook, FaGavel, FaEnvelope } from 'react-icons/fa'
 
 const TermsOfUse = () => {
   const t = useTranslations('legalPages.terms')
@@ -8,12 +9,8 @@ const TermsOfUse = () => {
   return (
     <div className="max-w-4xl mx-auto px-4 py-12 space-y-8">
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-primary mb-4 animate-fade-in">
-          {t('title')}
-        </h1>
-        <p className="text-muted-foreground max-w-2xl mx-auto">
-          {t('content')}
-        </p>
+        <h1 className="text-4xl font-bold text-primary mb-4 animate-fade-in">{t('title')}</h1>
+        <p className="text-muted-foreground max-w-2xl mx-auto">{t('content')}</p>
       </div>
 
       <div className="grid md:grid-cols-2 gap-8">
@@ -41,9 +38,9 @@ const TermsOfUse = () => {
         </div>
         <p className="text-muted-foreground">
           {t('contact.description')}{' '}
-          <Link 
-            href="mailto:info@harmonievannederland.com" 
+          <Link
             className="text-primary hover:underline font-medium inline-flex items-center"
+            href="mailto:info@harmonievannederland.com"
           >
             info@harmonievannederland.com
           </Link>

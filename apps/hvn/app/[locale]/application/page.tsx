@@ -1,27 +1,31 @@
-import { useState } from 'react';
-import { Button } from '@fc/ui/base/button';
-import { Input } from '@fc/ui/base/input';
-import { useTranslations } from 'next-intl';
+'use client'
+
+import { useState } from 'react'
+
+import { Button } from '@fc/ui/base/button'
+import { Input } from '@fc/ui/base/input'
+
+import { useTranslations } from 'next-intl'
 
 const ApplicationPage = () => {
-  const t = useTranslations('Application');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [acceptedTerms, setAcceptedTerms] = useState(false);
+  const t = useTranslations('Application')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [acceptedTerms, setAcceptedTerms] = useState(false)
 
-  const cities = ['Amsterdam', 'Den Haag', 'Noord Brabant'];
-  const events = ['Harmonie van Nederland - Amsterdam'];
+  const cities = ['Amsterdam', 'Den Haag', 'Noord Brabant']
+  const events = ['Harmonie van Nederland - Amsterdam']
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+    e.preventDefault()
     if (!acceptedTerms) {
-      alert('You must accept the terms of use to proceed.');
-      return;
+      alert('You must accept the terms of use to proceed.')
+      return
     }
-    setIsSubmitting(true);
+    setIsSubmitting(true)
     // Implement form submission logic here
-    console.log('Application submitted');
-    setIsSubmitting(false);
-  };
+    console.log('Application submitted')
+    setIsSubmitting(false)
+  }
 
   return (
     <section className="min-h-screen pt-20 pb-10 bg-gray-50">
@@ -32,58 +36,96 @@ const ApplicationPage = () => {
         </div>
 
         <div className="bg-white rounded-lg shadow-lg p-8 space-y-6">
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <label className="block text-sm font-medium text-gray-700">
               {t('fullName')}
-              <Input name="fullName" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary-light focus:ring-opacity-50" required />
+              <Input
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary-light focus:ring-opacity-50"
+                name="fullName"
+                required
+              />
             </label>
 
             <label className="block text-sm font-medium text-gray-700">
               {t('dateOfBirth')}
-              <Input name="dateOfBirth" type="date" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary-light focus:ring-opacity-50" required />
+              <Input
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary-light focus:ring-opacity-50"
+                name="dateOfBirth"
+                required
+                type="date"
+              />
             </label>
 
             <label className="block text-sm font-medium text-gray-700">
               {t('phone')}
-              <Input name="phone" type="tel" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary-light focus:ring-opacity-50" required />
+              <Input
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary-light focus:ring-opacity-50"
+                name="phone"
+                required
+                type="tel"
+              />
             </label>
 
             <label className="block text-sm font-medium text-gray-700">
               {t('event')}
-              <select className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary-light focus:ring-opacity-50" required>
+              <select
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary-light focus:ring-opacity-50"
+                required
+              >
                 {events.map((event) => (
-                  <option key={event} value={event}>{event}</option>
+                  <option key={event} value={event}>
+                    {event}
+                  </option>
                 ))}
               </select>
             </label>
 
             <label className="block text-sm font-medium text-gray-700">
               {t('city')}
-              <select className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary-light focus:ring-opacity-50" required>
+              <select
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary-light focus:ring-opacity-50"
+                required
+              >
                 {cities.map((city) => (
-                  <option key={city} value={city}>{city}</option>
+                  <option key={city} value={city}>
+                    {city}
+                  </option>
                 ))}
               </select>
             </label>
 
             <label className="block text-sm font-medium text-gray-700">
               {t('message')}
-              <textarea className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary-light focus:ring-opacity-50" placeholder={t('message')} required rows={5}></textarea>
+              <textarea
+                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary-light focus:ring-opacity-50"
+                placeholder={t('message')}
+                required
+                rows={5}
+              ></textarea>
             </label>
 
             <div className="flex items-center">
-              <input type="checkbox" checked={acceptedTerms} onChange={() => setAcceptedTerms(!acceptedTerms)} className="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded" />
+              <input
+                checked={acceptedTerms}
+                className="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded"
+                onChange={() => setAcceptedTerms(!acceptedTerms)}
+                type="checkbox"
+              />
               <span className="ml-2 text-sm text-gray-600">{t('acceptTerms')}</span>
             </div>
 
-            <Button className="w-full bg-primary text-white py-3 px-6 rounded-lg shadow-md hover:bg-primary-dark transition" disabled={isSubmitting} type="submit">
+            <Button
+              className="w-full bg-primary text-white py-3 px-6 rounded-lg shadow-md hover:bg-primary-dark transition"
+              disabled={isSubmitting}
+              type="submit"
+            >
               {isSubmitting ? t('submitting') : t('submit')}
             </Button>
           </form>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default ApplicationPage;
+export default ApplicationPage
