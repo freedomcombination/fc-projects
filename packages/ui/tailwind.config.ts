@@ -2,9 +2,8 @@ import sharedConfig from '@fc/config-tailwind'
 
 import type { Config } from 'tailwindcss'
 
-const config: Pick<Config, 'prefix' | 'presets' | 'content'> = {
-  content: ['./src/**/*.tsx', ...sharedConfig.content],
-  prefix: 'ui-',
+const config: Pick<Config, 'content' | 'presets'> = {
+  content: ['./src/app/**/*.tsx', ...sharedConfig.content],
   presets: [sharedConfig],
 }
 
