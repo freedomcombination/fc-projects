@@ -25,16 +25,16 @@ export const LocaleSwitcher = () => {
   }
 
   return (
-    <div className="flex items-center space-x-2">
+    <div className="inline-flex shadow-md rounded-lg overflow-hidden" role="group">
       {routing.locales.map((locale) => {
         const className = clsx(
-          locale === currentLocale ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800',
-          'w-8 p-2',
+          locale === currentLocale ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800 hover:bg-blue-200',
+          'p-2 ',
         )
 
         return (
           <button className={className} key={locale} onClick={() => onSelectChange(locale)}>
-            {locale}
+            {locale.toUpperCase()}
           </button>
         )
       })}
