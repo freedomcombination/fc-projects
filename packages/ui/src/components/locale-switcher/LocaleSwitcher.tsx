@@ -2,6 +2,7 @@
 
 import { usePathname, useRouter } from '@fc/intl/navigation'
 import { type AppLocale, routing } from '@fc/intl/routing'
+import { Button } from '@fc/ui/base/button'
 
 import clsx from 'clsx'
 import { useLocale } from 'next-intl'
@@ -28,14 +29,14 @@ export const LocaleSwitcher = () => {
     <div className="inline-flex shadow-md rounded-lg overflow-hidden" role="group">
       {routing.locales.map((locale) => {
         const className = clsx(
-          locale === currentLocale ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800 hover:bg-blue-200',
-          'p-2 ',
+          locale === currentLocale ? 'bg-blue-500 text-gray-50' : 'bg-gray-200 text-gray-800 hover:bg-blue-200',
+          'p-1',
         )
 
         return (
-          <button className={className} key={locale} onClick={() => onSelectChange(locale)}>
-            {locale.toUpperCase()}
-          </button>
+          <Button className={className} key={locale} onClick={() => onSelectChange(locale)}>
+            &nbsp;{locale.toUpperCase()}&nbsp;
+          </Button>
         )
       })}
     </div>
