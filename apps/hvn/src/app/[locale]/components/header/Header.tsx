@@ -10,6 +10,7 @@ import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 
 import { HeaderItem } from './HeaderItem'
+import { LanguageSwitcher } from '../locale-switcher/locale-switcher'
 
 export const Header = () => {
   const t = useTranslations('Header')
@@ -37,7 +38,7 @@ export const Header = () => {
                 {item.label}
               </HeaderItem>
             ))}
-            <LocaleSwitcher />
+            <LanguageSwitcher />
           </div>
 
           {/* Mobile Menu Button */}
@@ -59,7 +60,7 @@ export const Header = () => {
             <div className="h-full px-4 py-8 bg-background ">
               <div className="flex flex-col space-y-4">
                 <div className="pb-6 mb-2 border-b border-border flex justify-center">
-                  <LocaleSwitcher />
+                  <LanguageSwitcher />
                 </div>
                 {menuItems.map((item) => (
                   <HeaderItem

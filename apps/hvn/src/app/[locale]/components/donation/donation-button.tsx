@@ -1,10 +1,22 @@
 "use client";
-import { useEffect } from "react";
+import { FC, useEffect } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { Button } from "@/components/ui/button";
+import { Button, ButtonProps } from "@/components/ui/button";
 import { toast } from "sonner"
 
-const DonateButton = ({ amount, email, type }: { amount: number; email: string; type: "monthly" | "one-time" }) => {
+type DonateButtonProps = {
+  amount: number;
+  email: string;
+  type: "monthly" | "one-time";
+} & Omit<ButtonProps, 'type' | 'email'>;
+
+const DonateButton: FC<DonateButtonProps> = ({
+  amount,
+  email,
+  type,
+  children,
+  ...props
+}) => {
   const path = usePathname();
   const searchParams = useSearchParams();
   const status = searchParams.get("status");
@@ -34,8 +46,8 @@ const DonateButton = ({ amount, email, type }: { amount: number; email: string; 
   };
 
   return (
-    <Button onClick={handleDonate}>
-      {type === "monthly" ? "Donate Monthly" : "Donate One-Time"}
+    <Button onClick={handleDonate} {...props}>
+      {children}
     </Button>
   );
 };
