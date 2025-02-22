@@ -17,7 +17,7 @@
   "license": "MIT",
   "dependencies": {
     "next": "^15.1.7",
-    "next-intl": "^3.26.4"
+    "next-intl": "^3.26.5"
   },
   "devDependencies": {
     "@fc/config-typescript": "workspace:*",

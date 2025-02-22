@@ -12,9 +12,9 @@
   },
   "dependencies": {
     "@fc/ui": "workspace:*",
-    "@tanstack/react-query": "^5.66.8",
+    "@tanstack/react-query": "^5.66.9",
     "next": "^15.1.7",
-    "next-intl": "^3.26.4",
+    "next-intl": "^3.26.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
