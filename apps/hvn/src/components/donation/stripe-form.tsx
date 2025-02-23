@@ -1,17 +1,15 @@
 'use client'
 
 
-import type React from 'react'
 import { useState } from 'react'
 
 import { Button } from '@fc/ui/base/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@fc/ui/base/card'
 import { Input } from '@fc/ui/base/input'
 import { Label } from '@fc/ui/base/label'
-import { RadioGroup, RadioGroupItem } from '@fc/ui/base/radio-group'
 import { cn } from '@fc/ui/lib/utils'
 
-import { CircleCheck, CreditCard, Lock, Wallet } from 'lucide-react'
+import { CircleCheck, Lock } from 'lucide-react'
 
 import DonationButton from './donation-button'
 
