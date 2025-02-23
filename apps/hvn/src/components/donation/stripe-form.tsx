@@ -27,9 +27,9 @@ interface FormData {
 
 export function SupportStripe() {
   const [formData, setFormData] = useState<FormData>({
-    customAmount: '',
+    customAmount: '25',
     email: '',
-    frequency: 'one-time',
+    frequency: 'monthly',
   })
 
   const handleAmountClick = (value: string) => {
@@ -66,6 +66,7 @@ export function SupportStripe() {
             <Input
               className="px-2"
               id="email"
+              autoComplete="email"
               onChange={(e) =>
                 setFormData((prev) => ({
                   ...prev,
@@ -156,6 +157,7 @@ export function SupportStripe() {
             className="w-full text-white"
             email={formData.email}
             type={formData.frequency}
+            size="lg"
           >
             <Lock className="mr-2 h-4 w-4" />
             Bağış Yap
