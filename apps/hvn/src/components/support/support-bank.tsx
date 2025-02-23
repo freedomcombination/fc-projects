@@ -1,7 +1,7 @@
-import { Copy } from 'lucide-react'
+import { Button } from '@fc/ui/base/button'
+import { Card, CardContent, CardHeader, CardTitle } from '@fc/ui/base/card'
 
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Copy } from 'lucide-react'
 
 export function SupportBank() {
   const copyToClipboard = (text: string) => {
@@ -14,8 +14,8 @@ export function SupportBank() {
         <CardTitle className="flex items-center gap-4">
           <img alt="Stichting Logo" className="h-16 w-16 rounded-full object-cover shadow-md" src="/images/logo.png" />
           <div>
-            <h3 className="text-xl font-bold">Stichting Wees de Stem voor Vrijheid</h3>
-            <p className="text-sm text-muted-foreground">(Freedom Combination)</p>
+            <h3 className="text-xl font-bold">Harmonie van Nederland</h3>
+            <p className="text-sm text-muted-foreground">(Stichting Wees de Stem voor Vrijheid)</p>
           </div>
         </CardTitle>
       </CardHeader>

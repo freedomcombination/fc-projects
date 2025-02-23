@@ -7,11 +7,12 @@ import { Input } from '@fc/ui/base/input'
 
 import { useTranslations } from 'next-intl'
 
+import { Footer } from '@/components/footer/Footer'
+import { Hero } from '@/components/hero/Hero'
+import { Support } from '@/components/support/Support'
+
 import { AboutSection } from './about/AboutSection'
 import ApplicationPage from './application/page'
-import { Footer } from './components/footer/Footer'
-import { Hero } from './components/hero/Hero'
-import { Support } from './components/support/Support'
 
 const sections = ['home', 'about', 'application', 'support']
 

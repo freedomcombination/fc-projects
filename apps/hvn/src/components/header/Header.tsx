@@ -9,7 +9,6 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 
-import { LanguageSwitcher } from '../locale-switcher/locale-switcher'
 import { HeaderItem } from './HeaderItem'
 
 export const Header = () => {
@@ -38,7 +37,7 @@ export const Header = () => {
                 {item.label}
               </HeaderItem>
             ))}
-            <LanguageSwitcher />
+            <LocaleSwitcher />
           </div>
 
           {/* Mobile Menu Button */}
@@ -60,7 +59,7 @@ export const Header = () => {
             <div className="h-full px-4 py-8 bg-background ">
               <div className="flex flex-col space-y-4">
                 <div className="pb-6 mb-2 border-b border-border flex justify-center">
-                  <LanguageSwitcher />
+                  <LocaleSwitcher />
                 </div>
                 {menuItems.map((item) => (
                   <HeaderItem

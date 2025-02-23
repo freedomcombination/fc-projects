@@ -1,9 +1,9 @@
 'use client'
 import { useState } from 'react'
 
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
+import { Button } from '@fc/ui/base/button'
+import { Input } from '@fc/ui/base/input'
+import { Label } from '@fc/ui/base/label'
 
 import DonateButton from './donation-button'
 

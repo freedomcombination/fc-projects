@@ -1,4 +1,5 @@
 import { AppLocale, routing } from '@fc/intl/routing'
+import { Toaster } from '@fc/ui/base/sonner'
 import { Providers } from '@fc/ui/components/providers'
 
 import { NextIntlClientProvider } from 'next-intl'
@@ -6,11 +7,9 @@ import { getMessages } from 'next-intl/server'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { notFound } from 'next/navigation'
 
+import { Header } from '@/components/header/Header'
+
 import './globals.css'
-
-import { Toaster } from '@/components/ui/sonner'
-
-import { Header } from './components/header/Header'
 
 const fontSans = Geist({
   subsets: ['latin'],

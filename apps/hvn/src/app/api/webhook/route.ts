@@ -2,6 +2,7 @@ import config from '@payload-config'
 import { headers } from 'next/headers'
 import { getPayload } from 'payload' // Payload CMS'i import ediyoruz
 import Stripe from 'stripe'
+
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2025-01-27.acacia',
 })

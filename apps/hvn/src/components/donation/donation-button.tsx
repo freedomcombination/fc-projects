@@ -1,10 +1,10 @@
 'use client'
 import { FC, useEffect } from 'react'
 
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
-import { toast } from 'sonner'
+import { Button, ButtonProps } from '@fc/ui/base/button'
 
-import { Button, ButtonProps } from '@/components/ui/button'
+import { usePathname, useSearchParams } from 'next/navigation'
+import { toast } from 'sonner'
 
 type DonateButtonProps = {
   amount: number

@@ -3,14 +3,14 @@
 import type React from 'react'
 import { useState } from 'react'
 
-import { CreditCard, Lock, Wallet } from 'lucide-react'
+import { Button } from '@fc/ui/base/button'
+import { Card, CardContent, CardHeader, CardTitle } from '@fc/ui/base/card'
+import { Input } from '@fc/ui/base/input'
+import { Label } from '@fc/ui/base/label'
+import { RadioGroup, RadioGroupItem } from '@fc/ui/base/radio-group'
+import { cn } from '@fc/ui/lib/utils'
 
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-import { cn } from '@/lib/utils'
+import { CreditCard, Lock, Wallet } from 'lucide-react'
 
 import DonationButton from './donation-button'
 
