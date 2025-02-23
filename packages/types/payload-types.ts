@@ -158,12 +158,13 @@ export interface Donation {
   id: string;
   amount: number;
   currency: string;
-  paymentType?: string | null;
+  paymentType?: ('one-time' | 'monthly') | null;
   email?: string | null;
   stripePaymentIntentId: string;
   date: string;
   campaign?: string | null;
   message?: string | null;
+  status?: ('pending' | 'paid') | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -274,6 +275,7 @@ export interface DonationsSelect<T extends boolean = true> {
   date?: T;
   campaign?: T;
   message?: T;
+  status?: T;
   updatedAt?: T;
   createdAt?: T;
 }

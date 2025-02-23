@@ -1,4 +1,3 @@
-import { metadata } from '@payloadcms/next/layouts'
 import type { CollectionConfig } from 'payload'
 
 export const Donations: CollectionConfig = {
@@ -8,8 +7,10 @@ export const Donations: CollectionConfig = {
       return req.credentials === "same-origin"
     },
     read: () => true,
-    update: () => false,
-    delete: () => false, 
+    update: ({ req }) => {
+      return req.credentials === "same-origin"
+    },
+    delete: () => false,
   },
   fields: [
     {
@@ -24,7 +25,17 @@ export const Donations: CollectionConfig = {
     },
     {
       name: 'paymentType',
-      type: 'text',
+      type: 'select',
+      options: [
+        {
+          label: 'One-Time',
+          value: 'one-time',
+        },
+        {
+          label: 'Monthly',
+          value: 'monthly',
+        },
+      ],
     },
     {
       name: 'email',
@@ -47,6 +58,21 @@ export const Donations: CollectionConfig = {
     {
       name: 'message',
       type: 'textarea',
+    },
+    {
+      name: 'status',
+      type: 'select',
+      options: [
+        {
+          label: 'Pending',
+          value: 'pending',
+        },
+        {
+          label: 'Paid',
+          value: 'paid',
+        },
+      ],
+      defaultValue: 'pending', // Varsayılan olarak 'pending' olsun
     },
   ],
 }
