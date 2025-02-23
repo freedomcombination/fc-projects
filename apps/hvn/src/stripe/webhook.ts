@@ -49,7 +49,7 @@ async function updateDonationStatus(payload: any, paymentIntentId: string, statu
 }
 
 export const stripeWebhookHandler: StripeWebhookHandler = async ({ event, payload }) => {
-  const paymentIntentId = (event.data.object as any).payment_intent || (event.data.object as any).id
+  const paymentIntentId = (event?.data?.object as any)?.payment_intent || (event?.data?.object as any)?.id
   if (!paymentIntentId) {
     console.warn('Payment Intent ID not found in event:', event)
   }
