@@ -9,8 +9,8 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 
-import { HeaderItem } from './HeaderItem'
 import { LanguageSwitcher } from '../locale-switcher/locale-switcher'
+import { HeaderItem } from './HeaderItem'
 
 export const Header = () => {
   const t = useTranslations('Header')

@@ -1,9 +1,10 @@
 import React from 'react'
 
 import { useTranslations } from 'next-intl'
+
 import DonationForm from '../donation/donation-form'
-import { SupportBank } from './support-bank'
 import { SupportStripe } from '../donation/stripe-form'
+import { SupportBank } from './support-bank'
 
 export const Support = () => {
   const t = useTranslations()
@@ -11,10 +12,9 @@ export const Support = () => {
   return (
     <section className="py-16 bg-gray-100" id="support">
       <div className="container mx-auto px-4 py-8">
-
         <h2 className="text-4xl font-bold mb-4">{t('Header.support')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          { /*
+          {/*
           <div className="bg-white rounded-lg shadow-lg p-4 text-center">
             <p className="text-lg mb-2">{t('support.value')}</p>
             <a
@@ -42,7 +42,7 @@ export const Support = () => {
           <div className="bg-white rounded-lg shadow-lg p-4">
             <DonationForm />
           </div>
-             */ }
+             */}
           <div className="bg-white rounded-lg shadow-lg">
             <SupportBank />
           </div>
@@ -50,7 +50,6 @@ export const Support = () => {
             <SupportStripe />
           </div>
         </div>
-
       </div>
     </section>
   )

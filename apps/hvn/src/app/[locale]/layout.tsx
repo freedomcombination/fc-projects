@@ -8,8 +8,9 @@ import { notFound } from 'next/navigation'
 
 import './globals.css'
 
-import { Header } from './components/header/Header'
 import { Toaster } from '@/components/ui/sonner'
+
+import { Header } from './components/header/Header'
 
 const fontSans = Geist({
   subsets: ['latin'],

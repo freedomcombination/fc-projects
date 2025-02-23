@@ -1,26 +1,26 @@
-import { metadata } from '@payloadcms/next/layouts'
 import type { CollectionConfig } from 'payload'
 
+import { metadata } from '@payloadcms/next/layouts'
+
 export const Donations: CollectionConfig = {
-  slug: 'donations',
   access: {
     create: ({ req }) => {
-      return req.credentials === "same-origin"
+      return req.credentials === 'same-origin'
     },
+    delete: () => false,
     read: () => true,
     update: () => false,
-    delete: () => false, 
   },
   fields: [
     {
       name: 'amount',
-      type: 'number',
       required: true,
+      type: 'number',
     },
     {
       name: 'currency',
-      type: 'text',
       required: true,
+      type: 'text',
     },
     {
       name: 'paymentType',
@@ -32,13 +32,13 @@ export const Donations: CollectionConfig = {
     },
     {
       name: 'stripePaymentIntentId',
-      type: 'text',
       required: true,
+      type: 'text',
     },
     {
       name: 'date',
-      type: 'date',
       required: true,
+      type: 'date',
     },
     {
       name: 'campaign',
@@ -49,4 +49,5 @@ export const Donations: CollectionConfig = {
       type: 'textarea',
     },
   ],
+  slug: 'donations',
 }
