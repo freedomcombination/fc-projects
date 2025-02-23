@@ -5,14 +5,13 @@ import { metadata } from '@payloadcms/next/layouts'
 export const Donations: CollectionConfig = {
   access: {
     create: ({ req }) => {
-      return req.credentials === "same-origin"
+      return req.credentials === 'same-origin'
     },
     delete: () => false,
     read: () => true,
     update: ({ req }) => {
-      return req.credentials === "same-origin"
+      return req.credentials === 'same-origin'
     },
-    delete: () => false,
   },
   fields: [
     {
@@ -27,7 +26,6 @@ export const Donations: CollectionConfig = {
     },
     {
       name: 'paymentType',
-      type: 'select',
       options: [
         {
           label: 'One-Time',
@@ -38,6 +36,7 @@ export const Donations: CollectionConfig = {
           value: 'monthly',
         },
       ],
+      type: 'select',
     },
     {
       name: 'email',
@@ -62,8 +61,8 @@ export const Donations: CollectionConfig = {
       type: 'textarea',
     },
     {
+      defaultValue: 'pending', // Varsayılan olarak 'pending' olsun
       name: 'status',
-      type: 'select',
       options: [
         {
           label: 'Pending',
@@ -74,7 +73,7 @@ export const Donations: CollectionConfig = {
           value: 'paid',
         },
       ],
-      defaultValue: 'pending', // Varsayılan olarak 'pending' olsun
+      type: 'select',
     },
   ],
   slug: 'donations',

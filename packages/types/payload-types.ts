@@ -155,18 +155,18 @@ export interface Media {
  * via the `definition` "donations".
  */
 export interface Donation {
-  id: string;
-  amount: number;
-  currency: string;
-  paymentType?: ('one-time' | 'monthly') | null;
-  email?: string | null;
-  stripePaymentIntentId: string;
-  date: string;
-  campaign?: string | null;
-  message?: string | null;
-  status?: ('pending' | 'paid') | null;
-  updatedAt: string;
-  createdAt: string;
+  id: string
+  amount: number
+  currency: string
+  paymentType?: ('one-time' | 'monthly') | null
+  email?: string | null
+  stripePaymentIntentId: string
+  date: string
+  campaign?: string | null
+  message?: string | null
+  status?: ('pending' | 'paid') | null
+  updatedAt: string
+  createdAt: string
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -267,17 +267,17 @@ export interface MediaSelect<T extends boolean = true> {
  * via the `definition` "donations_select".
  */
 export interface DonationsSelect<T extends boolean = true> {
-  amount?: T;
-  currency?: T;
-  paymentType?: T;
-  email?: T;
-  stripePaymentIntentId?: T;
-  date?: T;
-  campaign?: T;
-  message?: T;
-  status?: T;
-  updatedAt?: T;
-  createdAt?: T;
+  amount?: T
+  currency?: T
+  paymentType?: T
+  email?: T
+  stripePaymentIntentId?: T
+  date?: T
+  campaign?: T
+  message?: T
+  status?: T
+  updatedAt?: T
+  createdAt?: T
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

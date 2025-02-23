@@ -1,7 +1,8 @@
-import { Copy, Landmark } from "lucide-react"
-import { Button } from "@fc/ui/base/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@fc/ui/base/card"
-import Link from "next/link"
+import { Button } from '@fc/ui/base/button'
+import { Card, CardContent, CardHeader, CardTitle } from '@fc/ui/base/card'
+
+import { Copy, Landmark } from 'lucide-react'
+import Link from 'next/link'
 
 export function SupportBank() {
   const copyToClipboard = (text: string) => {
@@ -12,11 +13,7 @@ export function SupportBank() {
     <Card className="bg-white">
       <CardHeader>
         <CardTitle className="flex flex-col items-center gap-6 ">
-          <img
-            src="/images/logo.png"
-            alt="Stichting Logo"
-            className="rounded-full object-cover shadow-md h-24"
-          />
+          <img alt="Stichting Logo" className="rounded-full object-cover shadow-md h-24" src="/images/logo.png" />
           <div>
             <h3 className="text-lg font-bold">Stichting Wees de Stem voor Vrijheid</h3>
             <p className="text-sm text-muted-foreground">(Freedom Combination)</p>
@@ -47,18 +44,14 @@ export function SupportBank() {
         <div className="bg-muted py-4">
           <label className="text-sm font-medium hidden">ANBI</label>
           <div className="flex items-center gap-2">
-
             <Link
               href="https://www.ing.nl/payreq/m/?trxid=8TRJ718Cfr0xhFhMkq47svD13DsxL7L7"
               rel="noopener noreferrer"
               target="_blank"
             >
-              <Button variant="ghost" className="items-center flex">
-                <img
-                  src="/images/anbi-logo.png"
-                  alt="ANBI Logo"
-                  className="h-12 object-cover shadow-md"
-                /> Banka yolu ile gönderin.
+              <Button className="items-center flex" variant="ghost">
+                <img alt="ANBI Logo" className="h-12 object-cover shadow-md" src="/images/anbi-logo.png" /> Banka yolu
+                ile gönderin.
               </Button>
             </Link>
           </div>

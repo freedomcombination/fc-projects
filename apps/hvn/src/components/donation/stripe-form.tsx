@@ -1,6 +1,5 @@
 'use client'
 
-
 import { useState } from 'react'
 
 import { Button } from '@fc/ui/base/button'
@@ -53,11 +52,7 @@ export function SupportStripe() {
     <Card className="bg-white">
       <CardHeader>
         <CardTitle className="flex flex-col items-center gap-6 ">
-          <img
-            src="/images/logo.png"
-            alt="Stichting Logo"
-            className="rounded-full object-cover shadow-md h-24"
-          />
+          <img alt="Stichting Logo" className="rounded-full object-cover shadow-md h-24" src="/images/logo.png" />
           <div>
             <h3 className="text-lg font-bold">Stichting Wees de Stem voor Vrijheid</h3>
             <p className="text-sm text-muted-foreground">(Freedom Combination)</p>
@@ -86,19 +81,20 @@ export function SupportStripe() {
           <div className="space-y-2 flex flex-col">
             <Label>Bağış Miktarı (€)</Label>
             <Input
-              type="number"
-              placeholder="Diğer miktar"
               className="w-full p-2 text-center"
-              value={formData.customAmount}
               onChange={(e) => handleCustomAmount(e.target.value)}
+              placeholder="Diğer miktar"
+              type="number"
+              value={formData.customAmount}
             />
             <div className="grid grid-cols-4 gap-2">
               {amounts.map((amount) => (
                 <Button
-                  key={amount.value}
                   className={cn(
-                    "w-full p-2 rounded-sm hover:bg-primary/1 text-center text-sm",
-                    formData.customAmount === amount.value ? "text-white" : "text-black")}
+                    'w-full p-2 rounded-sm hover:bg-primary/1 text-center text-sm',
+                    formData.customAmount === amount.value ? 'text-white' : 'text-black',
+                  )}
+                  key={amount.value}
                   onClick={() => handleAmountClick(amount.value)}
                   type="button"
                   variant={formData.customAmount === amount.value ? 'default' : 'outline'}
@@ -113,37 +109,43 @@ export function SupportStripe() {
             <Label>Bağış Sıklığı</Label>
             <div className="grid grid-cols-3 gap-2 w-full">
               <Button
-                type="button"
-                variant={formData.frequency === 'monthly' ? "default" : "outline"}
                 className={cn(
-                  "w-full p-2 rounded-sm hover:bg-primary/1 text-center text-sm",
-                  formData.frequency === 'monthly' ? "text-white" : "text-black")}
-                onClick={() => setFormData((prev) => ({
-                  ...prev,
-                  frequency: 'monthly',
-                }))}
+                  'w-full p-2 rounded-sm hover:bg-primary/1 text-center text-sm',
+                  formData.frequency === 'monthly' ? 'text-white' : 'text-black',
+                )}
+                onClick={() =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    frequency: 'monthly',
+                  }))
+                }
+                type="button"
+                variant={formData.frequency === 'monthly' ? 'default' : 'outline'}
               >
                 Aylık
               </Button>
               <Button
-                type="button"
-                variant={formData.frequency === 'one-time' ? "default" : "outline"}
                 className={cn(
-                  "w-full p-2 rounded-sm hover:bg-primary/1 text-center text-sm",
-                  formData.frequency === 'one-time' ? "text-white" : "text-black")}
-                onClick={() => setFormData((prev) => ({
-                  ...prev,
-                  frequency: 'one-time',
-                }))}
+                  'w-full p-2 rounded-sm hover:bg-primary/1 text-center text-sm',
+                  formData.frequency === 'one-time' ? 'text-white' : 'text-black',
+                )}
+                onClick={() =>
+                  setFormData((prev) => ({
+                    ...prev,
+                    frequency: 'one-time',
+                  }))
+                }
+                type="button"
+                variant={formData.frequency === 'one-time' ? 'default' : 'outline'}
               >
                 Tek Seferlik
               </Button>
               <div className="flex flex-row items-center justify-between">
                 <div className="flex justify-center w-full">
-                  <img src="/images/ideal-logo.svg" alt="Visa" className="h-10" />
+                  <img alt="Visa" className="h-10" src="/images/ideal-logo.svg" />
                 </div>
                 <div className="flex justify-center w-full">
-                  <img src="/images/visa-master-logo.svg" alt="Visa" className="h-10" />
+                  <img alt="Visa" className="h-10" src="/images/visa-master-logo.svg" />
                 </div>
               </div>
             </div>
