@@ -95,6 +95,7 @@ export function SupportStripe() {
             <div className="grid grid-cols-4 gap-2">
               {amounts.map((amount) => (
                 <Button
+                  key={amount.value}
                   className={cn(
                     "w-full p-2 rounded-sm hover:bg-primary/1 text-center text-sm",
                     formData.customAmount === amount.value ? "text-white" : "text-black")}
