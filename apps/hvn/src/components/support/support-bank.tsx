@@ -1,7 +1,6 @@
 import { Copy, Landmark } from "lucide-react"
-
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@fc/ui/base/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@fc/ui/base/card"
 import Link from "next/link"
 
 export function SupportBank() {
