@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build": "turbo build",
+    "hvn": "turbo hvn",
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{js,jsx,css,ts,tsx,md,json}\"",

@@ -1,8 +1,8 @@
 import React from 'react'
 
 import { useTranslations } from 'next-intl'
-import { SupportBank } from './support-bank'
 import { SupportStripe } from '../donation/stripe-form'
+import { SupportBank } from './support-bank'
 
 export const Support = () => {
   const t = useTranslations()
@@ -23,7 +23,6 @@ export const Support = () => {
             <SupportStripe />
           </div>
         </div>
-
       </div>
     </section>
   )

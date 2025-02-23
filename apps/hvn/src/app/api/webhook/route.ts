@@ -57,6 +57,7 @@ async function updateDonationStatus(payload: any, paymentIntentId: string, statu
 
 
 export const POST = async (req: Request) => {
+export const POST = async (req: Request) => {
   try {
     const payload = await getPayload({ config });
     const headersList = await headers();

@@ -28,8 +28,8 @@ export function SupportBank() {
         <div className="bg-muted p-4">
           <label className="text-sm font-medium text-muted-foreground">IBAN</label>
           <div className="flex items-center gap-2">
-            <code className="flex-1 rounded">NL79INGB0103801499</code>
-            <Button variant="ghost" size="icon" onClick={() => copyToClipboard("NL79INGB0103801499")}>
+            <code className="flex-1 rounded bg-muted p-2">NL79INGB0103801499</code>
+            <Button onClick={() => copyToClipboard('NL79INGB0103801499')} size="icon" variant="ghost">
               <Copy className="h-4 w-4" />
             </Button>
           </div>
@@ -38,8 +38,8 @@ export function SupportBank() {
         <div className="bg-muted p-4">
           <label className="text-sm font-medium text-muted-foreground">BIC</label>
           <div className="flex items-center gap-2">
-            <code className="flex-1 rounded">INGBNL2A</code>
-            <Button variant="ghost" size="icon" onClick={() => copyToClipboard("INGBNL2A")}>
+            <code className="flex-1 rounded bg-muted p-2">INGBNL2A</code>
+            <Button onClick={() => copyToClipboard('INGBNL2A')} size="icon" variant="ghost">
               <Copy className="h-4 w-4" />
             </Button>
           </div>
@@ -68,4 +68,3 @@ export function SupportBank() {
     </Card>
   )
 }
-
