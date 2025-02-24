@@ -16,7 +16,7 @@ const DonateButton: FC<DonateButtonProps> = ({ amount, children, email, type, ..
   const router = useRouter()
   const path = usePathname()
 
-  const handleDonate = async (e: MouseEvent) => {
+  const handleDonate = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
     const returnUrl = `${window.location.origin}${path}`
 
