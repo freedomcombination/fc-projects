@@ -12,8 +12,6 @@ export const Footer = () => {
   const locale = useLocale()
   const paramsLocale = useParams().locale
 
-  console.log('Current Locale:', locale)
-
   const menuItems = [
     { href: '#home', label: headerTranslations('home') },
     { href: '#about', label: headerTranslations('about') },

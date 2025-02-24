@@ -1,4 +1,5 @@
 import { AppLocale, routing } from '@fc/intl/routing'
+import { Toaster } from '@fc/ui/base/sonner'
 import { Providers } from '@fc/ui/components/providers'
 
 import { NextIntlClientProvider } from 'next-intl'
@@ -6,9 +7,9 @@ import { getMessages } from 'next-intl/server'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { notFound } from 'next/navigation'
 
-import '@fc/ui/globals.css'
+import { Header } from '@/components/header/Header'
 
-import { Header } from './components/header/Header'
+import './globals.css'
 
 const fontSans = Geist({
   subsets: ['latin'],
@@ -44,6 +45,7 @@ export default async function RootLayout({
             <main className="flex-1">{children}</main>
           </Providers>
         </NextIntlClientProvider>
+        <Toaster />
       </body>
     </html>
   )
