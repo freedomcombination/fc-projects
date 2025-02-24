@@ -1,11 +1,11 @@
 import Stripe from 'stripe'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2022-08-01',
+  apiVersion: '2025-01-27.acacia',
 })
 
 export const POST = async (req: Request) => {
-  const { amount, cancelUrl, email, successUrl, type } = await req.json()
+  const { amount, email, returnUrl, type } = await req.json()
 
   const customer = await stripe.customers.list({ email })
   let customerID = customer.data.length > 0 ? customer.data[0]?.id : ''
@@ -16,6 +16,9 @@ export const POST = async (req: Request) => {
   }
 
   const paymentMode = type === 'monthly' ? 'subscription' : 'payment'
+
+  const cancelUrl = `${returnUrl}/donate?status=cancel&email=${email}&amount=${amount}&type=${type}`
+  const successUrl = `${returnUrl}/donate?status=success&email=${email}&amount=${amount}&type=${type}`
 
   const payment = await stripe.checkout.sessions.create({
     cancel_url: cancelUrl,

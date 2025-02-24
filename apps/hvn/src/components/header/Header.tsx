@@ -18,11 +18,11 @@ export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const menuItems = [
-    { href: '#home', label: t('home') },
-    { href: '#about', label: t('about') },
-    { href: '#application', label: t('application') },
-    { href: '#contact', label: t('contact') },
-    { href: '#support', label: t('support') },
+    { href: '/#home', label: t('home') },
+    { href: '/#about', label: t('about') },
+    { href: '/#application', label: t('application') },
+    { href: '/#contact', label: t('contact') },
+    { href: '/#support', label: t('support') },
   ]
 
   useEffect(() => {

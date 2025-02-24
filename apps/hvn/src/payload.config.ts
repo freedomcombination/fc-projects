@@ -7,15 +7,12 @@ import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
 import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
 import { formBuilderPlugin } from '@payloadcms/plugin-form-builder'
-import { stripePlugin } from '@payloadcms/plugin-stripe'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import nodemailer from 'nodemailer'
 import path from 'path'
 import { buildConfig } from 'payload'
 import sharp from 'sharp'
 import { fileURLToPath } from 'url'
-
-import { stripeWebhookHandler } from './stripe/webhook'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -64,14 +61,6 @@ export default buildConfig({
         text: true,
         textarea: true,
       },
-    }),
-    // storage-adapter-placeholder
-    stripePlugin({
-      //   isTestKey: process.env.NODE_ENV !== 'production',
-      rest: false,
-      stripeSecretKey: process.env.STRIPE_SECRET_KEY as string,
-      stripeWebhooksEndpointSecret: process.env.STRIPE_WEBHOOKS_SECRET as string,
-      webhooks: stripeWebhookHandler,
     }),
   ],
   secret: process.env.PAYLOAD_SECRET || '',

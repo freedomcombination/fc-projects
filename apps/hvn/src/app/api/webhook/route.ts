@@ -4,7 +4,7 @@ import { getPayload } from 'payload'
 import { Stripe } from 'stripe'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2022-08-01',
+  apiVersion: '2025-01-27.acacia',
 })
 
 async function createOrUpdateDonation(payload: any, data: any, paymentIntentId: string) {

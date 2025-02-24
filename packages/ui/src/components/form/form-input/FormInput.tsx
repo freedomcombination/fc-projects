@@ -23,8 +23,6 @@ export const FormInput = <T extends FieldValues = FieldValues, N extends FieldPa
 }: FormInputProps<T, N>) => {
   const form = useFormContext<T>()
 
-  console.log('form', form)
-
   return (
     <FormField<T, N>
       control={form.control}
