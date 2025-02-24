@@ -14,7 +14,9 @@
       "@fc/ui/components/*": ["../../packages/ui/src/components/*"],
       "@fc/ui/hooks/*": ["../../packages/ui/src/hooks/*"],
       "@fc/ui/lib/*": ["../../packages/ui/src/lib/*"]
-    }
+    },
+    "declaration": false,
+    "declarationMap": false
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]

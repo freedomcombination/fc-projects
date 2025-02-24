@@ -1,56 +1,27 @@
-'use client'
+import { getTranslations } from 'next-intl/server'
+import { getPayload } from 'payload'
 
-import { useEffect, useState } from 'react'
+import { AboutSection } from '@/components/about/AboutSection'
+import { ApplicationForm } from '@/components/application/ApplicationForm'
+import { ContactForm } from '@/components/contact/ContactForm'
+import { Footer } from '@/components/footer/Footer'
+import { Hero } from '@/components/hero/Hero'
+import { Support } from '@/components/support/Support'
+import config from '@/payload.config'
 
-import { Button } from '@fc/ui/base/button'
-import { Input } from '@fc/ui/base/input'
+export default async function HomePage() {
+  const t = await getTranslations()
 
-import { useTranslations } from 'next-intl'
+  const payload = await getPayload({ config })
 
-import { AboutSection } from './about/AboutSection'
-import ApplicationPage from './application/page'
-import { Footer } from './components/footer/Footer'
-import { Hero } from './components/hero/Hero'
-import { Support } from './components/support/Support'
+  const formsResponse = await payload.find({
+    collection: 'forms',
+    draft: false,
+    overrideAccess: false,
+  })
 
-const sections = ['home', 'about', 'application', 'support']
-
-export default function HomePage() {
-  const t = useTranslations()
-  const [isSubmitting, setIsSubmitting] = useState(false)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const id = entry.target.id
-            window.history.replaceState({}, '', `#${id}`)
-
-            document.querySelectorAll('.nav-item').forEach((item) => {
-              const isActive = item.getAttribute('href') === `#${id}`
-              item.setAttribute('data-active', isActive.toString())
-            })
-          }
-        })
-      },
-      { threshold: 0.5 },
-    )
-
-    sections.forEach((id) => {
-      const element = document.getElementById(id)
-      if (element) observer.observe(element)
-    })
-
-    return () => observer.disconnect()
-  }, [])
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    // Implement form submission logic here
-    console.log('Form submitted')
-    setIsSubmitting(false)
-  }
+  const applicationForm = formsResponse.docs.find((f) => f.title === 'Application Form')
+  const contactForm = formsResponse.docs.find((f) => f.title === 'Contact Form')
 
   return (
     <main className="relative">
@@ -65,9 +36,11 @@ export default function HomePage() {
       </section>
 
       {/* Application section */}
-      <section className="py-16 bg-white" id="application">
-        <ApplicationPage />
-      </section>
+      {applicationForm && (
+        <section className="py-16 bg-white" id="application">
+          <ApplicationForm form={applicationForm} />
+        </section>
+      )}
 
       {/* Contact section */}
       <section className="py-16 bg-white" id="contact">
@@ -93,27 +66,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Contact Form */}
-            <form className="bg-white rounded-lg shadow-lg p-8 space-y-6" onSubmit={handleSubmit}>
-              <label>
-                {t('Contact.name')}
-                <Input name="name" required />
-              </label>
-              <Input name="email" required type="email" />
-              <textarea
-                className="w-full p-3 rounded-lg border bg-background"
-                placeholder={t('Contact.message')}
-                required
-                rows={5}
-              />
-              <Button
-                className="w-full bg-primary text-white py-3 px-6 rounded-lg shadow-md hover:bg-primary-dark transition"
-                disabled={isSubmitting}
-                type="submit"
-              >
-                {isSubmitting ? t('Contact.sending') : t('Contact.send')}
-              </Button>
-            </form>
+            {contactForm && <ContactForm form={contactForm} />}
           </div>
         </div>
       </section>

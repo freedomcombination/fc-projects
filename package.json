@@ -4,22 +4,26 @@
   "private": true,
   "scripts": {
     "build": "turbo build",
+    "hvn": "turbo hvn",
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{js,jsx,css,ts,tsx,md,json}\"",
     "storybook": "turbo run storybook --filter=@fc/ui",
     "add-component": "cd packages/ui && pnpm dlx shadcn add && pnpm lint",
     "type-check": "turbo run type-check",
-    "codegen": "turbo run codegen"
+    "codegen": "turbo run codegen",
+    "generate:types": "turbo run generate:types"
   },
   "dependencies": {
     "@fc/ui": "workspace:*",
-    "zod": "^3.24.2"
+    "zod": "^3.24.2",
+    "kill-port-process": "^3.2.1"
   },
   "devDependencies": {
     "@fc/config-typescript": "workspace:*",
     "@turbo/gen": "^2.4.2",
     "@types/node": "^20.17.19",
+    "eslint": "^9.21.0",
     "prettier": "^3.5.2",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "turbo": "^2.4.2",
