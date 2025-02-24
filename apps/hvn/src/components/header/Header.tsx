@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { IoClose, IoMenu } from 'react-icons/io5'
 
 import { LocaleSwitcher } from '@fc/ui/components/locale-switcher'
@@ -10,6 +10,8 @@ import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 
 import { HeaderItem } from './HeaderItem'
+
+const sections = ['home', 'about', 'application', 'support']
 
 export const Header = () => {
   const t = useTranslations('Header')
@@ -22,6 +24,32 @@ export const Header = () => {
     { href: '#contact', label: t('contact') },
     { href: '#support', label: t('support') },
   ]
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id
+            window.history.replaceState({}, '', `#${id}`)
+
+            document.querySelectorAll('.nav-item').forEach((item) => {
+              const isActive = item.getAttribute('href') === `#${id}`
+              item.setAttribute('data-active', isActive.toString())
+            })
+          }
+        })
+      },
+      { threshold: 0.5 },
+    )
+
+    sections.forEach((id) => {
+      const element = document.getElementById(id)
+      if (element) observer.observe(element)
+    })
+
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm">

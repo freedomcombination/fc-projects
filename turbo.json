@@ -28,6 +28,9 @@
     },
     "codegen": {
       "dependsOn": ["^codegen"]
+    },
+    "generate:types": {
+      "dependsOn": ["^generate:types"]
     }
   }
 }

@@ -1,3 +1,5 @@
+'use client'
+
 import { BiTargetLock } from 'react-icons/bi'
 import { FaGlobeAmericas } from 'react-icons/fa'
 import { IoMdPeople } from 'react-icons/io'

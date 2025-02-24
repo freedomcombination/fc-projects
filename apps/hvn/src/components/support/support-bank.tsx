@@ -1,3 +1,5 @@
+'use client'
+
 import { Button } from '@fc/ui/base/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@fc/ui/base/card'
 

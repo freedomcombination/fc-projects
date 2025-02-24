@@ -1,15 +1,26 @@
-import { useState } from 'react'
+'use client'
+
+import { FC, useState } from 'react'
 
 import { Button } from '@fc/ui/base/button'
 import { Input } from '@fc/ui/base/input'
 
 import { useTranslations } from 'next-intl'
 
-export const ContactForm = () => {
+import { Form } from '../../../payload-types'
+
+type ContactFormProps = {
+  form: Form
+}
+
+export const ContactForm: FC<ContactFormProps> = ({ form }) => {
   const t = useTranslations('Contact')
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
+    // TODO: Use form.id and form-submission endpoint
+    console.log('form', form)
+
     e.preventDefault()
     setIsSubmitting(true)
     // Implement form submission logic here
@@ -29,12 +40,7 @@ export const ContactForm = () => {
       </label>
       <label>
         {t('message')}
-        <textarea
-          className="w-full p-3 rounded-lg border bg-background"
-          placeholder={t('message')}
-          required
-          rows={5}
-        ></textarea>
+        <textarea className="w-full p-3 rounded-lg border bg-background" placeholder={t('message')} required rows={5} />
       </label>
       <Button
         className="w-full bg-primary text-white py-3 px-6 rounded-lg shadow-md hover:bg-primary-dark transition"

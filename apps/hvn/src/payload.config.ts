@@ -1,19 +1,20 @@
-// storage-adapter-import-placeholder
+import { Donations } from '@fc/config-payload/blocks/Donations'
+import { Media } from '@fc/config-payload/blocks/Media'
+import { Page } from '@fc/config-payload/blocks/Page'
+import { Users } from '@fc/config-payload/blocks/Users'
+
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
 import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
 import { formBuilderPlugin } from '@payloadcms/plugin-form-builder'
+import { stripePlugin } from '@payloadcms/plugin-stripe'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import nodemailer from 'nodemailer'
 import path from 'path'
 import { buildConfig } from 'payload'
 import sharp from 'sharp'
-import { stripePlugin } from '@payloadcms/plugin-stripe'
 import { fileURLToPath } from 'url'
 
-import { Donations } from './collections/Donations'
-import { Media } from './collections/Media'
-import { Users } from './collections/Users'
 import { stripeWebhookHandler } from './stripe/webhook'
 
 const filename = fileURLToPath(import.meta.url)
@@ -26,7 +27,7 @@ export default buildConfig({
     },
     user: Users.slug,
   },
-  collections: [Users, Media, Donations],
+  collections: [Users, Media, Donations, Page],
   db: mongooseAdapter({
     url: process.env.DATABASE_URL as string,
   }),
@@ -44,6 +45,11 @@ export default buildConfig({
       port: 465,
     }),
   }),
+  localization: {
+    defaultLocale: 'en',
+    fallback: true,
+    locales: ['en', 'nl', 'tr'],
+  },
   plugins: [
     payloadCloudPlugin(),
     formBuilderPlugin({
@@ -61,16 +67,13 @@ export default buildConfig({
     }),
     // storage-adapter-placeholder
     stripePlugin({
-      stripeSecretKey: process.env.STRIPE_SECRET_KEY as string,
-      stripeWebhooksEndpointSecret: process.env.STRIPE_WEBHOOKS_SECRET as string,
       //   isTestKey: process.env.NODE_ENV !== 'production',
       rest: false,
+      stripeSecretKey: process.env.STRIPE_SECRET_KEY as string,
+      stripeWebhooksEndpointSecret: process.env.STRIPE_WEBHOOKS_SECRET as string,
       webhooks: stripeWebhookHandler,
     }),
   ],
   secret: process.env.PAYLOAD_SECRET || '',
   sharp,
-  typescript: {
-    outputFile: path.resolve(dirname, '../../../packages/types/payload-types.ts'),
-  },
 })

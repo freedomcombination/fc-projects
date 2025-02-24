@@ -11,6 +11,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@fc/intl": "workspace:*",
     "@fc/ui": "workspace:*",
     "@tanstack/react-query": "^5.66.9",
     "next": "^15.1.7",
@@ -23,8 +24,6 @@
     "@fc/config-eslint": "workspace:*",
     "@fc/config-tailwind": "workspace:*",
     "@fc/config-typescript": "workspace:*",
-    "@fc/intl": "workspace:*",
-    "@fc/ui": "workspace:*",
     "@types/node": "^20.17.19",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",

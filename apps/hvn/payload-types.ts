@@ -68,7 +68,7 @@ export interface Config {
   collections: {
     users: User
     media: Media
-    blogs: Blog
+    donations: Donation
     pages: Page
     forms: Form
     'form-submissions': FormSubmission
@@ -80,7 +80,7 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>
     media: MediaSelect<false> | MediaSelect<true>
-    blogs: BlogsSelect<false> | BlogsSelect<true>
+    donations: DonationsSelect<false> | DonationsSelect<true>
     pages: PagesSelect<false> | PagesSelect<true>
     forms: FormsSelect<false> | FormsSelect<true>
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>
@@ -158,11 +158,19 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "blogs".
+ * via the `definition` "donations".
  */
-export interface Blog {
+export interface Donation {
   id: string
-  title?: string | null
+  amount: number
+  currency: string
+  paymentType?: ('one-time' | 'monthly') | null
+  email?: string | null
+  stripePaymentIntentId: string
+  date: string
+  campaign?: string | null
+  message?: string | null
+  status?: ('pending' | 'paid') | null
   updatedAt: string
   createdAt: string
 }
@@ -397,8 +405,8 @@ export interface PayloadLockedDocument {
         value: string | Media
       } | null)
     | ({
-        relationTo: 'blogs'
-        value: string | Blog
+        relationTo: 'donations'
+        value: string | Donation
       } | null)
     | ({
         relationTo: 'pages'
@@ -489,10 +497,18 @@ export interface MediaSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "blogs_select".
+ * via the `definition` "donations_select".
  */
-export interface BlogsSelect<T extends boolean = true> {
-  title?: T
+export interface DonationsSelect<T extends boolean = true> {
+  amount?: T
+  currency?: T
+  paymentType?: T
+  email?: T
+  stripePaymentIntentId?: T
+  date?: T
+  campaign?: T
+  message?: T
+  status?: T
   updatedAt?: T
   createdAt?: T
 }

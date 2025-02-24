@@ -1,4 +1,6 @@
 import type { StripeWebhookHandler } from '@payloadcms/plugin-stripe/types'
+
+import { BasePayload } from 'payload'
 import { Stripe } from 'stripe'
 
 async function createOrUpdateDonation(payload: any, data: any, paymentIntentId: string) {
@@ -29,7 +31,7 @@ async function createOrUpdateDonation(payload: any, data: any, paymentIntentId: 
   }
 }
 
-async function updateDonationStatus(payload: any, paymentIntentId: string, status: 'pending' | 'paid') {
+async function updateDonationStatus(payload: BasePayload, paymentIntentId: string, status: 'pending' | 'paid') {
   try {
     await payload.update({
       collection: 'donations',
@@ -53,7 +55,7 @@ export const stripeWebhookHandler: StripeWebhookHandler = async ({ event, payloa
   if (!paymentIntentId) {
     console.warn('Payment Intent ID not found in event:', event)
   }
-  console.log({ type: event.type, data: event.data.object })
+  console.log({ data: event.data.object, type: event.type })
 
   switch (event.type) {
     case 'checkout.session.completed':

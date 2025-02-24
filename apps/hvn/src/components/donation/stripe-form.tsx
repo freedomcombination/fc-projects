@@ -64,9 +64,9 @@ export function SupportStripe() {
           <div className="space-y-2">
             <Label htmlFor="email">E-mail</Label>
             <Input
+              autoComplete="email"
               className="px-2"
               id="email"
-              autoComplete="email"
               onChange={(e) =>
                 setFormData((prev) => ({
                   ...prev,
@@ -156,8 +156,8 @@ export function SupportStripe() {
             amount={Number(formData.customAmount)}
             className="w-full text-white"
             email={formData.email}
-            type={formData.frequency}
             size="lg"
+            type={formData.frequency}
           >
             <Lock className="mr-2 h-4 w-4" />
             Bağış Yap

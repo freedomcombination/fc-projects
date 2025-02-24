@@ -1,21 +1,31 @@
 'use client'
 
-import { useState } from 'react'
+import { FC, useState } from 'react'
 
 import { Button } from '@fc/ui/base/button'
 import { Input } from '@fc/ui/base/input'
 
 import { useTranslations } from 'next-intl'
 
-const ApplicationPage = () => {
-  const t = useTranslations('Application')
+import { Form } from '../../../payload-types'
+
+type ApplicationFormProps = {
+  form: Form
+}
+
+export const ApplicationForm: FC<ApplicationFormProps> = ({ form }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [acceptedTerms, setAcceptedTerms] = useState(false)
+
+  const t = useTranslations('Application')
 
   const cities = ['Amsterdam', 'Den Haag', 'Noord Brabant']
   const events = ['Harmonie van Nederland - Amsterdam']
 
   const handleSubmit = async (e: React.FormEvent) => {
+    // TODO: Use form.id and form-submission endpoint
+    console.log('form', form)
+
     e.preventDefault()
     if (!acceptedTerms) {
       alert('You must accept the terms of use to proceed.')
@@ -101,7 +111,7 @@ const ApplicationPage = () => {
                 placeholder={t('message')}
                 required
                 rows={5}
-              ></textarea>
+              />
             </label>
 
             <div className="flex items-center">
@@ -127,5 +137,3 @@ const ApplicationPage = () => {
     </section>
   )
 }
-
-export default ApplicationPage
