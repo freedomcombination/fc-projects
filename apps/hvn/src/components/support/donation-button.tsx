@@ -15,15 +15,6 @@ type DonateButtonProps = {
 const DonateButton: FC<DonateButtonProps> = ({ amount, children, email, type, ...props }) => {
   const router = useRouter()
   const path = usePathname()
-  const searchParams = useSearchParams()
-  const status = searchParams.get('status')
-  useEffect(() => {
-    if (status === 'success') {
-      toast.success('Payment Successful', { description: 'Thank you for your donation!' })
-    } else if (status === 'cancel') {
-      toast.error('Payment Canceled', { description: 'Your donation was not completed.' })
-    }
-  }, [status])
 
   const handleDonate = async (e: MouseEvent) => {
     e.preventDefault()
