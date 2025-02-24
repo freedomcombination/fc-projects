@@ -9,7 +9,7 @@ import { notFound } from 'next/navigation'
 
 import { Header } from '@/components/header/Header'
 
-import './globals.css'
+import '@fc/ui/styles/globals.css'
 
 const fontSans = Geist({
   subsets: ['latin'],

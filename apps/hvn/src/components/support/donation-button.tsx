@@ -25,12 +25,12 @@ const DonateButton: FC<DonateButtonProps> = ({ amount, children, email, type, ..
     }
   }, [status])
 
-  const handleDonate = async () => {
-    const successUrl = `${window.location.origin}${path}?status=success`
-    const cancelUrl = `${window.location.origin}${path}?status=cancel`
+  const handleDonate = async (e: MouseEvent) => {
+    e.preventDefault()
+    const returnUrl = `${window.location.origin}${path}`
 
     const response = await fetch('/api/donate', {
-      body: JSON.stringify({ amount, cancelUrl, email, successUrl, type }),
+      body: JSON.stringify({ amount, email, returnUrl, type }),
       headers: { 'Content-Type': 'application/json' },
       method: 'POST',
     })

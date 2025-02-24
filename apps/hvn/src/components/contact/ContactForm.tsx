@@ -5,44 +5,77 @@ import { Input } from '@fc/ui/base/input'
 
 import { useTranslations } from 'next-intl'
 
-export const ContactForm = () => {
+import { Textarea } from '@fc/ui/base/textarea'
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@fc/ui/base/card'
+import { Label } from '@fc/ui/base/label'
+import { Send } from 'lucide-react'
+
+export default function ContactForm() {
   const t = useTranslations('Contact')
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
     setIsSubmitting(true)
-    // Implement form submission logic here
-    console.log('Form submitted')
-    setIsSubmitting(false)
+    // Add your form submission logic here
+    // Once done, set setIsSubmitting(false)
   }
 
   return (
-    <form className="bg-white rounded-lg shadow-lg p-8 space-y-6" onSubmit={handleSubmit}>
-      <label>
-        {t('name')}
-        <Input name="name" required />
-      </label>
-      <label>
-        {t('email')}
-        <Input name="email" required type="email" />
-      </label>
-      <label>
-        {t('message')}
-        <textarea
-          className="w-full p-3 rounded-lg border bg-background"
-          placeholder={t('message')}
-          required
-          rows={5}
-        ></textarea>
-      </label>
-      <Button
-        className="w-full bg-primary text-white py-3 px-6 rounded-lg shadow-md hover:bg-primary-dark transition"
-        disabled={isSubmitting}
-        type="submit"
-      >
-        {isSubmitting ? t('sending') : t('send')}
-      </Button>
-    </form>
+    <Card className="w-full max-w-md mx-auto">
+      <CardHeader>
+        <CardTitle>{t('us')}</CardTitle>
+        <CardDescription>{t('description')}</CardDescription>
+      </CardHeader>
+      <form onSubmit={handleSubmit}>
+        <CardContent className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="name">{t('name')}</Label>
+            <Input id="name" name="name" required />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="email">{t('email')}</Label>
+            <Input id="email" name="email" type="email" required />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="message">{t('message')}</Label>
+            <Textarea
+              id="message"
+              name="message"
+              placeholder={t('message_placeholder')}
+              required
+              className="min-h-[100px]"
+            />
+          </div>
+        </CardContent>
+        <CardFooter>
+          <Button className="w-full" disabled={isSubmitting} type="submit">
+            {isSubmitting ? (
+              <span className="flex items-center justify-center text-white">
+                <span className="mr-2">{t('sending')}</span>
+                <svg
+                  className="animate-spin h-5 w-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                  ></path>
+                </svg>
+              </span>
+            ) : (
+              <span className="flex items-center justify-center text-white">
+                <span className="mr-2">{t('send')}</span>
+                <Send className="h-5 w-5" />
+              </span>
+            )}
+          </Button>
+        </CardFooter>
+      </form>
+    </Card>
   )
 }

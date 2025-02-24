@@ -28,7 +28,7 @@ interface FormData {
 export function SupportStripe() {
   const [formData, setFormData] = useState<FormData>({
     customAmount: '25',
-    email: '',
+    email: process.env.NODE_ENV !== 'production' ? 'B1X3F@example.com' : '',
     frequency: 'monthly',
   })
 
@@ -49,16 +49,7 @@ export function SupportStripe() {
   }
 
   return (
-    <Card className="bg-white">
-      <CardHeader>
-        <CardTitle className="flex flex-col items-center gap-6 ">
-          <img alt="Stichting Logo" className="rounded-full object-cover shadow-md h-24" src="/images/logo.png" />
-          <div>
-            <h3 className="text-lg font-bold">Stichting Wees de Stem voor Vrijheid</h3>
-            <p className="text-sm text-muted-foreground">(Freedom Combination)</p>
-          </div>
-        </CardTitle>
-      </CardHeader>
+    <Card className="rounded-lg">
       <CardContent>
         <form className="space-y-6">
           <div className="space-y-2">

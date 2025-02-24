@@ -13,6 +13,7 @@ import { Support } from '@/components/support/Support'
 
 import { AboutSection } from './about/AboutSection'
 import ApplicationPage from './application/page'
+import ContactForm from '@/components/contact/ContactForm'
 
 const sections = ['home', 'about', 'application', 'support']
 
@@ -45,13 +46,6 @@ export default function HomePage() {
 
     return () => observer.disconnect()
   }, [])
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    // Implement form submission logic here
-    console.log('Form submitted')
-    setIsSubmitting(false)
-  }
 
   return (
     <main className="relative">
@@ -95,26 +89,7 @@ export default function HomePage() {
             </div>
 
             {/* Contact Form */}
-            <form className="bg-white rounded-lg shadow-lg p-8 space-y-6" onSubmit={handleSubmit}>
-              <label>
-                {t('Contact.name')}
-                <Input name="name" required />
-              </label>
-              <Input name="email" required type="email" />
-              <textarea
-                className="w-full p-3 rounded-lg border bg-background"
-                placeholder={t('Contact.message')}
-                required
-                rows={5}
-              />
-              <Button
-                className="w-full bg-primary text-white py-3 px-6 rounded-lg shadow-md hover:bg-primary-dark transition"
-                disabled={isSubmitting}
-                type="submit"
-              >
-                {isSubmitting ? t('Contact.sending') : t('Contact.send')}
-              </Button>
-            </form>
+            <ContactForm />
           </div>
         </div>
       </section>

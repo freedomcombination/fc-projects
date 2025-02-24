@@ -10,16 +10,7 @@ export function SupportBank() {
   }
 
   return (
-    <Card className="bg-white">
-      <CardHeader>
-        <CardTitle className="flex flex-col items-center gap-6 ">
-          <img alt="Stichting Logo" className="rounded-full object-cover shadow-md h-24" src="/images/logo.png" />
-          <div>
-            <h3 className="text-lg font-bold">Stichting Wees de Stem voor Vrijheid</h3>
-            <p className="text-sm text-muted-foreground">(Freedom Combination)</p>
-          </div>
-        </CardTitle>
-      </CardHeader>
+    <Card className="rounded-lg">
       <CardContent className="space-y-4">
         <div className="bg-muted p-4">
           <label className="text-sm font-medium text-muted-foreground">IBAN</label>
