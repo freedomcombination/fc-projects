@@ -109,12 +109,18 @@ importers:
       '@payloadcms/db-mongodb':
         specifier: ^3.24.0
         version: 3.24.0(@aws-sdk/credential-providers@3.750.0)(payload@3.24.0(graphql@16.10.0)(typescript@5.7.3))(socks@2.8.4)
+      '@payloadcms/email-nodemailer':
+        specifier: ^3.24.0
+        version: 3.24.0(payload@3.24.0(graphql@16.10.0)(typescript@5.7.3))
       '@payloadcms/next':
         specifier: ^3.24.0
         version: 3.24.0(@types/react@19.0.10)(graphql@16.10.0)(monaco-editor@0.52.2)(next@15.1.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.24.0(graphql@16.10.0)(typescript@5.7.3))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
       '@payloadcms/payload-cloud':
         specifier: ^3.24.0
         version: 3.24.0(payload@3.24.0(graphql@16.10.0)(typescript@5.7.3))
+      '@payloadcms/plugin-form-builder':
+        specifier: ^3.24.0
+        version: 3.24.0(@types/react@19.0.10)(monaco-editor@0.52.2)(next@15.1.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.24.0(graphql@16.10.0)(typescript@5.7.3))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
       '@payloadcms/richtext-lexical':
         specifier: ^3.24.0
         version: 3.24.0(@faceless-ui/modal@3.0.0-beta.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@faceless-ui/scroll-info@2.0.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@payloadcms/next@3.24.0(@types/react@19.0.10)(graphql@16.10.0)(monaco-editor@0.52.2)(next@15.1.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.24.0(graphql@16.10.0)(typescript@5.7.3))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3))(@types/react@19.0.10)(monaco-editor@0.52.2)(next@15.1.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.24.0(graphql@16.10.0)(typescript@5.7.3))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)(yjs@13.6.23)
@@ -139,6 +145,9 @@ importers:
       next-intl:
         specifier: ^3.26.5
         version: 3.26.5(next@15.1.7(@babel/core@7.26.9)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(react@19.0.0)
+      nodemailer:
+        specifier: ^6.10.0
+        version: 6.10.0
       payload:
         specifier: ^3.24.0
         version: 3.24.0(graphql@16.10.0)(typescript@5.7.3)
@@ -2436,6 +2445,13 @@ packages:
     resolution: {integrity: sha512-74rqzxQjZWRFCgEXof/etpQB6Ar5bNlBDTSbcd+XLqA2QXLjG8JU/hlzdXsa2BgQRUCVJlkDh+REF/4Bi8zfmQ==}
     peerDependencies:
       payload: 3.24.0
+
+  '@payloadcms/plugin-form-builder@3.24.0':
+    resolution: {integrity: sha512-cXQhR3KdipW0HlheKynVNoS7NvH/1iplcnsGyVvaq7wtkf5PDGm7W8qszDvj0anCIHPZdW6J0REzvJnfFF8wAg==}
+    peerDependencies:
+      payload: 3.24.0
+      react: ^19.0.0 || ^19.0.0-rc-65a56d0e-20241020
+      react-dom: ^19.0.0 || ^19.0.0-rc-65a56d0e-20241020
 
   '@payloadcms/richtext-lexical@3.24.0':
     resolution: {integrity: sha512-JT2RZvgXnH+gvYFIll/WFkZ+iM4Ppmi5PKlJWTePnJePas1uPJYFw3GzE1nuJrcB7VEAEVNV8B45qb6gl9mP2g==}
@@ -6244,6 +6260,10 @@ packages:
 
   node-releases@2.0.19:
     resolution: {integrity: sha512-xxOWJsBKtzAq7DY0J+DTzuz58K8e7sJbdgwkbMWQe8UYB6ekmsQ45q0M/tJDsGaZmbC+l7n57UV8Hl5tHxO9uw==}
+
+  nodemailer@6.10.0:
+    resolution: {integrity: sha512-SQ3wZCExjeSatLE/HBaXS5vqUOQk6GtBdIIKxiFdmm01mOQZX/POJkO3SUX1wDiYcwUOJwT23scFSC9fY2H8IA==}
+    engines: {node: '>=6.0.0'}
 
   nodemailer@6.9.16:
     resolution: {integrity: sha512-psAuZdTIRN08HKVd/E8ObdV6NO7NTBY3KsC30F7M4H1OnmLCUNaS56FpYxyb26zWLSyYF9Ozch9KYHhHegsiOQ==}
@@ -10323,12 +10343,12 @@ snapshots:
   '@graphql-tools/optimize@1.4.0(graphql@16.10.0)':
     dependencies:
       graphql: 16.10.0
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   '@graphql-tools/optimize@2.0.0(graphql@16.10.0)':
     dependencies:
       graphql: 16.10.0
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   '@graphql-tools/prisma-loader@8.0.17(@types/node@22.13.5)(graphql@16.10.0)':
     dependencies:
@@ -10363,7 +10383,7 @@ snapshots:
       '@ardatan/relay-compiler': 12.0.0(graphql@16.10.0)
       '@graphql-tools/utils': 9.2.1(graphql@16.10.0)
       graphql: 16.10.0
-      tslib: 2.6.3
+      tslib: 2.8.1
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -10373,7 +10393,7 @@ snapshots:
       '@ardatan/relay-compiler': 12.0.2(graphql@16.10.0)
       '@graphql-tools/utils': 10.8.2(graphql@16.10.0)
       graphql: 16.10.0
-      tslib: 2.6.3
+      tslib: 2.8.1
     transitivePeerDependencies:
       - encoding
 
@@ -10416,13 +10436,13 @@ snapshots:
   '@graphql-tools/utils@8.13.1(graphql@16.10.0)':
     dependencies:
       graphql: 16.10.0
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   '@graphql-tools/utils@9.2.1(graphql@16.10.0)':
     dependencies:
       '@graphql-typed-document-node/core': 3.2.0(graphql@16.10.0)
       graphql: 16.10.0
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   '@graphql-tools/wrap@10.0.31(graphql@16.10.0)':
     dependencies:
@@ -10858,6 +10878,20 @@ snapshots:
     transitivePeerDependencies:
       - aws-crt
       - encoding
+
+  '@payloadcms/plugin-form-builder@3.24.0(@types/react@19.0.10)(monaco-editor@0.52.2)(next@15.1.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.24.0(graphql@16.10.0)(typescript@5.7.3))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)':
+    dependencies:
+      '@payloadcms/ui': 3.24.0(@types/react@19.0.10)(monaco-editor@0.52.2)(next@15.1.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.24.0(graphql@16.10.0)(typescript@5.7.3))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)
+      escape-html: 1.0.3
+      payload: 3.24.0(graphql@16.10.0)(typescript@5.7.3)
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+    transitivePeerDependencies:
+      - '@types/react'
+      - monaco-editor
+      - next
+      - supports-color
+      - typescript
 
   '@payloadcms/richtext-lexical@3.24.0(@faceless-ui/modal@3.0.0-beta.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@faceless-ui/scroll-info@2.0.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(@payloadcms/next@3.24.0(@types/react@19.0.10)(graphql@16.10.0)(monaco-editor@0.52.2)(next@15.1.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.24.0(graphql@16.10.0)(typescript@5.7.3))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3))(@types/react@19.0.10)(monaco-editor@0.52.2)(next@15.1.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(sass@1.77.4))(payload@3.24.0(graphql@16.10.0)(typescript@5.7.3))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.3)(yjs@13.6.23)':
     dependencies:
@@ -12975,7 +13009,7 @@ snapshots:
   camel-case@4.1.2:
     dependencies:
       pascal-case: 3.1.2
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   camelcase-css@2.0.1: {}
 
@@ -12986,7 +13020,7 @@ snapshots:
   capital-case@1.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.6.3
+      tslib: 2.8.1
       upper-case-first: 2.0.2
 
   case-sensitive-paths-webpack-plugin@2.4.0: {}
@@ -13077,7 +13111,7 @@ snapshots:
       path-case: 3.0.4
       sentence-case: 3.0.4
       snake-case: 3.0.4
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   character-entities-html4@2.1.0: {}
 
@@ -13231,7 +13265,7 @@ snapshots:
   constant-case@3.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.6.3
+      tslib: 2.8.1
       upper-case: 2.0.2
 
   constants-browserify@1.0.0: {}
@@ -13552,7 +13586,7 @@ snapshots:
   dot-case@3.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   dotenv@16.0.3: {}
 
@@ -13800,7 +13834,7 @@ snapshots:
       eslint: 9.21.0(jiti@2.4.2)
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 3.8.3(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.24.1(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3))(eslint@9.21.0(jiti@2.4.2)))(eslint@9.21.0(jiti@2.4.2))
-      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.24.1(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3))(eslint-import-resolver-typescript@3.8.3)(eslint@9.21.0(jiti@2.4.2))
+      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.24.1(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3))(eslint-import-resolver-typescript@3.8.3(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.24.1(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3))(eslint@9.21.0(jiti@2.4.2)))(eslint@9.21.0(jiti@2.4.2)))(eslint@9.21.0(jiti@2.4.2))
       eslint-plugin-jsx-a11y: 6.10.2(eslint@9.21.0(jiti@2.4.2))
       eslint-plugin-react: 7.37.4(eslint@9.21.0(jiti@2.4.2))
       eslint-plugin-react-hooks: 5.1.0(eslint@9.21.0(jiti@2.4.2))
@@ -13834,7 +13868,7 @@ snapshots:
       stable-hash: 0.0.4
       tinyglobby: 0.2.12
     optionalDependencies:
-      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.24.1(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3))(eslint-import-resolver-typescript@3.8.3)(eslint@9.21.0(jiti@2.4.2))
+      eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.24.1(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3))(eslint-import-resolver-typescript@3.8.3(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.24.1(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3))(eslint@9.21.0(jiti@2.4.2)))(eslint@9.21.0(jiti@2.4.2)))(eslint@9.21.0(jiti@2.4.2))
     transitivePeerDependencies:
       - supports-color
 
@@ -13849,7 +13883,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.24.1(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3))(eslint-import-resolver-typescript@3.8.3)(eslint@9.21.0(jiti@2.4.2)):
+  eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.24.1(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3))(eslint-import-resolver-typescript@3.8.3(eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.24.1(eslint@9.21.0(jiti@2.4.2))(typescript@5.7.3))(eslint@9.21.0(jiti@2.4.2)))(eslint@9.21.0(jiti@2.4.2)))(eslint@9.21.0(jiti@2.4.2)):
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.8
@@ -14434,7 +14468,7 @@ snapshots:
   graphql-tag@2.12.6(graphql@16.10.0):
     dependencies:
       graphql: 16.10.0
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   graphql-ws@6.0.4(graphql@16.10.0)(ws@8.18.1):
     dependencies:
@@ -14497,7 +14531,7 @@ snapshots:
   header-case@2.0.4:
     dependencies:
       capital-case: 1.0.4
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   help-me@5.0.0: {}
 
@@ -14767,7 +14801,7 @@ snapshots:
 
   is-lower-case@2.0.2:
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   is-map@2.0.3: {}
 
@@ -14833,7 +14867,7 @@ snapshots:
 
   is-upper-case@2.0.2:
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   is-weakmap@2.0.2: {}
 
@@ -15072,13 +15106,13 @@ snapshots:
 
   lower-case-first@2.0.2:
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   lower-case@1.1.4: {}
 
   lower-case@2.0.2:
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   lru-cache@10.4.3: {}
 
@@ -15528,7 +15562,7 @@ snapshots:
   no-case@3.0.4:
     dependencies:
       lower-case: 2.0.2
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   node-abort-controller@3.1.1: {}
 
@@ -15590,6 +15624,8 @@ snapshots:
       webpack: 5.98.0(esbuild@0.25.0)
 
   node-releases@2.0.19: {}
+
+  nodemailer@6.10.0: {}
 
   nodemailer@6.9.16: {}
 
@@ -15784,7 +15820,7 @@ snapshots:
   param-case@3.0.4:
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   parent-module@1.0.1:
     dependencies:
@@ -15830,7 +15866,7 @@ snapshots:
   pascal-case@3.1.2:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   path-browserify@1.0.1: {}
 
@@ -15841,7 +15877,7 @@ snapshots:
   path-case@3.0.4:
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   path-exists@4.0.0: {}
 
@@ -16602,7 +16638,7 @@ snapshots:
   sentence-case@3.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.6.3
+      tslib: 2.8.1
       upper-case-first: 2.0.2
 
   serialize-javascript@6.0.2:
@@ -16741,7 +16777,7 @@ snapshots:
   snake-case@3.0.4:
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   socks-proxy-agent@8.0.5:
     dependencies:
@@ -16786,7 +16822,7 @@ snapshots:
 
   sponge-case@1.0.1:
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   sprintf-js@1.1.3: {}
 
@@ -16977,7 +17013,7 @@ snapshots:
 
   swap-case@2.0.2:
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   sync-fetch@0.6.0-2:
     dependencies:
@@ -17114,7 +17150,7 @@ snapshots:
 
   title-case@3.0.3:
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   tmp@0.0.33:
     dependencies:
@@ -17402,13 +17438,13 @@ snapshots:
 
   upper-case-first@2.0.2:
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   upper-case@1.1.3: {}
 
   upper-case@2.0.2:
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   uri-js@4.4.1:
     dependencies:
