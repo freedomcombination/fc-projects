@@ -3,7 +3,7 @@ import { Providers } from '@fc/ui/components/providers'
 
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Geist } from 'next/font/google'
 import { notFound } from 'next/navigation'
 
 import '@fc/ui/globals.css'
@@ -11,11 +11,6 @@ import '@fc/ui/globals.css'
 const fontSans = Geist({
   subsets: ['latin'],
   variable: '--font-sans',
-})
-
-const fontMono = Geist_Mono({
-  subsets: ['latin'],
-  variable: '--font-mono',
 })
 
 export default async function RootLayout({
@@ -35,7 +30,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased `}>
+      <body className={`${fontSans.variable} font-sans antialiased `}>
         <NextIntlClientProvider messages={messages}>
           <Providers>{children}</Providers>
         </NextIntlClientProvider>
