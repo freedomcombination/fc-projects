@@ -1,6 +1,7 @@
 import { Suspense } from 'react'
 
 import { Button } from '@fc/ui/base/button'
+import { Contact } from '@fc/ui/components/contact'
 import { LocaleSwitcher } from '@fc/ui/components/locale-switcher'
 import { ModeToggle } from '@fc/ui/components/mode-toggle'
 
@@ -18,6 +19,7 @@ export default function Page() {
         <Suspense>
           <ModeToggle />
           <LocaleSwitcher />
+          <Contact />
         </Suspense>
       </div>
     </div>
