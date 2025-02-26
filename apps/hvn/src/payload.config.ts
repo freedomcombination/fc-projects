@@ -61,6 +61,13 @@ export default buildConfig({
         text: true,
         textarea: true,
       },
+      formOverrides: {
+        admin: {
+          components: {
+            Description: '../../../components/SyncForms#MyDescriptionComponent',
+          }
+        }
+      }
     }),
   ],
   secret: process.env.PAYLOAD_SECRET || '',

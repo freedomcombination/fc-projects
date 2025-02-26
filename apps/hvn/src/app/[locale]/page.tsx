@@ -8,17 +8,24 @@ import { Footer } from '@/components/footer/Footer'
 import { Hero } from '@/components/hero/Hero'
 import { Support } from '@/components/support/Support'
 import config from '@/payload.config'
+import { seed } from '@/utils/form-seed'
 
 export default async function HomePage() {
   const t = await getTranslations()
 
   const payload = await getPayload({ config })
 
+
+  await seed(payload)
+
+
   const formsResponse = await payload.find({
     collection: 'forms',
     draft: false,
     overrideAccess: false,
   })
+
+  console.log('formsResponse', formsResponse)
 
   const applicationForm = formsResponse.docs.find((f) => f.title === 'Application Form')
   const contactForm = formsResponse.docs.find((f) => f.title === 'Contact Form')
