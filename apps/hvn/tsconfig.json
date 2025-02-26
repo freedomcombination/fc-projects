@@ -1,7 +1,22 @@
 {
   "extends": "@fc/config-typescript/nextjs.json",
   "compilerOptions": {
-    "plugins": [{ "name": "next" }]
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"],
+      "@payload-config": ["./src/payload.config.ts"],
+      "@fc/ui/*": ["../../packages/ui/src/*"],
+      "@fc/ui/base/*": ["../../packages/ui/src/base/*"],
+      "@fc/ui/components/*": ["../../packages/ui/src/components/*"],
+      "@fc/ui/hooks/*": ["../../packages/ui/src/hooks/*"],
+      "@fc/ui/lib/*": ["../../packages/ui/src/lib/*"]
+    },
+    "declaration": false,
+    "declarationMap": false
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]

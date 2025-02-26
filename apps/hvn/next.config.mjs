@@ -1,5 +1,7 @@
 import { getNextConfig } from '@fc/intl/next.config'
 
+import { withPayload } from '@payloadcms/next/withPayload'
+
 const nextConfig = getNextConfig({
   images: {
     remotePatterns: [
@@ -18,4 +20,5 @@ const nextConfig = getNextConfig({
   transpilePackages: ['@fc/ui'],
 })
 
-export default nextConfig
+
+export default withPayload(nextConfig)

@@ -24,10 +24,14 @@
     "address": "Adres",
     "firstName": "Ad",
     "lastName": "Soyad",
+    "name": "Ad",
     "subject": "Konu",
     "message": "Mesajınızı buraya yazın...",
+    "message_placeholder": "Bize iletmek istediğiniz mesajı buraya yazın.",
     "send": "Mesajı Gönder",
-    "sending": "Gönderiliyor..."
+    "sending": "Gönderiliyor...",
+    "us": "Bizimle iletişime geçin",
+    "description": "Aşağıdaki formu doldurarak bizimle iletişime geçebilirsiniz."
   },
   "About": {
     "cultural": {
@@ -54,6 +58,8 @@
   "Application": {
     "title": "Başvuru Formu",
     "subtitle": "Lütfen bilgilerinizi doldurun",
+    "applicationForm": "Başvuru Formu",
+    "fillOutForm": "Lütfen başvuru formunu doldurun",
     "fullName": "Tam Ad",
     "dateOfBirth": "Doğum Tarihi",
     "phone": "Telefon Numarası",

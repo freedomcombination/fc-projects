@@ -4,28 +4,32 @@
   "private": true,
   "scripts": {
     "build": "turbo build",
+    "hvn": "turbo hvn",
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{js,jsx,css,ts,tsx,md,json}\"",
     "storybook": "turbo run storybook --filter=@fc/ui",
     "add-component": "cd packages/ui && pnpm dlx shadcn add && pnpm lint",
     "type-check": "turbo run type-check",
-    "codegen": "turbo run codegen"
+    "codegen": "turbo run codegen",
+    "generate:types": "turbo run generate:types"
   },
   "dependencies": {
     "@fc/ui": "workspace:*",
-    "zod": "^3.24.2"
+    "zod": "^3.24.2",
+    "kill-port-process": "^3.2.1"
   },
   "devDependencies": {
     "@fc/config-typescript": "workspace:*",
-    "@turbo/gen": "^2.4.2",
+    "@turbo/gen": "^2.4.4",
     "@types/node": "^20.17.19",
-    "prettier": "^3.5.1",
+    "eslint": "^9.21.0",
+    "prettier": "^3.5.2",
     "prettier-plugin-tailwindcss": "^0.6.11",
-    "turbo": "^2.4.2",
+    "turbo": "^2.4.4",
     "typescript": "5.7.3"
   },
-  "packageManager": "pnpm@9.15.4",
+  "packageManager": "pnpm@10.5.0+sha512.11106a5916c7406fe4b8cb8e3067974b8728f47308a4f5ac5e850304afa6f57e2847d7950dfe78877d8d36bfb401d381c4215db3a4c3547ffa63c14333a6fa51",
   "engines": {
     "node": ">=20"
   }

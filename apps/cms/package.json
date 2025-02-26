@@ -1,7 +1,7 @@
 {
   "name": "cms",
   "version": "1.0.0",
-  "description": "A blank template to get started with Payload 3.0",
+  "description": "FC Projects CMS",
   "license": "MIT",
   "type": "module",
   "scripts": {
@@ -15,26 +15,30 @@
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start"
   },
   "dependencies": {
-    "@payloadcms/db-mongodb": "^3.23.0",
-    "@payloadcms/next": "^3.23.0",
-    "@payloadcms/payload-cloud": "^3.23.0",
-    "@payloadcms/richtext-lexical": "^3.23.0",
+    "@payloadcms/db-mongodb": "^3.24.0",
+    "@payloadcms/next": "^3.24.0",
+    "@payloadcms/payload-cloud": "^3.24.0",
+    "@payloadcms/richtext-lexical": "^3.24.0",
+    "@payloadcms/plugin-form-builder": "^3.24.0",
     "cross-env": "^7.0.3",
     "graphql": "^16.10.0",
+    "lexical": "^0.25.0",
     "next": "15.1.7",
-    "payload": "^3.23.0",
+    "payload": "^3.24.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "sharp": "0.32.6"
+    "sharp": "0.33.5"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.2.0",
+    "@eslint/eslintrc": "^3.3.0",
+    "@fc/config-payload": "workspace:*",
+    "@fc/ui": "workspace:*",
     "@types/node": "^20.17.19",
-    "@types/react": "19.0.8",
-    "@types/react-dom": "19.0.3",
-    "eslint": "^9.20.1",
+    "@types/nodemailer": "^6.4.17",
+    "@types/react": "19.0.10",
+    "@types/react-dom": "19.0.4",
     "eslint-config-next": "15.1.7",
-    "prettier": "^3.5.1",
+    "prettier": "^3.5.2",
     "typescript": "5.7.3"
   },
   "engines": {

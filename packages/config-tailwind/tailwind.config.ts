@@ -8,6 +8,7 @@ const config = {
     'app/**/*.{ts,tsx}',
     '../../packages/ui/src/base/**/*.{ts,tsx}',
     '../../packages/ui/src/components/**/*.{ts,tsx}',
+    '../../packages/ui/src/blocks/**/*.{ts,tsx}',
   ],
   darkMode: ['class'],
   plugins: [tailwindcssAnimate],
