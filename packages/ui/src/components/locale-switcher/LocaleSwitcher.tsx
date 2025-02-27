@@ -30,7 +30,7 @@ export function LocaleSwitcher() {
       // always match for the current route, we can skip runtime checks.
       // @ts-expect-error
       { params, pathname },
-      { locale },
+      { locale, scroll: false },
     )
   }
 

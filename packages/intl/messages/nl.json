@@ -20,7 +20,8 @@
     "event": "Evenement",
     "acceptTerms": "Akkoord met de voorwaarden",
     "title": "Aanvraagformulier",
-    "description": "Vul het formulier hieronder in om een aanvraag te doen voor het geselecteerde evenement."
+    "description": "Vul het formulier hieronder in om een aanvraag te doen voor het geselecteerde evenement.",
+    "successDescription": "We hebben uw aanvraag ontvangen, we zullen spoedig contact met u opnemen."
   },
 
   "Header": {
@@ -51,20 +52,8 @@
     "about": "Ga naar over ons"
   },
   "Contact": {
-    "title": "Contact",
     "subtitle": "Heeft u vragen? We horen graag van u. Stuur ons een bericht en we reageren zo snel mogelijk.",
-    "contactInfo": "Contactgegevens",
-    "email": "E-mail",
-    "phone": "Telefoon",
-    "address": "Adres",
-    "name": "Naam",
-    "firstName": "Voornaam",
-    "lastName": "Achternaam",
-    "subject": "Onderwerp",
-    "message": "Vertel ons over uw evenementideeën en motivatie",
-    "messagePlaceholder": "Geef aan in welke categorie u wilt deelnemen aan het evenement en uw motivatie.",
-    "send": "Verstuur Bericht",
-    "sending": "Verzenden..."
+    "contactInfo": "Contactgegevens"
   },
   "About": {
     "cultural": {
@@ -86,23 +75,6 @@
     "unity": {
       "title": "Culturele Eenheid",
       "content": "We ontwikkelen projecten die de culturele diversiteit van Nederland vieren en deze rijkdom weerspiegelen naar alle lagen van de samenleving. Door de voordelen van het samenleven van verschillende culturen te benadrukken, streven we ernaar de sociale vrede en harmonie te versterken. Door interculturele dialoog en samenwerking dragen we bij aan het creëren van een meer inclusieve en begripvolle samenleving."
-    }
-  },
-  "Application": {
-    "title": "Aanvraagformulier",
-    "subtitle": "Vul alstublieft uw gegevens in",
-    "fullName": "Volledige naam",
-    "dateOfBirth": "Geboortedatum",
-    "phone": "Telefoonnummer",
-    "event": "Selecteer evenement",
-    "city": "Selecteer stad",
-    "message": "Typ hier uw bericht...",
-    "acceptTerms": "Ik accepteer de gebruiksvoorwaarden",
-    "submitting": "Verzenden...",
-    "submit": "Verzenden",
-    "general": {
-      "title": "Algemene Informatie",
-      "description": "Vul alstublieft de onderstaande gegevens in om uw aanvraag te starten."
     }
   },
 

@@ -75,10 +75,8 @@ export default buildConfig({
           }
           */
         },
-        endpoints: [
-          seedEndpoint
-        ]
-      }
+        endpoints: [seedEndpoint],
+      },
     }),
   ],
   secret: process.env.PAYLOAD_SECRET || '',

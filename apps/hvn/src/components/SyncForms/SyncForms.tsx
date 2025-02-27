@@ -1,4 +1,3 @@
-
 import type { ViewDescriptionServerProps } from 'payload'
 
 import { seed } from '@/utils/form-seed'
@@ -10,7 +9,11 @@ export function UpdateForms(props: ViewDescriptionServerProps) {
 
   return (
     <div>
-      To update forms from seed, <span className='cursor-pointer' onClick={updateForms}>click here</span>.
+      To update forms from seed,{' '}
+      <span className="cursor-pointer" onClick={updateForms}>
+        click here
+      </span>
+      .
     </div>
   )
 }

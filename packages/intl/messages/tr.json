@@ -26,13 +26,18 @@
     "title": "Merhaba Dünya!",
     "about": "Hakkımızda sayfasına git"
   },
+  "Contact": {
+    "subtitle": "Sorularınız var mı? Bize mesaj gönderin, en kısa sürede yanıtlayacağız.",
+    "contactInfo": "İletişim Bilgileri"
+  },
   "applicationForm": {
     "fullName": "Tam Ad",
     "dateOfBirth": "Doğum Tarihi",
     "event": "Etkinlik",
     "acceptTerms": "Şartları Kabul Et",
     "title": "Başvuru Formu",
-    "description": "Aşağıdaki formu doldurarak seçtiğiniz etkinliğe başvuru yapabilirsiniz."
+    "description": "Aşağıdaki formu doldurarak seçtiğiniz etkinliğe başvuru yapabilirsiniz.",
+    "successDescription": "Başvurunuzu kaydettik, en yakın zamanda size döneceğiz."
   },
   "contactForm": {
     "title": "İletişim formu",

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@fc/ui/base/tabs'
 
 import { useTranslations } from 'next-intl'
