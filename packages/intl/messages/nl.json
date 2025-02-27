@@ -1,4 +1,28 @@
 {
+  "submitting": "Verzenden...",
+  "submit": "Verzenden",
+  "phone": "Telefoonnummer",
+  "city": "Stad",
+  "message": "Bericht",
+  "email": "E-mail",
+  "thankYou": "Bedankt",
+  "error": "Fout",
+  "somethingWentWrong": "Er ging iets mis",
+
+  "contactForm": {
+    "title": "Contact Formulier",
+    "description": "U kunt het formulier hieronder invullen om contact met ons op te nemen."
+  },
+
+  "applicationForm": {
+    "fullName": "Volledige Naam",
+    "dateOfBirth": "Geboortedatum",
+    "event": "Evenement",
+    "acceptTerms": "Akkoord met de voorwaarden",
+    "title": "Aanvraagformulier",
+    "description": "Vul het formulier hieronder in om een aanvraag te doen voor het geselecteerde evenement."
+  },
+
   "Header": {
     "home": "Home",
     "application": "Aanvragen",

@@ -1,31 +1,32 @@
 import { getTranslations } from 'next-intl/server'
-import { getPayload } from 'payload'
+import { getPayload, TypedLocale } from 'payload'
 
 import { AboutSection } from '@/components/about/AboutSection'
-import { ApplicationForm } from '@/components/application/ApplicationForm'
-import { ContactForm } from '@/components/contact/ContactForm'
 import { Footer } from '@/components/footer/Footer'
 import { Hero } from '@/components/hero/Hero'
+import { PayloadForm } from '@/components/PayloadForm/PayloadForm'
 import { Support } from '@/components/support/Support'
 import config from '@/payload.config'
-import { seed } from '@/utils/form-seed'
 
-export default async function HomePage() {
+
+type Props = {
+  params: {
+    locale: TypedLocale
+  }
+}
+
+export default async function HomePage({ params }: Props) {
   const t = await getTranslations()
+  const { locale } = await params
 
   const payload = await getPayload({ config })
-
-
-  await seed(payload)
-
 
   const formsResponse = await payload.find({
     collection: 'forms',
     draft: false,
+    locale: locale || 'en', // this is now redundant
     overrideAccess: false,
   })
-
-  console.log('formsResponse', formsResponse)
 
   const applicationForm = formsResponse.docs.find((f) => f.title === 'Application Form')
   const contactForm = formsResponse.docs.find((f) => f.title === 'Contact Form')
@@ -45,7 +46,7 @@ export default async function HomePage() {
       {/* Application section */}
       {applicationForm && (
         <section className="py-16 bg-white" id="application">
-          <ApplicationForm form={applicationForm} />
+          <PayloadForm formData={applicationForm} />
         </section>
       )}
 
@@ -73,7 +74,7 @@ export default async function HomePage() {
               </div>
             </div>
 
-            {contactForm && <ContactForm form={contactForm} />}
+            {contactForm && <PayloadForm formData={contactForm} />}
           </div>
         </div>
       </section>

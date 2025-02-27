@@ -14,6 +14,8 @@ import { buildConfig } from 'payload'
 import sharp from 'sharp'
 import { fileURLToPath } from 'url'
 
+import { seedEndpoint } from './utils/form-seed'
+
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -63,10 +65,19 @@ export default buildConfig({
       },
       formOverrides: {
         admin: {
+          /*
+          Cant resolve this import
+          https://payloadcms.com/docs/custom-components/overview#component-paths
+          this component supposes to add custom description below the title in the forms collection page of the admin panel
+          if we can work this out, we can remove endpoint, this is much better.
           components: {
-            Description: '../../../components/SyncForms#MyDescriptionComponent',
+            Description: '/components/SyncForms#UpdateForms'
           }
-        }
+          */
+        },
+        endpoints: [
+          seedEndpoint
+        ]
       }
     }),
   ],

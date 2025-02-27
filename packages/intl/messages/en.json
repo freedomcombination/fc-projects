@@ -1,4 +1,28 @@
 {
+  "submitting": "Sending...",
+  "submit": "Send",
+  "phone": "Phone",
+  "city": "City",
+  "message": "Message",
+  "email": "E-mail",
+  "thankYou": "Thank you",
+  "error": "Error",
+  "somethingWentWrong": "Something went wrong",
+
+  "contactForm": {
+    "title": "Contact Form",
+    "description": "You can fill out the form below to contact us."
+  },
+
+  "applicationForm": {
+    "fullName": "Full Name",
+    "dateOfBirth": "Date of Birth",
+    "event": "Event",
+    "acceptTerms": "Accept Terms",
+    "title": "Application Form",
+    "description": "Fill in the form below to apply for the selected event."
+  },
+
   "Header": {
     "home": "Home",
     "application": "Application",
@@ -14,21 +38,6 @@
   "HomePage": {
     "title": "Welcome",
     "about": "Go to about page"
-  },
-  "Contact": {
-    "title": "Contact Us",
-    "subtitle": "Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.",
-    "contactInfo": "Contact Information",
-    "email": "Email",
-    "phone": "Phone",
-    "address": "Address",
-    "name": "Name",
-    "firstName": "First Name",
-    "lastName": "Last Name",
-    "subject": "Subject",
-    "message": "Tell us about your event participation and motivation",
-    "send": "Send Message",
-    "sending": "Sending..."
   },
   "About": {
     "cultural": {
@@ -50,23 +59,6 @@
     "unity": {
       "title": "Cultural Unity",
       "content": "We develop projects that celebrate the cultural diversity of the Netherlands and reflect this richness to all segments of society. By emphasizing the advantages of different cultures living together, we aim to strengthen social peace and harmony. Through intercultural dialogue and cooperation, we contribute to creating a more inclusive and understanding society."
-    }
-  },
-  "Application": {
-    "title": "Application Form",
-    "subtitle": "Please fill in your details",
-    "fullName": "Full Name",
-    "dateOfBirth": "Date of Birth",
-    "phone": "Phone Number",
-    "event": "Select Event",
-    "city": "Select City",
-    "message": "Tell us about your event participation and motivation",
-    "acceptTerms": "I accept the terms of use",
-    "submitting": "Submitting...",
-    "submit": "Submit",
-    "general": {
-      "title": "General Information",
-      "description": "Please provide the following information to help us process your application."
     }
   },
   "donation": {
