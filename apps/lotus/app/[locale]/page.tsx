@@ -9,6 +9,12 @@ import { useTranslations } from 'next-intl'
 
 export default function Page() {
   const t = useTranslations('HomePage')
+  const contactInfo = {
+    address: "Merkez Mah. Destek Cad. No:1, İstanbul",
+    email: "info@lotusvdmedia.nl",
+    phone: "+90 (212) 555 0000",
+    title: "Bize Ulaşın",
+  }
 
   return (
     <div className="flex items-center justify-center min-h-svh">
@@ -19,7 +25,13 @@ export default function Page() {
         <Suspense>
           <ModeToggle />
           <LocaleSwitcher />
-          <Contact />
+          <Contact
+        address={contactInfo.address}
+        email={contactInfo.email}
+        phone={contactInfo.phone}
+        title={contactInfo.title}
+      />
+
         </Suspense>
       </div>
     </div>
