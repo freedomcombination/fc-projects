@@ -1,4 +1,13 @@
+import React from 'react'
+
 import type { Preview, ReactRenderer } from '@storybook/react'
+
+import { Geist } from 'next/font/google'
+
+const GeistFont = Geist({
+  subsets: ['latin'],
+  variable: '--font-sans',
+})
 
 import '@fc/ui/globals.css'
 
@@ -13,6 +22,11 @@ const preview: Preview = {
         light: 'light',
       },
     }),
+    (Story) => (
+      <main className={GeistFont.className}>
+        <Story />
+      </main>
+    ),
   ],
   parameters: {
     controls: {

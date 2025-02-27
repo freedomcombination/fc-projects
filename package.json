@@ -21,15 +21,15 @@
   },
   "devDependencies": {
     "@fc/config-typescript": "workspace:*",
-    "@turbo/gen": "^2.4.2",
+    "@turbo/gen": "^2.4.4",
     "@types/node": "^20.17.19",
     "eslint": "^9.21.0",
     "prettier": "^3.5.2",
     "prettier-plugin-tailwindcss": "^0.6.11",
-    "turbo": "^2.4.2",
+    "turbo": "^2.4.4",
     "typescript": "5.7.3"
   },
-  "packageManager": "pnpm@7.33.7+sha512.7afe2410642b39c698df46da4ce5c7231a5cce360698d69f8cf8f42257d40b3e43f231053b07b8de849fd4ffbf4a71ff57b835137777a352388f3d3da747200e",
+  "packageManager": "pnpm@10.5.0+sha512.11106a5916c7406fe4b8cb8e3067974b8728f47308a4f5ac5e850304afa6f57e2847d7950dfe78877d8d36bfb401d381c4215db3a4c3547ffa63c14333a6fa51",
   "engines": {
     "node": ">=20"
   }
