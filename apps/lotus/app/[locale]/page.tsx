@@ -10,10 +10,10 @@ import { useTranslations } from 'next-intl'
 export default function Page() {
   const t = useTranslations('HomePage')
   const contactInfo = {
-    address: "Merkez Mah. Destek Cad. No:1, İstanbul",
-    email: "info@lotusvdmedia.nl",
-    phone: "+90 (212) 555 0000",
-    title: "Bize Ulaşın",
+    address: 'Merkez Mah. Destek Cad. No:1, İstanbul',
+    email: 'info@lotusvdmedia.nl',
+    phone: '+90 (212) 555 0000',
+    title: 'Bize Ulaşın',
   }
 
   return (
@@ -26,12 +26,11 @@ export default function Page() {
           <ModeToggle />
           <LocaleSwitcher />
           <Contact
-        address={contactInfo.address}
-        email={contactInfo.email}
-        phone={contactInfo.phone}
-        title={contactInfo.title}
-      />
-
+            address={contactInfo.address}
+            email={contactInfo.email}
+            phone={contactInfo.phone}
+            title={contactInfo.title}
+          />
         </Suspense>
       </div>
     </div>
