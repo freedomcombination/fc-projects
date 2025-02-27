@@ -14,7 +14,6 @@ export const Default: Story = {
   // TODO: Fill args
   args: {
     address: '',
-    className: '',
     email: '',
     phone: '',
     title: '',
