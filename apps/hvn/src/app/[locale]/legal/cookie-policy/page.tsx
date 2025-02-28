@@ -5,6 +5,7 @@ import Link from 'next/link'
 
 const CookiePolicy = () => {
   const t = useTranslations('legalPages.cookies')
+  const privacyt = useTranslations('legalPages.privacy')
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-12 space-y-8">
@@ -34,10 +35,10 @@ const CookiePolicy = () => {
       <div className="bg-background border rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
         <div className="flex items-center mb-4">
           <FaEnvelope className="w-8 h-8 text-primary mr-4" />
-          <h2 className="text-2xl font-semibold">{t('contact.title')}</h2>
+          <h2 className="text-2xl font-semibold">{privacyt('contact.title')}</h2>
         </div>
         <p className="text-muted-foreground">
-          {t('contact.description')}{' '}
+          {privacyt('contact.description')}{' '}
           <Link
             className="text-primary hover:underline font-medium inline-flex items-center"
             href="mailto:info@harmonievannederland.com"

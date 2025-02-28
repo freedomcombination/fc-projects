@@ -37,7 +37,7 @@ const PrivacyPolicy = () => {
           <h2 className="text-2xl font-semibold">{t('contact.title')}</h2>
         </div>
         <p className="text-muted-foreground">
-          {t('contact.description')}{' '}
+          {t('contact.description')}
           <Link
             className="text-primary hover:underline font-medium inline-flex items-center"
             href="mailto:info@harmonievannederland.com"

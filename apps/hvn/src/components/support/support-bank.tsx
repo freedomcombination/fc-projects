@@ -4,9 +4,11 @@ import { Button } from '@fc/ui/base/button'
 import { Card, CardContent } from '@fc/ui/base/card'
 
 import { Copy } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 
 export function SupportBank() {
+  const t = useTranslations('Support')
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text)
   }
@@ -43,8 +45,7 @@ export function SupportBank() {
               target="_blank"
             >
               <Button className="items-center flex" variant="ghost">
-                <img alt="ANBI Logo" className="h-12 object-cover shadow-md" src="/images/anbi-logo.png" /> Banka yolu
-                ile gönderin.
+                {t('bankTransfer')}
               </Button>
             </Link>
           </div>

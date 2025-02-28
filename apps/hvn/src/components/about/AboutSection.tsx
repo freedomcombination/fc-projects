@@ -29,12 +29,7 @@ const sectionConfig = {
     iconBg: 'bg-blue-100',
     image: 'https://images.unsplash.com/photo-1526976668912-1a811878dd37?q=80&w=1470',
   },
-  integration: {
-    bgColor: 'bg-orange-50',
-    icon: <MdHandshake className="text-orange-500" size={48} />,
-    iconBg: 'bg-orange-100',
-    image: 'https://images.unsplash.com/photo-1556484687-30636164638b?q=80&w=1470',
-  },
+
   platform: {
     bgColor: 'bg-green-50',
     icon: <IoMdPeople className="text-green-500" size={48} />,
@@ -51,14 +46,7 @@ const sectionConfig = {
 
 export const AboutSection = () => {
   const t = useTranslations('About')
-  const sections: Array<keyof typeof sectionConfig> = [
-    'collaborate',
-    'cultural',
-    'platform',
-    'activities',
-    'integration',
-    'unity',
-  ]
+  const sections: Array<keyof typeof sectionConfig> = ['collaborate', 'cultural', 'platform', 'activities', 'unity']
 
   return (
     <section className="py-20">

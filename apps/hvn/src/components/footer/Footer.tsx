@@ -1,5 +1,6 @@
 'use client'
 
+import { Copyright } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -14,7 +15,7 @@ export const Footer = () => {
     { href: `/${paramsLocale}#home`, label: headerTranslations('home') },
     { href: `/${paramsLocale}#about`, label: headerTranslations('about') },
     { href: `/${paramsLocale}#application`, label: headerTranslations('application') },
-    { href: `/${paramsLocale}#contact`, label: headerTranslations('contact') },
+    { href: `/${paramsLocale}#contact`, label: headerTranslations('contactNav') },
     { href: `/${paramsLocale}#support`, label: headerTranslations('support') },
   ]
 
@@ -67,7 +68,8 @@ export const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
-          <p>
+          <p className="flex justify-center items-center gap-1">
+            <Copyright size={14} />
             {new Date().getFullYear()} Harmonie van Nederland {headerTranslations('allRightsReserved')}
           </p>
         </div>
