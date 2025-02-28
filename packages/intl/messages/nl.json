@@ -26,6 +26,7 @@
 
   "Header": {
     "home": "Home",
+     "contactNav": "Contact",
     "application": "Aanvragen",
     "about": "Over ons",
     "contact": "Contact",
@@ -51,10 +52,22 @@
     "title": "Welkom",
     "about": "Ga naar over ons"
   },
-  "Contact": {
-    "subtitle": "Heeft u vragen? We horen graag van u. Stuur ons een bericht en we reageren zo snel mogelijk.",
-    "contactInfo": "Contactgegevens"
-  },
+ "Contact": {
+  "title": "Neem Contact Op",
+  "description": "Als u vragen heeft, neem dan contact met ons op",
+  "subtitle": "Vragen? We horen graag van u. Stuur ons een bericht en we reageren zo snel mogelijk.",
+  "contactInfo": "Contactgegevens",
+  "email": "E-mail",
+  "phone": "Telefoon",
+  "address": "Adres",
+  "name": "Naam",
+  "firstName": "Voornaam",
+  "lastName": "Achternaam",
+  "subject": "Onderwerp",
+  "message": "Vertel ons over uw deelname aan het evenement en uw motivatie",
+  "send": "Bericht Verzenden",
+  "sending": "Bezig met verzenden..."
+},
   "About": {
     "cultural": {
       "title": "Culturele Dialoog",
@@ -63,10 +76,6 @@
     "platform": {
       "title": "Cultureel Ontmoetingspunt",
       "content": "We bieden een ruimte waar deelnemers hun culturele erfgoed kunnen presenteren. Dit platform, met muziek, dans, podiumvoorstellingen en zangoptredens, bevordert culturele interactie en versterkt sociale banden. Bovendien draagt het archiveren van cultureel erfgoed in zowel digitale als fysieke ruimtes bij aan de overdracht naar toekomstige generaties."
-    },
-    "collaborate": {
-      "title": "Projectpartners",
-      "content": "Het Harmonie van Nederland-project is een gezamenlijk project van de Sanat Foundation en de Freedom Combination Foundation. Het werk wordt georganiseerd door het Lotus van de Media-platform binnen Freedom Combination."
     },
     "activities": {
       "title": "Culturele Activiteiten",
@@ -82,7 +91,8 @@
     }
   },
 
-  "support": {
+  "Support": {
+    "bankTransferTitle": "Bankoverschrijving",
     "value": "Jouw steun is voor ons heel waardevol!",
     "bankTransfer": "Ondersteuning bij bankoverschrijving",
     "improvement": "We werken continu aan onze site om u betere diensten te bieden."
@@ -118,7 +128,7 @@
       },
       "contact": {
         "title": "Contact",
-        "description": "Als u vragen heeft, neem dan contact met ons op via info@harmonievannederland.com."
+        "description": "Als u vragen heeft, neem dan contact met ons op via "
       }
     },
     "terms": {

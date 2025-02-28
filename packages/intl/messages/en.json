@@ -23,17 +23,11 @@
     "description": "Fill in the form below to apply for the selected event.",
     "successDescription": "We have received your application, we will get back to you as soon as possible."
   },
-
-  "Contact": {
-    "subtitle": "Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.",
-    "contactInfo": "Contact Information"
-  },
-
   "Header": {
+    "contactNav": "Contact",
     "home": "Home",
     "application": "Application",
     "about": "About",
-    "contact": "Contact",
     "support": "Support",
     "navigation": "Navigation",
     "legal": "Legal",
@@ -47,6 +41,7 @@
   },
   "Contact": {
     "title": "Contact Us",
+    "description": "If you have any questions, please contact us at",
     "subtitle": "Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.",
     "contactInfo": "Contact Information",
     "email": "Email",
@@ -66,12 +61,6 @@
       "title": "Cultural Dialogue",
       "content": "This cultural event project brings together individuals from different cultures living in the Netherlands, helping them get to know each other better. Participants explore each other’s worlds through cultural traditions, glimpses of daily life, and personal stories. This interactive project aims to create meaningful dialogues between communities through art, music, conversations, and shared experiences."
     },
-
-    "collaborate": {
-      "title": "Project Partners",
-      "content": "The Harmonie van Nederland project is a joint project of the Sanat Foundation and the Freedom Combination Foundation. The work will be organized by the Lotus van de Media platform within Freedom Combination."
-    },
-
     "platform": {
       "title": "Cultural Meeting Point",
       "content": "We offer a space where participants can showcase their cultural heritage. This platform, featuring music, dance, stage performances, and singing acts, fosters cultural interaction and strengthens social bonds. Additionally, the archiving of cultural heritage in both digital and physical spaces contributes to passing it on to future generations."
@@ -107,8 +96,6 @@
       "title": "General Information",
       "description": "Please provide the following information to help us process your application."
     }
-
-
   },
   "donation": {
     "title": "Make a Donation",
@@ -127,7 +114,8 @@
     "subtitle": "Cultures meet, talents are discovered.",
     "cta": "Learn More"
   },
-  "support": {
+  "Support": {
+    "bankTransferTitle":"Bank Transfer",
     "value": "Your support is invaluable to us!",
     "bankTransfer": "Support Us via Bank Transfer",
     "improvement": "We are continuously improving our page to make it easier for you to support us."
@@ -146,7 +134,7 @@
       },
       "contact": {
         "title": "Contact",
-        "description": "If you have any questions, please contact us at info@harmonievannederland.com."
+        "description": "If you have any questions, please contact us at "
       }
     },
     "terms": {
@@ -159,11 +147,8 @@
       "responsibilities": {
         "title": "User Responsibilities",
         "description": "Users must not cause harm to others and must avoid prohibited behaviors while using our services."
-      },
-      "contact": {
-        "title": "Contact",
-        "description": "If you have any questions, please contact us at info@harmonievannederland.com."
       }
+   
     },
     "cookies": {
       "title": "Cookie Policy",
@@ -175,11 +160,8 @@
       "userConsent": {
         "title": "Cookie Usage",
         "description": "Our website uses cookies to enhance user experience."
-      },
-      "contact": {
-        "title": "Contact",
-        "description": "If you have any questions, please contact us at info@harmonievannederland.com."
       }
+     
     }
   }
 }

@@ -53,7 +53,7 @@ export default async function HomePage({ params }: Props) {
       <section className="py-16 bg-white" id="contact">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-8">{t('Header.contact')}</h2>
+            <h2 className="text-4xl font-bold mb-8">{t('Contact.title')}</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">{t('Contact.subtitle')}</p>
           </div>
 

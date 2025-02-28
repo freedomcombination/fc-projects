@@ -15,7 +15,7 @@ export const Footer = () => {
     { href: `/${paramsLocale}#home`, label: headerTranslations('home') },
     { href: `/${paramsLocale}#about`, label: headerTranslations('about') },
     { href: `/${paramsLocale}#application`, label: headerTranslations('application') },
-    { href: `/${paramsLocale}#contact`, label: headerTranslations('contact') },
+    { href: `/${paramsLocale}#contact`, label: headerTranslations('contactNav') },
     { href: `/${paramsLocale}#support`, label: headerTranslations('support') },
   ]
 

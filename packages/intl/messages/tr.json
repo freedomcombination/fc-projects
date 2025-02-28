@@ -11,6 +11,7 @@
 
   "Header": {
     "home": "Ana Sayfa",
+    "contactNav": "İletişim",
     "application": "Başvuru",
     "about": "Hakkımızda",
     "contact": "İletişim",
@@ -25,10 +26,23 @@
     "title": "Merhaba Dünya!",
     "about": "Hakkımızda sayfasına git"
   },
-  "Contact": {
-    "subtitle": "Sorularınız var mı? Bize mesaj gönderin, en kısa sürede yanıtlayacağız.",
-    "contactInfo": "İletişim Bilgileri"
-  },
+ "Contact": {
+  "title": "Bize Ulaşın",
+  "description": "Herhangi bir sorunuz varsa bizimle iletişime geçebilirsiniz. ",
+  "subtitle": "Sorularınız mı var? Sizden haber almak isteriz. Bize bir mesaj gönderin, en kısa sürede yanıtlayalım.",
+  "contactInfo": "İletişim Bilgileri",
+  "email": "E-posta",
+  "phone": "Telefon",
+  "address": "Adres",
+  "name": "Ad",
+  "firstName": "Ad",
+  "lastName": "Soyad",
+  "subject": "Konu",
+  "message": "Etkinliğe katılımınız ve motivasyonunuz hakkında bize bilgi verin",
+  "send": "Mesaj Gönder",
+  "sending": "Gönderiliyor..."
+},
+
   "applicationForm": {
     "fullName": "Tam Ad",
     "dateOfBirth": "Doğum Tarihi",
@@ -87,7 +101,8 @@
     }
   },
 
-  "support": {
+  "Support": {
+     "bankTransferTitle":"Banka Transferi",
     "value": "Destekleriniz bizim için çok değerli!",
     "bankTransfer": "Banka Havalesi ile Destek Olun",
     "improvement": "Sayfamızı size daha iyi hizmet sunmak için sürekli olarak geliştiriyoruz."
@@ -123,7 +138,7 @@
       },
       "contact": {
         "title": "İletişim",
-        "description": "Herhangi bir sorunuz varsa, lütfen info@harmonievannederland.com adresinden bizimle iletişime geçin."
+        "description": "Herhangi bir sorunuz varsa bizimle iletişime geçebilirsiniz."
       }
     },
     "terms": {
@@ -136,11 +151,8 @@
       "responsibilities": {
         "title": "Kullanıcı Sorumlulukları",
         "description": "Kullanıcılar, hizmetlerimizi kullanırken başkalarına zarar vermemeli ve yasaklı davranışlardan kaçınmalıdır."
-      },
-      "contact": {
-        "title": "İletişim",
-        "description": "Herhangi bir sorunuz varsa, lütfen info@harmonievannederland.com adresinden bizimle iletişime geçin."
       }
+     
     },
     "cookies": {
       "title": "Çerez Politikası",
@@ -152,11 +164,8 @@
       "userConsent": {
         "title": "Çerez Kullanımı",
         "description": "Web sitemiz, kullanıcı deneyimini geliştirmek için çerezler kullanmaktadır."
-      },
-      "contact": {
-        "title": "İletişim",
-        "description": "Herhangi bir sorunuz varsa, lütfen info@harmonievannederland.com adresinden bizimle iletişime geçin."
       }
+   
     }
   }
 }
