@@ -3,7 +3,7 @@
 import { useState } from 'react'
 
 import { Button } from '@fc/ui/base/button'
-import { Card, CardContent, CardHeader, CardTitle } from '@fc/ui/base/card'
+import { Card, CardContent } from '@fc/ui/base/card'
 import { Input } from '@fc/ui/base/input'
 import { Label } from '@fc/ui/base/label'
 import { cn } from '@fc/ui/lib/utils'

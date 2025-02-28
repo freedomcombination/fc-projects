@@ -1,9 +1,9 @@
 'use client'
 
 import { Button } from '@fc/ui/base/button'
-import { Card, CardContent, CardHeader, CardTitle } from '@fc/ui/base/card'
+import { Card, CardContent } from '@fc/ui/base/card'
 
-import { Copy, Landmark } from 'lucide-react'
+import { Copy } from 'lucide-react'
 import Link from 'next/link'
 
 export function SupportBank() {

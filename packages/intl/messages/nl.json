@@ -1,4 +1,29 @@
 {
+  "submitting": "Verzenden...",
+  "submit": "Verzenden",
+  "phone": "Telefoonnummer",
+  "city": "Stad",
+  "message": "Bericht",
+  "email": "E-mail",
+  "thankYou": "Bedankt",
+  "error": "Fout",
+  "somethingWentWrong": "Er ging iets mis",
+
+  "contactForm": {
+    "title": "Contact Formulier",
+    "description": "U kunt het formulier hieronder invullen om contact met ons op te nemen."
+  },
+
+  "applicationForm": {
+    "fullName": "Volledige Naam",
+    "dateOfBirth": "Geboortedatum",
+    "event": "Evenement",
+    "acceptTerms": "Akkoord met de voorwaarden",
+    "title": "Aanvraagformulier",
+    "description": "Vul het formulier hieronder in om een aanvraag te doen voor het geselecteerde evenement.",
+    "successDescription": "We hebben uw aanvraag ontvangen, we zullen spoedig contact met u opnemen."
+  },
+
   "Header": {
     "home": "Home",
     "application": "Aanvragen",
@@ -27,20 +52,8 @@
     "about": "Ga naar over ons"
   },
   "Contact": {
-    "title": "Contact",
     "subtitle": "Heeft u vragen? We horen graag van u. Stuur ons een bericht en we reageren zo snel mogelijk.",
-    "contactInfo": "Contactgegevens",
-    "email": "E-mail",
-    "phone": "Telefoon",
-    "address": "Adres",
-    "name": "Naam",
-    "firstName": "Voornaam",
-    "lastName": "Achternaam",
-    "subject": "Onderwerp",
-    "message": "Vertel ons over uw evenementideeën en motivatie",
-    "messagePlaceholder": "Geef aan in welke categorie u wilt deelnemen aan het evenement en uw motivatie.",
-    "send": "Verstuur Bericht",
-    "sending": "Verzenden..."
+    "contactInfo": "Contactgegevens"
   },
   "About": {
     "cultural": {
@@ -52,10 +65,9 @@
       "content": "Een interactief platform waar deelnemers hun cultuur kunnen presenteren en hun traditionele gerechten, muziek, handwerk en verhalen kunnen delen. Via dit platform worden bruggen gebouwd tussen verschillende culturen en wordt wederzijds begrip ontwikkeld. Daarnaast zorgt het voor het behoud en de overdracht van cultureel erfgoed aan toekomstige generaties."
     },
     "collaborate": {
-  "title": "Projectpartners",
-  "content": "Het Harmonie van Nederland-project is een gezamenlijk project van de Sanat Foundation en de Freedom Combination Foundation. Het werk wordt georganiseerd door het Lotus van de Media-platform binnen Freedom Combination."
-}
-,
+      "title": "Projectpartners",
+      "content": "Het Harmonie van Nederland-project is een gezamenlijk project van de Sanat Foundation en de Freedom Combination Foundation. Het werk wordt georganiseerd door het Lotus van de Media-platform binnen Freedom Combination."
+    },
     "activities": {
       "title": "Culturele Activiteiten",
       "content": "We organiseren regelmatig evenementen, workshops en festivals om bewustzijn te creëren over culturele diversiteit in de Nederlandse samenleving en vooroordelen te verminderen. Deze evenementen omvatten culturele foodfestivals, dansvoorstellingen, muziekoptredens, kunsttentoonstellingen en interactieve workshops. Elk evenement benadrukt de rijkdom en uniekheid van verschillende culturen."
@@ -67,23 +79,6 @@
     "unity": {
       "title": "Culturele Eenheid",
       "content": "We ontwikkelen projecten die de culturele diversiteit van Nederland vieren en deze rijkdom weerspiegelen naar alle lagen van de samenleving. Door de voordelen van het samenleven van verschillende culturen te benadrukken, streven we ernaar de sociale vrede en harmonie te versterken. Door interculturele dialoog en samenwerking dragen we bij aan het creëren van een meer inclusieve en begripvolle samenleving."
-    }
-  },
-  "Application": {
-    "title": "Aanvraagformulier",
-    "subtitle": "Vul alstublieft uw gegevens in",
-    "fullName": "Volledige naam",
-    "dateOfBirth": "Geboortedatum",
-    "phone": "Telefoonnummer",
-    "event": "Selecteer evenement",
-    "city": "Selecteer stad",
-    "message": "Typ hier uw bericht...",
-    "acceptTerms": "Ik accepteer de gebruiksvoorwaarden",
-    "submitting": "Verzenden...",
-    "submit": "Verzenden",
-    "general": {
-      "title": "Algemene Informatie",
-      "description": "Vul alstublieft de onderstaande gegevens in om uw aanvraag te starten."
     }
   },
 

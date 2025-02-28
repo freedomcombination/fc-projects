@@ -1,22 +1,29 @@
 import { getTranslations } from 'next-intl/server'
-import { getPayload } from 'payload'
+import { getPayload, TypedLocale } from 'payload'
 
 import { AboutSection } from '@/components/about/AboutSection'
-import { ApplicationForm } from '@/components/application/ApplicationForm'
-import { ContactForm } from '@/components/contact/ContactForm'
 import { Footer } from '@/components/footer/Footer'
 import { Hero } from '@/components/hero/Hero'
+import { PayloadForm } from '@/components/PayloadForm/PayloadForm'
 import { Support } from '@/components/support/Support'
 import config from '@/payload.config'
 
-export default async function HomePage() {
+type Props = {
+  params: Promise<{
+    locale: TypedLocale
+  }>
+}
+
+export default async function HomePage({ params }: Props) {
   const t = await getTranslations()
+  const { locale } = await params
 
   const payload = await getPayload({ config })
 
   const formsResponse = await payload.find({
     collection: 'forms',
     draft: false,
+    locale: locale || 'en', // this is now redundant
     overrideAccess: false,
   })
 
@@ -38,7 +45,7 @@ export default async function HomePage() {
       {/* Application section */}
       {applicationForm && (
         <section className="py-16 bg-white" id="application">
-          <ApplicationForm form={applicationForm} />
+          <PayloadForm formData={applicationForm} />
         </section>
       )}
 
@@ -66,7 +73,7 @@ export default async function HomePage() {
               </div>
             </div>
 
-            {contactForm && <ContactForm form={contactForm} />}
+            {contactForm && <PayloadForm formData={contactForm} />}
           </div>
         </div>
       </section>

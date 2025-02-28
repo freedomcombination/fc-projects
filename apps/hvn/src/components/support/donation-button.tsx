@@ -1,9 +1,9 @@
 'use client'
-import { FC, MouseEvent, useEffect } from 'react'
+import { FC } from 'react'
 
 import { Button, ButtonProps } from '@fc/ui/base/button'
 
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { toast } from 'sonner'
 
 type DonateButtonProps = {
