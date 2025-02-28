@@ -6,13 +6,14 @@ import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessa
 import { Select as SelectComponent, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@fc/ui/base/select'
 
 type Option = {
-  label: string
+  label: string | null
   value: string
+  id?: string | null
 }
 
 type FormSelectProps<T extends FieldValues = FieldValues, N extends FieldPath<T> = FieldPath<T>> = {
   description?: string
-  label?: string
+  label?: string | null
   name: N
   options: Option[]
 } & Pick<ControllerProps<T, N>, 'disabled'> &

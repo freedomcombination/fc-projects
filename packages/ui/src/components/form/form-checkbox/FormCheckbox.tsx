@@ -6,7 +6,7 @@ import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessa
 
 type FormCheckboxProps<T extends FieldValues = FieldValues, N extends FieldPath<T> = FieldPath<T>> = {
   description?: string
-  label?: string
+  label?: string | null
   name: N
 } & Pick<ControllerProps<T, N>, 'disabled'> &
   React.ComponentProps<'input'>
