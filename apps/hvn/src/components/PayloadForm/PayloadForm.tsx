@@ -5,32 +5,36 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 
 import { Button } from '@fc/ui/base/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@fc/ui/base/card'
-import { Checkbox } from '@fc/ui/base/checkbox'
-import { Input } from '@fc/ui/base/input'
-import { Label } from '@fc/ui/base/label'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@fc/ui/base/select'
-import { Textarea } from '@fc/ui/base/textarea'
+import { FormCheckbox } from '@fc/ui/components/form/form-checkbox'
+import { FormInput } from '@fc/ui/components/form/form-input'
+import { FormSelect } from '@fc/ui/components/form/form-select'
+import { FormTextarea } from '@fc/ui/components/form/form-textarea'
 
 import { camelCase } from 'lodash'
-import { LinkIcon, Send } from 'lucide-react'
+import { LinkIcon, Loader2, Send } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { toast } from 'sonner'
 
-import type { Form } from '../../../payload-types'
-interface FormProps {
-  formData: Form
+import { Form } from '@fc/ui/base/form'
+import type { Form as FormData } from '../../../payload-types'
+
+interface PayloadFormProps {
+  formData: FormData
 }
 
-export const PayloadForm: React.FC<FormProps> = ({ formData }) => {
-  const { handleSubmit, register, reset } = useForm<Record<string, string>>()
+export const PayloadForm: React.FC<PayloadFormProps> = ({ formData }) => {
+  const form = useForm<Record<string, string>>()
   const [isSubmitting, setIsSubmitting] = React.useState(false)
   const formTitle = camelCase(formData.title)
   const t = useTranslations()
   const locale = useLocale()
 
+  const { handleSubmit, register, reset } = form
+
   const getLabelFromForm = (name: string, label: string | null | undefined) => {
     const complexKey = `${formTitle}.${name}`
+
     if (t.has(complexKey)) {
       return t(complexKey)
     }
@@ -84,13 +88,13 @@ export const PayloadForm: React.FC<FormProps> = ({ formData }) => {
   }
 
   return (
-    <section className="min-h-screen py-12 bg-gradient-to-b from-gray-50 to-white">
-      <div className="container mx-auto px-4 max-w-3xl">
-        <Card className="border-2 shadow-lg">
-          <CardHeader>
-            <CardTitle className="text-2xl">{getLabelFromForm('title', formData.title)}</CardTitle>
-            <CardDescription>{getLabelFromForm('description', 'Lütfen formu eksiksiz doldurun.')}</CardDescription>
-          </CardHeader>
+    <div className="container mx-auto px-4 max-w-3xl">
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-2xl">{getLabelFromForm('title', formData.title)}</CardTitle>
+          <CardDescription>{getLabelFromForm('description', 'Lütfen formu eksiksiz doldurun.')}</CardDescription>
+        </CardHeader>
+        <Form {...form}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <CardContent className="space-y-6">
               {formData.fields?.map((field, index) => {
@@ -101,37 +105,17 @@ export const PayloadForm: React.FC<FormProps> = ({ formData }) => {
 
                 return (
                   <div className="space-y-2" key={index}>
-                    {label && blockType !== 'checkbox' && (
-                      <Label htmlFor={name}>
-                        {label} {required && <span className="text-red-500">*</span>}
-                      </Label>
-                    )}
+                    {blockType === 'text' && <FormInput label={label} name={name} required={required} />}
 
-                    {blockType === 'text' && <Input id={name} {...register(name)} required={required} />}
-
-                    {blockType === 'textarea' && <Textarea id={name} {...register(name)} rows={5} />}
+                    {blockType === 'textarea' && <FormTextarea label={label} name={name} required={required} />}
 
                     {blockType === 'select' && (
-                      <Select {...register(name)} required={required}>
-                        <SelectTrigger>
-                          <SelectValue placeholder={label} />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {field.options?.map((option) => (
-                            <SelectItem key={option.value} value={option.value}>
-                              {option.label}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
+                      <FormSelect label={label} name={name} required={required} options={field.options!} />
                     )}
 
                     {blockType === 'checkbox' && (
                       <div className="flex items-center space-x-2">
-                        <Checkbox id={name} {...register(name)} />
-                        <Label htmlFor={name}>
-                          {label} {required && <span className="text-red-500">*</span>}
-                        </Label>
+                        <FormCheckbox label={label} name={name} required={required} />
                         {name === 'acceptTerms' && (
                           <Link href={`${locale}/legal/terms-of-use`} target="_blank">
                             <LinkIcon className="h-4 w-4" />
@@ -140,13 +124,14 @@ export const PayloadForm: React.FC<FormProps> = ({ formData }) => {
                       </div>
                     )}
 
-                    {blockType === 'email' && <Input id={name} type="email" {...register(name)} required={required} />}
+                    {blockType === 'email' && <FormInput label={label} name={name} required={required} type="email" />}
 
                     {blockType === 'number' && (
-                      <Input id={name} type="number" {...register(name)} required={required} />
+                      <FormInput label={label} name={name} required={required} type="number" />
                     )}
 
-                    {blockType === 'country' && <Input id={name} {...register(name)} required={required} />}
+                    {/* TODO: Add country select */}
+                    {blockType === 'country' && <FormInput label={label} name={name} required={required} />}
                   </div>
                 )
               })}
@@ -156,26 +141,7 @@ export const PayloadForm: React.FC<FormProps> = ({ formData }) => {
                 {isSubmitting ? (
                   <span className="flex items-center justify-center text-white">
                     <span className="mr-2">{getLabel('submitting', 'Gönderiliyor')}</span>
-                    <svg
-                      className="animate-spin h-5 w-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <circle
-                        className="opacity-25"
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                      ></circle>
-                      <path
-                        className="opacity-75"
-                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                        fill="currentColor"
-                      ></path>
-                    </svg>
+                    <Loader2 className="h-5 w-5 animate-spin" />
                   </span>
                 ) : (
                   <span className="flex items-center justify-center text-white">
@@ -186,8 +152,8 @@ export const PayloadForm: React.FC<FormProps> = ({ formData }) => {
               </Button>
             </CardFooter>
           </form>
-        </Card>
-      </div>
-    </section>
+        </Form>
+      </Card>
+    </div>
   )
 }
