@@ -1,4 +1,14 @@
 {
+  "submitting": "Gönderiliyor...",
+  "submit": "Gönder",
+  "phone": "Telefon",
+  "city": "Şehir",
+  "message": "Mesaj",
+  "email": "E-posta",
+  "thankYou": "Teşekkürler",
+  "error": "Hata",
+  "somethingWentWrong": "Bir şeyler ters gitti.",
+
   "Header": {
     "home": "Ana Sayfa",
     "application": "Başvuru",
@@ -16,22 +26,21 @@
     "about": "Hakkımızda sayfasına git"
   },
   "Contact": {
-    "title": "İletişim",
-    "subtitle": "Sorularınız varsa bize ulaşmaktan çekinmeyin. Size en kısa sürede geri döneceğiz.",
-    "contactInfo": "İletişim Bilgileri",
-    "email": "E-posta",
-    "phone": "Telefon",
-    "address": "Adres",
-    "firstName": "Ad",
-    "lastName": "Soyad",
-    "name": "Ad",
-    "subject": "Konu",
-    "message": "Mesajınızı buraya yazın...",
-    "message_placeholder": "Bize iletmek istediğiniz mesajı buraya yazın.",
-    "send": "Mesajı Gönder",
-    "sending": "Gönderiliyor...",
-    "us": "Bizimle iletişime geçin",
-    "description": "Aşağıdaki formu doldurarak bizimle iletişime geçebilirsiniz."
+    "subtitle": "Sorularınız var mı? Bize mesaj gönderin, en kısa sürede yanıtlayacağız.",
+    "contactInfo": "İletişim Bilgileri"
+  },
+  "applicationForm": {
+    "fullName": "Tam Ad",
+    "dateOfBirth": "Doğum Tarihi",
+    "event": "Etkinlik",
+    "acceptTerms": "Şartları Kabul Et",
+    "title": "Başvuru Formu",
+    "description": "Aşağıdaki formu doldurarak seçtiğiniz etkinliğe başvuru yapabilirsiniz.",
+    "successDescription": "Başvurunuzu kaydettik, en yakın zamanda size döneceğiz."
+  },
+  "contactForm": {
+    "title": "İletişim formu",
+    "description": "Bizimle iletişime geçmek için aşağıdaki formu doldurabilirsiniz."
   },
  
   "About": {
@@ -50,13 +59,13 @@
     "collaborate": {
       "title": "Proje Ortakları",
       "content": "Harmonie van Nederland projesi, Sanat Vakfı ile Freedom Combination Vakfı’nın ortak projesidir. Çalışmaları, Freedom Combination bünyesindeki Lotus van de Media platformu tarafından organize edilecektir."
+
     },
     "unity": {
       "title": "Kültürel Birlik",
       "content": "Hollanda’nın kültürel çeşitliliğini kutlayan projeler geliştirerek toplumsal uyumu teşvik ediyoruz. Farklı kültürler arasında işbirliği ve diyalog ortamı oluşturarak sosyal barışı güçlendirmeyi hedefliyoruz. Kültürel mirası koruma ve paylaşma yoluyla, daha kapsayıcı ve anlayışlı bir toplumun inşasına katkı sağlıyoruz."
     }
   },
-
   "Application": {
     "title": "Başvuru Formu",
     "subtitle": "Lütfen bilgilerinizi doldurun",
@@ -77,6 +86,7 @@
       "label": "Genel Bilgiler"
     }
   },
+
   "support": {
     "value": "Destekleriniz bizim için çok değerli!",
     "bankTransfer": "Banka Havalesi ile Destek Olun",

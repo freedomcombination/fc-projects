@@ -2,7 +2,6 @@
 
 import { Copyright } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import { useLocale } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
@@ -10,15 +9,14 @@ import { useParams } from 'next/navigation'
 export const Footer = () => {
   const headerTranslations = useTranslations('Header')
   const legalTranslations = useTranslations('legalPages')
-  const locale = useLocale()
   const paramsLocale = useParams().locale
 
   const menuItems = [
-    { href: '#home', label: headerTranslations('home') },
-    { href: '#about', label: headerTranslations('about') },
-    { href: '#application', label: headerTranslations('application') },
-    { href: '#contact', label: headerTranslations('contact') },
-    { href: '#support', label: headerTranslations('support') },
+    { href: `/${paramsLocale}#home`, label: headerTranslations('home') },
+    { href: `/${paramsLocale}#about`, label: headerTranslations('about') },
+    { href: `/${paramsLocale}#application`, label: headerTranslations('application') },
+    { href: `/${paramsLocale}#contact`, label: headerTranslations('contact') },
+    { href: `/${paramsLocale}#support`, label: headerTranslations('support') },
   ]
 
   const legalLinks = [

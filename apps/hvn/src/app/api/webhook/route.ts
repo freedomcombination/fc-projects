@@ -1,13 +1,19 @@
 import config from '@payload-config'
 import { headers } from 'next/headers'
-import { getPayload } from 'payload'
+import { BasePayload, getPayload } from 'payload'
 import { Stripe } from 'stripe'
+
+import { Donation } from '../../../../payload-types'
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2025-02-24.acacia',
 })
 
-async function createOrUpdateDonation(payload: any, data: any, paymentIntentId: string) {
+async function createOrUpdateDonation(
+  payload: BasePayload,
+  data: Omit<Donation, 'id' | 'createdAt' | 'updatedAt' | 'stripePaymentIntentId'>,
+  paymentIntentId: string,
+) {
   try {
     await payload.create({
       collection: 'donations',
@@ -17,8 +23,8 @@ async function createOrUpdateDonation(payload: any, data: any, paymentIntentId: 
       },
     })
     console.log(`Donation created for Payment Intent: ${paymentIntentId}`)
-  } catch (error: any) {
-    if (error.message.includes('duplicate key error')) {
+  } catch (error: unknown) {
+    if ((error as { message: string }).message.includes('duplicate key error')) {
       await payload.update({
         collection: 'donations',
         data: data,
@@ -35,7 +41,7 @@ async function createOrUpdateDonation(payload: any, data: any, paymentIntentId: 
   }
 }
 
-async function updateDonationStatus(payload: any, paymentIntentId: string, status: 'pending' | 'paid') {
+async function updateDonationStatus(payload: BasePayload, paymentIntentId: string, status: 'pending' | 'paid') {
   try {
     await payload.update({
       collection: 'donations',
@@ -63,7 +69,8 @@ export const POST = async (req: Request) => {
 
     const event = stripe.webhooks.constructEvent(body, sig, process.env.STRIPE_WEBHOOK_SECRET!)
 
-    const paymentIntentId = (event.data.object as any).payment_intent || (event.data.object as any).id
+    const paymentIntentId =
+      (event.data.object as { payment_intent: string }).payment_intent || (event.data.object as { id: string }).id
     if (!paymentIntentId) {
       console.warn('Payment Intent ID not found in event:', event)
       return Response.json({ message: 'Payment Intent ID not found', received: false }, { status: 400 })
@@ -78,11 +85,11 @@ export const POST = async (req: Request) => {
       const isRecurring = session.subscription !== null
       const paymentTypeValue = isRecurring ? 'monthly' : 'one-time'
 
-      const donationData = {
+      const donationData: Omit<Donation, 'id' | 'createdAt' | 'updatedAt' | 'stripePaymentIntentId'> = {
         amount,
         campaign: session.metadata?.campaignId,
         currency,
-        date: new Date(session.created * 1000),
+        date: new Date(session.created * 1000).toISOString(),
         email,
         message: session.metadata?.message,
         paymentType: paymentTypeValue,
