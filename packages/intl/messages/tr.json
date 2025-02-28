@@ -7,7 +7,7 @@
     "support": "Destek",
     "navigation": "Menü",
     "legal": "Hukuki",
-    "footerDescription": "En iyi hizmeti sunmaya çalışıyoruz.",
+    "footerDescription": "Kültürler buluşuyor, yetenekler keşfediliyor.",
     "allRightsReserved": "Tüm hakları saklıdır.",
     "acceptTerms": "Kullanım şartlarını kabul ediyorum."
   },
@@ -33,32 +33,30 @@
     "us": "Bizimle iletişime geçin",
     "description": "Aşağıdaki formu doldurarak bizimle iletişime geçebilirsiniz."
   },
+ 
   "About": {
     "cultural": {
       "title": "Kültürel Diyalog",
-      "content": "Hollanda'da yaşayan farklı kültürlerden bireylerin, özellikle mülteci topluluklarının, kültürel zenginliklerini paylaşmalarına, birbirlerini daha iyi tanımalarına ve entegrasyon sürecini hızlandırmak için toplumun farklı kesimlerini bir araya getirmelerine olanak tanıyan bir kültürel etkinlik projesi."
+      "content": "Bu kültürel etkinlik projesi, Hollanda'da yaşayan farklı kültürlerden bireyleri bir araya getirerek onların birbirlerini daha yakından tanımalarını sağlıyor. Katılımcılar, kültürel gelenekler, günlük yaşamdan kesitler ve kişisel hikayeler aracılığıyla birbirlerinin dünyasını keşfediyor. Etkileşim odaklı bu proje, sanat, müzik, sohbetler ve deneyim paylaşımları yoluyla topluluklar arasında anlamlı diyaloglar oluşturmayı amaçlıyor."
     },
     "platform": {
-      "title": "Kültürel Platform",
-      "content": "Katılımcıların kültürlerini, geleneksel yemeklerini, müziklerini, el sanatlarını ve hikayelerini sergileyebilecekleri bir platform. Bu platform, farklı kültürler arasında köprüler kuracak ve karşılıklı anlayışı teşvik edecek. Ayrıca, kültürel mirası gelecek nesillere aktarılmasına yardımcı olacak."
+      "title": "Kültürel Buluşma Noktası",
+      "content": "Katılımcıların kültürel miraslarını sergileyebileceği bir paylaşım alanı sunuyoruz. Müzik, dans, sahne gösterileri ve şarkı performanslarının yer aldığı bu platform, kültürel etkileşimi teşvik ederek toplumsal bağları güçlendiriyor. Ayrıca, kültürel mirasın dijital ve fiziksel ortamlar üzerinden arşivlenmesi, gelecekteki nesillere aktarılmasına katkı sağlıyor."
     },
     "activities": {
       "title": "Kültürel Etkinlikler",
-      "content": "Hollanda toplumunda kültürel çeşitliliği artırma ve önyargıları azaltma amacıyla düzenli etkinlikler, atölye çalışmaları ve festivaller düzenliyoruz. Bu etkinlikler, kültürel yemek günleri, dans gösterileri, müzik gösterileri, sanat sergileri ve etkileşimli atölye çalışmaları içermektedir. Her etkinlik, farklı kültürlerin zenginliğini ve özgünlüğünü vurgulamaktadır."
+      "content": "Hollanda toplumunda kültürel çeşitliliği artırmak ve topluluklar arası etkileşimi güçlendirmek için çeşitli etkinlikler düzenliyoruz. Müzik ve dans gösterileri, sahne performansları, sanat sergileri ve söyleşiler aracılığıyla katılımcılar, farklı kültürleri daha yakından tanıma fırsatı buluyor. Her etkinlik, kültürlerin özgün değerlerini vurgulayarak karşılıklı anlayışı ve saygıyı teşvik ediyor."
     },
     "collaborate": {
       "title": "Proje Ortakları",
-      "content":"Harmonie van Nederland projesi, Sanat vakfı ile Freedom Combination vakfının ortak projesidir. Çalışmaları Freedom Combination bünyesindeki Lotus van de Media platformu organize edecektir."
-    },
-    "integration": {
-      "title": "Sosyal Entegrasyon",
-      "content": "Farklı kültürlerden insanların Hollanda toplumuna entegrasyonunu kolaylaştırmak için özel programlar sunuyoruz. Dil kursları, kültürel uyum programları, mesleki eğitim atölyeleri ve sosyal etkinlikler düzenliyoruz. Bu programlar, katılımcıların kendilerine güvenlerini artırırken, Hollanda toplumunda aktif olarak katılmasına yardımcı olmaktadır."
+      "content": "Harmonie van Nederland projesi, Sanat Vakfı ile Freedom Combination Vakfı’nın ortak projesidir. Çalışmaları, Freedom Combination bünyesindeki Lotus van de Media platformu tarafından organize edilecektir."
     },
     "unity": {
       "title": "Kültürel Birlik",
-      "content": "Hollanda'nın kültürel çeşitliliğini kutlayan ve bu zenginliği toplumun tüm kesimlerine yansıtan projeler geliştiriyoruz. Farklı kültürlerin bir arada yaşamasının avantajlarını vurgulayarak, sosyal barış ve uyumun güçlendirilmesine katkıda bulunmayı amaçlıyoruz. Kültürler arası diyalog ve işbirliği yoluyla, daha kapsayıcı ve anlayışlı bir toplum yaratılmasına katkıda bulunmayı hedefliyoruz."
+      "content": "Hollanda’nın kültürel çeşitliliğini kutlayan projeler geliştirerek toplumsal uyumu teşvik ediyoruz. Farklı kültürler arasında işbirliği ve diyalog ortamı oluşturarak sosyal barışı güçlendirmeyi hedefliyoruz. Kültürel mirası koruma ve paylaşma yoluyla, daha kapsayıcı ve anlayışlı bir toplumun inşasına katkı sağlıyoruz."
     }
   },
+
   "Application": {
     "title": "Başvuru Formu",
     "subtitle": "Lütfen bilgilerinizi doldurun",
@@ -98,7 +96,7 @@
   },
   "Hero": {
     "title": "Hollanda'da Birlik",
-    "subtitle": "Hollanda'da Kültürel Birlik",
+    "subtitle": "Kültürler buluşuyor, yetenekler keşfediliyor.",
     "cta": "Daha Fazla Bilgi"
   },
   "legalPages": {

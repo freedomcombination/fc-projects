@@ -3,6 +3,7 @@ import React from 'react'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@fc/ui/base/tabs'
 
 import { useTranslations } from 'next-intl'
+import Image from 'next/image'
 
 import { SupportStripe } from './stripe-form'
 import { SupportBank } from './support-bank'
@@ -16,15 +17,13 @@ export const Support = () => {
         <h2 className="text-4xl font-bold mb-4">{t('Header.support')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-white rounded-lg p-6">
           <div className="flex flex-col items-center justify-center gap-6 text-left">
-            <img
+            <Image
               alt="Stichting Logo"
               className="rounded-full object-cover shadow-md h-24 md:h-64"
+              height={150}
               src="/images/logo.png"
+              width={250}
             />
-            <div>
-              <h3 className="text-lg font-bold">{t('Hero.title')}</h3>
-              <p className="text-sm text-muted-foreground">{t('Hero.subtitle')}</p>
-            </div>
           </div>
 
           <div className="space-y-4">
@@ -40,9 +39,6 @@ export const Support = () => {
                 <SupportBank />
               </TabsContent>
             </Tabs>
-            <p className="text-sm text-muted-foreground">
-              Sayfamızı size daha iyi hizmet sunmak için sürekli olarak geliştiriyoruz.
-            </p>
           </div>
         </div>
       </div>

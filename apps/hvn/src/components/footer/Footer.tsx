@@ -1,5 +1,6 @@
 'use client'
 
+import { Copyright } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { useLocale } from 'next-intl'
 import Image from 'next/image'
@@ -69,7 +70,8 @@ export const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
-          <p>
+          <p className="flex justify-center items-center gap-1">
+            <Copyright size={14} />
             {new Date().getFullYear()} Harmonie van Nederland {headerTranslations('allRightsReserved')}
           </p>
         </div>
