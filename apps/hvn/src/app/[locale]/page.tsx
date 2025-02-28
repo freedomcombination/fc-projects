@@ -9,9 +9,9 @@ import { Support } from '@/components/support/Support'
 import config from '@/payload.config'
 
 type Props = {
-  params: {
+  params: Promise<{
     locale: TypedLocale
-  }
+  }>
 }
 
 export default async function HomePage({ params }: Props) {
@@ -66,8 +66,8 @@ export default async function HomePage({ params }: Props) {
                 <div className="flex items-start space-x-4">
                   <div className="w-8 h-8 text-primary mt-1">📧</div>
                   <div>
-                    <h4 className="font-medium text-xl">{t('email')}</h4>
-                    <p className="text-muted-foreground">info@harmonievannederland.nl</p>
+                    <h4 className="font-medium text-xl">{t('Contact.email')}</h4>
+                    <p className="text-muted-foreground">info@harmonievannederland.com</p>
                   </div>
                 </div>
               </div>

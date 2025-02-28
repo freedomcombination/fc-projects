@@ -15,10 +15,14 @@ const nextConfig = getNextConfig({
         pathname: '/**',
         protocol: 'https',
       },
+      {
+        hostname: 'stichtingsanat.nl',
+        pathname: '/**',
+        protocol: 'https',
+      },
     ],
   },
   transpilePackages: ['@fc/ui'],
 })
-
 
 export default withPayload(nextConfig)
