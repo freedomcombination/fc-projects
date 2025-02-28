@@ -60,7 +60,7 @@ export default async function HomePage() {
                   <div className="w-8 h-8 text-primary mt-1">📧</div>
                   <div>
                     <h4 className="font-medium text-xl">{t('Contact.email')}</h4>
-                    <p className="text-muted-foreground">info@harmonievannederland.nl</p>
+                    <p className="text-muted-foreground">info@harmonievannederland.com</p>
                   </div>
                 </div>
               </div>

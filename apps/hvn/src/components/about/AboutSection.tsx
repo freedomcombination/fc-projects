@@ -1,7 +1,7 @@
 'use client'
 
 import { BiTargetLock } from 'react-icons/bi'
-import { FaGlobeAmericas } from 'react-icons/fa'
+import { FaGlobeAmericas, FaHandshake } from 'react-icons/fa'
 import { IoMdPeople } from 'react-icons/io'
 import { MdHandshake, MdPalette } from 'react-icons/md'
 
@@ -16,6 +16,12 @@ const sectionConfig = {
     icon: <MdPalette className="text-purple-500" size={48} />,
     iconBg: 'bg-purple-100',
     image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1470',
+  },
+  collaborate: {
+    bgColor: 'bg-teal-50',
+    icon: <FaHandshake className="text-teal-500" size={48} />,
+    iconBg: 'bg-teal-100',
+    image: 'https://images.unsplash.com/photo-1517842645767-c639042777db?q=80&w=1470',
   },
   cultural: {
     bgColor: 'bg-blue-50',
@@ -45,7 +51,14 @@ const sectionConfig = {
 
 export const AboutSection = () => {
   const t = useTranslations('About')
-  const sections: Array<keyof typeof sectionConfig> = ['cultural', 'platform', 'activities', 'integration', 'unity']
+  const sections: Array<keyof typeof sectionConfig> = [
+    'collaborate',
+    'cultural',
+    'platform',
+    'activities',
+    'integration',
+    'unity',
+  ]
 
   return (
     <section className="py-20">
@@ -75,6 +88,62 @@ export const AboutSection = () => {
                     </div>
                     <h2 className="text-4xl font-bold tracking-tight">{t(`${section}.title`)}</h2>
                     <p className="text-lg text-gray-600 leading-relaxed">{t(`${section}.content`)}</p>
+                    {section === 'collaborate' && (
+                      <div className=" grid grid-cols-4 gap-4">
+                        <a href="https://www.freedomcombination.com" rel="noreferrer" target="_blank">
+                          <motion.div
+                            animate={{ opacity: 1, scale: 1 }}
+                            className={`relative h-[100px] w-[100px] rounded-full overflow-hidden shadow-2xl ${config.bgColor}`}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            transition={{ duration: 0.8 }}
+                          >
+                            <Image
+                              alt={t(`${section}.title`)}
+                              className="object-cover hover:scale-105 transition-transform duration-700"
+                              fill
+                              quality={90}
+                              src={'https://www.freedomcombination.com/images/foundation-logo.svg'}
+                            />
+                          </motion.div>
+                        </a>
+                        <a href="https://stichtingsanat.nl" rel="noreferrer" target="_blank">
+                          <motion.div
+                            animate={{ opacity: 1, scale: 1 }}
+                            className={`relative h-[100px] w-[100px] rounded-full overflow-hidden shadow-2xl ${config.bgColor}`}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            transition={{ duration: 0.8 }}
+                          >
+                            <Image
+                              alt={t(`${section}.title`)}
+                              className="object-cover hover:scale-105 transition-transform duration-700"
+                              fill
+                              quality={90}
+                              src={'https://stichtingsanat.nl/wp-content/uploads/2022/02/SANAT-logo.png'}
+                            />
+                          </motion.div>
+                        </a>
+                        <a
+                          href="https://www.freedomcombination.com/nl/platforms/lotus"
+                          rel="noreferrer"
+                          target="_blank"
+                        >
+                          <motion.div
+                            animate={{ opacity: 1, scale: 1 }}
+                            className={`relative h-[100px] w-[100px] rounded-full overflow-hidden shadow-2xl ${config.bgColor}`}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            transition={{ duration: 0.8 }}
+                          >
+                            <Image
+                              alt={t(`${section}.title`)}
+                              className="object-cover hover:scale-105 transition-transform duration-700"
+                              fill
+                              quality={90}
+                              src={'https://api.freedomcombination.com/uploads/lotus_d559be0c32.svg'}
+                            />
+                          </motion.div>
+                        </a>
+                      </div>
+                    )}
                   </div>
                 </motion.div>
 
