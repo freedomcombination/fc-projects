@@ -62,6 +62,7 @@
     "@fc/intl": "workspace:*",
     "@fc/types": "workspace:*",
     "@fc/ui": "workspace:*",
+    "@types/lodash": "^4.17.15",
     "@types/node": "^20.17.19",
     "@types/nodemailer": "^6.4.17",
     "@types/react": "^19.0.10",
