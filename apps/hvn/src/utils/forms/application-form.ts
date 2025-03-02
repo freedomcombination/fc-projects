@@ -1,6 +1,6 @@
 import { RequiredDataFromCollectionSlug } from 'payload'
 
-export default {
+export const applicationForm: RequiredDataFromCollectionSlug<'forms'> = {
   confirmationMessage: {
     root: {
       children: [
@@ -13,6 +13,9 @@ export default {
           version: 1,
         },
       ],
+      direction: 'ltr',
+      format: '',
+      indent: 0,
       type: 'root',
       version: 1,
     },
@@ -70,4 +73,4 @@ export default {
   ],
   submitButtonLabel: 'Apply',
   title: 'Application Form',
-} as unknown as RequiredDataFromCollectionSlug<'forms'>
+}

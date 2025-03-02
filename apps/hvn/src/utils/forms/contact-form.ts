@@ -1,6 +1,6 @@
 import { RequiredDataFromCollectionSlug } from 'payload'
 
-export default {
+export const contactForm: RequiredDataFromCollectionSlug<'forms'> = {
   confirmationMessage: {
     root: {
       children: [
@@ -13,6 +13,9 @@ export default {
           version: 1,
         },
       ],
+      direction: 'ltr',
+      format: '',
+      indent: 0,
       type: 'root',
       version: 1,
     },
@@ -40,4 +43,4 @@ export default {
   ],
   submitButtonLabel: 'Send',
   title: 'Contact Form',
-} as unknown as RequiredDataFromCollectionSlug<'forms'>
+}

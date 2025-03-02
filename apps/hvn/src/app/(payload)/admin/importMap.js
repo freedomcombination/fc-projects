@@ -21,7 +21,10 @@ import { InlineToolbarFeatureClient as InlineToolbarFeatureClient_e70f5e05f09f93
 import { RscEntryLexicalCell as RscEntryLexicalCell_44fe37237e0ebf4470c9990d8cb7b07e } from '@payloadcms/richtext-lexical/rsc'
 import { RscEntryLexicalField as RscEntryLexicalField_44fe37237e0ebf4470c9990d8cb7b07e } from '@payloadcms/richtext-lexical/rsc'
 
+import { UpdateForms as UpdateForms_c82b9560a0d455a15a26bf46333704d1 } from '@/components/SyncForms'
+
 export const importMap = {
+  '@/components/SyncForms#UpdateForms': UpdateForms_c82b9560a0d455a15a26bf46333704d1,
   '@payloadcms/richtext-lexical/client#AlignFeatureClient': AlignFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   '@payloadcms/richtext-lexical/client#BlockquoteFeatureClient':
     BlockquoteFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
