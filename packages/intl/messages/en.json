@@ -77,9 +77,7 @@
       "title": "Cultural Unity",
       "content": "We develop projects that celebrate the cultural diversity of the Netherlands and promote social harmony. By creating collaboration and dialogue environments between different cultures, we aim to strengthen social peace. Through the preservation and sharing of cultural heritage, we contribute to the construction of a more inclusive and understanding society."
     }
-  }
-  ,
-
+  },
   "Application": {
     "title": "Application Form",
     "subtitle": "Please fill in your details",
@@ -115,7 +113,7 @@
     "cta": "Learn More"
   },
   "Support": {
-    "bankTransferTitle":"Bank Transfer",
+    "bankTransferTitle": "Bank Transfer",
     "value": "Your support is invaluable to us!",
     "bankTransfer": "Support Us via Bank Transfer",
     "improvement": "We are continuously improving our page to make it easier for you to support us."
@@ -148,7 +146,6 @@
         "title": "User Responsibilities",
         "description": "Users must not cause harm to others and must avoid prohibited behaviors while using our services."
       }
-   
     },
     "cookies": {
       "title": "Cookie Policy",
@@ -161,7 +158,6 @@
         "title": "Cookie Usage",
         "description": "Our website uses cookies to enhance user experience."
       }
-     
     }
   }
 }

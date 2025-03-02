@@ -5,6 +5,7 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 
 import { Button } from '@fc/ui/base/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@fc/ui/base/card'
+import { Form } from '@fc/ui/base/form'
 import { FormCheckbox } from '@fc/ui/components/form/form-checkbox'
 import { FormInput } from '@fc/ui/components/form/form-input'
 import { FormSelect } from '@fc/ui/components/form/form-select'
@@ -16,7 +17,6 @@ import { useLocale, useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { toast } from 'sonner'
 
-import { Form } from '@fc/ui/base/form'
 import type { Form as FormData } from '../../../payload-types'
 
 interface PayloadFormProps {
@@ -110,7 +110,7 @@ export const PayloadForm: React.FC<PayloadFormProps> = ({ formData }) => {
                     {blockType === 'textarea' && <FormTextarea label={label} name={name} required={required} />}
 
                     {blockType === 'select' && (
-                      <FormSelect label={label} name={name} required={required} options={field.options!} />
+                      <FormSelect label={label} name={name} options={field.options!} required={required} />
                     )}
 
                     {blockType === 'checkbox' && (

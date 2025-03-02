@@ -26,7 +26,7 @@
 
   "Header": {
     "home": "Home",
-     "contactNav": "Contact",
+    "contactNav": "Contact",
     "application": "Aanvragen",
     "about": "Over ons",
     "contact": "Contact",
@@ -52,22 +52,22 @@
     "title": "Welkom",
     "about": "Ga naar over ons"
   },
- "Contact": {
-  "title": "Neem Contact Op",
-  "description": "Als u vragen heeft, neem dan contact met ons op",
-  "subtitle": "Vragen? We horen graag van u. Stuur ons een bericht en we reageren zo snel mogelijk.",
-  "contactInfo": "Contactgegevens",
-  "email": "E-mail",
-  "phone": "Telefoon",
-  "address": "Adres",
-  "name": "Naam",
-  "firstName": "Voornaam",
-  "lastName": "Achternaam",
-  "subject": "Onderwerp",
-  "message": "Vertel ons over uw deelname aan het evenement en uw motivatie",
-  "send": "Bericht Verzenden",
-  "sending": "Bezig met verzenden..."
-},
+  "Contact": {
+    "title": "Neem Contact Op",
+    "description": "Als u vragen heeft, neem dan contact met ons op",
+    "subtitle": "Vragen? We horen graag van u. Stuur ons een bericht en we reageren zo snel mogelijk.",
+    "contactInfo": "Contactgegevens",
+    "email": "E-mail",
+    "phone": "Telefoon",
+    "address": "Adres",
+    "name": "Naam",
+    "firstName": "Voornaam",
+    "lastName": "Achternaam",
+    "subject": "Onderwerp",
+    "message": "Vertel ons over uw deelname aan het evenement en uw motivatie",
+    "send": "Bericht Verzenden",
+    "sending": "Bezig met verzenden..."
+  },
   "About": {
     "cultural": {
       "title": "Culturele Dialoog",

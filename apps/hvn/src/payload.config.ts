@@ -14,8 +14,6 @@ import { buildConfig } from 'payload'
 import sharp from 'sharp'
 import { fileURLToPath } from 'url'
 
-import { seedEndpoint } from './utils/form-seed'
-
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -69,7 +67,6 @@ export default buildConfig({
             Description: '@/components/SyncForms#UpdateForms',
           },
         },
-        endpoints: [seedEndpoint],
       },
     }),
   ],
