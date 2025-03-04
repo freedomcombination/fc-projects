@@ -2,6 +2,7 @@ import { getTranslations } from 'next-intl/server'
 import { getPayload, TypedLocale } from 'payload'
 
 import { AboutSection } from '@/components/about/AboutSection'
+import { ApplicationForm } from '@/components/application-from'
 import { Footer } from '@/components/footer/Footer'
 import { Hero } from '@/components/hero/Hero'
 import { PayloadForm } from '@/components/PayloadForm/PayloadForm'
@@ -45,7 +46,7 @@ export default async function HomePage({ params }: Props) {
       {/* Application section */}
       {applicationForm && (
         <section className="py-16 bg-white" id="application">
-          <PayloadForm formData={applicationForm} />
+          <ApplicationForm />
         </section>
       )}
 

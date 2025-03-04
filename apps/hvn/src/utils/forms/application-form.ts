@@ -1,5 +1,7 @@
 import { RequiredDataFromCollectionSlug } from 'payload'
 
+// RequiredDataFromCollectionSlug<'forms'>
+
 export const applicationForm: RequiredDataFromCollectionSlug<'forms'> = {
   confirmationMessage: {
     root: {
@@ -35,48 +37,53 @@ export const applicationForm: RequiredDataFromCollectionSlug<'forms'> = {
       required: true,
     },
     {
+      blockType: 'checkbox',
+      label: 'I am under 18 years old',
+      name: 'isUnder18',
+      required: true,
+    },
+    {
+      blockType: 'textarea',
+      label: 'Parent Information (Required for applicants under 18)',
+      name: 'parentInfoMessage',
+    },
+    {
+      blockType: 'text',
+      label: "Parent's Full Name",
+      name: 'parentFullName',
+    },
+    {
+      blockType: 'text',
+      label: "Parent's Phone Number",
+      name: 'parentPhone',
+    },
+    {
+      blockType: 'email',
+      label: "Parent's Email",
+      name: 'parentEmail',
+    },
+    {
       blockType: 'text',
       label: 'Phone',
       name: 'phone',
-      required: true,
     },
     {
       blockType: 'select',
       label: 'Event',
       name: 'event',
-      options: [{ label: 'Harmonie van Nederland - Amsterdam', value: 'Harmonie van Nederland - Amsterdam' }],
+      options: [{ label: 'Harmonie van Nederland - Amsterdam', value: 'hvn_amsterdam' }],
       required: true,
     },
     {
-      blockType: 'select',
-      label: 'Province',
-      name: 'province',
-      options: [
-        { label: 'Drenthe', value: 'Drenthe' },
-        { label: 'Flevoland', value: 'Flevoland' },
-        { label: 'Friesland', value: 'Friesland' },
-        { label: 'Gelderland', value: 'Gelderland' },
-        { label: 'Groningen', value: 'Groningen' },
-        { label: 'Limburg', value: 'Limburg' },
-        { label: 'Noord Brabant', value: 'Noord Brabant' },
-        { label: 'Noord Holland', value: 'Noord Holland' },
-        { label: 'Overijssel', value: 'Overijssel' },
-        { label: 'Utrecht', value: 'Utrecht' },
-        { label: 'Zeeland', value: 'Zeeland' },
-        { label: 'Zuid Holland', value: 'Zuid Holland' },
-      ],
+      blockType: 'text',
+      label: 'City',
+      name: 'city',
       required: true,
     },
     {
       blockType: 'textarea',
       label: 'Message',
       name: 'message',
-      required: true,
-    },
-    {
-      blockType: 'checkbox',
-      label: 'Accept Terms',
-      name: 'acceptTerms',
       required: true,
     },
   ],

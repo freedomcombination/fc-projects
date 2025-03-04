@@ -30,7 +30,7 @@ export const PayloadForm: React.FC<PayloadFormProps> = ({ formData }) => {
   const t = useTranslations()
   const locale = useLocale()
 
-  const { handleSubmit, register, reset } = form
+  const { handleSubmit, reset } = form
 
   const getLabelFromForm = (name: string, label: string | null | undefined) => {
     const complexKey = `${formTitle}.${name}`

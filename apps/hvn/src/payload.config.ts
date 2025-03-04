@@ -33,7 +33,7 @@ export default buildConfig({
     defaultFromAddress: 'info@harmonievannederland.com',
     defaultFromName: 'Harmonie van Nederland',
     // Any Nodemailer transport
-    transport: await nodemailer.createTransport({
+    transport: nodemailer.createTransport({
       auth: {
         pass: process.env.EMAIL_PASS,
         user: 'info@harmonievannederland.com',
@@ -64,7 +64,7 @@ export default buildConfig({
       formOverrides: {
         admin: {
           components: {
-            Description: '@/components/SyncForms#UpdateForms',
+            Description: '@/components/SyncForms#SyncForms',
           },
         },
       },
