@@ -3,7 +3,7 @@
 import { BiTargetLock } from 'react-icons/bi'
 import { FaGlobeAmericas, FaHandshake } from 'react-icons/fa'
 import { IoMdPeople } from 'react-icons/io'
-import { MdHandshake, MdPalette } from 'react-icons/md'
+import { MdPalette } from 'react-icons/md'
 
 import { motion } from 'framer-motion'
 // AboutSection.tsx
