@@ -70,7 +70,7 @@ export const AboutSection = () => {
 
         return (
           <div
-            className={`min-h-screen flex items-center bg-gradient-to-b ${config?.bgFrom} ${config.bgTo}`}
+            className={`min-h-screen flex items-center py-16 bg-gradient-to-b ${config?.bgFrom} ${config.bgTo}`}
             id={`about-${section}`}
             key={section}
           >
