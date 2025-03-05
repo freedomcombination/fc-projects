@@ -2,6 +2,7 @@ import { getTranslations } from 'next-intl/server'
 import { getPayload, TypedLocale } from 'payload'
 
 import { AboutSection } from '@/components/about/AboutSection'
+import { ApplicationForm } from '@/components/application-from'
 import { Footer } from '@/components/footer/Footer'
 import { Hero } from '@/components/hero/Hero'
 import { PayloadForm } from '@/components/PayloadForm/PayloadForm'
@@ -38,19 +39,19 @@ export default async function HomePage({ params }: Props) {
       </section>
 
       {/* About section */}
-      <section className="py-16 bg-white" id="about">
+      <section id="about">
         <AboutSection />
       </section>
 
       {/* Application section */}
       {applicationForm && (
-        <section className="py-16 bg-white" id="application">
-          <PayloadForm formData={applicationForm} />
+        <section className="py-16 bg-gradient-to-b border-t border-b from-zinc-100" id="application">
+          <ApplicationForm />
         </section>
       )}
 
       {/* Contact section */}
-      <section className="py-16 bg-white" id="contact">
+      <section className="py-16" id="contact">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-8">{t('Contact.title')}</h2>

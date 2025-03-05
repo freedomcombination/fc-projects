@@ -1,24 +1,26 @@
-import { BasePayload, Endpoint } from 'payload'
+import { BasePayload } from 'payload'
 
-import applicationForm from './forms/application-form'
-import contactForm from './forms/contact-form'
+import { applicationForm } from './forms/application-form'
+import { contactForm } from './forms/contact-form'
 
-export const seed = async (payload: BasePayload) => {
+export const formSeed = async (payload: BasePayload) => {
   console.log('Seeding forms collection...')
 
   const formEntries = [applicationForm, contactForm]
 
   for (const entry of formEntries) {
-    const existingForm = await payload.find({
+    const existingForms = await payload.find({
       collection: 'forms',
       where: { title: { equals: entry.title } },
     })
 
-    if (existingForm.docs.length > 0 && existingForm.docs[0]?.id) {
+    const existingForm = existingForms.docs.find((form) => form.title === entry.title)
+
+    if (existingForm) {
       await payload.update({
         collection: 'forms',
         data: entry,
-        id: existingForm.docs[0].id,
+        id: existingForm.id,
       })
     } else {
       await payload.create({
@@ -29,17 +31,4 @@ export const seed = async (payload: BasePayload) => {
   }
 
   console.log('Seeding completed.')
-}
-
-export const seedEndpoint: Endpoint = {
-  handler: async ({ payload, user }) => {
-    if (!user /* || user.role !== 'admin'*/) {
-      return Response.json({ message: 'Unauthorized' }, { status: 401 })
-    }
-
-    await seed(payload)
-    return Response.json({ message: 'Seeding-forms completed.' })
-  },
-  method: 'get',
-  path: '/seed-forms',
 }

@@ -1,6 +1,8 @@
 import { RequiredDataFromCollectionSlug } from 'payload'
 
-export default {
+// RequiredDataFromCollectionSlug<'forms'>
+
+export const applicationForm: RequiredDataFromCollectionSlug<'forms'> = {
   confirmationMessage: {
     root: {
       children: [
@@ -13,6 +15,9 @@ export default {
           version: 1,
         },
       ],
+      direction: 'ltr',
+      format: '',
+      indent: 0,
       type: 'root',
       version: 1,
     },
@@ -32,27 +37,47 @@ export default {
       required: true,
     },
     {
+      blockType: 'checkbox',
+      label: 'I am under 18 years old',
+      name: 'isUnder18',
+      required: true,
+    },
+    {
+      blockType: 'textarea',
+      label: 'Parent Information (Required for applicants under 18)',
+      name: 'parentInfoMessage',
+    },
+    {
+      blockType: 'text',
+      label: "Parent's Full Name",
+      name: 'parentFullName',
+    },
+    {
+      blockType: 'text',
+      label: "Parent's Phone Number",
+      name: 'parentPhone',
+    },
+    {
+      blockType: 'email',
+      label: "Parent's Email",
+      name: 'parentEmail',
+    },
+    {
       blockType: 'text',
       label: 'Phone',
       name: 'phone',
-      required: true,
     },
     {
       blockType: 'select',
       label: 'Event',
       name: 'event',
-      options: [{ label: 'Harmonie van Nederland - Amsterdam', value: 'Harmonie van Nederland - Amsterdam' }],
+      options: [{ label: 'Harmonie van Nederland - Amsterdam', value: 'hvn_amsterdam' }],
       required: true,
     },
     {
-      blockType: 'select',
+      blockType: 'text',
       label: 'City',
       name: 'city',
-      options: [
-        { label: 'Amsterdam', value: 'Amsterdam' },
-        { label: 'Den Haag', value: 'Den Haag' },
-        { label: 'Noord Brabant', value: 'Noord Brabant' },
-      ],
       required: true,
     },
     {
@@ -61,13 +86,7 @@ export default {
       name: 'message',
       required: true,
     },
-    {
-      blockType: 'checkbox',
-      label: 'Accept Terms',
-      name: 'acceptTerms',
-      required: true,
-    },
   ],
   submitButtonLabel: 'Apply',
   title: 'Application Form',
-} as unknown as RequiredDataFromCollectionSlug<'forms'>
+}

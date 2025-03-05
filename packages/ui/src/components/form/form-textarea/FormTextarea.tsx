@@ -6,7 +6,7 @@ import { Textarea } from '@fc/ui/base/textarea'
 
 type FormTextareaProps<T extends FieldValues = FieldValues, N extends FieldPath<T> = FieldPath<T>> = {
   description?: string
-  label?: string
+  label?: string | null
   name: N
 } & Pick<ControllerProps<T, N>, 'disabled'> &
   React.ComponentProps<'textarea'>

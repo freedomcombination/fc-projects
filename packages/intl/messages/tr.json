@@ -26,22 +26,22 @@
     "title": "Merhaba Dünya!",
     "about": "Hakkımızda sayfasına git"
   },
- "Contact": {
-  "title": "Bize Ulaşın",
-  "description": "Herhangi bir sorunuz varsa bizimle iletişime geçebilirsiniz. ",
-  "subtitle": "Sorularınız mı var? Sizden haber almak isteriz. Bize bir mesaj gönderin, en kısa sürede yanıtlayalım.",
-  "contactInfo": "İletişim Bilgileri",
-  "email": "E-posta",
-  "phone": "Telefon",
-  "address": "Adres",
-  "name": "Ad",
-  "firstName": "Ad",
-  "lastName": "Soyad",
-  "subject": "Konu",
-  "message": "Etkinliğe katılımınız ve motivasyonunuz hakkında bize bilgi verin",
-  "send": "Mesaj Gönder",
-  "sending": "Gönderiliyor..."
-},
+  "Contact": {
+    "title": "Bize Ulaşın",
+    "description": "Herhangi bir sorunuz varsa bizimle iletişime geçebilirsiniz. ",
+    "subtitle": "Sorularınız mı var? Sizden haber almak isteriz. Bize bir mesaj gönderin, en kısa sürede yanıtlayalım.",
+    "contactInfo": "İletişim Bilgileri",
+    "email": "E-posta",
+    "phone": "Telefon",
+    "address": "Adres",
+    "name": "Ad",
+    "firstName": "Ad",
+    "lastName": "Soyad",
+    "subject": "Konu",
+    "message": "Etkinliğe katılımınız ve motivasyonunuz hakkında bize bilgi verin",
+    "send": "Mesaj Gönder",
+    "sending": "Gönderiliyor..."
+  },
 
   "applicationForm": {
     "fullName": "Tam Ad",
@@ -56,7 +56,7 @@
     "title": "İletişim formu",
     "description": "Bizimle iletişime geçmek için aşağıdaki formu doldurabilirsiniz."
   },
- 
+
   "About": {
     "cultural": {
       "title": "Kültürel Diyalog",
@@ -72,37 +72,44 @@
     },
     "collaborate": {
       "title": "Proje Ortakları",
-      "content": "Harmonie van Nederland projesi, Sanat Vakfı ile Freedom Combination Vakfı’nın ortak projesidir. Çalışmaları, Freedom Combination bünyesindeki Lotus van de Media platformu tarafından organize edilecektir."
-
+      "content": "Harmonie van Nederland projesi, Sanat Vakfı ile Freedom Combination Vakfı'nın ortak projesidir. Çalışmaları, Freedom Combination bünyesindeki Lotus van de Media platformu tarafından organize edilecektir."
     },
     "unity": {
       "title": "Kültürel Birlik",
-      "content": "Hollanda’nın kültürel çeşitliliğini kutlayan projeler geliştirerek toplumsal uyumu teşvik ediyoruz. Farklı kültürler arasında işbirliği ve diyalog ortamı oluşturarak sosyal barışı güçlendirmeyi hedefliyoruz. Kültürel mirası koruma ve paylaşma yoluyla, daha kapsayıcı ve anlayışlı bir toplumun inşasına katkı sağlıyoruz."
+      "content": "Hollanda'nın kültürel çeşitliliğini kutlayan projeler geliştirerek toplumsal uyumu teşvik ediyoruz. Farklı kültürler arasında işbirliği ve diyalog ortamı oluşturarak sosyal barışı güçlendirmeyi hedefliyoruz. Kültürel mirası koruma ve paylaşma yoluyla, daha kapsayıcı ve anlayışlı bir toplumun inşasına katkı sağlıyoruz."
     }
   },
   "Application": {
-    "title": "Başvuru Formu",
-    "subtitle": "Lütfen bilgilerinizi doldurun",
-    "applicationForm": "Başvuru Formu",
-    "fillOutForm": "Lütfen başvuru formunu doldurun",
-    "fullName": "Tam Ad",
-    "dateOfBirth": "Doğum Tarihi",
-    "phone": "Telefon Numarası",
-    "event": "Etkinlik Seçin",
-    "city": "Şehir Seçin",
-    "message": "Lütfen hangi kategoriye katılmak istediğinizi ve motivasyonunuzu belirtin.",
+    "acceptConditions": "<privacy>Gizlilik Politikası</privacy> ve <terms>Kullanım Şartları</terms>'ı kabul ediyorum.",
+    "acceptParent": "{fullName} adlı kişiyi {eventLabel} etkinliğine katılmaya izin veriyorum.",
     "acceptTerms": "Kullanım şartlarını kabul ediyorum",
-    "submitting": "Gönderiliyor...",
-    "submit": "Gönder",
+    "city": "Şehir Seç",
+    "dateOfBirth": "Doğum Tarihi",
+    "email": "E-posta",
+    "event": "Etkinlik Seç",
+    "fullName": "Ad Soyad",
     "general": {
-      "title": "Genel Bilgiler",
-      "description": "Lütfen aşağıdaki alanları doldurun.",
-      "label": "Genel Bilgiler"
-    }
+      "description": "Başvurunuzu işlemek için aşağıdaki bilgileri sağlayınız.",
+      "title": "Genel Bilgiler"
+    },
+    "isUnder18": "18 yaşından küçüğüm",
+    "message": "Etkinliğe katılımınızın ve motivasyonunuzu bize bildiriniz.",
+    "parent": {
+      "email": "E-posta",
+      "fullName": "Veli Ad Soyad",
+      "phone": "Telefon Numarası",
+      "title": "Veli Bilgileri"
+    },
+    "participantTitle": "Katılımcı Bilgileri",
+    "phone": "Telefon Numarası",
+    "submit": "Gönder",
+    "submitting": "Gönderiliyor...",
+    "subtitle": "Lütfen aşağıdaki bilgileri doldurunuz.",
+    "title": "Başvuru Formu"
   },
 
   "Support": {
-     "bankTransferTitle":"Banka Transferi",
+    "bankTransferTitle": "Banka Transferi",
     "value": "Destekleriniz bizim için çok değerli!",
     "bankTransfer": "Banka Havalesi ile Destek Olun",
     "improvement": "Sayfamızı size daha iyi hizmet sunmak için sürekli olarak geliştiriyoruz."
@@ -152,7 +159,6 @@
         "title": "Kullanıcı Sorumlulukları",
         "description": "Kullanıcılar, hizmetlerimizi kullanırken başkalarına zarar vermemeli ve yasaklı davranışlardan kaçınmalıdır."
       }
-     
     },
     "cookies": {
       "title": "Çerez Politikası",
@@ -165,7 +171,6 @@
         "title": "Çerez Kullanımı",
         "description": "Web sitemiz, kullanıcı deneyimini geliştirmek için çerezler kullanmaktadır."
       }
-   
     }
   }
 }

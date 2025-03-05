@@ -27,10 +27,12 @@
       "dependsOn": ["^type-check"]
     },
     "codegen": {
-      "dependsOn": ["^codegen"]
+      "dependsOn": ["^codegen"],
+      "cache": false
     },
     "generate:types": {
-      "dependsOn": ["^generate:types"]
+      "dependsOn": ["^generate:types"],
+      "cache": false
     }
   }
 }
