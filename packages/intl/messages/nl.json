@@ -90,7 +90,34 @@
       "content": "We ontwikkelen projecten die de culturele diversiteit van Nederland vieren en sociale harmonie bevorderen. Door samenwerkings- en dialoogomgevingen te creëren tussen verschillende culturen, streven we ernaar de sociale vrede te versterken. Door cultureel erfgoed te bewaren en te delen, dragen we bij aan de opbouw van een meer inclusieve en begripvolle samenleving."
     }
   },
-
+  "Application": {
+    "acceptConditions": "Ik ga akkoord met de <privacy>privacy policy</privacy> en <terms>terms of service</terms>",
+    "acceptParent": "Ik geef toestemming aan {fullName} deel te nemen aan het {eventLabel} evenement.",
+    "acceptTerms": "Ik ga akkoord met de voorwaarden",
+    "city": "Stad selecteren",
+    "dateOfBirth": "Geboortedatum",
+    "email": "E-mail",
+    "event": "Evenement selecteren",
+    "fullName": "Volledige Naam",
+    "general": {
+      "description": "Vul de volgende informatie in om uw aanvraag te verwerken.",
+      "title": "Algemene Informatie"
+    },
+    "isUnder18": "Ik ben jonger dan 18 jaar",
+    "message": "Vertel ons over uw deelname aan het evenement en uw motivatie",
+    "parent": {
+      "email": "E-mail van de ouder",
+      "fullName": "Volledige naam van de ouder",
+      "phone": "Telefoonnummer van de ouder",
+      "title": "Ouderinformatie"
+    },
+    "participantTitle": "Deelnemerinformatie",
+    "phone": "Telefoonnummer",
+    "submit": "Verzenden",
+    "submitting": "Bezig met verzenden...",
+    "subtitle": "Vul uw gegevens in",
+    "title": "Aanvraagformulier"
+  },
   "Support": {
     "bankTransferTitle": "Bankoverschrijving",
     "value": "Jouw steun is voor ons heel waardevol!",

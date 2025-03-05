@@ -39,19 +39,19 @@ export default async function HomePage({ params }: Props) {
       </section>
 
       {/* About section */}
-      <section className="py-16 bg-white" id="about">
+      <section id="about">
         <AboutSection />
       </section>
 
       {/* Application section */}
       {applicationForm && (
-        <section className="py-16 bg-white" id="application">
+        <section className="py-16 bg-gradient-to-b border-t border-b from-zinc-100" id="application">
           <ApplicationForm />
         </section>
       )}
 
       {/* Contact section */}
-      <section className="py-16 bg-white" id="contact">
+      <section className="py-16" id="contact">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-8">{t('Contact.title')}</h2>

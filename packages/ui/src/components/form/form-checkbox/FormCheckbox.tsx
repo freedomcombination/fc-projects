@@ -16,6 +16,7 @@ export const FormCheckbox = <T extends FieldValues = FieldValues, N extends Fiel
   disabled,
   label,
   name,
+  onCheckedChange,
   required,
 }: FormCheckboxProps<T, N>) => {
   const form = useFormContext<T>()
@@ -38,7 +39,7 @@ export const FormCheckbox = <T extends FieldValues = FieldValues, N extends Fiel
               </FormLabel>
             )}
             <FormControl>
-              <Checkbox checked={field.value} disabled={disabled} onCheckedChange={field.onChange} />
+              <Checkbox checked={field.value} disabled={disabled} onCheckedChange={onCheckedChange ?? field.onChange} />
             </FormControl>
           </div>
           {description && <FormDescription>{description}</FormDescription>}

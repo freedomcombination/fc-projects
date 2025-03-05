@@ -6,61 +6,68 @@ import { IoMdPeople } from 'react-icons/io'
 import { MdPalette } from 'react-icons/md'
 
 import { motion } from 'framer-motion'
-// AboutSection.tsx
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 
-const sectionConfig = {
-  activities: {
-    bgColor: 'bg-purple-50',
-    icon: <MdPalette className="text-purple-500" size={48} />,
-    iconBg: 'bg-purple-100',
-    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1470',
-  },
-  collaborate: {
-    bgColor: 'bg-teal-50',
+const sections = [
+  {
+    bgFrom: 'from-teal-100',
+    bgTo: 'to-blue-100',
     icon: <FaHandshake className="text-teal-500" size={48} />,
     iconBg: 'bg-teal-100',
+    id: 'collaborate',
     image: 'https://images.unsplash.com/photo-1517842645767-c639042777db?q=80&w=1470',
   },
-  cultural: {
-    bgColor: 'bg-blue-50',
+  {
+    bgFrom: 'from-blue-100',
+    bgTo: 'to-green-100',
     icon: <FaGlobeAmericas className="text-blue-500" size={48} />,
     iconBg: 'bg-blue-100',
+    id: 'cultural',
     image: 'https://images.unsplash.com/photo-1526976668912-1a811878dd37?q=80&w=1470',
   },
-
-  platform: {
-    bgColor: 'bg-green-50',
+  {
+    bgFrom: 'from-green-100',
+    bgTo: 'to-purple-100',
     icon: <IoMdPeople className="text-green-500" size={48} />,
     iconBg: 'bg-green-100',
+    id: 'platform',
     image: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=1470',
   },
-  unity: {
-    bgColor: 'bg-red-50',
+  {
+    bgFrom: 'from-purple-100',
+    bgTo: 'to-red-100',
+    icon: <MdPalette className="text-purple-500" size={48} />,
+    iconBg: 'bg-purple-100',
+    id: 'activities',
+    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1470',
+  },
+  {
+    bgFrom: 'from-red-100',
+    bgTo: 'to-zinc-100',
     icon: <BiTargetLock className="text-red-500" size={48} />,
     iconBg: 'bg-red-100',
+    id: 'unity',
     image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1469',
   },
-}
+]
 
 export const AboutSection = () => {
   const t = useTranslations('About')
-  const sections: Array<keyof typeof sectionConfig> = ['collaborate', 'cultural', 'platform', 'activities', 'unity']
 
   return (
-    <section className="py-20">
-      <div className="container mx-auto px-4">
-        {sections.map((section, index) => {
-          const config = sectionConfig[section]
-          const isEven = index % 2 === 0
+    <>
+      {sections.map((config, index) => {
+        const section = config.id
+        const isEven = index % 2 === 0
 
-          return (
-            <div
-              className={`min-h-screen flex items-center ${index !== 0 ? 'mt-20' : ''}`}
-              id={`about-${section}`}
-              key={section}
-            >
+        return (
+          <div
+            className={`min-h-screen flex items-center bg-gradient-to-b ${config?.bgFrom} ${config.bgTo}`}
+            id={`about-${section}`}
+            key={section}
+          >
+            <div className="container mx-auto px-4">
               <div className={`w-full grid md:grid-cols-2 gap-16 items-center ${!isEven ? 'md:grid-flow-dense' : ''}`}>
                 <motion.div
                   animate={{ opacity: 1, x: 0 }}
@@ -151,9 +158,9 @@ export const AboutSection = () => {
                 </motion.div>
               </div>
             </div>
-          )
-        })}
-      </div>
-    </section>
+          </div>
+        )
+      })}
+    </>
   )
 }

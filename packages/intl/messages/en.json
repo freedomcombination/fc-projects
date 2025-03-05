@@ -59,7 +59,7 @@
   "About": {
     "cultural": {
       "title": "Cultural Dialogue",
-      "content": "This cultural event project brings together individuals from different cultures living in the Netherlands, helping them get to know each other better. Participants explore each other’s worlds through cultural traditions, glimpses of daily life, and personal stories. This interactive project aims to create meaningful dialogues between communities through art, music, conversations, and shared experiences."
+      "content": "This cultural event project brings together individuals from different cultures living in the Netherlands, helping them get to know each other better. Participants explore each other's worlds through cultural traditions, glimpses of daily life, and personal stories. This interactive project aims to create meaningful dialogues between communities through art, music, conversations, and shared experiences."
     },
     "platform": {
       "title": "Cultural Meeting Point",
@@ -79,21 +79,32 @@
     }
   },
   "Application": {
-    "title": "Application Form",
-    "subtitle": "Please fill in your details",
-    "fullName": "Full Name",
-    "dateOfBirth": "Date of Birth",
-    "phone": "Phone Number",
-    "event": "Select Event",
-    "city": "Select City",
-    "message": "Tell us about your event participation and motivation",
+    "acceptConditions": "I agree to the <privacy>privacy policy</privacy> and <terms>terms of service</terms>",
+    "acceptParent": "I allow {fullName} to participate in the {eventLabel} event.",
     "acceptTerms": "I accept the terms of use",
-    "submitting": "Submitting...",
-    "submit": "Submit",
+    "city": "Select City",
+    "dateOfBirth": "Date of Birth",
+    "email": "Email",
+    "event": "Select Event",
+    "fullName": "Full Name",
     "general": {
-      "title": "General Information",
-      "description": "Please provide the following information to help us process your application."
-    }
+      "description": "Please provide the following information to help us process your application.",
+      "title": "General Information"
+    },
+    "isUnder18": "I am under 18 years old",
+    "message": "Tell us about your event participation and motivation",
+    "parent": {
+      "email": "Parent Email",
+      "fullName": "Parent Full Name",
+      "phone": "Parent Phone Number",
+      "title": "Parent Information"
+    },
+    "participantTitle": "Participant Information",
+    "phone": "Phone Number",
+    "submit": "Submit",
+    "submitting": "Submitting...",
+    "subtitle": "Please fill in your details",
+    "title": "Application Form"
   },
   "donation": {
     "title": "Make a Donation",

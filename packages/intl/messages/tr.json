@@ -72,32 +72,40 @@
     },
     "collaborate": {
       "title": "Proje Ortakları",
-      "content": "Harmonie van Nederland projesi, Sanat Vakfı ile Freedom Combination Vakfı’nın ortak projesidir. Çalışmaları, Freedom Combination bünyesindeki Lotus van de Media platformu tarafından organize edilecektir."
+      "content": "Harmonie van Nederland projesi, Sanat Vakfı ile Freedom Combination Vakfı'nın ortak projesidir. Çalışmaları, Freedom Combination bünyesindeki Lotus van de Media platformu tarafından organize edilecektir."
     },
     "unity": {
       "title": "Kültürel Birlik",
-      "content": "Hollanda’nın kültürel çeşitliliğini kutlayan projeler geliştirerek toplumsal uyumu teşvik ediyoruz. Farklı kültürler arasında işbirliği ve diyalog ortamı oluşturarak sosyal barışı güçlendirmeyi hedefliyoruz. Kültürel mirası koruma ve paylaşma yoluyla, daha kapsayıcı ve anlayışlı bir toplumun inşasına katkı sağlıyoruz."
+      "content": "Hollanda'nın kültürel çeşitliliğini kutlayan projeler geliştirerek toplumsal uyumu teşvik ediyoruz. Farklı kültürler arasında işbirliği ve diyalog ortamı oluşturarak sosyal barışı güçlendirmeyi hedefliyoruz. Kültürel mirası koruma ve paylaşma yoluyla, daha kapsayıcı ve anlayışlı bir toplumun inşasına katkı sağlıyoruz."
     }
   },
   "Application": {
-    "title": "Başvuru Formu",
-    "subtitle": "Lütfen bilgilerinizi doldurun",
-    "applicationForm": "Başvuru Formu",
-    "fillOutForm": "Lütfen başvuru formunu doldurun",
-    "fullName": "Tam Ad",
-    "dateOfBirth": "Doğum Tarihi",
-    "phone": "Telefon Numarası",
-    "event": "Etkinlik Seçin",
-    "city": "Şehir Seçin",
-    "message": "Lütfen hangi kategoriye katılmak istediğinizi ve motivasyonunuzu belirtin.",
+    "acceptConditions": "<privacy>Gizlilik Politikası</privacy> ve <terms>Kullanım Şartları</terms>'ı kabul ediyorum.",
+    "acceptParent": "{fullName} adlı kişiyi {eventLabel} etkinliğine katılmaya izin veriyorum.",
     "acceptTerms": "Kullanım şartlarını kabul ediyorum",
-    "submitting": "Gönderiliyor...",
-    "submit": "Gönder",
+    "city": "Şehir Seç",
+    "dateOfBirth": "Doğum Tarihi",
+    "email": "E-posta",
+    "event": "Etkinlik Seç",
+    "fullName": "Ad Soyad",
     "general": {
-      "title": "Genel Bilgiler",
-      "description": "Lütfen aşağıdaki alanları doldurun.",
-      "label": "Genel Bilgiler"
-    }
+      "description": "Başvurunuzu işlemek için aşağıdaki bilgileri sağlayınız.",
+      "title": "Genel Bilgiler"
+    },
+    "isUnder18": "18 yaşından küçüğüm",
+    "message": "Etkinliğe katılımınızın ve motivasyonunuzu bize bildiriniz.",
+    "parent": {
+      "email": "E-posta",
+      "fullName": "Veli Ad Soyad",
+      "phone": "Telefon Numarası",
+      "title": "Veli Bilgileri"
+    },
+    "participantTitle": "Katılımcı Bilgileri",
+    "phone": "Telefon Numarası",
+    "submit": "Gönder",
+    "submitting": "Gönderiliyor...",
+    "subtitle": "Lütfen aşağıdaki bilgileri doldurunuz.",
+    "title": "Başvuru Formu"
   },
 
   "Support": {
