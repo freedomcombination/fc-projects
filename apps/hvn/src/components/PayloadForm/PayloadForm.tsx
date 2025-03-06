@@ -88,13 +88,13 @@ export const PayloadForm: React.FC<PayloadFormProps> = ({ formData }) => {
   }
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="text-2xl">{getLabelFromForm('title', formData.title)}</CardTitle>
-        <CardDescription>{getLabelFromForm('description', 'Lütfen formu eksiksiz doldurun.')}</CardDescription>
-      </CardHeader>
-      <Form {...form}>
-        <form onSubmit={handleSubmit(onSubmit)}>
+    <Form {...form}>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-2xl">{getLabelFromForm('title', formData.title)}</CardTitle>
+            <CardDescription>{getLabelFromForm('description', 'Lütfen formu eksiksiz doldurun.')}</CardDescription>
+          </CardHeader>
           <CardContent className="space-y-6">
             {formData.fields?.map((field, index) => {
               const name = ('name' in field ? field.name : '') as string
@@ -148,8 +148,8 @@ export const PayloadForm: React.FC<PayloadFormProps> = ({ formData }) => {
               )}
             </Button>
           </CardFooter>
-        </form>
-      </Form>
-    </Card>
+        </Card>
+      </form>
+    </Form>
   )
 }
