@@ -1,7 +1,7 @@
 'use client'
 
+import { Copyright } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import { useLocale } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
@@ -9,15 +9,14 @@ import { useParams } from 'next/navigation'
 export const Footer = () => {
   const headerTranslations = useTranslations('Header')
   const legalTranslations = useTranslations('legalPages')
-  const locale = useLocale()
   const paramsLocale = useParams().locale
 
   const menuItems = [
-    { href: '#home', label: headerTranslations('home') },
-    { href: '#about', label: headerTranslations('about') },
-    { href: '#application', label: headerTranslations('application') },
-    { href: '#contact', label: headerTranslations('contact') },
-    { href: '#support', label: headerTranslations('support') },
+    { href: `/${paramsLocale}#home`, label: headerTranslations('home') },
+    { href: `/${paramsLocale}#about`, label: headerTranslations('about') },
+    { href: `/${paramsLocale}#application`, label: headerTranslations('application') },
+    { href: `/${paramsLocale}#contact`, label: headerTranslations('contactNav') },
+    { href: `/${paramsLocale}#support`, label: headerTranslations('support') },
   ]
 
   const legalLinks = [
@@ -69,7 +68,8 @@ export const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
-          <p>
+          <p className="flex justify-center items-center gap-1">
+            <Copyright size={14} />
             {new Date().getFullYear()} Harmonie van Nederland {headerTranslations('allRightsReserved')}
           </p>
         </div>

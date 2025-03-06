@@ -14,10 +14,10 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@payloadcms/richtext-lexical": "^3.24.0",
-    "@payloadcms/next": "^3.24.0",
-    "payload": "^3.24.0",
-    "next": "^15.1.7"
+    "@payloadcms/richtext-lexical": "^3.27.0",
+    "@payloadcms/next": "^3.27.0",
+    "payload": "^3.27.0",
+    "next": "^15.2.1"
   },
   "devDependencies": {
     "@fc/config-typescript": "workspace:*",

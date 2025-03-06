@@ -1,6 +1,32 @@
 {
+  "submitting": "Verzenden...",
+  "submit": "Verzenden",
+  "phone": "Telefoonnummer",
+  "city": "Stad",
+  "message": "Bericht",
+  "email": "E-mail",
+  "thankYou": "Bedankt",
+  "error": "Fout",
+  "somethingWentWrong": "Er ging iets mis",
+
+  "contactForm": {
+    "title": "Contact Formulier",
+    "description": "U kunt het formulier hieronder invullen om contact met ons op te nemen."
+  },
+
+  "applicationForm": {
+    "fullName": "Volledige Naam",
+    "dateOfBirth": "Geboortedatum",
+    "event": "Evenement",
+    "acceptTerms": "Akkoord met de voorwaarden",
+    "title": "Aanvraagformulier",
+    "description": "Vul het formulier hieronder in om een aanvraag te doen voor het geselecteerde evenement.",
+    "successDescription": "We hebben uw aanvraag ontvangen, we zullen spoedig contact met u opnemen."
+  },
+
   "Header": {
     "home": "Home",
+    "contactNav": "Contact",
     "application": "Aanvragen",
     "about": "Over ons",
     "contact": "Contact",
@@ -10,7 +36,7 @@
     "cookies": "Cookies",
     "navigation": "Navigatie",
     "legal": "Juridisch",
-    "footerDescription": "Wij zijn gericht op het leveren van de beste service voor u.",
+    "footerDescription": "Culturen komen samen, talenten worden ontdekt.",
     "allRightsReserved": "Alle rechten voorbehouden",
     "privacyPolicy": "Ons privacybeleid is gericht op het beschermen van uw persoonlijke gegevens.",
     "termsOfUse": "Onze gebruiksvoorwaarden zijn van toepassing op alle diensten die wij aanbieden.",
@@ -27,8 +53,9 @@
     "about": "Ga naar over ons"
   },
   "Contact": {
-    "title": "Contact",
-    "subtitle": "Heeft u vragen? We horen graag van u. Stuur ons een bericht en we reageren zo snel mogelijk.",
+    "title": "Neem Contact Op",
+    "description": "Als u vragen heeft, neem dan contact met ons op",
+    "subtitle": "Vragen? We horen graag van u. Stuur ons een bericht en we reageren zo snel mogelijk.",
     "contactInfo": "Contactgegevens",
     "email": "E-mail",
     "phone": "Telefoon",
@@ -37,52 +64,62 @@
     "firstName": "Voornaam",
     "lastName": "Achternaam",
     "subject": "Onderwerp",
-    "message": "Vertel ons over uw evenementideeën en motivatie",
-    "messagePlaceholder": "Geef aan in welke categorie u wilt deelnemen aan het evenement en uw motivatie.",
-    "send": "Verstuur Bericht",
-    "sending": "Verzenden..."
+    "message": "Vertel ons over uw deelname aan het evenement en uw motivatie",
+    "send": "Bericht Verzenden",
+    "sending": "Bezig met verzenden..."
   },
   "About": {
     "cultural": {
       "title": "Culturele Dialoog",
-      "content": "Een cultureel evenementenproject waar individuen uit verschillende culturen in Nederland, met name vluchtelingengemeenschappen, hun culturele rijkdom kunnen delen, elkaar beter kunnen leren kennen en het integratieproces kunnen versnellen door verschillende delen van de samenleving samen te brengen. Het evenement is ontworpen om culturele diversiteit te vieren en individuen aan te moedigen van elkaar te leren."
+      "content": "Dit culturele evenementproject brengt mensen uit verschillende culturen die in Nederland wonen samen en helpt hen elkaar beter te leren kennen. De deelnemers verkennen elkaars werelden via culturele tradities, stukjes uit het dagelijks leven en persoonlijke verhalen. Dit interactieve project heeft als doel om betekenisvolle dialogen tussen gemeenschappen te creëren via kunst, muziek, gesprekken en gedeelde ervaringen."
     },
     "platform": {
-      "title": "Cultureel Platform",
-      "content": "Een interactief platform waar deelnemers hun cultuur kunnen presenteren en hun traditionele gerechten, muziek, handwerk en verhalen kunnen delen. Via dit platform worden bruggen gebouwd tussen verschillende culturen en wordt wederzijds begrip ontwikkeld. Daarnaast zorgt het voor het behoud en de overdracht van cultureel erfgoed aan toekomstige generaties."
+      "title": "Cultureel Ontmoetingspunt",
+      "content": "We bieden een ruimte waar deelnemers hun culturele erfgoed kunnen presenteren. Dit platform, met muziek, dans, podiumvoorstellingen en zangoptredens, bevordert culturele interactie en versterkt sociale banden. Bovendien draagt het archiveren van cultureel erfgoed in zowel digitale als fysieke ruimtes bij aan de overdracht naar toekomstige generaties."
     },
     "activities": {
       "title": "Culturele Activiteiten",
-      "content": "We organiseren regelmatig evenementen, workshops en festivals om bewustzijn te creëren over culturele diversiteit in de Nederlandse samenleving en vooroordelen te verminderen. Deze evenementen omvatten culturele foodfestivals, dansvoorstellingen, muziekoptredens, kunsttentoonstellingen en interactieve workshops. Elk evenement benadrukt de rijkdom en uniekheid van verschillende culturen."
+      "content": "We organiseren verschillende evenementen om culturele diversiteit te vergroten en de interactie tussen gemeenschappen in de Nederlandse samenleving te versterken. Via muziek- en dansvoorstellingen, podiumacts, kunstexposities en gesprekken krijgen de deelnemers de kans verschillende culturen van dichtbij te ervaren. Elk evenement benadrukt de unieke waarden van culturen en bevordert wederzijds begrip en respect."
     },
-    "integration": {
-      "title": "Sociale Integratie",
-      "content": "We bieden speciale programma's aan om de aanpassing van mensen uit verschillende culturen aan de Nederlandse samenleving te vergemakkelijken. We organiseren taalcursussen, culturele oriëntatieprogramma's, beroepsworkshops en sociale activiteiten. Deze programma's ondersteunen deelnemers bij het nemen van een actieve rol in de Nederlandse samenleving en vergroten hun zelfvertrouwen."
+    "collaborate": {
+      "title": "Projectpartners",
+      "content": "Het Harmonie van Nederland-project is een gezamenlijk initiatief van de Sanat Foundation en de Freedom Combination Foundation. De activiteiten worden georganiseerd door het Lotus van de Media-platform van Freedom Combination."
     },
     "unity": {
       "title": "Culturele Eenheid",
-      "content": "We ontwikkelen projecten die de culturele diversiteit van Nederland vieren en deze rijkdom weerspiegelen naar alle lagen van de samenleving. Door de voordelen van het samenleven van verschillende culturen te benadrukken, streven we ernaar de sociale vrede en harmonie te versterken. Door interculturele dialoog en samenwerking dragen we bij aan het creëren van een meer inclusieve en begripvolle samenleving."
+      "content": "We ontwikkelen projecten die de culturele diversiteit van Nederland vieren en sociale harmonie bevorderen. Door samenwerkings- en dialoogomgevingen te creëren tussen verschillende culturen, streven we ernaar de sociale vrede te versterken. Door cultureel erfgoed te bewaren en te delen, dragen we bij aan de opbouw van een meer inclusieve en begripvolle samenleving."
     }
   },
   "Application": {
-    "title": "Aanvraagformulier",
-    "subtitle": "Vul alstublieft uw gegevens in",
-    "fullName": "Volledige naam",
+    "acceptConditions": "Ik ga akkoord met de <privacy>privacy policy</privacy> en <terms>terms of service</terms>",
+    "acceptParent": "Ik geef toestemming aan {fullName} deel te nemen aan het {eventLabel} evenement.",
+    "acceptTerms": "Ik ga akkoord met de voorwaarden",
+    "city": "Stad selecteren",
     "dateOfBirth": "Geboortedatum",
-    "phone": "Telefoonnummer",
-    "event": "Selecteer evenement",
-    "city": "Selecteer stad",
-    "message": "Typ hier uw bericht...",
-    "acceptTerms": "Ik accepteer de gebruiksvoorwaarden",
-    "submitting": "Verzenden...",
-    "submit": "Verzenden",
+    "email": "E-mail",
+    "event": "Evenement selecteren",
+    "fullName": "Volledige Naam",
     "general": {
-      "title": "Algemene Informatie",
-      "description": "Vul alstublieft de onderstaande gegevens in om uw aanvraag te starten."
-    }
+      "description": "Vul de volgende informatie in om uw aanvraag te verwerken.",
+      "title": "Algemene Informatie"
+    },
+    "isUnder18": "Ik ben jonger dan 18 jaar",
+    "message": "Vertel ons over uw deelname aan het evenement en uw motivatie",
+    "parent": {
+      "email": "E-mail van de ouder",
+      "fullName": "Volledige naam van de ouder",
+      "phone": "Telefoonnummer van de ouder",
+      "title": "Ouderinformatie"
+    },
+    "participantTitle": "Deelnemerinformatie",
+    "phone": "Telefoonnummer",
+    "submit": "Verzenden",
+    "submitting": "Bezig met verzenden...",
+    "subtitle": "Vul uw gegevens in",
+    "title": "Aanvraagformulier"
   },
-
-  "support": {
+  "Support": {
+    "bankTransferTitle": "Bankoverschrijving",
     "value": "Jouw steun is voor ons heel waardevol!",
     "bankTransfer": "Ondersteuning bij bankoverschrijving",
     "improvement": "We werken continu aan onze site om u betere diensten te bieden."
@@ -101,7 +138,7 @@
   },
   "Hero": {
     "title": "Harmonie van Nederland",
-    "subtitle": "Culturele Harmonie van Nederland",
+    "subtitle": "Culturen komen samen, talenten worden ontdekt",
     "cta": "Meer Informatie"
   },
   "legalPages": {
@@ -118,7 +155,7 @@
       },
       "contact": {
         "title": "Contact",
-        "description": "Als u vragen heeft, neem dan contact met ons op via info@harmonievannederland.com."
+        "description": "Als u vragen heeft, neem dan contact met ons op via "
       }
     },
     "terms": {

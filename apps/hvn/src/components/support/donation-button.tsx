@@ -1,16 +1,17 @@
 'use client'
-import { FC, MouseEvent, useEffect } from 'react'
 
-import { Button, ButtonProps } from '@fc/ui/base/button'
+import { FC } from 'react'
 
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { Button } from '@fc/ui/base/button'
+
+import { usePathname, useRouter } from 'next/navigation'
 import { toast } from 'sonner'
 
 type DonateButtonProps = {
   amount: number
   email: string
   type: 'monthly' | 'one-time'
-} & Omit<ButtonProps, 'type' | 'email'>
+} & Omit<React.ComponentProps<typeof Button>, 'type' | 'email'>
 
 const DonateButton: FC<DonateButtonProps> = ({ amount, children, email, type, ...props }) => {
   const router = useRouter()
