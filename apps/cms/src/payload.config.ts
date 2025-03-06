@@ -7,6 +7,8 @@ import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
+import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
+import nodemailer from 'nodemailer'
 
 import { Page } from '@fc/config-payload/blocks/Page'
 import { Users } from '@fc/config-payload/blocks/Users'
@@ -30,6 +32,19 @@ export default buildConfig({
   },
   collections: [Users, Media, Blogs, Page],
   editor: lexicalEditor(),
+  email: nodemailerAdapter({
+    defaultFromAddress: 'info@freedomcombination.com',
+    defaultFromName: 'Freedom Combination',
+    // Any Nodemailer transport
+    transport: nodemailer.createTransport({
+      auth: {
+        pass: process.env.EMAIL_PASS,
+        user: 'info@freedomcombination.com',
+      },
+      host: 'mail.privateemail.com',
+      port: 465,
+    }),
+  }),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
     outputFile: path.resolve(dirname, '../../../packages/types/payload-types.ts'),
