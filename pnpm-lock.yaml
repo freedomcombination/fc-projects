@@ -94,6 +94,9 @@ importers:
       '@eslint/eslintrc':
         specifier: ^3.3.0
         version: 3.3.0
+      '@fc/config-eslint':
+        specifier: workspace:*
+        version: link:../../packages/config-eslint
       '@fc/config-payload':
         specifier: workspace:*
         version: link:../../packages/config-payload

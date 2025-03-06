@@ -11,5 +11,12 @@ export const Blogs: CollectionConfig = {
       name: 'title',
       type: 'text',
     },
+    // Author
+    {
+      name: 'author',
+      type: 'relationship',
+      relationTo: 'users',
+      hasMany: false,
+    },
   ],
 }

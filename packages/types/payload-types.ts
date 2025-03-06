@@ -126,6 +126,7 @@ export interface UserAuthOperations {
  */
 export interface User {
   id: string;
+  name?: string | null;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -163,6 +164,7 @@ export interface Media {
 export interface Blog {
   id: string;
   title?: string | null;
+  author?: (string | null) | User;
   updatedAt: string;
   createdAt: string;
 }
@@ -459,6 +461,7 @@ export interface PayloadMigration {
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
+  name?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;
@@ -493,6 +496,7 @@ export interface MediaSelect<T extends boolean = true> {
  */
 export interface BlogsSelect<T extends boolean = true> {
   title?: T;
+  author?: T;
   updatedAt?: T;
   createdAt?: T;
 }
