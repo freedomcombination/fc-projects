@@ -33,6 +33,10 @@
     "generate:types": {
       "dependsOn": ["^generate:types"],
       "cache": false
+    },
+    "generate:importmap": {
+      "dependsOn": ["^generate:importmap"],
+      "cache": false
     }
   }
 }

@@ -12,7 +12,9 @@
     "add-component": "cd packages/ui && pnpm dlx shadcn add && pnpm lint",
     "type-check": "turbo run type-check",
     "codegen": "turbo run codegen",
-    "generate:types": "turbo run generate:types"
+    "generate:types": "turbo run generate:types",
+    "generate:importmap": "turbo run generate:importmap",
+    "generate": "pnpm run generate:types && pnpm run generate:importmap && pnpm run codegen"
   },
   "dependencies": {
     "@fc/ui": "workspace:*",
