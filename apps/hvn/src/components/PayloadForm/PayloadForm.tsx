@@ -88,72 +88,68 @@ export const PayloadForm: React.FC<PayloadFormProps> = ({ formData }) => {
   }
 
   return (
-    <div className="container mx-auto px-4 max-w-3xl">
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-2xl">{getLabelFromForm('title', formData.title)}</CardTitle>
-          <CardDescription>{getLabelFromForm('description', 'Lütfen formu eksiksiz doldurun.')}</CardDescription>
-        </CardHeader>
-        <Form {...form}>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <CardContent className="space-y-6">
-              {formData.fields?.map((field, index) => {
-                const name = ('name' in field ? field.name : '') as string
-                const label = getLabel(name as string, 'label' in field ? field.label : null)
-                const blockType = field.blockType
-                const required = 'required' in field ? !!field.required : false
+    <Card>
+      <CardHeader>
+        <CardTitle className="text-2xl">{getLabelFromForm('title', formData.title)}</CardTitle>
+        <CardDescription>{getLabelFromForm('description', 'Lütfen formu eksiksiz doldurun.')}</CardDescription>
+      </CardHeader>
+      <Form {...form}>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <CardContent className="space-y-6">
+            {formData.fields?.map((field, index) => {
+              const name = ('name' in field ? field.name : '') as string
+              const label = getLabel(name as string, 'label' in field ? field.label : null)
+              const blockType = field.blockType
+              const required = 'required' in field ? !!field.required : false
 
-                return (
-                  <div className="space-y-2" key={index}>
-                    {blockType === 'text' && <FormInput label={label} name={name} required={required} />}
+              return (
+                <div className="space-y-2" key={index}>
+                  {blockType === 'text' && <FormInput label={label} name={name} required={required} />}
 
-                    {blockType === 'textarea' && <FormTextarea label={label} name={name} required={required} />}
+                  {blockType === 'textarea' && <FormTextarea label={label} name={name} required={required} />}
 
-                    {blockType === 'select' && (
-                      <FormSelect label={label} name={name} options={field.options!} required={required} />
-                    )}
+                  {blockType === 'select' && (
+                    <FormSelect label={label} name={name} options={field.options!} required={required} />
+                  )}
 
-                    {blockType === 'checkbox' && (
-                      <div className="flex items-center space-x-2">
-                        <FormCheckbox label={label} name={name} required={required} />
-                        {name === 'acceptTerms' && (
-                          <Link href={`${locale}/legal/terms-of-use`} target="_blank">
-                            <LinkIcon className="h-4 w-4" />
-                          </Link>
-                        )}
-                      </div>
-                    )}
+                  {blockType === 'checkbox' && (
+                    <div className="flex items-center space-x-2">
+                      <FormCheckbox label={label} name={name} required={required} />
+                      {name === 'acceptTerms' && (
+                        <Link href={`${locale}/legal/terms-of-use`} target="_blank">
+                          <LinkIcon className="h-4 w-4" />
+                        </Link>
+                      )}
+                    </div>
+                  )}
 
-                    {blockType === 'email' && <FormInput label={label} name={name} required={required} type="email" />}
+                  {blockType === 'email' && <FormInput label={label} name={name} required={required} type="email" />}
 
-                    {blockType === 'number' && (
-                      <FormInput label={label} name={name} required={required} type="number" />
-                    )}
+                  {blockType === 'number' && <FormInput label={label} name={name} required={required} type="number" />}
 
-                    {/* TODO: Add country select */}
-                    {blockType === 'country' && <FormInput label={label} name={name} required={required} />}
-                  </div>
-                )
-              })}
-            </CardContent>
-            <CardFooter>
-              <Button className="w-full" type="submit">
-                {isSubmitting ? (
-                  <span className="flex items-center justify-center text-white">
-                    <span className="mr-2">{getLabel('submitting', 'Gönderiliyor')}</span>
-                    <Loader2 className="h-5 w-5 animate-spin" />
-                  </span>
-                ) : (
-                  <span className="flex items-center justify-center text-white">
-                    <span className="mr-2">{getLabel('submit', formData.submitButtonLabel || 'Gönder')}</span>
-                    <Send className="h-5 w-5" />
-                  </span>
-                )}
-              </Button>
-            </CardFooter>
-          </form>
-        </Form>
-      </Card>
-    </div>
+                  {/* TODO: Add country select */}
+                  {blockType === 'country' && <FormInput label={label} name={name} required={required} />}
+                </div>
+              )
+            })}
+          </CardContent>
+          <CardFooter>
+            <Button className="w-full" type="submit">
+              {isSubmitting ? (
+                <span className="flex items-center justify-center text-white">
+                  <span className="mr-2">{getLabel('submitting', 'Gönderiliyor')}</span>
+                  <Loader2 className="h-5 w-5 animate-spin" />
+                </span>
+              ) : (
+                <span className="flex items-center justify-center text-white">
+                  <span className="mr-2">{getLabel('submit', formData.submitButtonLabel || 'Gönder')}</span>
+                  <Send className="h-5 w-5" />
+                </span>
+              )}
+            </Button>
+          </CardFooter>
+        </form>
+      </Form>
+    </Card>
   )
 }
