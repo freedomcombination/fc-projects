@@ -29,19 +29,19 @@ export default buildConfig({
     url: process.env.DATABASE_URL as string,
   }),
   editor: lexicalEditor(),
-  email: nodemailerAdapter({
-    defaultFromAddress: 'info@harmonievannederland.com',
-    defaultFromName: 'Harmonie van Nederland',
-    // Any Nodemailer transport
-    transport: nodemailer.createTransport({
-      auth: {
-        pass: process.env.EMAIL_PASS,
-        user: 'info@harmonievannederland.com',
-      },
-      host: 'mail.privateemail.com',
-      port: 465,
-    }),
-  }),
+  // email: nodemailerAdapter({
+  //   defaultFromAddress: 'info@harmonievannederland.com',
+  //   defaultFromName: 'Harmonie van Nederland',
+  //   // Any Nodemailer transport
+  //   transport: nodemailer.createTransport({
+  //     auth: {
+  //       pass: process.env.EMAIL_PASS,
+  //       user: 'info@harmonievannederland.com',
+  //     },
+  //     host: 'mail.privateemail.com',
+  //     port: 465,
+  //   }),
+  // }),
   localization: {
     defaultLocale: 'en',
     fallback: true,
