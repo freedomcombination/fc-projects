@@ -9,7 +9,7 @@ import NextImage from 'next/image'
 import { getClientSideURL } from '@/utilities/getURL'
 import { cn } from '@/utilities/ui'
 
-import type { Props as MediaProps } from '../types'
+import type { MediaProps } from '../types'
 
 // Keep these in sync with the CSS variables in your tailwind configuration
 const cssVariables = {
