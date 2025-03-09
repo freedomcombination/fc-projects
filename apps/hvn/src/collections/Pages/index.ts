@@ -10,6 +10,7 @@ import {
 
 import { authenticated } from '@/access/authenticated'
 import { authenticatedOrPublished } from '@/access/authenticatedOrPublished'
+import { Banner } from '@/blocks/Banner/config'
 import { CallToAction } from '@/blocks/CallToAction/config'
 import { Content } from '@/blocks/Content/config'
 import { FormBlock } from '@/blocks/Form/config'
@@ -75,7 +76,7 @@ export const Pages: CollectionConfig<'pages'> = {
               admin: {
                 initCollapsed: true,
               },
-              blocks: [CallToAction, Content, MediaBlock, FormBlock, Section],
+              blocks: [CallToAction, Content, MediaBlock, FormBlock, Section, Banner],
               name: 'layout',
               required: true,
               type: 'blocks',

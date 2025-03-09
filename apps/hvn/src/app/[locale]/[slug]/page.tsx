@@ -14,7 +14,6 @@ import { generateMeta } from '@/utilities/generateMeta'
 
 const homeStatic: RequiredDataFromCollectionSlug<'pages'> = {
   _status: 'published',
-
   hero: {
     links: [],
 
@@ -125,7 +124,7 @@ const homeStatic: RequiredDataFromCollectionSlug<'pages'> = {
 
         id: '67bea4c382ae54d7ccf70aa2',
 
-        redirect: {},
+        redirect: { url: '/' },
         submitButtonLabel: 'Günder',
         title: 'Contact Form',
         updatedAt: '2025-02-26T05:21:07.818Z',
@@ -192,6 +191,7 @@ const homeStatic: RequiredDataFromCollectionSlug<'pages'> = {
 
           link: {
             appearance: 'default',
+            label: 'trte',
             type: 'reference',
           },
 
@@ -232,6 +232,8 @@ const homeStatic: RequiredDataFromCollectionSlug<'pages'> = {
       id: '67cd94490cfef46ca1be0422',
     },
   ],
+
+  title: 'Home',
 }
 
 export async function generateStaticParams() {

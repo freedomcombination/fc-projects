@@ -2,14 +2,15 @@ import React, { Fragment } from 'react'
 
 import type { Page } from '@/payload-types'
 
+import { BannerBlock } from '@/blocks/Banner/Component'
 import { CallToActionBlock } from '@/blocks/CallToAction/Component'
 import { ContentBlock } from '@/blocks/Content/Component'
 import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
-
-import { SectionBlock } from './Section/Component'
+import { SectionBlock } from '@/blocks/Section/Component'
 
 const blockComponents = {
+  banner: BannerBlock,
   content: ContentBlock,
   cta: CallToActionBlock,
   formBlock: FormBlock,
