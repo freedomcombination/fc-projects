@@ -3,13 +3,7 @@ import type { Control, FieldErrorsImpl } from 'react-hook-form'
 import { Controller } from 'react-hook-form'
 
 import { Label } from '@fc/ui/base/label'
-import {
-  Select as SelectComponent,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@fc/ui/base/select'
+import { Select as SelectComponent, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@fc/ui/base/select'
 
 import type { SelectField } from '@payloadcms/plugin-form-builder/types'
 

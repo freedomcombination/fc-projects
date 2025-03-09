@@ -21,9 +21,7 @@ export const SlugComponent: React.FC<SlugComponentProps> = ({
 }) => {
   const { label } = field
 
-  const checkboxFieldPath = path?.includes('.')
-    ? `${path}.${checkboxFieldPathFromProps}`
-    : checkboxFieldPathFromProps
+  const checkboxFieldPath = path?.includes('.') ? `${path}.${checkboxFieldPathFromProps}` : checkboxFieldPathFromProps
 
   const { setValue, value } = useField<string>({ path: path || field.name })
 
@@ -77,12 +75,7 @@ export const SlugComponent: React.FC<SlugComponentProps> = ({
         </Button>
       </div>
 
-      <TextInput
-        onChange={setValue}
-        path={path || field.name}
-        readOnly={Boolean(readOnly)}
-        value={value}
-      />
+      <TextInput onChange={setValue} path={path || field.name} readOnly={Boolean(readOnly)} value={value} />
     </div>
   )
 }

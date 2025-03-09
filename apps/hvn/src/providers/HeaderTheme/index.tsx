@@ -1,8 +1,8 @@
 'use client'
 
-import type { Theme } from '@/providers/Theme/types'
-
 import React, { createContext, useCallback, useContext, useState } from 'react'
+
+import type { Theme } from '@/providers/Theme/types'
 
 import canUseDOM from '@/utilities/canUseDOM'
 
@@ -27,11 +27,7 @@ export const HeaderThemeProvider = ({ children }: { children: React.ReactNode })
     setThemeState(themeToSet)
   }, [])
 
-  return (
-    <HeaderThemeContext.Provider value={{ headerTheme, setHeaderTheme }}>
-      {children}
-    </HeaderThemeContext.Provider>
-  )
+  return <HeaderThemeContext.Provider value={{ headerTheme, setHeaderTheme }}>{children}</HeaderThemeContext.Provider>
 }
 
 export const useHeaderTheme = (): ContextType => useContext(HeaderThemeContext)

@@ -1,6 +1,5 @@
 import type { Block } from 'payload'
 
-
 export const Section: Block = {
   fields: [
     {
@@ -18,7 +17,7 @@ export const Section: Block = {
       ],
       required: true,
       type: 'select',
-    }
+    },
   ],
   interfaceName: 'SectionBlock',
   slug: 'section',

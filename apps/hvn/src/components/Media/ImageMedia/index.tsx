@@ -23,7 +23,6 @@ const cssVariables = {
   },
 }
 
-
 const { breakpoints } = cssVariables
 
 // A base64 encoded image to use as a placeholder while the image is loading

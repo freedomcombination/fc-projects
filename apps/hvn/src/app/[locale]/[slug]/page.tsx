@@ -98,7 +98,6 @@ const homeStatic: RequiredDataFromCollectionSlug<'pages'> = {
   title: 'Home',
 }
 
-
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
   const pages = await payload.find({
@@ -152,7 +151,6 @@ export default async function Page({ params: paramsPromise }: Args) {
 
   return (
     <article className="pt-16 pb-24">
-
       {draft && <LivePreviewListener />}
 
       <RenderHero {...hero} />
