@@ -72,7 +72,6 @@ export interface Config {
     pages: Page
     forms: Form
     'form-submissions': FormSubmission
-    'payload-jobs': PayloadJob
     'payload-locked-documents': PayloadLockedDocument
     'payload-preferences': PayloadPreference
     'payload-migrations': PayloadMigration
@@ -85,7 +84,6 @@ export interface Config {
     pages: PagesSelect<false> | PagesSelect<true>
     forms: FormsSelect<false> | FormsSelect<true>
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>
-    'payload-jobs': PayloadJobsSelect<false> | PayloadJobsSelect<true>
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>
@@ -100,13 +98,7 @@ export interface Config {
     collection: 'users'
   }
   jobs: {
-    tasks: {
-      schedulePublish: TaskSchedulePublish
-      inline: {
-        input: unknown
-        output: unknown
-      }
-    }
+    tasks: unknown
     workflows: unknown
   }
 }
@@ -190,9 +182,10 @@ export interface Donation {
 export interface Page {
   id: string
   title: string
-  hero: {
-    type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact'
-    richText?: {
+  layout: {
+    form: string | Form
+    enableIntro?: boolean | null
+    introContent?: {
       root: {
         type: string
         children: {
@@ -207,39 +200,11 @@ export interface Page {
       }
       [k: string]: unknown
     } | null
-    links?:
-      | {
-          link: {
-            type?: ('reference' | 'custom') | null
-            newTab?: boolean | null
-            reference?: {
-              relationTo: 'pages'
-              value: string | Page
-            } | null
-            url?: string | null
-            label: string
-            /**
-             * Choose how the link should be rendered.
-             */
-            appearance?: ('default' | 'outline') | null
-          }
-          id?: string | null
-        }[]
-      | null
-    media?: (string | null) | Media
-  }
-  layout: (CallToActionBlock | ContentBlock | MediaBlock | FormBlock | SectionBlock | BannerBlock)[]
-  meta?: {
-    title?: string | null
-    /**
-     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
-     */
-    image?: (string | null) | Media
-    description?: string | null
-  }
-  publishedAt?: string | null
+    id?: string | null
+    blockName?: string | null
+    blockType: 'formBlock'
+  }[]
   slug?: string | null
-  slugLock?: boolean | null
   updatedAt: string
   createdAt: string
   _status?: ('draft' | 'published') | null
@@ -707,10 +672,6 @@ export interface PayloadLockedDocument {
         relationTo: 'form-submissions'
         value: string | FormSubmission
       } | null)
-    | ({
-        relationTo: 'payload-jobs'
-        value: string | PayloadJob
-      } | null)
   globalSlug?: string | null
   user: {
     relationTo: 'users'
@@ -810,140 +771,23 @@ export interface DonationsSelect<T extends boolean = true> {
  */
 export interface PagesSelect<T extends boolean = true> {
   title?: T
-  hero?:
-    | T
-    | {
-        type?: T
-        richText?: T
-        links?:
-          | T
-          | {
-              link?:
-                | T
-                | {
-                    type?: T
-                    newTab?: T
-                    reference?: T
-                    url?: T
-                    label?: T
-                    appearance?: T
-                  }
-              id?: T
-            }
-        media?: T
-      }
   layout?:
     | T
     | {
-        cta?: T | CallToActionBlockSelect<T>
-        content?: T | ContentBlockSelect<T>
-        mediaBlock?: T | MediaBlockSelect<T>
-        formBlock?: T | FormBlockSelect<T>
-        section?: T | SectionBlockSelect<T>
-        banner?: T | BannerBlockSelect<T>
+        formBlock?:
+          | T
+          | {
+              form?: T
+              enableIntro?: T
+              introContent?: T
+              id?: T
+              blockName?: T
+            }
       }
-  meta?:
-    | T
-    | {
-        title?: T
-        image?: T
-        description?: T
-      }
-  publishedAt?: T
   slug?: T
-  slugLock?: T
   updatedAt?: T
   createdAt?: T
   _status?: T
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CallToActionBlock_select".
- */
-export interface CallToActionBlockSelect<T extends boolean = true> {
-  richText?: T
-  links?:
-    | T
-    | {
-        link?:
-          | T
-          | {
-              type?: T
-              newTab?: T
-              reference?: T
-              url?: T
-              label?: T
-              appearance?: T
-            }
-        id?: T
-      }
-  id?: T
-  blockName?: T
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ContentBlock_select".
- */
-export interface ContentBlockSelect<T extends boolean = true> {
-  columns?:
-    | T
-    | {
-        size?: T
-        richText?: T
-        enableLink?: T
-        link?:
-          | T
-          | {
-              type?: T
-              newTab?: T
-              reference?: T
-              url?: T
-              label?: T
-              appearance?: T
-            }
-        id?: T
-      }
-  id?: T
-  blockName?: T
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "MediaBlock_select".
- */
-export interface MediaBlockSelect<T extends boolean = true> {
-  media?: T
-  id?: T
-  blockName?: T
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "FormBlock_select".
- */
-export interface FormBlockSelect<T extends boolean = true> {
-  form?: T
-  enableIntro?: T
-  introContent?: T
-  id?: T
-  blockName?: T
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "SectionBlock_select".
- */
-export interface SectionBlockSelect<T extends boolean = true> {
-  sectionName?: T
-  id?: T
-  blockName?: T
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "BannerBlock_select".
- */
-export interface BannerBlockSelect<T extends boolean = true> {
-  style?: T
-  content?: T
-  id?: T
-  blockName?: T
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

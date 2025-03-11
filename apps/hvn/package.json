@@ -37,6 +37,7 @@
     "axios": "^1.8.2",
     "class-variance-authority": "^0.7.1",
     "cross-env": "^7.0.3",
+    "date-fns": "^4.1.0",
     "framer-motion": "^12.4.10",
     "graphql": "^16.10.0",
     "lexical": "^0.27.1",
