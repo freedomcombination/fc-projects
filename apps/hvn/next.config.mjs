@@ -1,5 +1,7 @@
 import { getNextConfig } from '@fc/intl/next.config'
 
+import { withPayload } from '@payloadcms/next/withPayload'
+
 const nextConfig = getNextConfig({
   images: {
     remotePatterns: [
@@ -13,9 +15,14 @@ const nextConfig = getNextConfig({
         pathname: '/**',
         protocol: 'https',
       },
+      {
+        hostname: 'stichtingsanat.nl',
+        pathname: '/**',
+        protocol: 'https',
+      },
     ],
   },
   transpilePackages: ['@fc/ui'],
 })
 
-export default nextConfig
+export default withPayload(nextConfig)

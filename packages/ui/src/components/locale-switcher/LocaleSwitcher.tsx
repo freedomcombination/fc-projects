@@ -1,13 +1,23 @@
 'use client'
 
-import { usePathname, useRouter } from '@fc/intl/navigation'
-import { type AppLocale, routing } from '@fc/intl/routing'
+import * as React from 'react'
 
-import clsx from 'clsx'
+import { usePathname, useRouter } from '@fc/intl/navigation'
+import { AppLocale } from '@fc/intl/routing'
+import { Button } from '@fc/ui/base/button'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@fc/ui/base/dropdown-menu'
+
+import { Globe } from 'lucide-react'
 import { useLocale } from 'next-intl'
 import { useParams } from 'next/navigation'
 
-export const LocaleSwitcher = () => {
+const languages = [
+  { code: 'tr', label: 'Türkçe' },
+  { code: 'en', label: 'English' },
+  { code: 'nl', label: 'Nederlands' },
+]
+
+export function LocaleSwitcher() {
   const router = useRouter()
 
   const pathname = usePathname()
@@ -20,24 +30,29 @@ export const LocaleSwitcher = () => {
       // always match for the current route, we can skip runtime checks.
       // @ts-expect-error
       { params, pathname },
-      { locale },
+      { locale, scroll: false },
     )
   }
 
   return (
-    <div className="flex items-center space-x-2">
-      {routing.locales.map((locale) => {
-        const className = clsx(
-          locale === currentLocale ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800',
-          'w-8 p-2',
-        )
-
-        return (
-          <button className={className} key={locale} onClick={() => onSelectChange(locale)}>
-            {locale}
-          </button>
-        )
-      })}
-    </div>
+    <DropdownMenu modal={false}>
+      <DropdownMenuTrigger asChild>
+        <Button className="gap-2 p-2" size="lg" variant="ghost">
+          <Globe className="h-4 w-4" />
+          {currentLocale.toUpperCase()}
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="p-2 gap-2 text-xl">
+        {languages.map((lang) => (
+          <DropdownMenuItem
+            className="cursor-pointer p-1"
+            key={lang.code}
+            onClick={() => onSelectChange(lang.code as AppLocale)}
+          >
+            {lang.label}
+          </DropdownMenuItem>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
   )
 }

@@ -1,6 +1,7 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "ui": "tui",
+  "globalPassThroughEnv": ["COREPACK_HOME", "STRIPE_KEY", "PAYLOAD_SECRET", "EMAIL_PASS", "DATABASE_URL"],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
@@ -9,6 +10,10 @@
     },
     "lint": {
       "dependsOn": ["^lint"]
+    },
+    "hvn": {
+      "cache": false,
+      "persistent": true
     },
     "dev": {
       "cache": false,
@@ -22,7 +27,16 @@
       "dependsOn": ["^type-check"]
     },
     "codegen": {
-      "dependsOn": ["^codegen"]
+      "dependsOn": ["^codegen"],
+      "cache": false
+    },
+    "generate:types": {
+      "dependsOn": ["^generate:types"],
+      "cache": false
+    },
+    "generate:importmap": {
+      "dependsOn": ["^generate:importmap"],
+      "cache": false
     }
   }
 }
