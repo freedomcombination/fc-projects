@@ -8,15 +8,11 @@ export const useApplicationFormSchema = (isUnder18: boolean) => {
       message: 'You must accept the conditions',
     }),
     acceptParent: z.boolean(),
-    dateOfBirth: z.date({
-      invalid_type_error: 'Invalid date format',
-      required_error: 'Date of birth is required',
-    }),
     city: z.string().min(1, 'City is required'),
+    dateOfBirth: z.string().min(1, 'Date of birth is required'),
     email: z.string().email('Invalid email format'),
     event: z.string().min(1, 'Event is required'),
     fullName: z.string().min(1, 'Full name is required'),
-    isUnder18: z.boolean(),
     phone: z.string().refine(isValidPhoneNumber, 'Invalid phone number format'),
     ...(isUnder18 && {
       acceptParent: z.boolean().refine((value) => value, {
