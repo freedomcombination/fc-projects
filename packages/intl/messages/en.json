@@ -8,20 +8,9 @@
   "thankYou": "Thank you",
   "error": "Error",
   "somethingWentWrong": "Something went wrong",
-
   "contactForm": {
     "title": "Contact Form",
     "description": "You can fill out the form below to contact us."
-  },
-
-  "applicationForm": {
-    "fullName": "Full Name",
-    "dateOfBirth": "Date of Birth",
-    "event": "Event",
-    "acceptTerms": "Accept Terms",
-    "title": "Application Form",
-    "description": "Fill in the form below to apply for the selected event.",
-    "successDescription": "We have received your application, we will get back to you as soon as possible."
   },
   "Header": {
     "contactNav": "Contact",
@@ -55,7 +44,6 @@
     "send": "Send Message",
     "sending": "Sending..."
   },
-
   "About": {
     "cultural": {
       "title": "Cultural Dialogue",
@@ -79,8 +67,14 @@
     }
   },
   "Application": {
-    "acceptConditions": "I agree to the <privacy>privacy policy</privacy> and <terms>terms of service</terms>",
-    "acceptParent": "I allow {fullName} to participate in the {eventLabel} event.",
+    "acceptConditions": {
+      "title": "Accept Conditions",
+      "description": "I agree to the <privacy>privacy policy</privacy> and <terms>terms of service</terms>"
+    },
+    "acceptParent": {
+      "title": "Parent Permission",
+      "description": "I allow {fullName} to participate in the {eventLabel} event."
+    },
     "acceptTerms": "I accept the terms of use",
     "city": "Select City",
     "dateOfBirth": "Date of Birth",

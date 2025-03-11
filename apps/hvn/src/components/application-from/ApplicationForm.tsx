@@ -13,6 +13,7 @@ import { FormSelect } from '@fc/ui/components/form/form-select'
 import { FormTextarea } from '@fc/ui/components/form/form-textarea'
 
 import { zodResolver } from '@hookform/resolvers/zod'
+import { addYears, differenceInYears, isAfter, isBefore, isSameDay, subYears } from 'date-fns'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 
@@ -33,10 +34,10 @@ export const ApplicationForm = () => {
       acceptConditions: false,
       acceptParent: false,
       city: '',
+      dateOfBirth: new Date(),
       email: '',
       event: 'hvn_amsterdam',
       fullName: '',
-      isUnder18: true,
       parentEmail: '',
       parentFullName: '',
       parentPhone: '',
@@ -46,15 +47,30 @@ export const ApplicationForm = () => {
   })
 
   const onSubmit = (data: ApplicationFormData) => {
-    console.log(data)
+    alert(`Form submitted: ${JSON.stringify(data, null, 2)}`)
   }
 
-  const { event = 'hvn_amsterdam', fullName, isUnder18 } = form.watch()
-  const eventLabel = eventOptions.find((option) => option.value === event)?.label
+  const dateOfBirth = form.watch('dateOfBirth')
+
+  // Calculate if person is under 18 by checking if their 18th birthday has passed
+  const today = new Date()
+  const birthDate = new Date(dateOfBirth)
+
+  // Calculate the date of their 18th birthday
+  const eighteenthBirthday = new Date(birthDate.getFullYear() + 18, birthDate.getMonth(), birthDate.getDate() + 1)
+
+  // Person is 18 or older if their 18th birthday is today or has already passed
+  const isAdult = isAfter(today, eighteenthBirthday) || isSameDay(today, eighteenthBirthday)
+  const isUnder18 = !isAdult
 
   useEffect(() => {
     setIsUnder18State(isUnder18)
   }, [isUnder18])
+
+  const { event = 'hvn_amsterdam', fullName } = form.watch()
+  const eventLabel = eventOptions.find((option) => option.value === event)?.label
+
+  console.log(dateOfBirth, eighteenthBirthday, isUnder18)
 
   return (
     <div className="container mx-auto px-4 max-w-3xl">
@@ -65,7 +81,7 @@ export const ApplicationForm = () => {
         <CardContent>
           <Form {...form}>
             <form className="space-y-4" onSubmit={form.handleSubmit(onSubmit)}>
-              <FormCheckbox label={t('isUnder18')} name="isUnder18" />
+              <FormInput label={t('dateOfBirth')} name="dateOfBirth" required type="date" />
               {isUnder18 && <CardTitle className="text-lg">{t('participantTitle')}</CardTitle>}
 
               <FormInput label={t('fullName')} name="fullName" required />
@@ -92,7 +108,7 @@ export const ApplicationForm = () => {
               )}
 
               <FormCheckbox
-                description={t.rich('acceptConditions', {
+                description={t.rich('acceptConditions.description', {
                   privacy: (chunks) => (
                     <Link className="underline" href="/privacy-policy" target="_blank">
                       {chunks}
@@ -104,18 +120,18 @@ export const ApplicationForm = () => {
                     </Link>
                   ),
                 })}
-                label={t('acceptConditions')}
+                label={t('acceptConditions.title')}
                 name="acceptConditions"
                 required
               />
 
               {isUnder18 && (
                 <FormCheckbox
-                  description={t.rich('acceptParent', {
+                  description={t.rich('acceptParent.description', {
                     eventLabel,
                     fullName: fullName || '<Name>',
                   })}
-                  label={t('acceptParent')}
+                  label={t('acceptParent.title')}
                   name="acceptParent"
                   required
                 />
