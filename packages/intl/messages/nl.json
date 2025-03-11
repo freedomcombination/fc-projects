@@ -8,22 +8,10 @@
   "thankYou": "Bedankt",
   "error": "Fout",
   "somethingWentWrong": "Er ging iets mis",
-
   "contactForm": {
     "title": "Contact Formulier",
     "description": "U kunt het formulier hieronder invullen om contact met ons op te nemen."
   },
-
-  "applicationForm": {
-    "fullName": "Volledige Naam",
-    "dateOfBirth": "Geboortedatum",
-    "event": "Evenement",
-    "acceptTerms": "Akkoord met de voorwaarden",
-    "title": "Aanvraagformulier",
-    "description": "Vul het formulier hieronder in om een aanvraag te doen voor het geselecteerde evenement.",
-    "successDescription": "We hebben uw aanvraag ontvangen, we zullen spoedig contact met u opnemen."
-  },
-
   "Header": {
     "home": "Home",
     "contactNav": "Contact",
@@ -91,8 +79,14 @@
     }
   },
   "Application": {
-    "acceptConditions": "Ik ga akkoord met de <privacy>privacy policy</privacy> en <terms>terms of service</terms>",
-    "acceptParent": "Ik geef toestemming aan {fullName} deel te nemen aan het {eventLabel} evenement.",
+    "acceptConditions": {
+      "title": "Akkoord met de voorwaarden",
+      "description": "Ik ga akkoord met de <privacy>privacy policy</privacy> en <terms>terms of service</terms>"
+    },
+    "acceptParent": {
+      "title": "Ouder toestemming",
+      "description": "Ik geef toestemming aan {fullName} deel te nemen aan het {eventLabel} evenement."
+    },
     "acceptTerms": "Ik ga akkoord met de voorwaarden",
     "city": "Stad selecteren",
     "dateOfBirth": "Geboortedatum",
