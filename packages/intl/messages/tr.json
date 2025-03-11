@@ -8,7 +8,6 @@
   "thankYou": "Teşekkürler",
   "error": "Hata",
   "somethingWentWrong": "Bir şeyler ters gitti.",
-
   "Header": {
     "home": "Ana Sayfa",
     "contactNav": "İletişim",
@@ -42,21 +41,10 @@
     "send": "Mesaj Gönder",
     "sending": "Gönderiliyor..."
   },
-
-  "applicationForm": {
-    "fullName": "Tam Ad",
-    "dateOfBirth": "Doğum Tarihi",
-    "event": "Etkinlik",
-    "acceptTerms": "Şartları Kabul Et",
-    "title": "Başvuru Formu",
-    "description": "Aşağıdaki formu doldurarak seçtiğiniz etkinliğe başvuru yapabilirsiniz.",
-    "successDescription": "Başvurunuzu kaydettik, en yakın zamanda size döneceğiz."
-  },
   "contactForm": {
     "title": "İletişim formu",
     "description": "Bizimle iletişime geçmek için aşağıdaki formu doldurabilirsiniz."
   },
-
   "About": {
     "cultural": {
       "title": "Kültürel Diyalog",
@@ -80,8 +68,14 @@
     }
   },
   "Application": {
-    "acceptConditions": "<privacy>Gizlilik Politikası</privacy> ve <terms>Kullanım Şartları</terms>'ı kabul ediyorum.",
-    "acceptParent": "{fullName} adlı kişiyi {eventLabel} etkinliğine katılmaya izin veriyorum.",
+    "acceptConditions": {
+      "title": "Kullanım Şartları",
+      "description": "<privacy>Gizlilik Politikası</privacy> ve <terms>Kullanım Şartları</terms>'ı kabul ediyorum."
+    },
+    "acceptParent": {
+      "title": "Veli İzni",
+      "description": "{fullName} adlı kişinin {eventLabel} etkinliğine katılmasına izin veriyorum."
+    },
     "acceptTerms": "Kullanım şartlarını kabul ediyorum",
     "city": "Şehir Seç",
     "dateOfBirth": "Doğum Tarihi",
@@ -107,7 +101,6 @@
     "subtitle": "Lütfen aşağıdaki bilgileri doldurunuz.",
     "title": "Başvuru Formu"
   },
-
   "Support": {
     "bankTransferTitle": "Banka Transferi",
     "value": "Destekleriniz bizim için çok değerli!",
