@@ -1,74 +1,50 @@
-# To use this Dockerfile, you have to set `output: 'standalone'` in your next.config.mjs file.
-# From https://github.com/vercel/next.js/blob/canary/examples/with-docker/Dockerfile
+FROM node:20.18.3-alpine AS base
 
-FROM node:20.18.1-alpine AS base
-
-# Install dependencies only when needed
-FROM base AS deps
-# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
-RUN apk add --no-cache libc6-compat
 WORKDIR /app
-RUN npm install -g turbo
-COPY . .
-RUN turbo prune cms --docker
 
-# Install dependencies based on the preferred package manager
-COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
-RUN \
-  if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
-  elif [ -f package-lock.json ]; then npm ci; \
-  elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm i --frozen-lockfile; \
-  else echo "Lockfile not found." && exit 1; \
-  fi
+ENV NODE_ENV=production
+ENV TURBO_TELEMETRY_DISABLED=1
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+ENV CI=1
 
+RUN npm install -g corepack@latest
+RUN corepack enable pnpm
 
-# Rebuild the source code only when needed
+# =========================================================================== #
+
 FROM base AS builder
-WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
+
+RUN pnpm install --global turbo@^2
+
 COPY . .
 
-# Next.js collects completely anonymous telemetry data about general usage.
-# Learn more here: https://nextjs.org/telemetry
-# Uncomment the following line in case you want to disable telemetry during the build.
-# ENV NEXT_TELEMETRY_DISABLED 1
+# https://turbo.build/repo/docs/guides/tools/docker#the-solution
+RUN turbo prune hvn --docker
 
-RUN \
-  if [ -f yarn.lock ]; then yarn run build; \
-  elif [ -f package-lock.json ]; then npm run build; \
-  elif [ -f pnpm-lock.yaml ]; then corepack enable pnpm && pnpm run build; \
-  else echo "Lockfile not found." && exit 1; \
-  fi
+# =========================================================================== #
 
-# Production image, copy all the files and run next
+FROM base AS installer
+
+COPY --from=builder /app/out/json/ .
+RUN pnpm install --frozen-lockfile
+
+COPY --from=builder /app/out/full/ .
+RUN pnpm build
+
+# =========================================================================== #
+
 FROM base AS runner
-WORKDIR /app
 
-ENV NODE_ENV production
-# Uncomment the following line in case you want to disable telemetry during runtime.
-# ENV NEXT_TELEMETRY_DISABLED 1
-
+# Don't run production as root
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
-
-# Remove this line if you do not have this folder
-COPY --from=builder /app/public ./public
-
-# Set the correct permission for prerender cache
-RUN mkdir .next
-RUN chown nextjs:nodejs .next
+USER nextjs
 
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+COPY --from=installer --chown=nextjs:nodejs /app/apps/hvn/.next/standalone ./
+COPY --from=installer --chown=nextjs:nodejs /app/apps/hvn/.next/static ./apps/hvn/.next/static
+COPY --from=installer --chown=nextjs:nodejs /app/apps/hvn/public ./apps/hvn/public
 
-USER nextjs
-
-EXPOSE 3000
-
-ENV PORT 3000
-
-# server.js is created by next build from the standalone output
-# https://nextjs.org/docs/pages/api-reference/next-config-js/output
-CMD HOSTNAME="0.0.0.0" node server.js
+CMD node apps/hvn/server.js

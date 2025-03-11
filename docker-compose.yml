@@ -10,6 +10,15 @@ services:
     networks:
       - app_network
 
+  hvn:
+    container_name: hvn
+    build:
+      context: .
+      dockerfile: ./apps/hvn/Dockerfile
+    restart: always
+    ports:
+      - 3001:3001
+
   cms:
     container_name: cms
     build:
@@ -38,7 +47,7 @@ services:
 # with each other, by using their container name as a hostname
 networks:
   app_network:
-    external: true
+    driver: bridge
 
 # Define the volume
 volumes:
