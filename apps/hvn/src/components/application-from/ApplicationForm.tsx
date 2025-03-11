@@ -55,8 +55,6 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
     resolver: zodResolver(schema),
   })
 
-  console.log(form.formState.errors)
-
   const onSubmit = (data: ApplicationFormData) => {
     setIsSubmitting(true)
     fetch(`/api/form-submissions`, {
@@ -103,8 +101,6 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
 
   const { event = 'hvn_amsterdam', fullName } = form.watch()
   const eventLabel = eventOptions.find((option) => option.value === event)?.label
-
-  console.log(dateOfBirth, eighteenthBirthday, isUnder18)
 
   return (
     <div className="container mx-auto px-4 max-w-3xl">
