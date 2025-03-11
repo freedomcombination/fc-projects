@@ -78,6 +78,7 @@
     "acceptTerms": "I accept the terms of use",
     "city": "Select City",
     "dateOfBirth": "Date of Birth",
+    "dateOfBirthDescription": "If you are under 18 years old, your application must be submitted by your parent.",
     "email": "Email",
     "event": "Select Event",
     "fullName": "Full Name",
@@ -85,7 +86,6 @@
       "description": "Please provide the following information to help us process your application.",
       "title": "General Information"
     },
-    "isUnder18": "I am under 18 years old",
     "message": "Tell us about your event participation and motivation",
     "parent": {
       "email": "Parent Email",
@@ -98,6 +98,7 @@
     "submit": "Submit",
     "submitting": "Submitting...",
     "subtitle": "Please fill in your details",
+    "thankYou": "Thank you for your application. We will contact you as soon as possible.",
     "title": "Application Form"
   },
   "donation": {
