@@ -83,6 +83,7 @@
     "acceptTerms": "Kullanım şartlarını kabul ediyorum",
     "city": "Şehir Seç",
     "dateOfBirth": "Doğum Tarihi",
+    "dateOfBirthDescription": "18 yaşından küçük iseniz, başvurunuz veliniz tarafından yapılmalıdır.",
     "email": "E-posta",
     "event": "Etkinlik Seç",
     "fullName": "Ad Soyad",
@@ -90,7 +91,6 @@
       "description": "Başvurunuzu işlemek için aşağıdaki bilgileri sağlayınız.",
       "title": "Genel Bilgiler"
     },
-    "isUnder18": "18 yaşından küçüğüm",
     "message": "Etkinliğe katılımınızın ve motivasyonunuzu bize bildiriniz.",
     "parent": {
       "email": "E-posta",
@@ -103,6 +103,7 @@
     "submit": "Gönder",
     "submitting": "Gönderiliyor...",
     "subtitle": "Lütfen aşağıdaki bilgileri doldurunuz.",
+    "thankYou": "Teşekkürler, başvurunuz başarıyla gönderildi. En kısa sürede sizlere dönüş yapacağız.",
     "title": "Başvuru Formu"
   },
   "Support": {

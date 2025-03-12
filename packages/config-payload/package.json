@@ -2,9 +2,11 @@
   "name": "@fc/config-payload",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "main": "src/index.js",
   "scripts": {
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "lint": "eslint . --fix"
   },
   "exports": {
     "./access/*": "./src/access/*.ts",
@@ -14,12 +16,13 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@payloadcms/richtext-lexical": "^3.27.0",
-    "@payloadcms/next": "^3.27.0",
-    "payload": "^3.27.0",
-    "next": "^15.2.1"
+    "@payloadcms/richtext-lexical": "^3.28.0",
+    "@payloadcms/next": "^3.28.0",
+    "payload": "^3.28.0",
+    "next": "^15.2.2"
   },
   "devDependencies": {
+    "@fc/config-eslint": "workspace:*",
     "@fc/config-typescript": "workspace:*",
     "@fc/types": "workspace:*"
   }

@@ -94,6 +94,7 @@
     "acceptTerms": "Ik ga akkoord met de voorwaarden",
     "city": "Stad selecteren",
     "dateOfBirth": "Geboortedatum",
+    "dateOfBirthDescription": "Als u jonger bent dan 18 jaar, moet u uw aanvraag laten indienen via uw ouder.",
     "email": "E-mail",
     "event": "Evenement selecteren",
     "fullName": "Volledige Naam",
@@ -101,7 +102,6 @@
       "description": "Vul de volgende informatie in om uw aanvraag te verwerken.",
       "title": "Algemene Informatie"
     },
-    "isUnder18": "Ik ben jonger dan 18 jaar",
     "message": "Vertel ons over uw deelname aan het evenement en uw motivatie",
     "parent": {
       "email": "E-mail van de ouder",
@@ -114,6 +114,7 @@
     "submit": "Verzenden",
     "submitting": "Bezig met verzenden...",
     "subtitle": "Vul uw gegevens in",
+    "thankYou": "Bedankt voor uw aanvraag. We nemen zo snel mogelijk contact met u op.",
     "title": "Aanvraagformulier"
   },
   "Support": {

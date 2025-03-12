@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 import { Button } from '@fc/ui/base/button'
@@ -14,17 +14,28 @@ import { FormTextarea } from '@fc/ui/components/form/form-textarea'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { isAfter, isSameDay } from 'date-fns'
+import { useParams } from 'next/navigation'
+import { EventConditionsModal } from '../modal/EventConditionsModal'
+
+import { Loader2 } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
-import { useParams } from 'next/navigation'
+import { toast } from 'sonner'
 
-import { EventConditionsModal } from '../modal/EventConditionsModal'
+import { Form as FormType } from '../../../payload-types'
+
 import { cityOptions } from './cityOptions'
 import { ApplicationFormData, useApplicationFormSchema } from './schema'
 
 const eventOptions = [{ label: 'Harmonie van Nederland - Amsterdam', value: 'hvn_amsterdam' }]
 
-export const ApplicationForm = () => {
+type ApplicationFormProps = {
+  applicationForm: FormType
+}
+
+export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) => {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
   const t = useTranslations('Application')
   const tParticipation = useTranslations('participation')
 
@@ -40,7 +51,7 @@ export const ApplicationForm = () => {
       acceptEventConditions: false,
       acceptParent: false,
       city: '',
-      dateOfBirth: new Date(),
+      dateOfBirth: '',
       email: '',
       event: 'hvn_amsterdam',
       fullName: '',
@@ -64,7 +75,30 @@ export const ApplicationForm = () => {
     { label: tParticipation('options.other'), value: 'other' },
   ]
   const onSubmit = (data: ApplicationFormData) => {
-    alert(`Form submitted: ${JSON.stringify(data, null, 2)}`)
+    setIsSubmitting(true)
+    fetch(`/api/form-submissions`, {
+      body: JSON.stringify({
+        form: applicationForm.id,
+        submissionData: Object.entries(data).map(([name, value]) => ({ field: name, value })),
+      }),
+      headers: { 'Content-Type': 'application/json' },
+      method: 'POST',
+    })
+      .then((response) => response.json())
+      .then(() => {
+        toast(t('thankYou'), {
+          duration: 2500,
+        })
+        form.reset()
+      })
+      .catch((error) => {
+        toast.error(t('error'), {
+          description: t('somethingWentWrong'),
+          duration: 2500,
+        })
+        console.error('Form gönderimi sırasında hata oluştu:', error)
+      })
+      .finally(() => setIsSubmitting(false))
   }
 
   const dateOfBirth = form.watch('dateOfBirth')
@@ -97,7 +131,13 @@ export const ApplicationForm = () => {
         <CardContent>
           <Form {...form}>
             <form className="space-y-4" onSubmit={form.handleSubmit(onSubmit)}>
-              <FormInput label={t('dateOfBirth')} name="dateOfBirth" required type="date" />
+              <FormInput
+                description={t('dateOfBirthDescription')}
+                label={t('dateOfBirth')}
+                name="dateOfBirth"
+                required
+                type="date"
+              />
               {isUnder18 && <CardTitle className="text-lg">{t('participantTitle')}</CardTitle>}
 
               <FormInput label={t('fullName')} name="fullName" required />
@@ -167,7 +207,9 @@ export const ApplicationForm = () => {
                   required
                 />
               )}
-              <Button type="submit">{t('submit')}</Button>
+              <Button disabled={isSubmitting} type="submit">
+                {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : t('submit')}
+              </Button>
             </form>
           </Form>
         </CardContent>

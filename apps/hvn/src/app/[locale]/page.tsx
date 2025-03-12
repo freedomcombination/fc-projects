@@ -46,7 +46,7 @@ export default async function HomePage({ params }: Props) {
       {/* Application section */}
       {applicationForm && (
         <section className="py-16 bg-gradient-to-b border-t border-b from-zinc-100" id="application">
-          <ApplicationForm />
+          <ApplicationForm applicationForm={applicationForm} />
         </section>
       )}
 

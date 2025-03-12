@@ -1,8 +1,9 @@
 import { publishedOnly } from '@fc/config-payload/access/publishedOnly'
 import { slugField } from '@fc/config-payload/fields/slug'
-import { FormBlock } from './Form'
 
 import type { CollectionConfig } from 'payload'
+
+import { FormBlock } from './Form'
 
 export const Page: CollectionConfig = {
   access: {

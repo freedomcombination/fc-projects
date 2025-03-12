@@ -7,4 +7,4 @@ import { routing } from './routing'
 // that will consider the routing configuration
 const navigation = createNavigation(routing)
 
-export const { useRouter, usePathname, getPathname, permanentRedirect, redirect, Link } = navigation
+export const { getPathname, Link, permanentRedirect, redirect, usePathname, useRouter } = navigation

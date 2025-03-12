@@ -15,6 +15,7 @@ export const config = [
   eslintConfigPrettier,
   ...tseslint.configs.recommended,
   {
+    ignores: ['**/importMap.js', '**/payload-types.ts'],
     plugins: {
       onlyWarn,
       perfectionist,

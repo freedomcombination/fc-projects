@@ -2,7 +2,7 @@ import config from '@payload-config'
 import { headers } from 'next/headers'
 import { getPayload } from 'payload'
 
-import { formSeed } from '@/utils/form-seed'
+import { formSeed } from '@/utilities/form-seed'
 
 export const maxDuration = 300 // This function can run for a maximum of 60 seconds
 
