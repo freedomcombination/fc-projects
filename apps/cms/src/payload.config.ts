@@ -42,15 +42,6 @@ export default buildConfig({
         host: 'mail.privateemail.com',
         port: 465,
       }),
-      transportOptions: {
-        auth: {
-          pass: process.env.EMAIL_PASS,
-          user: 'info@freedomcombination.com',
-        },
-        host: 'mail.privateemail.com',
-        port: 465,
-        secure: true,
-      },
     }),
   }),
   localization: {
