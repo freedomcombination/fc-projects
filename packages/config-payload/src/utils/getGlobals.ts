@@ -12,8 +12,8 @@ async function getGlobal(slug: Global, depth = 0) {
   const payload = await getPayload({ config: configPromise })
 
   const global = await payload.findGlobal({
-    slug,
     depth,
+    slug,
   })
 
   return global

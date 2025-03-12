@@ -5,15 +5,15 @@
   "private": true,
   "scripts": {
     "type-check": "tsc --noEmit",
-    "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
-    "hvn": "cross-env NODE_OPTIONS=--no-deprecation next dev -p 3001",
-    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev -p 3001",
-    "devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation next dev -p 3001",
-    "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
-    "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
-    "lint": "cross-env NODE_OPTIONS=--no-deprecation next lint --fix",
-    "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
-    "start": "cross-env NODE_OPTIONS=--no-deprecation next start -p 3001"
+    "build": "next build",
+    "hvn": "next dev -p 3001",
+    "dev": "next dev -p 3001",
+    "devsafe": "rm -rf .next && next dev -p 3001",
+    "generate:importmap": "payload generate:importmap",
+    "generate:types": "payload generate:types",
+    "lint": "next lint --fix",
+    "payload": "payload",
+    "start": "next start -p 3001"
   },
   "dependencies": {
     "@fc/ui": "workspace:*",

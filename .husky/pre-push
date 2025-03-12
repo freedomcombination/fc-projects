@@ -1,0 +1,3 @@
+pnpm generate:types
+pnpm generate:importmap
+pnpm type-check
