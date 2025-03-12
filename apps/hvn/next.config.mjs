@@ -6,6 +6,11 @@ const nextConfig = getNextConfig({
   images: {
     remotePatterns: [
       {
+        hostname: 'localhost',
+        pathname: '/**',
+        protocol: 'http',
+      },
+      {
         hostname: 'images.unsplash.com',
         pathname: '/**',
         protocol: 'https',
