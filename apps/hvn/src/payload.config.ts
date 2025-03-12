@@ -1,6 +1,5 @@
 import { Donations } from '@fc/config-payload/blocks/Donations'
 import { Media } from '@fc/config-payload/blocks/Media'
-import { Page } from '@fc/config-payload/blocks/Page'
 import { Users } from '@fc/config-payload/blocks/Users'
 
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
@@ -14,6 +13,8 @@ import { buildConfig } from 'payload'
 import sharp from 'sharp'
 import { fileURLToPath } from 'url'
 
+import { Pages } from './collections/Pages'
+
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -22,26 +23,50 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    livePreview: {
+      breakpoints: [
+        {
+          height: 667,
+          label: 'Mobile',
+          name: 'mobile',
+          width: 375,
+        },
+        {
+          height: 1024,
+          label: 'Tablet',
+          name: 'tablet',
+          width: 768,
+        },
+        {
+          height: 900,
+          label: 'Desktop',
+          name: 'desktop',
+          width: 1440,
+        },
+      ],
+    },
     user: Users.slug,
   },
-  collections: [Users, Media, Donations, Page],
+  collections: [Users, Media, Donations, Pages],
   db: mongooseAdapter({
     url: process.env.DATABASE_URL as string,
   }),
   editor: lexicalEditor(),
-  // email: nodemailerAdapter({
-  //   defaultFromAddress: 'info@harmonievannederland.com',
-  //   defaultFromName: 'Harmonie van Nederland',
-  //   // Any Nodemailer transport
-  //   transport: nodemailer.createTransport({
-  //     auth: {
-  //       pass: process.env.EMAIL_PASS,
-  //       user: 'info@harmonievannederland.com',
-  //     },
-  //     host: 'mail.privateemail.com',
-  //     port: 465,
-  //   }),
-  // }),
+  ...(process.env.NODE_ENV === 'production' && {
+    email: nodemailerAdapter({
+      defaultFromAddress: 'info@harmonievannederland.com',
+      defaultFromName: 'Harmonie van Nederland',
+      // Any Nodemailer transport
+      transport: nodemailer.createTransport({
+        auth: {
+          pass: process.env.EMAIL_PASS,
+          user: 'info@harmonievannederland.com',
+        },
+        host: 'mail.privateemail.com',
+        port: 465,
+      }),
+    }),
+  }),
   localization: {
     defaultLocale: 'en',
     fallback: true,

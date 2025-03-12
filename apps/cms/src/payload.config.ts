@@ -29,27 +29,20 @@ export default buildConfig({
     url: process.env.DATABASE_URL as string,
   }),
   editor: lexicalEditor(),
-  email: nodemailerAdapter({
-    defaultFromAddress: 'info@freedomcombination.com',
-    defaultFromName: 'Freedom Combination',
-    // Any Nodemailer transport
-    transport: nodemailer.createTransport({
-      auth: {
-        pass: process.env.EMAIL_PASS,
-        user: 'info@freedomcombination.com',
-      },
-      host: 'mail.privateemail.com',
-      port: 465,
+  ...(process.env.NODE_ENV === 'production' && {
+    email: nodemailerAdapter({
+      defaultFromAddress: 'info@freedomcombination.com',
+      defaultFromName: 'Freedom Combination',
+      // Any Nodemailer transport
+      transport: nodemailer.createTransport({
+        auth: {
+          pass: process.env.EMAIL_PASS,
+          user: 'info@freedomcombination.com',
+        },
+        host: 'mail.privateemail.com',
+        port: 465,
+      }),
     }),
-    transportOptions: {
-      auth: {
-        pass: process.env.EMAIL_PASS,
-        user: 'info@freedomcombination.com',
-      },
-      host: 'mail.privateemail.com',
-      port: 465,
-      secure: true,
-    },
   }),
   localization: {
     defaultLocale: 'en',
