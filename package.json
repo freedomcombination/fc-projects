@@ -14,7 +14,8 @@
     "codegen": "turbo run codegen",
     "generate:types": "turbo run generate:types",
     "generate:importmap": "turbo run generate:importmap",
-    "generate": "pnpm run generate:types && pnpm run generate:importmap && pnpm run codegen",
+    "generate": "pnpm run generate:types && pnpm run generate:importmap",
+    "check": "pnpm generate && pnpm type-check && pnpm lint && pnpm format",
     "prepare": "husky"
   },
   "dependencies": {
