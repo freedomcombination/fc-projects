@@ -14,7 +14,9 @@
     "codegen": "turbo run codegen",
     "generate:types": "turbo run generate:types",
     "generate:importmap": "turbo run generate:importmap",
-    "generate": "pnpm run generate:types && pnpm run generate:importmap && pnpm run codegen"
+    "generate": "pnpm run generate:types && pnpm run generate:importmap",
+    "check": "pnpm generate && pnpm type-check && pnpm lint && pnpm format",
+    "prepare": "husky"
   },
   "dependencies": {
     "@fc/ui": "workspace:*",
@@ -26,6 +28,7 @@
     "@turbo/gen": "^2.4.4",
     "@types/node": "^20.17.24",
     "eslint": "^9.22.0",
+    "husky": "^9.1.7",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "turbo": "^2.4.4",

@@ -1,2 +1,3 @@
-packages/types/payload-types.ts
+payload-types.ts
+importMap.js
 pnpm-lock.yaml

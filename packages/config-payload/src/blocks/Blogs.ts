@@ -1,11 +1,10 @@
 import type { CollectionConfig } from 'payload'
 
 export const Blogs: CollectionConfig = {
-  slug: 'blogs',
-  auth: false,
   access: {
     read: () => true,
   },
+  auth: false,
   fields: [
     {
       name: 'title',
@@ -13,10 +12,11 @@ export const Blogs: CollectionConfig = {
     },
     // Author
     {
-      name: 'author',
-      type: 'relationship',
-      relationTo: 'users',
       hasMany: false,
+      name: 'author',
+      relationTo: 'users',
+      type: 'relationship',
     },
   ],
+  slug: 'blogs',
 }

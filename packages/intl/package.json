@@ -2,9 +2,11 @@
   "name": "@fc/intl",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "main": "src/index.js",
   "scripts": {
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "lint": "eslint . --fix"
   },
   "exports": {
     "./getRequestConfig": "./src/request.ts",
@@ -20,6 +22,7 @@
     "next-intl": "^3.26.5"
   },
   "devDependencies": {
+    "@fc/config-eslint": "workspace:*",
     "@fc/config-typescript": "workspace:*",
     "@types/react": "^19.0.10"
   }
