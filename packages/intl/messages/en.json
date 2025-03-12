@@ -169,5 +169,19 @@
       }
     }
   },
+
+  "participation": {
+    "label": "Reason for Participation",
+    "options": {
+      "song": "Singing",
+      "performance": "Performance",
+      "poetry": "Poetry",
+      "standup": "Stand-up",
+      "instrument": "Playing an Instrument",
+      "dance": "Dance",
+      "other": "Other"
+    },
+    "otherPlaceholder": "Please specify"
+  },
   "close": "Close"
 }

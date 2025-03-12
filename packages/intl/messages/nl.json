@@ -189,5 +189,18 @@
       }
     }
   },
+  "participation": {
+    "label": "Reden voor deelname",
+    "options": {
+      "song": "Zang",
+      "performance": "Performance",
+      "poetry": "Poëzie",
+      "standup": "Stand-up",
+      "instrument": "Instrument bespelen",
+      "dance": "Dans",
+      "other": "Anders"
+    },
+    "otherPlaceholder": "Gelieve te specificeren"
+  },
   "close": "Sluiten"
 }

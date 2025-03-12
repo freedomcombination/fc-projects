@@ -133,7 +133,7 @@ Başvuruyu tamamlamak için ebeveyn veya yasal vasi olarak yukarıdaki şartlar�
   }
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title={t('acceptEventConditions.content.title')}>
+    <Modal isOpen={isOpen} onClose={onClose} title={t('acceptEventConditions.label')}>
       <Card>
         <CardContent>
           <div className="max-h-[400px] overflow-y-auto p-2">

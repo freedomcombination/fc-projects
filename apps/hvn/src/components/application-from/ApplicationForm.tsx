@@ -26,6 +26,7 @@ const eventOptions = [{ label: 'Harmonie van Nederland - Amsterdam', value: 'hvn
 
 export const ApplicationForm = () => {
   const t = useTranslations('Application')
+  const tParticipation = useTranslations('participation')
 
   const paramsLocale = useParams().locale
   const [isUnder18State, setIsUnder18State] = useState(true)
@@ -36,25 +37,38 @@ export const ApplicationForm = () => {
   const form = useForm<ApplicationFormData>({
     defaultValues: {
       acceptConditions: false,
+      acceptEventConditions: false,
       acceptParent: false,
       city: '',
       dateOfBirth: new Date(),
       email: '',
       event: 'hvn_amsterdam',
       fullName: '',
+      otherParticipation: '',
       parentEmail: '',
       parentFullName: '',
       parentPhone: '',
+      participationType: '',
       phone: '',
     },
     resolver: zodResolver(schema),
   })
 
+  const participationOptions = [
+    { label: tParticipation('options.song'), value: 'song' },
+    { label: tParticipation('options.performance'), value: 'performance' },
+    { label: tParticipation('options.poetry'), value: 'poetry' },
+    { label: tParticipation('options.standup'), value: 'standup' },
+    { label: tParticipation('options.instrument'), value: 'instrument' },
+    { label: tParticipation('options.dance'), value: 'dance' },
+    { label: tParticipation('options.other'), value: 'other' },
+  ]
   const onSubmit = (data: ApplicationFormData) => {
     alert(`Form submitted: ${JSON.stringify(data, null, 2)}`)
   }
 
   const dateOfBirth = form.watch('dateOfBirth')
+  const participationType = form.watch('participationType')
 
   // Calculate if person is under 18 by checking if their 18th birthday has passed
   const today = new Date()
@@ -98,6 +112,15 @@ export const ApplicationForm = () => {
                 required
               />
               <FormSelect label={t('event')} name="event" options={eventOptions} required />
+              <FormSelect
+                label={tParticipation('label')}
+                name="participationType"
+                options={participationOptions}
+                required
+              />
+              {participationType === 'other' && (
+                <FormInput label={tParticipation('otherPlaceholder')} name="otherParticipation" required />
+              )}
               <FormTextarea label={t('message')} name="message" placeholder={t('message')} />
 
               {isUnder18 && (
@@ -109,16 +132,7 @@ export const ApplicationForm = () => {
                   <FormPhoneInput label={t('parent.phone')} name="parentPhone" required />
                 </>
               )}
-              <FormCheckbox
-                label={t('acceptEventConditions.label')}
-                name="acceptEventConditions"
-                onChange={(e) => {
-                  if (e.target.checked) {
-                    setIsModalOpen(true)
-                  }
-                }}
-                required
-              />
+              <FormCheckbox label={t('acceptEventConditions.label')} name="acceptEventConditions" required />
               <p className="underline" onClick={() => setIsModalOpen(true)}>
                 {t('acceptEventConditions.description')}
               </p>

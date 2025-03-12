@@ -7,12 +7,15 @@ export const useApplicationFormSchema = (isUnder18: boolean) => {
     acceptConditions: z.boolean().refine((value) => value, {
       message: 'You must accept the conditions',
     }),
+    acceptEventConditions: z.boolean().refine((value) => value, {
+      message: 'You must accept the event conditions',
+    }),
     acceptParent: z.boolean(),
+    city: z.string().min(1, 'City is required'),
     dateOfBirth: z.date({
       invalid_type_error: 'Invalid date format',
       required_error: 'Date of birth is required',
     }),
-    city: z.string().min(1, 'City is required'),
     email: z.string().email('Invalid email format'),
     event: z.string().min(1, 'Event is required'),
     fullName: z.string().min(1, 'Full name is required'),
@@ -22,9 +25,11 @@ export const useApplicationFormSchema = (isUnder18: boolean) => {
       acceptParent: z.boolean().refine((value) => value, {
         message: 'You must accept the parent conditions',
       }),
+      otherParticipation: z.string().min(1, 'Other participation is required'),
       parentEmail: z.string().email('Invalid parent email format'),
       parentFullName: z.string(),
       parentPhone: z.string().refine(isValidPhoneNumber, 'Invalid parent phone number format'),
+      participationType: z.string().min(1, 'Participation type is required'),
     }),
   })
 }

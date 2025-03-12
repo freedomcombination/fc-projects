@@ -73,11 +73,8 @@
       "description": "<privacy>Gizlilik Politikası</privacy> ve <terms>Kullanım Şartları</terms>'ı kabul ediyorum."
     },
     "acceptEventConditions": {
-      "label": "Etkinlik Şartları",
-      "description": "Etkinliği katılmak için gerekli şartları kabul ediyorum.",
-      "content": {
-        "title": "Etkinliğe Katılım Şartları"
-      }
+      "label": "Etkinliğe Katılım Şartları",
+      "description": "Etkinliği katılmak için gerekli şartları kabul ediyorum."
     },
     "acceptParent": {
       "title": "Veli İzni",
@@ -172,6 +169,19 @@
         "description": "Web sitemiz, kullanıcı deneyimini geliştirmek için çerezler kullanmaktadır."
       }
     }
+  },
+  "participation": {
+    "label": "Etkinliğe Katılım Nedeni",
+    "options": {
+      "song": "Şarkı",
+      "performance": "Performans",
+      "poetry": "Şiir",
+      "standup": "Stand-up",
+      "instrument": "Enstrüman Çalma",
+      "dance": "Dans",
+      "other": "Diğer"
+    },
+    "otherPlaceholder": "Lütfen açıklayın"
   },
   "close": "Kapat"
 }
