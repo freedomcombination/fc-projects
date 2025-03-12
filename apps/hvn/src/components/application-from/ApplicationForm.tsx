@@ -14,16 +14,14 @@ import { FormTextarea } from '@fc/ui/components/form/form-textarea'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { isAfter, isSameDay } from 'date-fns'
-import { useParams } from 'next/navigation'
-import { EventConditionsModal } from '../modal/EventConditionsModal'
-
 import { Loader2 } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
+import { useParams } from 'next/navigation'
 import { toast } from 'sonner'
 
 import { Form as FormType } from '../../../payload-types'
-
+import { EventConditionsModal } from '../modal/EventConditionsModal'
 import { cityOptions } from './cityOptions'
 import { ApplicationFormData, useApplicationFormSchema } from './schema'
 
