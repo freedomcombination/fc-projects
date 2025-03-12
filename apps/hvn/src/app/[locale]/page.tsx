@@ -1,22 +1,30 @@
 import { getTranslations } from 'next-intl/server'
-import { getPayload } from 'payload'
+import { getPayload, TypedLocale } from 'payload'
 
 import { AboutSection } from '@/components/about/AboutSection'
-import { ApplicationForm } from '@/components/application/ApplicationForm'
-import { ContactForm } from '@/components/contact/ContactForm'
+import { ApplicationForm } from '@/components/application-from'
 import { Footer } from '@/components/footer/Footer'
 import { Hero } from '@/components/hero/Hero'
+import { PayloadForm } from '@/components/PayloadForm/PayloadForm'
 import { Support } from '@/components/support/Support'
 import config from '@/payload.config'
 
-export default async function HomePage() {
+type Props = {
+  params: Promise<{
+    locale: TypedLocale
+  }>
+}
+
+export default async function HomePage({ params }: Props) {
   const t = await getTranslations()
+  const { locale } = await params
 
   const payload = await getPayload({ config })
 
   const formsResponse = await payload.find({
     collection: 'forms',
     draft: false,
+    locale: locale || 'en', // this is now redundant
     overrideAccess: false,
   })
 
@@ -31,22 +39,22 @@ export default async function HomePage() {
       </section>
 
       {/* About section */}
-      <section className="py-16 bg-white" id="about">
+      <section id="about">
         <AboutSection />
       </section>
 
       {/* Application section */}
       {applicationForm && (
-        <section className="py-16 bg-white" id="application">
-          <ApplicationForm form={applicationForm} />
+        <section className="py-16 bg-gradient-to-b border-t border-b from-zinc-100" id="application">
+          <ApplicationForm applicationForm={applicationForm} />
         </section>
       )}
 
       {/* Contact section */}
-      <section className="py-16 bg-white" id="contact">
+      <section className="py-16" id="contact">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-8">{t('Header.contact')}</h2>
+            <h2 className="text-4xl font-bold mb-8">{t('Contact.title')}</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">{t('Contact.subtitle')}</p>
           </div>
 
@@ -57,16 +65,15 @@ export default async function HomePage() {
 
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 text-primary mt-1">📧</div>
                   <div>
                     <h4 className="font-medium text-xl">{t('Contact.email')}</h4>
-                    <p className="text-muted-foreground">info@harmonievannederland.nl</p>
+                    <p className="text-muted-foreground">info@harmonievannederland.com</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {contactForm && <ContactForm form={contactForm} />}
+            {contactForm && <PayloadForm formData={contactForm} />}
           </div>
         </div>
       </section>

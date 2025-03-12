@@ -16,10 +16,7 @@ type PhoneInputProps = {
 } & Omit<React.ComponentProps<'input'>, 'onChange' | 'ref' | 'value'> &
   Omit<RPNInput.Props<typeof RPNInput.default>, 'onChange'>
 
-const PhoneInput: React.ForwardRefExoticComponent<PhoneInputProps> = React.forwardRef<
-  React.ElementRef<typeof RPNInput.default>,
-  PhoneInputProps
->(({ className, onChange, ...props }, ref) => {
+function PhoneInput({ className, onChange, ...props }: PhoneInputProps) {
   return (
     <RPNInput.default
       className={cn('flex', className)}
@@ -36,20 +33,15 @@ const PhoneInput: React.ForwardRefExoticComponent<PhoneInputProps> = React.forwa
        * @param {E164Number | undefined} value - The entered value
        */
       onChange={(value) => onChange?.(value || ('' as RPNInput.Value))}
-      ref={ref}
       smartCaret={false}
       {...props}
     />
   )
-})
-PhoneInput.displayName = 'PhoneInput'
+}
 
-const InputComponent = React.forwardRef<HTMLInputElement, React.ComponentProps<'input'>>(
-  ({ className, ...props }, ref) => (
-    <Input className={cn('rounded-e-lg rounded-s-none', className)} {...props} ref={ref} />
-  ),
-)
-InputComponent.displayName = 'InputComponent'
+function InputComponent({ className, ...props }: React.ComponentProps<'input'>) {
+  return <Input className={cn('rounded-e-lg rounded-s-none', className)} {...props} />
+}
 
 type CountryEntry = { label: string; value: RPNInput.Country | undefined }
 
@@ -121,7 +113,7 @@ const FlagComponent = ({ country, countryName }: RPNInput.FlagProps) => {
   const Flag = flags[country]
 
   return (
-    <span className="flex h-4 w-6 overflow-hidden rounded-sm bg-foreground/20 [&_svg]:size-full">
+    <span className="flex h-4 w-6 overflow-hidden rounded-sm bg-foreground/20 [&_svg]:!w-full [&_svg]:!h-full">
       {Flag && <Flag title={countryName} />}
     </span>
   )

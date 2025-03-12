@@ -5,8 +5,8 @@ import { Checkbox } from '@fc/ui/base/checkbox'
 import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@fc/ui/base/form'
 
 type FormCheckboxProps<T extends FieldValues = FieldValues, N extends FieldPath<T> = FieldPath<T>> = {
-  description?: string
-  label?: string
+  description?: React.ReactNode
+  label?: string | null
   name: N
 } & Pick<ControllerProps<T, N>, 'disabled'> &
   React.ComponentProps<'input'>
@@ -26,19 +26,21 @@ export const FormCheckbox = <T extends FieldValues = FieldValues, N extends Fiel
       name={name}
       render={({ field }) => (
         <FormItem>
-          {label && (
-            <FormLabel>
-              {label}{' '}
-              {required && (
-                <span className="required">
-                  * <span className="sr-only">(required)</span>
-                </span>
-              )}
-            </FormLabel>
-          )}
-          <FormControl>
-            <Checkbox checked={field.value} disabled={disabled} onCheckedChange={field.onChange} />
-          </FormControl>
+          <div className="flex items-center flex-row-reverse justify-end gap-2">
+            {label && (
+              <FormLabel>
+                {label}{' '}
+                {required && (
+                  <span className="required">
+                    * <span className="sr-only">(required)</span>
+                  </span>
+                )}
+              </FormLabel>
+            )}
+            <FormControl>
+              <Checkbox checked={field.value} disabled={disabled} onCheckedChange={field.onChange} />
+            </FormControl>
+          </div>
           {description && <FormDescription>{description}</FormDescription>}
           <FormMessage />
         </FormItem>

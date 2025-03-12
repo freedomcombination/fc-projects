@@ -1,13 +1,26 @@
 {
+  "submitting": "Sending...",
+  "submit": "Send",
+  "phone": "Phone",
+  "city": "City",
+  "message": "Message",
+  "email": "E-mail",
+  "thankYou": "Thank you",
+  "error": "Error",
+  "somethingWentWrong": "Something went wrong",
+  "contactForm": {
+    "title": "Contact Form",
+    "description": "You can fill out the form below to contact us."
+  },
   "Header": {
+    "contactNav": "Contact",
     "home": "Home",
     "application": "Application",
     "about": "About",
-    "contact": "Contact",
     "support": "Support",
     "navigation": "Navigation",
     "legal": "Legal",
-    "footerDescription": "We are focused on providing the best service for you.",
+    "footerDescription": "Cultures meet, talents are discovered.",
     "allRightsReserved": "All rights reserved.",
     "acceptTerms": "I accept the terms of use."
   },
@@ -17,6 +30,7 @@
   },
   "Contact": {
     "title": "Contact Us",
+    "description": "If you have any questions, please contact us at",
     "subtitle": "Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.",
     "contactInfo": "Contact Information",
     "email": "Email",
@@ -33,41 +47,59 @@
   "About": {
     "cultural": {
       "title": "Cultural Dialogue",
-      "content": "A cultural event project where individuals from different cultures living in the Netherlands, especially refugee communities, can share their cultural richness, get to know each other more closely, and accelerate the integration process by bringing different segments of society together. The event is designed to celebrate cultural diversity and encourage individuals to learn from each other."
+      "content": "This cultural event project brings together individuals from different cultures living in the Netherlands, helping them get to know each other better. Participants explore each other's worlds through cultural traditions, glimpses of daily life, and personal stories. This interactive project aims to create meaningful dialogues between communities through art, music, conversations, and shared experiences."
     },
     "platform": {
-      "title": "Cultural Platform",
-      "content": "An interactive platform where participants can showcase their cultures, share their traditional foods, music, handicrafts, and stories. Through this platform, bridges will be built between different cultures and mutual understanding will be developed. Additionally, it ensures the preservation and transmission of cultural heritage to future generations."
+      "title": "Cultural Meeting Point",
+      "content": "We offer a space where participants can showcase their cultural heritage. This platform, featuring music, dance, stage performances, and singing acts, fosters cultural interaction and strengthens social bonds. Additionally, the archiving of cultural heritage in both digital and physical spaces contributes to passing it on to future generations."
     },
     "activities": {
       "title": "Cultural Activities",
-      "content": "We organize regular events, workshops, and festivals to raise awareness about cultural diversity in Dutch society and reduce prejudices. These events include cultural food days, dance performances, music performances, art exhibitions, and interactive workshops. Each event emphasizes the richness and uniqueness of different cultures."
+      "content": "We organize various events to increase cultural diversity and strengthen interaction between communities in Dutch society. Through music and dance performances, stage acts, art exhibitions, and talks, participants have the opportunity to closely experience different cultures. Each event emphasizes the unique values of cultures, encouraging mutual understanding and respect."
     },
-    "integration": {
-      "title": "Social Integration",
-      "content": "We offer special programs to facilitate the adaptation of people from different cultures to Dutch society. We organize language courses, cultural orientation programs, vocational workshops, and social activities. These programs support participants in taking an active role in Dutch society while increasing their self-confidence."
+    "collaborate": {
+      "title": "Project Partners",
+      "content": "The Harmonie van Nederland project is a joint initiative of the Sanat Foundation and the Freedom Combination Foundation. The activities will be organized by the Lotus van de Media platform under Freedom Combination."
     },
     "unity": {
       "title": "Cultural Unity",
-      "content": "We develop projects that celebrate the cultural diversity of the Netherlands and reflect this richness to all segments of society. By emphasizing the advantages of different cultures living together, we aim to strengthen social peace and harmony. Through intercultural dialogue and cooperation, we contribute to creating a more inclusive and understanding society."
+      "content": "We develop projects that celebrate the cultural diversity of the Netherlands and promote social harmony. By creating collaboration and dialogue environments between different cultures, we aim to strengthen social peace. Through the preservation and sharing of cultural heritage, we contribute to the construction of a more inclusive and understanding society."
     }
   },
   "Application": {
-    "title": "Application Form",
-    "subtitle": "Please fill in your details",
-    "fullName": "Full Name",
-    "dateOfBirth": "Date of Birth",
-    "phone": "Phone Number",
-    "event": "Select Event",
-    "city": "Select City",
-    "message": "Tell us about your event participation and motivation",
+    "acceptConditions": {
+      "title": "Accept Conditions",
+      "description": "I agree to the <privacy>privacy policy</privacy> and <terms>terms of service</terms>"
+    },
+    "acceptParent": {
+      "title": "Parent Permission",
+      "description": "I allow {fullName} to participate in the {eventLabel} event."
+    },
     "acceptTerms": "I accept the terms of use",
-    "submitting": "Submitting...",
-    "submit": "Submit",
+    "city": "Select City",
+    "dateOfBirth": "Date of Birth",
+    "dateOfBirthDescription": "If you are under 18 years old, your application must be submitted by your parent.",
+    "email": "Email",
+    "event": "Select Event",
+    "fullName": "Full Name",
     "general": {
-      "title": "General Information",
-      "description": "Please provide the following information to help us process your application."
-    }
+      "description": "Please provide the following information to help us process your application.",
+      "title": "General Information"
+    },
+    "message": "Tell us about your event participation and motivation",
+    "parent": {
+      "email": "Parent Email",
+      "fullName": "Parent Full Name",
+      "phone": "Parent Phone Number",
+      "title": "Parent Information"
+    },
+    "participantTitle": "Participant Information",
+    "phone": "Phone Number",
+    "submit": "Submit",
+    "submitting": "Submitting...",
+    "subtitle": "Please fill in your details",
+    "thankYou": "Thank you for your application. We will contact you as soon as possible.",
+    "title": "Application Form"
   },
   "donation": {
     "title": "Make a Donation",
@@ -83,10 +115,11 @@
   },
   "Hero": {
     "title": "Harmony of the Netherlands",
-    "subtitle": "Cultural Harmony of the Netherlands",
+    "subtitle": "Cultures meet, talents are discovered.",
     "cta": "Learn More"
   },
-  "support": {
+  "Support": {
+    "bankTransferTitle": "Bank Transfer",
     "value": "Your support is invaluable to us!",
     "bankTransfer": "Support Us via Bank Transfer",
     "improvement": "We are continuously improving our page to make it easier for you to support us."
@@ -105,7 +138,7 @@
       },
       "contact": {
         "title": "Contact",
-        "description": "If you have any questions, please contact us at info@harmonievannederland.com."
+        "description": "If you have any questions, please contact us at "
       }
     },
     "terms": {
@@ -118,10 +151,6 @@
       "responsibilities": {
         "title": "User Responsibilities",
         "description": "Users must not cause harm to others and must avoid prohibited behaviors while using our services."
-      },
-      "contact": {
-        "title": "Contact",
-        "description": "If you have any questions, please contact us at info@harmonievannederland.com."
       }
     },
     "cookies": {
@@ -134,10 +163,6 @@
       "userConsent": {
         "title": "Cookie Usage",
         "description": "Our website uses cookies to enhance user experience."
-      },
-      "contact": {
-        "title": "Contact",
-        "description": "If you have any questions, please contact us at info@harmonievannederland.com."
       }
     }
   }
