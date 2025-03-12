@@ -13,10 +13,12 @@ import { FormSelect } from '@fc/ui/components/form/form-select'
 import { FormTextarea } from '@fc/ui/components/form/form-textarea'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { addYears, differenceInYears, isAfter, isBefore, isSameDay, subYears } from 'date-fns'
+import { isAfter, isSameDay } from 'date-fns'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
+import { useParams } from 'next/navigation'
 
+import { EventConditionsModal } from '../modal/EventConditionsModal'
 import { cityOptions } from './cityOptions'
 import { ApplicationFormData, useApplicationFormSchema } from './schema'
 
@@ -25,7 +27,9 @@ const eventOptions = [{ label: 'Harmonie van Nederland - Amsterdam', value: 'hvn
 export const ApplicationForm = () => {
   const t = useTranslations('Application')
 
+  const paramsLocale = useParams().locale
   const [isUnder18State, setIsUnder18State] = useState(true)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const schema = useApplicationFormSchema(isUnder18State)
 
@@ -70,8 +74,6 @@ export const ApplicationForm = () => {
   const { event = 'hvn_amsterdam', fullName } = form.watch()
   const eventLabel = eventOptions.find((option) => option.value === event)?.label
 
-  console.log(dateOfBirth, eighteenthBirthday, isUnder18)
-
   return (
     <div className="container mx-auto px-4 max-w-3xl">
       <Card>
@@ -97,6 +99,7 @@ export const ApplicationForm = () => {
               />
               <FormSelect label={t('event')} name="event" options={eventOptions} required />
               <FormTextarea label={t('message')} name="message" placeholder={t('message')} />
+
               {isUnder18 && (
                 <>
                   <hr />
@@ -106,16 +109,30 @@ export const ApplicationForm = () => {
                   <FormPhoneInput label={t('parent.phone')} name="parentPhone" required />
                 </>
               )}
+              <FormCheckbox
+                label={t('acceptEventConditions.label')}
+                name="acceptEventConditions"
+                onChange={(e) => {
+                  if (e.target.checked) {
+                    setIsModalOpen(true)
+                  }
+                }}
+                required
+              />
+              <p className="underline" onClick={() => setIsModalOpen(true)}>
+                {t('acceptEventConditions.description')}
+              </p>
 
+              {/*/legal/privacy-policy*/}
               <FormCheckbox
                 description={t.rich('acceptConditions.description', {
                   privacy: (chunks) => (
-                    <Link className="underline" href="/privacy-policy" target="_blank">
+                    <Link className="underline" href={`/${paramsLocale}/legal/privacy-policy`} target="_blank">
                       {chunks}
                     </Link>
                   ),
                   terms: (chunks) => (
-                    <Link className="underline" href="/terms-of-service" target="_blank">
+                    <Link className="underline" href={`/${paramsLocale}/legal/terms-of-service`} target="_blank">
                       {chunks}
                     </Link>
                   ),
@@ -141,6 +158,7 @@ export const ApplicationForm = () => {
           </Form>
         </CardContent>
       </Card>
+      <EventConditionsModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   )
 }

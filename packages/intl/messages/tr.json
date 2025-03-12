@@ -72,6 +72,13 @@
       "title": "Kullanım Şartları",
       "description": "<privacy>Gizlilik Politikası</privacy> ve <terms>Kullanım Şartları</terms>'ı kabul ediyorum."
     },
+    "acceptEventConditions": {
+      "label": "Etkinlik Şartları",
+      "description": "Etkinliği katılmak için gerekli şartları kabul ediyorum.",
+      "content": {
+        "title": "Etkinliğe Katılım Şartları"
+      }
+    },
     "acceptParent": {
       "title": "Veli İzni",
       "description": "{fullName} adlı kişinin {eventLabel} etkinliğine katılmasına izin veriyorum."
@@ -165,5 +172,6 @@
         "description": "Web sitemiz, kullanıcı deneyimini geliştirmek için çerezler kullanmaktadır."
       }
     }
-  }
+  },
+  "close": "Kapat"
 }
