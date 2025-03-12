@@ -5,7 +5,7 @@ import type { StaticImageData } from 'next/image'
 import type { MediaBlock as MediaBlockProps } from '@/payload-types'
 
 import { Media } from '@/components/Media'
-import RichText from '@/components/RichText'
+import RichText, { RichTextProps } from '@/components/RichText'
 import { cn } from '@/utilities/ui'
 
 type Props = MediaBlockProps & {
@@ -30,7 +30,7 @@ export const MediaBlock: React.FC<Props> = (props) => {
   } = props
 
   let caption
-  if (media && typeof media === 'object') caption = media.caption
+  if (media && typeof media === 'object') caption = (media as unknown as { caption: RichTextProps['data'] }).caption
 
   return (
     <div

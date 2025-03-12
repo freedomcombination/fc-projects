@@ -12,7 +12,7 @@ import { LivePreviewListener } from '@/components/LivePreviewListener'
 import { RenderHero } from '@/heros/RenderHero'
 import { generateMeta } from '@/utilities/generateMeta'
 
-const homeStatic: RequiredDataFromCollectionSlug<'pages'> = {
+const homeStatic = {
   _status: 'published',
   hero: {
     links: [],
@@ -278,14 +278,14 @@ export default async function Page({ params: paramsPromise }: Args) {
 
   // Remove this code once your website is seeded
   if (!page && slug === 'home') {
-    page = homeStatic
+    page = homeStatic as unknown as typeof page
   }
 
   if (!page) {
     return redirect('/')
   }
 
-  const { hero, layout } = page
+  const { hero, layout } = page as unknown as { hero: object, layout: typeof page.layout }
 
   return (
     <article className="pt-16 pb-24">
