@@ -1,11 +1,21 @@
 import React from 'react'
 
-import SupportHeroComponent from '@fc/ui/components/support/SupportHeroComponent'
+import Hero from '@fc/ui/components/Hero/Hero'
+
+const heroInfo = {
+  image: 'https://sarkac.org/wp-content/uploads/2023/08/dayanisma.png',
+  subtitle: 'Topluluğumuzu güçlendirmek ve daha iyi bir gelecek inşa etmek için birlikte çalışalım. Her destek, yarınlarımız için umut olur.',
+  title: 'Destek Ver, Fark Yarat',
+}
 
 const page = () => {
   return (
     <div>
-      <SupportHeroComponent />
+      <Hero 
+        backgroundImage={heroInfo.image}
+        subtitle={heroInfo.subtitle}
+        title= {heroInfo.title}
+      />
     </div>
   )
 }
