@@ -37,7 +37,6 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
   const tParticipation = useTranslations('participation')
 
   const [isUnder18State, setIsUnder18State] = useState(true)
-  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const schema = useApplicationFormSchema(isUnder18State)
 
@@ -92,7 +91,7 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
           description: t('somethingWentWrong'),
           duration: 2500,
         })
-        console.error('Form gönderimi sırasında hata oluştu:', error)
+        console.error('Error happened when sending form:', error)
       })
       .finally(() => setIsSubmitting(false))
   }
@@ -169,10 +168,7 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
                 </>
               )}
               <FormCheckbox label={t('acceptEventConditions.label')} name="acceptEventConditions" required />
-              <p className="underline" onClick={() => setIsModalOpen(true)}>
-                {t('acceptEventConditions.description')}
-              </p>
-
+              <EventConditionsModal />
               {/*/legal/privacy-policy*/}
               <FormCheckbox
                 description={t.rich('acceptConditions.description', {
@@ -210,7 +206,6 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
           </Form>
         </CardContent>
       </Card>
-      <EventConditionsModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   )
 }

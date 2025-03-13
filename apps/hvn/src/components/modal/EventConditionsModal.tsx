@@ -1,24 +1,25 @@
 import { Button } from '@fc/ui/base/button'
-import { Card, CardContent } from '@fc/ui/base/card'
-import { Modal } from '@fc/ui/components/modal/Modal'
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@fc/ui/base/dialog'
 
 import { useTranslations } from 'next-intl'
 import { useParams } from 'next/navigation'
 
-export type EventConditionsModalProps = {
-  isOpen: boolean
-  onClose: () => void
-}
-
-export const EventConditionsModal = ({ isOpen, onClose }: EventConditionsModalProps) => {
+export const EventConditionsModal = () => {
   const t = useTranslations('Application')
   const generalT = useTranslations('')
   const locale = (useParams().locale as 'en' | 'nl' | 'tr') || 'en'
 
   const eventConditions: Record<'en' | 'nl' | 'tr', { description: string }> = {
     en: {
-      description: `
-Please read the following application conditions carefully. To complete your application, you must confirm that you accept all conditions.
+      description: `Please read the following application conditions carefully. To complete your application, you must confirm that you accept all conditions.
 
 1. General Conditions
 - Applications must be submitted only by a parent or legal guardian through the official Harmonie van Nederland website.
@@ -52,11 +53,12 @@ Please read the following application conditions carefully. To complete your app
 - The organizing committee reserves the right to make changes to the festival program due to weather conditions or unforeseen circumstances.
 - The organizing committee has the right to change the application conditions and festival program.
 - In the event of festival cancellation or date changes, applicants will be notified.
+
+To complete the application, you must confirm that you have read and accepted the above conditions as a parent or legal guardian.
       `,
     },
     nl: {
-      description: `
-Lees de volgende aanvraagvoorwaarden zorgvuldig door. Om uw aanvraag te voltooien, moet u bevestigen dat u alle voorwaarden accepteert.
+      description: `Lees de volgende aanvraagvoorwaarden zorgvuldig door. Om uw aanvraag te voltooien, moet u bevestigen dat u alle voorwaarden accepteert.
 
 1. Algemene Voorwaarden
 - Aanmeldingen mogen alleen worden ingediend door een ouder of wettelijke voogd via de officiële website van Harmonie van Nederland.
@@ -90,11 +92,12 @@ Lees de volgende aanvraagvoorwaarden zorgvuldig door. Om uw aanvraag te voltooie
 - Het organisatiecomité behoudt zich het recht voor om wijzigingen aan te brengen in het festivalprogramma als gevolg van weersomstandigheden of onvoorziene omstandigheden.
 - Het organisatiecomité heeft het recht om de aanvraagvoorwaarden en het festivalprogramma te wijzigen.
 - In geval van annulering of datumwijziging van het festival worden aanvragers op de hoogte gebracht.
+
+Om de aanvraag te voltooien, moet u bevestigen dat u de bovenstaande voorwaarden als ouder of wettelijke voogd hebt gelezen en geaccepteerd.
       `,
     },
     tr: {
-      description: `
-Lütfen aşağıdaki başvuru şartlarını dikkatlice okuyunuz. Başvurunuzu tamamlamak için tüm şartları kabul ettiğinizi onaylamanız gerekmektedir.
+      description: `Lütfen aşağıdaki başvuru şartlarını dikkatlice okuyunuz. Başvurunuzu tamamlamak için tüm şartları kabul ettiğinizi onaylamanız gerekmektedir.
 
 1. Genel Koşullar
 - Başvurular yalnızca ebeveyn veya yasal vasi tarafından, Harmonie van Nederland resmi web sitesi üzerinden yapılmalıdır.
@@ -111,7 +114,7 @@ Lütfen aşağıdaki başvuru şartlarını dikkatlice okuyunuz. Başvurunuzu ta
 3. Yasal ve Etik Kurallar
 - Festival süresince tüm katılımcılar festival kurallarına ve genel ahlak kurallarına uygun hareket etmelidir.
 - Festivalde ticari veya siyasi propaganda yapmak kesinlikle yasaktır.
-- Festival sırasında herhangi bir yasa dışı faaliyet tespit edilirse, ilgili kişi festival alanından çıkarılacaktır ve yasal işlem başlatılabilir.
+- Festival sırasında herhangi bir yasa dışı faaliyet tespit edilirse, ilgili kişi festival alanından çıkarılacak ve suç duyurusunda bulunulacaktır.
 - Festival alanında ebeveynlerin belirlenen saatlerde çocuklarını alıp bırakmaları gerekebilir. Organizasyon ekibi, festival süresince çocukların güvenliği için gerekli önlemleri alacaktır ancak ebeveynlerin de sorumlulukları bulunmaktadır.
 
 4. Kişisel Veri Kullanımı
@@ -133,17 +136,23 @@ Başvuruyu tamamlamak için ebeveyn veya yasal vasi olarak yukarıdaki şartlar�
   }
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title={t('acceptEventConditions.label')}>
-      <Card>
-        <CardContent>
-          <div className="max-h-[400px] overflow-y-auto p-2">
-            <p className="whitespace-pre-line">{eventConditions[locale]?.description}</p>
-          </div>
-          <div className="flex justify-end mt-4">
-            <Button onClick={onClose}>{generalT('close')}</Button>
-          </div>
-        </CardContent>
-      </Card>
-    </Modal>
+    <Dialog>
+      <DialogTrigger asChild>
+        <p className="underline cursor-pointer">{t('acceptEventConditions.description')}</p>
+      </DialogTrigger>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>{t('acceptEventConditions.label')}</DialogTitle>
+        </DialogHeader>
+        <div className="max-h-[400px] overflow-y-auto p-2">
+          <p className="whitespace-pre-line">{eventConditions[locale]?.description}</p>
+        </div>
+        <DialogFooter>
+          <DialogClose asChild>
+            <Button>{generalT('close')}</Button>
+          </DialogClose>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
   )
 }
