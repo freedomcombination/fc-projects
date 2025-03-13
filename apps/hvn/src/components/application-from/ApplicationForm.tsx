@@ -117,9 +117,7 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
 
   const { event = 'hvn_amsterdam', fullName } = form.watch()
   const eventLabel = eventOptions.find((option) => option.value === event)?.label
-  const totalform = form.watch()
-  console.log(totalform)
-  console.log('errors', form.formState.errors)
+
   return (
     <div className="container mx-auto px-4 max-w-3xl">
       <Card>
