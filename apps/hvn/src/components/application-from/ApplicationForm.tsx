@@ -3,6 +3,7 @@
 import { FC, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
+import { Link } from '@fc/intl/navigation'
 import { Button } from '@fc/ui/base/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@fc/ui/base/card'
 import { Form } from '@fc/ui/base/form'
@@ -16,8 +17,6 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { isAfter, isSameDay } from 'date-fns'
 import { Loader2 } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import Link from 'next/link'
-import { useParams } from 'next/navigation'
 import { toast } from 'sonner'
 
 import { Form as FormType } from '../../../payload-types'
@@ -37,7 +36,6 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
   const t = useTranslations('Application')
   const tParticipation = useTranslations('participation')
 
-  const paramsLocale = useParams().locale
   const [isUnder18State, setIsUnder18State] = useState(true)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -179,12 +177,12 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
               <FormCheckbox
                 description={t.rich('acceptConditions.description', {
                   privacy: (chunks) => (
-                    <Link className="underline" href={`/${paramsLocale}/legal/privacy-policy`} target="_blank">
+                    <Link className="underline" href="/legal/privacy-policy" target="_blank">
                       {chunks}
                     </Link>
                   ),
                   terms: (chunks) => (
-                    <Link className="underline" href={`/${paramsLocale}/legal/terms-of-service`} target="_blank">
+                    <Link className="underline" href="/legal/terms-of-service" target="_blank">
                       {chunks}
                     </Link>
                   ),

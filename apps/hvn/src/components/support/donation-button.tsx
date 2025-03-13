@@ -2,9 +2,9 @@
 
 import { FC } from 'react'
 
+import { usePathname, useRouter } from '@fc/intl/navigation'
 import { Button } from '@fc/ui/base/button'
 
-import { usePathname, useRouter } from 'next/navigation'
 import { toast } from 'sonner'
 
 type DonateButtonProps = {

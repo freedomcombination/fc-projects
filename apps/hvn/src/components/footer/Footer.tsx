@@ -1,28 +1,27 @@
 'use client'
 
+import { Link } from '@fc/intl/navigation'
+
 import { Copyright } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-import Link from 'next/link'
-import { useParams } from 'next/navigation'
 
 export const Footer = () => {
   const headerTranslations = useTranslations('Header')
   const legalTranslations = useTranslations('legalPages')
-  const paramsLocale = useParams().locale
 
   const menuItems = [
-    { href: `/${paramsLocale}#home`, label: headerTranslations('home') },
-    { href: `/${paramsLocale}#about`, label: headerTranslations('about') },
-    { href: `/${paramsLocale}#application`, label: headerTranslations('application') },
-    { href: `/${paramsLocale}#contact`, label: headerTranslations('contactNav') },
-    { href: `/${paramsLocale}#support`, label: headerTranslations('support') },
+    { href: `#home`, label: headerTranslations('home') },
+    { href: `#about`, label: headerTranslations('about') },
+    { href: `#application`, label: headerTranslations('application') },
+    { href: `#contact`, label: headerTranslations('contactNav') },
+    { href: `#support`, label: headerTranslations('support') },
   ]
 
   const legalLinks = [
-    { href: `/${paramsLocale}/legal/privacy-policy`, label: legalTranslations('privacy.title') },
-    { href: `/${paramsLocale}/legal/terms-of-use`, label: legalTranslations('terms.title') },
-    { href: `/${paramsLocale}/legal/cookie-policy`, label: legalTranslations('cookies.title') },
+    { href: `/legal/privacy-policy`, label: legalTranslations('privacy.title') },
+    { href: `/legal/terms-of-use`, label: legalTranslations('terms.title') },
+    { href: `/legal/cookie-policy`, label: legalTranslations('cookies.title') },
   ]
 
   return (

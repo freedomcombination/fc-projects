@@ -1,11 +1,11 @@
 'use client'
 
+import { Link } from '@fc/intl/navigation'
 import { Button } from '@fc/ui/base/button'
 import { Card, CardContent } from '@fc/ui/base/card'
 
 import { Copy } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import Link from 'next/link'
 
 export function SupportBank() {
   const t = useTranslations('Support')
