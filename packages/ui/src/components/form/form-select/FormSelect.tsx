@@ -1,9 +1,15 @@
-import React from 'react'
+'use client'
+
+import React, { useState } from 'react'
 import type { ControllerProps, FieldPath, FieldValues } from 'react-hook-form'
 import { useFormContext } from 'react-hook-form'
 
 import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@fc/ui/base/form'
+import { Input } from '@fc/ui/base/input'
 import { Select as SelectComponent, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@fc/ui/base/select'
+
+import * as SelectPrimitive from '@radix-ui/react-select'
+import { ChevronDownIcon } from 'lucide-react'
 
 type Option = {
   label: string | null
@@ -16,11 +22,12 @@ type FormSelectProps<T extends FieldValues = FieldValues, N extends FieldPath<T>
   label?: string | null
   name: N
   options: Option[]
+  required?: boolean
+  disabled?: boolean
 } & Pick<ControllerProps<T, N>, 'disabled'> &
   React.ComponentProps<typeof SelectComponent>
 
 export const FormSelect = <T extends FieldValues = FieldValues, N extends FieldPath<T> = FieldPath<T>>({
-  children,
   description,
   disabled,
   label,
@@ -29,6 +36,11 @@ export const FormSelect = <T extends FieldValues = FieldValues, N extends FieldP
   required,
 }: FormSelectProps<T, N>) => {
   const form = useFormContext<T, N>()
+  const [searchTerm, setSearchTerm] = useState('')
+
+  const filteredOptions = searchTerm
+    ? options.filter((option) => option.label?.toLowerCase().includes(searchTerm.toLowerCase()))
+    : options
 
   return (
     <FormField<T, N>
@@ -49,22 +61,35 @@ export const FormSelect = <T extends FieldValues = FieldValues, N extends FieldP
               </FormLabel>
             )}
             <FormControl>
-              <SelectComponent disabled={disabled} onValueChange={(val) => field.onChange(val)} value={field?.value}>
-                <SelectTrigger className="w-full" id={name}>
-                  <SelectValue placeholder={label} />
+              <SelectComponent disabled={disabled} onValueChange={(val) => field.onChange(val)} value={field.value}>
+                <SelectTrigger className="w-full relative" id={name}>
+                  <SelectValue placeholder={field.value ? field.value : label} />
+                  <SelectPrimitive.Icon asChild>
+                    <ChevronDownIcon className="size-4 opacity-50 absolute right-2 top-1/2 transform -translate-y-1/2" />
+                  </SelectPrimitive.Icon>
                 </SelectTrigger>
+
                 <SelectContent>
-                  {options.map(({ label, value }) => {
-                    return (
+                  <Input
+                    className="w-full p-2 border rounded-md bg-transparent outline-none focus:ring-2 focus:ring-blue-500"
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    placeholder="Search..."
+                    type="text"
+                    value={searchTerm}
+                  />
+                  {filteredOptions.length > 0 ? (
+                    filteredOptions.map(({ label, value }: Option) => (
                       <SelectItem key={value} value={value}>
                         {label}
                       </SelectItem>
-                    )
-                  })}
-                  {children}
+                    ))
+                  ) : (
+                    <div className="p-2 text-gray-500">No results found</div>
+                  )}
                 </SelectContent>
               </SelectComponent>
             </FormControl>
+
             {description && <FormDescription>{description}</FormDescription>}
             <FormMessage />
           </FormItem>

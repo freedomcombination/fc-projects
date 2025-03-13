@@ -15,7 +15,6 @@ import { FormTextarea } from '@fc/ui/components/form/form-textarea'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { isAfter, isSameDay } from 'date-fns'
-import { watch } from 'fs'
 import { Loader2 } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { toast } from 'sonner'
@@ -139,6 +138,7 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
               <FormInput label={t('fullName')} name="fullName" required />
               <FormInput label={t('email')} name="email" required />
               <FormPhoneInput label={t('phone')} name="phone" required />
+
               <FormSelect
                 label={t('city')}
                 name="city"
