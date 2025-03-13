@@ -21,7 +21,7 @@ export const useApplicationFormSchema = (isUnder18: boolean) => {
       acceptParent: z.boolean().refine((value) => value, {
         message: 'You must accept the parent conditions',
       }),
-      otherParticipation: z.string().min(1, 'Other participation is required'),
+      otherParticipation: z.string(),
       parentEmail: z.string().email('Invalid parent email format'),
       parentFullName: z.string(),
       parentPhone: z.string().refine(isValidPhoneNumber, 'Invalid parent phone number format'),

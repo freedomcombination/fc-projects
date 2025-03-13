@@ -15,6 +15,7 @@ import { FormTextarea } from '@fc/ui/components/form/form-textarea'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { isAfter, isSameDay } from 'date-fns'
+import { watch } from 'fs'
 import { Loader2 } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { toast } from 'sonner'
@@ -60,15 +61,15 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
     resolver: zodResolver(schema),
   })
 
-  const participationOptions = [
-    { label: tParticipation('options.song'), value: 'song' },
-    { label: tParticipation('options.performance'), value: 'performance' },
-    { label: tParticipation('options.poetry'), value: 'poetry' },
-    { label: tParticipation('options.standup'), value: 'standup' },
-    { label: tParticipation('options.instrument'), value: 'instrument' },
-    { label: tParticipation('options.dance'), value: 'dance' },
-    { label: tParticipation('options.other'), value: 'other' },
-  ]
+  const participationOptions = applicationForm?.fields?.flatMap((field) => {
+    if ('name' in field && field.name === 'participationType' && 'options' in field && Array.isArray(field.options)) {
+      return field.options
+        .filter((option) => option?.label && option?.value)
+        .map((option) => ({ label: option.label, value: option.value }))
+    }
+    return []
+  })
+
   const onSubmit = (data: ApplicationFormData) => {
     setIsSubmitting(true)
     fetch(`/api/form-submissions`, {
@@ -116,7 +117,9 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
 
   const { event = 'hvn_amsterdam', fullName } = form.watch()
   const eventLabel = eventOptions.find((option) => option.value === event)?.label
-
+  const totalform = form.watch()
+  console.log(totalform)
+  console.log('errors', form.formState.errors)
   return (
     <div className="container mx-auto px-4 max-w-3xl">
       <Card>
@@ -150,11 +153,11 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
               <FormSelect
                 label={tParticipation('label')}
                 name="participationType"
-                options={participationOptions}
+                options={participationOptions || []}
                 required
               />
               {participationType === 'other' && (
-                <FormInput label={tParticipation('otherPlaceholder')} name="otherParticipation" required />
+                <FormInput label={tParticipation('otherPlaceholder')} name="otherParticipation" />
               )}
               <FormTextarea label={t('message')} name="message" placeholder={t('message')} />
 
