@@ -154,7 +154,6 @@ export const cityOptions = {
   'Noord-Holland': [
     'Amsterdam',
     'Haarlem',
-    'Alkmaar',
     'Hilversum',
     'Zaandam',
     'Hoorn',
