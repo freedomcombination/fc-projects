@@ -83,6 +83,10 @@
       "title": "Akkoord met de voorwaarden",
       "description": "Ik ga akkoord met de <privacy>privacy policy</privacy> en <terms>terms of service</terms>"
     },
+    "acceptEventConditions": {
+      "label": "Evenementvoorwaarden",
+      "description": "Ik accepteer de voorwaarden die nodig zijn om deel te nemen aan het evenement."
+    },
     "acceptParent": {
       "title": "Ouder toestemming",
       "description": "Ik geef toestemming aan {fullName} deel te nemen aan het {eventLabel} evenement."
@@ -185,5 +189,19 @@
         "description": "Als u vragen heeft, neem dan contact met ons op via info@harmonievannederland.com."
       }
     }
-  }
+  },
+  "participation": {
+    "label": "Reden voor deelname",
+    "options": {
+      "song": "Zang",
+      "performance": "Performance",
+      "poetry": "Poëzie",
+      "standup": "Stand-up",
+      "instrument": "Instrument bespelen",
+      "dance": "Dans",
+      "other": "Anders"
+    },
+    "otherPlaceholder": "Gelieve te specificeren"
+  },
+  "close": "Sluiten"
 }

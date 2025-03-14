@@ -1,8 +1,7 @@
 import React from 'react'
 
+import { Link } from '@fc/intl/navigation'
 import { Button, type ButtonProps } from '@fc/ui/base/button'
-
-import Link from 'next/link'
 
 import type { Page /*, Post */ } from '@/payload-types'
 

@@ -16,9 +16,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@payloadcms/richtext-lexical": "^3.28.0",
-    "@payloadcms/next": "^3.28.0",
-    "payload": "^3.28.0",
+    "@payloadcms/richtext-lexical": "^3.28.1",
+    "@payloadcms/next": "^3.28.1",
+    "payload": "^3.28.1",
     "next": "^15.2.2"
   },
   "devDependencies": {

@@ -1,8 +1,7 @@
 'use client'
 
+import { Link } from '@fc/intl/navigation'
 import { cn } from '@fc/ui/lib/utils'
-
-import Link from 'next/link'
 
 interface HeaderItemProps {
   href: string
