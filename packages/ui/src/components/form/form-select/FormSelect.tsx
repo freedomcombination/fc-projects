@@ -1,15 +1,12 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import type { ControllerProps, FieldPath, FieldValues } from 'react-hook-form'
 import { useFormContext } from 'react-hook-form'
 
 import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@fc/ui/base/form'
 import { Input } from '@fc/ui/base/input'
 import { Select as SelectComponent, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@fc/ui/base/select'
-
-import * as SelectPrimitive from '@radix-ui/react-select'
-import { ChevronDownIcon } from 'lucide-react'
 
 type Option = {
   label: string | null
@@ -38,9 +35,19 @@ export const FormSelect = <T extends FieldValues = FieldValues, N extends FieldP
   const form = useFormContext<T, N>()
   const [searchTerm, setSearchTerm] = useState('')
 
+  const inputRef = useRef<HTMLInputElement>(null)
+
   const filteredOptions = searchTerm
     ? options.filter((option) => option.label?.toLowerCase().includes(searchTerm.toLowerCase()))
     : options
+
+  const onOpenChange = (open: boolean) => {
+    if (open) {
+      setTimeout(() => {
+        inputRef.current?.focus()
+      }, 0)
+    }
+  }
 
   return (
     <FormField<T, N>
@@ -61,19 +68,22 @@ export const FormSelect = <T extends FieldValues = FieldValues, N extends FieldP
               </FormLabel>
             )}
             <FormControl>
-              <SelectComponent disabled={disabled} onValueChange={(val) => field.onChange(val)} value={field.value}>
+              <SelectComponent
+                disabled={disabled}
+                onOpenChange={onOpenChange}
+                onValueChange={(val) => field.onChange(val)}
+                value={field.value}
+              >
                 <SelectTrigger className="w-full relative" id={name}>
                   <SelectValue placeholder={field.value ? field.value : label} />
-                  <SelectPrimitive.Icon asChild>
-                    <ChevronDownIcon className="size-4 opacity-50 absolute right-2 top-1/2 transform -translate-y-1/2" />
-                  </SelectPrimitive.Icon>
                 </SelectTrigger>
 
                 <SelectContent>
                   <Input
-                    className="w-full p-2 border rounded-md bg-transparent outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-2 mb-2 border rounded-md bg-transparent outline-none focus:ring-2 focus:ring-blue-500"
                     onChange={(e) => setSearchTerm(e.target.value)}
                     placeholder="Search..."
+                    ref={inputRef}
                     type="text"
                     value={searchTerm}
                   />
