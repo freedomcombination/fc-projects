@@ -3,6 +3,7 @@
 import React from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 
+import { Link } from '@fc/intl/navigation'
 import { Button } from '@fc/ui/base/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@fc/ui/base/card'
 import { Form } from '@fc/ui/base/form'
@@ -14,7 +15,6 @@ import { FormTextarea } from '@fc/ui/components/form/form-textarea'
 import { camelCase } from 'lodash'
 import { LinkIcon, Loader2, Send } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
-import Link from 'next/link'
 import { toast } from 'sonner'
 
 import type { Form as FormData } from '../../../payload-types'
@@ -116,7 +116,7 @@ export const PayloadForm: React.FC<PayloadFormProps> = ({ formData }) => {
                     <div className="flex items-center space-x-2">
                       <FormCheckbox label={label} name={name} required={required} />
                       {name === 'acceptTerms' && (
-                        <Link href={`${locale}/legal/terms-of-use`} target="_blank">
+                        <Link href="/legal/terms-of-use" target="_blank">
                           <LinkIcon className="h-4 w-4" />
                         </Link>
                       )}

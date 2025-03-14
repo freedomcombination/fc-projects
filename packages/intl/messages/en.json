@@ -71,6 +71,10 @@
       "title": "Accept Conditions",
       "description": "I agree to the <privacy>privacy policy</privacy> and <terms>terms of service</terms>"
     },
+    "acceptEventConditions": {
+      "label": "Event Terms",
+      "description": "I accept the terms required to participate in the event."
+    },
     "acceptParent": {
       "title": "Parent Permission",
       "description": "I allow {fullName} to participate in the {eventLabel} event."
@@ -165,5 +169,20 @@
         "description": "Our website uses cookies to enhance user experience."
       }
     }
-  }
+  },
+
+  "participation": {
+    "label": "Reason for Participation",
+    "options": {
+      "song": "Singing",
+      "performance": "Performance",
+      "poetry": "Poetry",
+      "standup": "Stand-up",
+      "instrument": "Playing an Instrument",
+      "dance": "Dance",
+      "other": "Other"
+    },
+    "otherPlaceholder": "Please specify"
+  },
+  "close": "Close"
 }

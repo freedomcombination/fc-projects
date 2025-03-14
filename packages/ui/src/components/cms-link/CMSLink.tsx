@@ -1,9 +1,8 @@
 import React from 'react'
 
+import { Link } from '@fc/intl/navigation'
 import type { Page } from '@fc/types/payload-types'
 import { Button } from '@fc/ui/base/button'
-
-import Link from 'next/link'
 
 export type CMSLinkType = {
   appearance?: 'default' | 'primary' | 'secondary'

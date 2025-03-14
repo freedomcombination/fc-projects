@@ -3,6 +3,7 @@
 import { FC, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
+import { Link } from '@fc/intl/navigation'
 import { Button } from '@fc/ui/base/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@fc/ui/base/card'
 import { Form } from '@fc/ui/base/form'
@@ -16,10 +17,10 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { isAfter, isSameDay } from 'date-fns'
 import { Loader2 } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import Link from 'next/link'
 import { toast } from 'sonner'
 
 import { Form as FormType } from '../../../payload-types'
+import { EventConditionsModal } from '../modal/EventConditionsModal'
 import { cityOptions } from './cityOptions'
 import { ApplicationFormData, useApplicationFormSchema } from './schema'
 
@@ -29,10 +30,26 @@ type ApplicationFormProps = {
   applicationForm: FormType
 }
 
+type ApplicationFormInput = {
+  dateOfBirth: string
+  fullName: string
+  email: string
+  phone: string
+  city: string
+  event: string
+  participationType: string
+  otherParticipation?: string
+  parentFullName?: string
+  parentPhone?: string
+  parentEmail?: string
+  message: string
+}
+
 export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const t = useTranslations('Application')
+  const tParticipation = useTranslations('participation')
 
   const [isUnder18State, setIsUnder18State] = useState(true)
 
@@ -41,18 +58,30 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
   const form = useForm<ApplicationFormData>({
     defaultValues: {
       acceptConditions: false,
+      acceptEventConditions: false,
       acceptParent: false,
       city: '',
       dateOfBirth: '',
       email: '',
       event: 'hvn_amsterdam',
       fullName: '',
+      otherParticipation: '',
       parentEmail: '',
       parentFullName: '',
       parentPhone: '',
+      participationType: '',
       phone: '',
     },
     resolver: zodResolver(schema),
+  })
+
+  const participationOptions = applicationForm?.fields?.flatMap((field) => {
+    if ('name' in field && field.name === 'participationType' && 'options' in field && Array.isArray(field.options)) {
+      return field.options
+        .filter((option) => option?.label && option?.value)
+        .map((option) => ({ label: option.label, value: option.value }))
+    }
+    return []
   })
 
   const onSubmit = (data: ApplicationFormData) => {
@@ -60,7 +89,22 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
     fetch(`/api/form-submissions`, {
       body: JSON.stringify({
         form: applicationForm.id,
-        submissionData: Object.entries(data).map(([name, value]) => ({ field: name, value })),
+        submissionData: {
+          city: data.city,
+          dateOfBirth: data.dateOfBirth,
+          email: data.email,
+          event: data.event,
+          fullName: data.fullName,
+          message: data.message,
+          otherParticipation: data.otherParticipation,
+          ...(isUnder18 && {
+            parentEmail: data.parentEmail as string,
+            parentFullName: data.parentFullName as string,
+            parentPhone: data.parentPhone as string,
+          }),
+          participationType: data.participationType,
+          phone: data.phone,
+        } satisfies ApplicationFormInput,
       }),
       headers: { 'Content-Type': 'application/json' },
       method: 'POST',
@@ -68,7 +112,7 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
       .then((response) => response.json())
       .then(() => {
         toast(t('thankYou'), {
-          duration: 2500,
+          duration: 5000,
         })
         form.reset()
       })
@@ -77,12 +121,13 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
           description: t('somethingWentWrong'),
           duration: 2500,
         })
-        console.error('Form gönderimi sırasında hata oluştu:', error)
+        console.error('Error happened when sending form:', error)
       })
       .finally(() => setIsSubmitting(false))
   }
 
   const dateOfBirth = form.watch('dateOfBirth')
+  const participationType = form.watch('participationType')
 
   // Calculate if person is under 18 by checking if their 18th birthday has passed
   const today = new Date()
@@ -123,6 +168,7 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
               <FormInput label={t('fullName')} name="fullName" required />
               <FormInput label={t('email')} name="email" required />
               <FormPhoneInput label={t('phone')} name="phone" required />
+
               <FormSelect
                 label={t('city')}
                 name="city"
@@ -132,7 +178,17 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
                 required
               />
               <FormSelect label={t('event')} name="event" options={eventOptions} required />
+              <FormSelect
+                label={tParticipation('label')}
+                name="participationType"
+                options={participationOptions || []}
+                required
+              />
+              {participationType === 'other' && (
+                <FormInput label={tParticipation('otherPlaceholder')} name="otherParticipation" />
+              )}
               <FormTextarea label={t('message')} name="message" placeholder={t('message')} />
+
               {isUnder18 && (
                 <>
                   <hr />
@@ -142,16 +198,23 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
                   <FormPhoneInput label={t('parent.phone')} name="parentPhone" required />
                 </>
               )}
+              <FormCheckbox
+                description={<EventConditionsModal />}
+                label={t('acceptEventConditions.label')}
+                name="acceptEventConditions"
+                required
+              />
 
+              {/*/legal/privacy-policy*/}
               <FormCheckbox
                 description={t.rich('acceptConditions.description', {
                   privacy: (chunks) => (
-                    <Link className="underline" href="/privacy-policy" target="_blank">
+                    <Link className="underline" href="/legal/privacy-policy" target="_blank">
                       {chunks}
                     </Link>
                   ),
                   terms: (chunks) => (
-                    <Link className="underline" href="/terms-of-service" target="_blank">
+                    <Link className="underline" href="/legal/terms-of-service" target="_blank">
                       {chunks}
                     </Link>
                   ),

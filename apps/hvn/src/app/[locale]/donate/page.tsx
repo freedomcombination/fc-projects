@@ -1,9 +1,9 @@
+import { Link } from '@fc/intl/navigation'
 import { Button } from '@fc/ui/base/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@fc/ui/base/card'
 
 import { Label } from '@radix-ui/react-dropdown-menu'
 import { CheckCircle, Home } from 'lucide-react'
-import Link from 'next/link'
 import { redirect } from 'next/navigation'
 
 import { Hero } from '@/components/hero/Hero'
