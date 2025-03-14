@@ -23,18 +23,21 @@ export const contactForm: RequiredDataFromCollectionSlug<'forms'> = {
   confirmationType: 'message',
   fields: [
     {
+      blockName: 'name',
       blockType: 'text',
       label: 'Name',
       name: 'name',
       required: true,
     },
     {
+      blockName: 'email',
       blockType: 'email',
       label: 'Email',
       name: 'email',
       required: true,
     },
     {
+      blockName: 'message',
       blockType: 'textarea',
       label: 'Message',
       name: 'message',

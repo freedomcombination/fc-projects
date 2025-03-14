@@ -30,6 +30,21 @@ type ApplicationFormProps = {
   applicationForm: FormType
 }
 
+type ApplicationFormInput = {
+  dateOfBirth: string
+  fullName: string
+  email: string
+  phone: string
+  city: string
+  event: string
+  participationType: string
+  otherParticipation?: string
+  parentFullName?: string
+  parentPhone?: string
+  parentEmail?: string
+  message: string
+}
+
 export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
 
@@ -74,7 +89,22 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
     fetch(`/api/form-submissions`, {
       body: JSON.stringify({
         form: applicationForm.id,
-        submissionData: Object.entries(data).map(([name, value]) => ({ field: name, value })),
+        submissionData: {
+          city: data.city,
+          dateOfBirth: data.dateOfBirth,
+          email: data.email,
+          event: data.event,
+          fullName: data.fullName,
+          message: data.message,
+          otherParticipation: data.otherParticipation,
+          ...(isUnder18 && {
+            parentEmail: data.parentEmail as string,
+            parentFullName: data.parentFullName as string,
+            parentPhone: data.parentPhone as string,
+          }),
+          participationType: data.participationType,
+          phone: data.phone,
+        } satisfies ApplicationFormInput,
       }),
       headers: { 'Content-Type': 'application/json' },
       method: 'POST',

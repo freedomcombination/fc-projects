@@ -16,16 +16,17 @@ export const useApplicationFormSchema = (isUnder18: boolean) => {
     email: z.string().email('Invalid email format'),
     event: z.string().min(1, 'Event is required'),
     fullName: z.string().min(1, 'Full name is required'),
+    message: z.string().min(1, 'Message is required'),
+    otherParticipation: z.string().optional(),
+    participationType: z.string().min(1, 'Participation type is required'),
     phone: z.string().refine(isValidPhoneNumber, 'Invalid phone number format'),
     ...(isUnder18 && {
       acceptParent: z.boolean().refine((value) => value, {
         message: 'You must accept the parent conditions',
       }),
-      otherParticipation: z.string(),
       parentEmail: z.string().email('Invalid parent email format'),
       parentFullName: z.string(),
       parentPhone: z.string().refine(isValidPhoneNumber, 'Invalid parent phone number format'),
-      participationType: z.string().min(1, 'Participation type is required'),
     }),
   })
 }
