@@ -37,12 +37,6 @@ export const applicationForm: RequiredDataFromCollectionSlug<'forms'> = {
       required: true,
     },
     {
-      blockType: 'checkbox',
-      label: 'I am under 18 years old',
-      name: 'isUnder18',
-      required: true,
-    },
-    {
       blockType: 'textarea',
       label: 'Parent Information (Required for applicants under 18)',
       name: 'parentInfoMessage',
@@ -84,12 +78,6 @@ export const applicationForm: RequiredDataFromCollectionSlug<'forms'> = {
       blockType: 'textarea',
       label: 'Message',
       name: 'message',
-      required: true,
-    },
-    {
-      blockType: 'checkbox',
-      label: 'I accept the event conditions',
-      name: 'acceptEventConditions',
       required: true,
     },
     {

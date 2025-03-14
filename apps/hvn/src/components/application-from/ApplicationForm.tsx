@@ -82,7 +82,7 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
       .then((response) => response.json())
       .then(() => {
         toast(t('thankYou'), {
-          duration: 2500,
+          duration: 5000,
         })
         form.reset()
       })
@@ -168,8 +168,13 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
                   <FormPhoneInput label={t('parent.phone')} name="parentPhone" required />
                 </>
               )}
-              <FormCheckbox label={t('acceptEventConditions.label')} name="acceptEventConditions" required />
-              <EventConditionsModal />
+              <FormCheckbox
+                description={<EventConditionsModal />}
+                label={t('acceptEventConditions.label')}
+                name="acceptEventConditions"
+                required
+              />
+
               {/*/legal/privacy-policy*/}
               <FormCheckbox
                 description={t.rich('acceptConditions.description', {
