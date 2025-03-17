@@ -45,7 +45,7 @@ export const FormSelect = <T extends FieldValues = FieldValues, N extends FieldP
     if (open) {
       setTimeout(() => {
         inputRef.current?.focus()
-      }, 0)
+      }, 100)
     }
   }
 
@@ -68,12 +68,7 @@ export const FormSelect = <T extends FieldValues = FieldValues, N extends FieldP
               </FormLabel>
             )}
             <FormControl>
-              <SelectComponent
-                disabled={disabled}
-                onOpenChange={onOpenChange}
-                onValueChange={(val) => field.onChange(val)}
-                value={field.value}
-              >
+              <SelectComponent disabled={disabled} onOpenChange={onOpenChange} {...field}>
                 <SelectTrigger className="w-full relative" id={name}>
                   <SelectValue placeholder={field.value ? field.value : label} />
                 </SelectTrigger>
