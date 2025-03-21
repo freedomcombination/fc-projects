@@ -1,6 +1,6 @@
 import { RequiredDataFromCollectionSlug } from 'payload'
 
-export const homeStatic: RequiredDataFromCollectionSlug<'pages'> = {
+export const homeStatic = {
   _status: 'published',
   hero: {
     links: [],

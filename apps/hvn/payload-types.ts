@@ -228,7 +228,7 @@ export interface Page {
       | null;
     media?: (string | null) | Media;
   };
-  layout: (CallToActionBlock | ContentBlock | MediaBlock | FormBlock | SectionBlock | BannerBlock)[];
+  layout: DivBlock[];
   meta?: {
     title?: string | null;
     /**
@@ -246,46 +246,79 @@ export interface Page {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CallToActionBlock".
+ * via the `definition` "DivBlock".
  */
-export interface CallToActionBlock {
-  richText?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  links?:
-    | {
-        link: {
-          type?: ('reference' | 'custom') | null;
-          newTab?: boolean | null;
-          reference?: {
-            relationTo: 'pages';
-            value: string | Page;
-          } | null;
-          url?: string | null;
-          label: string;
-          /**
-           * Choose how the link should be rendered.
-           */
-          appearance?: ('default' | 'outline') | null;
-        };
-        id?: string | null;
-      }[]
-    | null;
+export interface DivBlock {
+  boxSettings?: {
+    layout?:
+      | {
+          [k: string]: unknown;
+        }
+      | unknown[]
+      | string
+      | number
+      | boolean
+      | null;
+    size?:
+      | {
+          [k: string]: unknown;
+        }
+      | unknown[]
+      | string
+      | number
+      | boolean
+      | null;
+    margin?:
+      | {
+          [k: string]: unknown;
+        }
+      | unknown[]
+      | string
+      | number
+      | boolean
+      | null;
+    padding?:
+      | {
+          [k: string]: unknown;
+        }
+      | unknown[]
+      | string
+      | number
+      | boolean
+      | null;
+    border?:
+      | {
+          [k: string]: unknown;
+        }
+      | unknown[]
+      | string
+      | number
+      | boolean
+      | null;
+    borderRadius?: string | null;
+    backgroundColor?:
+      | {
+          [k: string]: unknown;
+        }
+      | unknown[]
+      | string
+      | number
+      | boolean
+      | null;
+    color?:
+      | {
+          [k: string]: unknown;
+        }
+      | unknown[]
+      | string
+      | number
+      | boolean
+      | null;
+    children?: (ContentBlock | MediaBlock | FormBlock | ComponentBlock | DivBlock)[] | null;
+  };
   id?: string | null;
   blockName?: string | null;
-  blockType: 'cta';
+  blockType: 'div';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -534,38 +567,21 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "SectionBlock".
+ * via the `definition` "ComponentBlock".
  */
-export interface SectionBlock {
-  sectionName: 'hero' | 'about';
+export interface ComponentBlock {
+  componentPath:
+    | 'none'
+    | '../../components/application-from'
+    | '../../components/footer/footer.tsx'
+    | '../../components/header/header.tsx'
+    | '../../components/hero/hero.tsx'
+    | '../../components/PayloadForm'
+    | '../../components/support/support.tsx'
+    | '../../components/SyncForms/SyncForms.tsx';
   id?: string | null;
   blockName?: string | null;
-  blockType: 'section';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "BannerBlock".
- */
-export interface BannerBlock {
-  style: 'info' | 'warning' | 'error' | 'success';
-  content: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'banner';
+  blockType: 'component';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -835,12 +851,7 @@ export interface PagesSelect<T extends boolean = true> {
   layout?:
     | T
     | {
-        cta?: T | CallToActionBlockSelect<T>;
-        content?: T | ContentBlockSelect<T>;
-        mediaBlock?: T | MediaBlockSelect<T>;
-        formBlock?: T | FormBlockSelect<T>;
-        section?: T | SectionBlockSelect<T>;
-        banner?: T | BannerBlockSelect<T>;
+        div?: T | DivBlockSelect<T>;
       };
   meta?:
     | T
@@ -858,24 +869,29 @@ export interface PagesSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CallToActionBlock_select".
+ * via the `definition` "DivBlock_select".
  */
-export interface CallToActionBlockSelect<T extends boolean = true> {
-  richText?: T;
-  links?:
+export interface DivBlockSelect<T extends boolean = true> {
+  boxSettings?:
     | T
     | {
-        link?:
+        layout?: T;
+        size?: T;
+        margin?: T;
+        padding?: T;
+        border?: T;
+        borderRadius?: T;
+        backgroundColor?: T;
+        color?: T;
+        children?:
           | T
           | {
-              type?: T;
-              newTab?: T;
-              reference?: T;
-              url?: T;
-              label?: T;
-              appearance?: T;
+              content?: T | ContentBlockSelect<T>;
+              mediaBlock?: T | MediaBlockSelect<T>;
+              formBlock?: T | FormBlockSelect<T>;
+              component?: T | ComponentBlockSelect<T>;
+              div_level_1?: T | DivBlockSelect<T>;
             };
-        id?: T;
       };
   id?: T;
   blockName?: T;
@@ -928,20 +944,10 @@ export interface FormBlockSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "SectionBlock_select".
+ * via the `definition` "ComponentBlock_select".
  */
-export interface SectionBlockSelect<T extends boolean = true> {
-  sectionName?: T;
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "BannerBlock_select".
- */
-export interface BannerBlockSelect<T extends boolean = true> {
-  style?: T;
-  content?: T;
+export interface ComponentBlockSelect<T extends boolean = true> {
+  componentPath?: T;
   id?: T;
   blockName?: T;
 }

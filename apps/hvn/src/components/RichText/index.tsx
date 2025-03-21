@@ -10,18 +10,12 @@ import {
   LinkJSXConverter,
 } from '@payloadcms/richtext-lexical/react'
 
-import type {
-  BannerBlock as BannerBlockProps,
-  CallToActionBlock as CTABlockProps,
-  MediaBlock as MediaBlockProps,
-} from '@/payload-types'
+import type { MediaBlock as MediaBlockProps } from '@/payload-types'
 
-import { BannerBlock } from '@/blocks/Banner/Component'
-import { CallToActionBlock } from '@/blocks/CallToAction/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { cn } from '@/utilities/ui'
 
-type NodeTypes = DefaultNodeTypes | SerializedBlockNode<CTABlockProps | MediaBlockProps | BannerBlockProps>
+type NodeTypes = DefaultNodeTypes | SerializedBlockNode<MediaBlockProps>
 
 const internalDocToHref = ({ linkNode }: { linkNode: SerializedLinkNode }) => {
   const { relationTo, value } = linkNode.fields.doc!
@@ -36,8 +30,8 @@ const jsxConverters: JSXConvertersFunction<NodeTypes> = ({ defaultConverters }) 
   ...defaultConverters,
   ...LinkJSXConverter({ internalDocToHref }),
   blocks: {
-    banner: ({ node }) => <BannerBlock className="col-start-2 mb-4" {...node.fields} />,
-    cta: ({ node }) => <CallToActionBlock {...node.fields} />,
+    // banner: ({ node }) => <BannerBlock className="col-start-2 mb-4" {...node.fields} />,
+    // cta: ({ node }) => <CallToActionBlock {...node.fields} />,
     mediaBlock: ({ node }) => (
       <MediaBlock
         className="col-start-1 col-span-3"

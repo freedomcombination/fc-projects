@@ -10,12 +10,7 @@ import {
 
 import { authenticated } from '@/access/authenticated'
 import { authenticatedOrPublished } from '@/access/authenticatedOrPublished'
-import { Banner } from '@/blocks/Banner/config'
-import { CallToAction } from '@/blocks/CallToAction/config'
-import { Content } from '@/blocks/Content/config'
-import { FormBlock } from '@/blocks/Form/config'
-import { MediaBlock } from '@/blocks/MediaBlock/config'
-import { Section } from '@/blocks/Section/config'
+import { Box } from '@/blocks/DivBlock/config'
 import { slugField } from '@/fields/slug/index'
 import { hero } from '@/heros/config'
 import { populatePublishedAt } from '@/hooks/populatePublishedAt'
@@ -76,7 +71,7 @@ export const Pages: CollectionConfig<'pages'> = {
               admin: {
                 initCollapsed: true,
               },
-              blocks: [CallToAction, Content, MediaBlock, FormBlock, Section, Banner],
+              blocks: [Box],
               name: 'layout',
               required: true,
               type: 'blocks',
