@@ -2,7 +2,9 @@ import React from 'react'
 
 import type { Option } from '@payloadcms/ui/elements/ReactSelect'
 
-import { FieldLabel, ReactSelect } from '@payloadcms/ui'
+import { FieldLabel } from '@payloadcms/ui'
+
+import { ReactSingleSelect } from '../common/ReactSingleSelect'
 
 // Unit options
 const unitOptions: Option[] = [
@@ -83,13 +85,12 @@ export const SizePropertyField: React.FC<SizePropertyFieldProps> = ({
 
       {usePreset ? (
         <div style={{ width: '100%' }}>
-          <ReactSelect
+          <ReactSingleSelect
             disabled={readOnly}
-            isMulti={false}
-            onChange={onPresetChange as any}
+            onChange={onPresetChange}
             options={presetOptions}
             placeholder="Select a preset..."
-            value={presetOptions.find((opt) => opt.value === preset)}
+            value={preset}
           />
         </div>
       ) : (
@@ -179,13 +180,12 @@ export const SizePropertyField: React.FC<SizePropertyFieldProps> = ({
           )}
 
           <div style={{ flex: '1' }}>
-            <ReactSelect
+            <ReactSingleSelect
               disabled={readOnly}
-              isMulti={false}
-              onChange={onUnitChange as any}
+              onChange={onUnitChange}
               options={unitOptions}
               placeholder="Unit"
-              value={unitOptions.find((opt) => opt.value === unit) || unitOptions[0]}
+              value={unit || (unitOptions[0]!.value as string)}
             />
           </div>
         </div>

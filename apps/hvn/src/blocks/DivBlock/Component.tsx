@@ -88,10 +88,7 @@ export const DivBlock: React.FC<DivBlockProps> = (prop) => {
           }
 
           if (blockType.startsWith('div')) {
-            {
-              /* @ts-expect-error there may be some mismatch between the expected types here */
-            }
-            return <DivBlock key={index} {...block} />
+            return <DivBlock key={index} {...(block as unknown as DivBlockProps)} />
           }
 
           return null

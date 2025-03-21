@@ -2,10 +2,12 @@
 
 import React, { CSSProperties, useEffect, useState } from 'react'
 
-import { FieldLabel, ReactSelect, useField } from '@payloadcms/ui'
+import { FieldLabel, useField } from '@payloadcms/ui'
+import { Option } from '@payloadcms/ui/elements/ReactSelect'
 import { LucidePlusCircle } from 'lucide-react'
 
 import { ColorPicker } from '../common/ColorPicker'
+import { ReactSingleSelect } from '../common/ReactSingleSelect'
 import { BackgroundType, ColorComponentProps, ColorValueType, GradientStop } from './type'
 
 export const ColorComponent: React.FC<ColorComponentProps> = ({
@@ -54,7 +56,7 @@ export const ColorComponent: React.FC<ColorComponentProps> = ({
   }
 
   // Handle type change
-  const handleTypeChange = (selectedOption: { label: string; value: string } | null) => {
+  const handleTypeChange = (selectedOption: Option) => {
     if (!selectedOption) return
 
     const newType = selectedOption.value as BackgroundType
@@ -93,9 +95,9 @@ export const ColorComponent: React.FC<ColorComponentProps> = ({
   }
 
   // Handle position change for radial gradient
-  const handlePositionTypeChange = (selectedOption: { label: string; value: string } | null) => {
+  const handlePositionTypeChange = (selectedOption: Option) => {
     if (!selectedOption) return
-    updateValue({ ...colorValue, position: selectedOption.value })
+    updateValue({ ...colorValue, position: selectedOption.value as string })
   }
 
   // Add new color stop
@@ -205,10 +207,6 @@ export const ColorComponent: React.FC<ColorComponentProps> = ({
     { label: 'Bottom Right', value: 'bottom right' },
   ]
 
-  // Get current selected values for ReactSelect
-  const currentTypeOption = typeOptions.find((option) => option.value === colorValue.type)
-  const currentPositionOption = positionOptions.find((option) => option.value === colorValue.position)
-
   return (
     <div className="color-component css-fields" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       <div className="column">
@@ -229,14 +227,11 @@ export const ColorComponent: React.FC<ColorComponentProps> = ({
         <div style={{ display: 'flex', flexDirection: 'row', gap: 8 }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', maxWidth: '49%', width: '100%' }}>
             <FieldLabel htmlFor="color-type" label={forText ? 'Text Color Type' : 'Background Type'} />
-            <ReactSelect
-              className="select-container"
+            <ReactSingleSelect
               disabled={Boolean(readOnly)}
-              //              classNamePrefix="select"
-              inputId="color-type"
-              onChange={handleTypeChange as any}
+              onChange={handleTypeChange}
               options={typeOptions}
-              value={currentTypeOption}
+              value={colorValue.type}
             />
           </div>
 
@@ -276,13 +271,11 @@ export const ColorComponent: React.FC<ColorComponentProps> = ({
           {(colorValue.type === 'radial-gradient' || colorValue.type === 'conic-gradient') && (
             <div className="item control-group" style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
               <FieldLabel htmlFor="gradient-position" label="Position" />
-              <ReactSelect
-                className="select-container"
+              <ReactSingleSelect
                 disabled={Boolean(readOnly)}
-                inputId="gradient-position"
-                onChange={handlePositionTypeChange as any}
+                onChange={handlePositionTypeChange}
                 options={positionOptions}
-                value={currentPositionOption}
+                value={colorValue.position}
               />
             </div>
           )}

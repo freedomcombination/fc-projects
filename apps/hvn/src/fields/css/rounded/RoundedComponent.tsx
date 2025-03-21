@@ -4,10 +4,11 @@ import React, { useState } from 'react'
 
 import type { Option } from '@payloadcms/ui/elements/ReactSelect'
 
-import { CheckboxInput, FieldLabel, ReactSelect, useField } from '@payloadcms/ui'
+import { CheckboxInput, FieldLabel, useField } from '@payloadcms/ui'
 import { TextFieldClientProps } from 'payload'
 
 import '../styles/index.scss'
+import { ReactSingleSelect } from '../common/ReactSingleSelect'
 
 type RoundedComponentProps = TextFieldClientProps
 
@@ -62,14 +63,11 @@ export const RoundedComponent: React.FC<RoundedComponentProps> = ({ field, path:
               <div className={'item field-type select number'} key={fieldIndex}>
                 <FieldLabel htmlFor={field.label.toLowerCase()} label={field.label} />
                 {useSelect ? (
-                  <ReactSelect
+                  <ReactSingleSelect
                     disabled={Boolean(readOnly)}
-                    isMulti={false}
-                    onChange={(e) =>
-                      setValue(field.update(((Array.isArray(e) ? e[0]?.value : e.value) as string) || '0'))
-                    }
+                    onChange={(e) => setValue(field.update((e.value as string) || '0'))}
                     options={roundedOptions}
-                    value={roundedOptions.find((opt) => opt.value === field.value)}
+                    value={field.value}
                   />
                 ) : (
                   <input

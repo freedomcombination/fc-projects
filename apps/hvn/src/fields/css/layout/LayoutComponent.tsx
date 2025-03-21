@@ -4,10 +4,11 @@ import React, { useEffect, useState } from 'react'
 
 import type { Option } from '@payloadcms/ui/elements/ReactSelect'
 
-import { FieldLabel, ReactSelect, useField } from '@payloadcms/ui'
+import { FieldLabel, useField } from '@payloadcms/ui'
 import { TextFieldClientProps } from 'payload'
 
 import '../styles/index.scss'
+import { ReactSingleSelect } from '../common/ReactSingleSelect'
 
 type LayoutComponentProps = TextFieldClientProps
 
@@ -162,12 +163,11 @@ export const LayoutComponent: React.FC<LayoutComponentProps> = ({ field, path: b
         <div className="row">
           <div className="item field-type select">
             <FieldLabel htmlFor="layout-type" label="Layout Type" />
-            <ReactSelect
+            <ReactSingleSelect
               disabled={Boolean(readOnly)}
-              isMulti={false}
               onChange={handleLayoutTypeChange}
               options={layoutTypeOptions}
-              value={layoutTypeOptions.find((opt) => opt.value === layoutValues.type)}
+              value={layoutValues.type}
             />
           </div>
         </div>
@@ -178,44 +178,40 @@ export const LayoutComponent: React.FC<LayoutComponentProps> = ({ field, path: b
             <div className="row">
               <div className="item field-type select">
                 <FieldLabel htmlFor="flex-direction" label="Direction" />
-                <ReactSelect
+                <ReactSingleSelect
                   disabled={Boolean(readOnly)}
-                  isMulti={false}
                   onChange={handleSelectChange('flexDirection')}
                   options={flexDirectionOptions}
-                  value={flexDirectionOptions.find((opt) => opt.value === layoutValues.flexDirection)}
+                  value={layoutValues.flexDirection}
                 />
               </div>
               <div className="item field-type select">
                 <FieldLabel htmlFor="flex-wrap" label="Wrap" />
-                <ReactSelect
+                <ReactSingleSelect
                   disabled={Boolean(readOnly)}
-                  isMulti={false}
                   onChange={handleSelectChange('flexWrap')}
                   options={flexWrapOptions}
-                  value={flexWrapOptions.find((opt) => opt.value === layoutValues.flexWrap)}
+                  value={layoutValues.flexWrap}
                 />
               </div>
             </div>
             <div className="row">
               <div className="item field-type select">
                 <FieldLabel htmlFor="justify-content" label="Justify Content" />
-                <ReactSelect
+                <ReactSingleSelect
                   disabled={Boolean(readOnly)}
-                  isMulti={false}
                   onChange={handleSelectChange('justifyContent')}
                   options={justifyContentOptions}
-                  value={justifyContentOptions.find((opt) => opt.value === layoutValues.justifyContent)}
+                  value={layoutValues.justifyContent}
                 />
               </div>
               <div className="item field-type select">
                 <FieldLabel htmlFor="align-items" label="Align Items" />
-                <ReactSelect
+                <ReactSingleSelect
                   disabled={Boolean(readOnly)}
-                  isMulti={false}
                   onChange={handleSelectChange('alignItems')}
                   options={alignItemsOptions}
-                  value={alignItemsOptions.find((opt) => opt.value === layoutValues.alignItems)}
+                  value={layoutValues.alignItems}
                 />
               </div>
             </div>
@@ -228,14 +224,11 @@ export const LayoutComponent: React.FC<LayoutComponentProps> = ({ field, path: b
             <div className="row">
               <div className="item field-type select">
                 <FieldLabel htmlFor="grid-template-columns" label="Template Columns" />
-                <ReactSelect
+                <ReactSingleSelect
                   disabled={Boolean(readOnly)}
-                  isMulti={false}
                   onChange={handleSelectChange('gridTemplateColumns')}
                   options={gridTemplateColumnsOptions}
-                  value={gridTemplateColumnsOptions.find((opt) =>
-                    customGridColumns ? opt.value === 'custom' : opt.value === layoutValues.gridTemplateColumns,
-                  )}
+                  value={customGridColumns ? 'custom' : layoutValues.gridTemplateColumns}
                 />
               </div>
               {customGridColumns && (
@@ -255,14 +248,11 @@ export const LayoutComponent: React.FC<LayoutComponentProps> = ({ field, path: b
             <div className="row">
               <div className="item field-type select">
                 <FieldLabel htmlFor="grid-template-rows" label="Template Rows" />
-                <ReactSelect
+                <ReactSingleSelect
                   disabled={Boolean(readOnly)}
-                  isMulti={false}
                   onChange={handleSelectChange('gridTemplateRows')}
                   options={gridTemplateRowsOptions}
-                  value={gridTemplateRowsOptions.find((opt) =>
-                    customGridRows ? opt.value === 'custom' : opt.value === layoutValues.gridTemplateRows,
-                  )}
+                  value={customGridRows ? 'custom' : layoutValues.gridTemplateRows}
                 />
               </div>
               {customGridRows && (
@@ -287,12 +277,11 @@ export const LayoutComponent: React.FC<LayoutComponentProps> = ({ field, path: b
           <div className="row">
             <div className="item field-type select">
               <FieldLabel htmlFor="gap" label="Gap" />
-              <ReactSelect
+              <ReactSingleSelect
                 disabled={Boolean(readOnly)}
-                isMulti={false}
                 onChange={handleSelectChange('gap')}
                 options={gapOptions}
-                value={gapOptions.find((opt) => opt.value === layoutValues.gap)}
+                value={layoutValues.gap}
               />
             </div>
           </div>

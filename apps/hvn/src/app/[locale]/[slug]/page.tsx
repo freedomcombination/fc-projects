@@ -55,7 +55,7 @@ export default async function Page({ params: paramsPromise }: Args) {
 
   // Remove this code once your website is seeded
   if (!page && slug === 'home') {
-    page = homeStatic
+    page = homeStatic as unknown as typeof page
   }
 
   if (!page) {
