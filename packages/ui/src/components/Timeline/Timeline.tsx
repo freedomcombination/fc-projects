@@ -1,14 +1,16 @@
 import { FC, ReactElement } from 'react'
-import {
-  EventTimelineContentProps,
-  EventTimelineIndicatorProps,
-  EventTimelineConnectorProps,
-  EventTimelineProps,
-} from './types'
+import { useMedia } from 'react-use'
+
+import clsx from 'clsx'
 import { compareDesc, format } from 'date-fns'
 import { Check, ChevronRight } from 'lucide-react'
-import clsx from 'clsx'
-import { useMedia } from 'react-use'
+
+import {
+  EventTimelineConnectorProps,
+  EventTimelineContentProps,
+  EventTimelineIndicatorProps,
+  EventTimelineProps,
+} from './types'
 
 const TimelineIndicator: FC<EventTimelineIndicatorProps> = ({ compareResult, themeColor }): ReactElement | string => {
   let icon: ReactElement | undefined
@@ -41,7 +43,7 @@ const TimelineIndicator: FC<EventTimelineIndicatorProps> = ({ compareResult, the
   )
 }
 
-const TimelineConnector: FC<EventTimelineConnectorProps> = ({ date, themeColor = '#8b5cf6' }) => {
+const TimelineConnector: FC<EventTimelineConnectorProps> = ({ date, themeColor }) => {
   const today = format(new Date(), 'yyyy-MM-dd')
   const eventDate = format(new Date(date), 'yyyy-MM-dd')
   const compareResult = compareDesc(today, eventDate)
@@ -53,7 +55,7 @@ const TimelineConnector: FC<EventTimelineConnectorProps> = ({ date, themeColor =
   )
 }
 
-const TimelineContent: FC<EventTimelineContentProps> = ({ title, description, date, themeColor }) => {
+const TimelineContent: FC<EventTimelineContentProps> = ({ date, description, themeColor, title }) => {
   return (
     <div className="rounded shadow flex-1 p-4 mb-4 relative overflow-hidden ">
       <h4 className="font-bold text-sm">{title}</h4>
@@ -71,7 +73,7 @@ const TimelineContent: FC<EventTimelineContentProps> = ({ title, description, da
   )
 }
 
-const EventTimeline: FC<EventTimelineProps> = ({ events, themeColor = 'purple' }) => {
+const EventTimeline: FC<EventTimelineProps> = ({ events, themeColor = '#8b5cf6' }) => {
   const isMobile = useMedia('(max-width: 768px)')
 
   const sortedEventsAsc = [...events].sort((a, b) => {
@@ -83,7 +85,7 @@ const EventTimeline: FC<EventTimelineProps> = ({ events, themeColor = 'purple' }
   return (
     <div className={clsx(isMobile ? 'max-w-md' : 'max-w-lg')}>
       {sortedEventsAsc.map((event, index) => (
-        <div key={event.id} className="flex justify-content-center gap-10">
+        <div className="flex justify-content-center gap-10" key={event.id}>
           {index % 2 === 0 || isMobile ? (
             <>
               {!isMobile && <div className="flex-1  p-4"></div>}
