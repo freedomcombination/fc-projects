@@ -44,9 +44,7 @@ const TimelineIndicator: FC<EventTimelineIndicatorProps> = ({ compareResult, the
 }
 
 const TimelineConnector: FC<EventTimelineConnectorProps> = ({ date, themeColor }) => {
-  const today = format(new Date(), 'yyyy-MM-dd')
-  const eventDate = format(new Date(date), 'yyyy-MM-dd')
-  const compareResult = compareDesc(today, eventDate)
+  const compareResult = compareDesc(new Date(), date)
 
   return (
     <div className="relative text-center after:inline-block after:absolute after:top-0 after:bottom-0 after:w-0.5 after:bg-gray-200 after:content-[''] after:z-0">
