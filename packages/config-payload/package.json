@@ -16,10 +16,10 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@payloadcms/richtext-lexical": "^3.28.1",
-    "@payloadcms/next": "^3.28.1",
-    "payload": "^3.28.1",
-    "next": "^15.2.2"
+    "@payloadcms/richtext-lexical": "^3.33.0",
+    "@payloadcms/next": "^3.33.0",
+    "payload": "^3.33.0",
+    "next": "^15.2.4"
   },
   "devDependencies": {
     "@fc/config-eslint": "workspace:*",
