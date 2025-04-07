@@ -148,7 +148,7 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
   const eventLabel = eventOptions.find((option) => option.value === event)?.label
 
   return (
-    <div className="container mx-auto px-4 max-w-3xl">
+    <div className="container mx-auto max-w-3xl px-4">
       <Card>
         <CardHeader>
           <CardTitle className="text-2xl">{t('title')}</CardTitle>
@@ -236,7 +236,7 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
                 />
               )}
               <Button disabled={isSubmitting} type="submit">
-                {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : t('submit')}
+                {isSubmitting ? <Loader2 className="h-4 w-4 animate-spin" /> : t('submit')}
               </Button>
             </form>
           </Form>

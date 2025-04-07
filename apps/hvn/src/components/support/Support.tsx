@@ -10,23 +10,23 @@ export const Support = () => {
   const t = useTranslations()
 
   return (
-    <section className="py-16 bg-gray-100" id="support">
-      <div className="container max-w-6xl mx-auto px-4 py-8">
-        <h2 className="text-4xl font-bold mb-4">{t('Header.support')}</h2>
-        <div className="flex justify-center bg-white rounded-lg">
+    <section className="bg-gray-100 py-16" id="support">
+      <div className="container mx-auto max-w-6xl px-4 py-8">
+        <h2 className="mb-4 text-4xl font-bold">{t('Header.support')}</h2>
+        <div className="flex justify-center rounded-lg bg-white">
           <Image
             alt="ANBI Logo"
-            className="h-20 object-cover shadow-md  mt-4"
+            className="mt-4 h-20 object-cover shadow-md"
             height={100}
             src="/images/anbi-logo.png"
             width={100}
           />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-white rounded-lg p-6">
+        <div className="grid grid-cols-1 gap-8 rounded-lg bg-white p-6 md:grid-cols-2">
           <div className="flex flex-col items-center justify-center gap-6 text-left">
             <Image
               alt="Stichting Logo"
-              className="rounded-full object-cover shadow-md h-24 md:h-64"
+              className="h-24 rounded-full object-cover shadow-md md:h-64"
               height={150}
               src="/images/logo.png"
               width={250}

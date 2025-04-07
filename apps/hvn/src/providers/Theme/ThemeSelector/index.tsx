@@ -30,7 +30,7 @@ export const ThemeSelector: React.FC = () => {
 
   return (
     <Select onValueChange={onThemeChange} value={value}>
-      <SelectTrigger aria-label="Select a theme" className="w-auto bg-transparent gap-2 pl-0 md:pl-3 border-none">
+      <SelectTrigger aria-label="Select a theme" className="w-auto gap-2 border-none bg-transparent pl-0 md:pl-3">
         <SelectValue placeholder="Theme" />
       </SelectTrigger>
       <SelectContent>

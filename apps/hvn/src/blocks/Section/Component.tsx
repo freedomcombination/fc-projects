@@ -10,7 +10,7 @@ export const SectionBlock: React.FC<SectionProps> = (prop) => {
 
   if (type === 'hero') {
     return (
-      <section className="relative min-h-screen bg-gradient-to-b from-primary to-secondary" id="home">
+      <section className="from-primary to-secondary relative min-h-screen bg-gradient-to-b" id="home">
         <Hero />
       </section>
     )
