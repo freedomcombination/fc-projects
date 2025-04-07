@@ -44,7 +44,7 @@ export const FormRadioGroup = <T extends FieldValues = FieldValues, N extends Fi
           )}
           <FormControl>
             <RadioGroup
-              className={cn('flex flex-col space-y-1 mt-2', className)}
+              className={cn('mt-2 flex flex-col space-y-1', className)}
               defaultValue={field.value}
               onValueChange={field.onChange}
             >

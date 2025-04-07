@@ -29,63 +29,63 @@ const DonatePage = async ({ searchParams }: DonatePageProps) => {
   return (
     <main className="relative">
       {/* Hero section */}
-      <section className="relative min-h-screen bg-gradient-to-b from-primary to-secondary" id="home">
+      <section className="from-primary to-secondary relative min-h-screen bg-gradient-to-b" id="home">
         <Hero />
-        <div className="absolute z-10 top-0 left-0 right-0 bottom-0  flex justify-center items-center">
-          <Card className="w-96 bg-white shadow rounded-lg">
+        <div className="absolute bottom-0 left-0 right-0 top-0 z-10 flex items-center justify-center">
+          <Card className="w-96 rounded-lg bg-white shadow">
             <CardHeader>
-              <CardTitle className="flex justify-center items-center">
+              <CardTitle className="flex items-center justify-center">
                 {success ? (
-                  <CheckCircle className="w-32 h-32 p-6 text-green-500" />
+                  <CheckCircle className="h-32 w-32 p-6 text-green-500" />
                 ) : (
                   <img
                     alt="Harmonie van Nederland Logo"
-                    className="rounded-full object-cover h-32"
+                    className="h-32 rounded-full object-cover"
                     src="/images/logo.png"
                   />
                 )}
               </CardTitle>
               {success ? (
-                <CardDescription className="text-center text-xl  text-green-500">Teşekkürler</CardDescription>
+                <CardDescription className="text-center text-xl text-green-500">Teşekkürler</CardDescription>
               ) : (
-                <CardDescription className="text-center text-xl  text-red-500">İşlem iptal edildi</CardDescription>
+                <CardDescription className="text-center text-xl text-red-500">İşlem iptal edildi</CardDescription>
               )}
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="flex flex-col w-full rounded-lg bg-muted p-4">
-                <Label className="text-md font-medium mb-6">Bağış detaylar:</Label>
+              <div className="bg-muted flex w-full flex-col rounded-lg p-4">
+                <Label className="text-md mb-6 font-medium">Bağış detaylar:</Label>
 
                 {amount && (
-                  <Label className="text-sm font-medium flex justify-between text-muted-foreground">
-                    Bağış miktarı: <span className="font-semibold text-primary">{amount} €</span>
+                  <Label className="text-muted-foreground flex justify-between text-sm font-medium">
+                    Bağış miktarı: <span className="text-primary font-semibold">{amount} €</span>
                   </Label>
                 )}
                 {type && (
-                  <Label className="text-sm font-medium flex justify-between text-muted-foreground">
+                  <Label className="text-muted-foreground flex justify-between text-sm font-medium">
                     Bağış süresi:{' '}
-                    <span className="font-semibold text-primary">{type === 'one-time' ? 'Tek seferlik' : 'Aylık'}</span>
+                    <span className="text-primary font-semibold">{type === 'one-time' ? 'Tek seferlik' : 'Aylık'}</span>
                   </Label>
                 )}
                 {email && (
-                  <Label className="text-sm font-medium flex justify-between text-muted-foreground">
-                    E-posta: <span className="font-semibold text-primary">{email}</span>
+                  <Label className="text-muted-foreground flex justify-between text-sm font-medium">
+                    E-posta: <span className="text-primary font-semibold">{email}</span>
                   </Label>
                 )}
               </div>
               {success ? (
-                <p className="text-muted-foreground text-center pt-1">
+                <p className="text-muted-foreground pt-1 text-center">
                   Değerli desteğiniz için teşekkür ederiz. Bağışınız başarıyla gerçekleştirildi. Yardımlarınız sayesinde
                   daha fazla kişiye ulaşabileceğiz.
                 </p>
               ) : (
-                <p className="text-muted-foreground text-center pt-1">
+                <p className="text-muted-foreground pt-1 text-center">
                   Bağış işlemi tamamlanmadı. Lütfen daha sonra tekrar deneyiniz.
                 </p>
               )}
             </CardContent>
             <CardFooter className="flex justify-center">
               <Link href="/">
-                <Button className="text-white p-5" size={'lg'} variant={'default'}>
+                <Button className="p-5 text-white" size={'lg'} variant={'default'}>
                   <Home className="mr-2 h-4 w-4" />
                   Ana sayfa
                 </Button>

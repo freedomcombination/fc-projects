@@ -65,7 +65,7 @@ export default async function Page({ params: paramsPromise }: Args) {
   const { hero, layout } = page as unknown as { hero: object; layout: typeof page.layout }
 
   return (
-    <article className="pt-16 pb-24">
+    <article className="pb-24 pt-16">
       {draft && <LivePreviewListener />}
 
       <RenderHero type="highImpact" {...hero} />
