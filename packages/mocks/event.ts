@@ -1,6 +1,6 @@
 import { Event } from '@fc/types'
 
-export const EVENT_MOCS: Event[] = [
+export const EVENT_MOCKS: Event[] = [
   {
     date: '2024-01-15',
     description: 'Early registration phase for festival participants and performers',

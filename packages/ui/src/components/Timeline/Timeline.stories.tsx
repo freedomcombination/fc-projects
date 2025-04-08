@@ -1,4 +1,4 @@
-import { EVENT_MOCS } from '@fc/mocks/event'
+import { EVENT_MOCKS } from '@fc/mocks/event'
 
 import { Meta, StoryObj } from '@storybook/react'
 
@@ -6,7 +6,7 @@ import EventTimeline from './Timeline'
 
 export default {
   args: {
-    events: EVENT_MOCS,
+    events: EVENT_MOCKS,
     themeColor: '#ff4444',
   },
   component: EventTimeline,

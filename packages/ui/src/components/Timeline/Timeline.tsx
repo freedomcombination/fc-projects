@@ -44,7 +44,7 @@ const TimelineIndicator: FC<EventTimelineIndicatorProps> = ({ compareResult, the
 }
 
 const TimelineConnector: FC<EventTimelineConnectorProps> = ({ date, themeColor }) => {
-  const compareResult = compareDesc(new Date(), date)
+  const compareResult = compareDesc(new Date(), new Date(date))
 
   return (
     <div className="relative text-center after:inline-block after:absolute after:top-0 after:bottom-0 after:w-0.5 after:bg-gray-200 after:content-[''] after:z-0">
@@ -58,7 +58,7 @@ const TimelineContent: FC<EventTimelineContentProps> = ({ date, description, the
     <div className="rounded shadow flex-1 p-4 mb-4 relative overflow-hidden ">
       <h4 className="font-bold text-sm">{title}</h4>
       <h5 className={clsx('text-sm')} style={{ color: themeColor }}>
-        {format(date, 'MMMM dd, yyyy')}
+        {format(new Date(date), 'MMMM dd, yyyy')}
       </h5>
       <p className="text-sm">{description}</p>
       <div
