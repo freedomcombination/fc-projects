@@ -11,7 +11,7 @@ export interface HeroProps {
 
 export const Hero = ({ backgroundImage, className, subtitle, title }: HeroProps) => {
   return (
-    <div className={cn('relative h-screen flex justify-center items-center', className)}>
+    <div className={cn('relative flex h-screen items-center justify-center', className)}>
       <div className="absolute inset-0">
         <Image
           alt="Background"
@@ -23,9 +23,9 @@ export const Hero = ({ backgroundImage, className, subtitle, title }: HeroProps)
         />
       </div>
 
-      <div className="relative container flex flex-col items-center justify-center text-center px-4 md:px-8">
-        <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">{title}</h1>
-        <p className="text-sm md:text-base text-white max-w-xl">{subtitle}</p>
+      <div className="container relative flex flex-col items-center justify-center px-4 text-center md:px-8">
+        <h1 className="mb-4 text-3xl font-bold text-white md:text-4xl">{title}</h1>
+        <p className="max-w-xl text-sm text-white md:text-base">{subtitle}</p>
       </div>
     </div>
   )

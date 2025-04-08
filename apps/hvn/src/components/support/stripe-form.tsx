@@ -70,7 +70,7 @@ export function SupportStripe() {
             />
           </div>
 
-          <div className="space-y-2 flex flex-col">
+          <div className="flex flex-col space-y-2">
             <Label>Bağış Miktarı (€)</Label>
             <Input
               className="w-full p-2 text-center"
@@ -83,7 +83,7 @@ export function SupportStripe() {
               {amounts.map((amount) => (
                 <Button
                   className={cn(
-                    'w-full p-2 rounded-sm hover:bg-primary/1 text-center text-sm',
+                    'hover:bg-primary/1 w-full rounded-sm p-2 text-center text-sm',
                     formData.customAmount === amount.value ? 'text-white' : 'text-black',
                   )}
                   key={amount.value}
@@ -99,10 +99,10 @@ export function SupportStripe() {
 
           <div className="space-y-2">
             <Label>Bağış Sıklığı</Label>
-            <div className="grid grid-cols-3 gap-2 w-full">
+            <div className="grid w-full grid-cols-3 gap-2">
               <Button
                 className={cn(
-                  'w-full p-2 rounded-sm hover:bg-primary/1 text-center text-sm',
+                  'hover:bg-primary/1 w-full rounded-sm p-2 text-center text-sm',
                   formData.frequency === 'monthly' ? 'text-white' : 'text-black',
                 )}
                 onClick={() =>
@@ -118,7 +118,7 @@ export function SupportStripe() {
               </Button>
               <Button
                 className={cn(
-                  'w-full p-2 rounded-sm hover:bg-primary/1 text-center text-sm',
+                  'hover:bg-primary/1 w-full rounded-sm p-2 text-center text-sm',
                   formData.frequency === 'one-time' ? 'text-white' : 'text-black',
                 )}
                 onClick={() =>
@@ -133,10 +133,10 @@ export function SupportStripe() {
                 Tek Seferlik
               </Button>
               <div className="flex flex-row items-center justify-between">
-                <div className="flex justify-center w-full">
+                <div className="flex w-full justify-center">
                   <img alt="Visa" className="h-10" src="/images/ideal-logo.svg" />
                 </div>
-                <div className="flex justify-center w-full">
+                <div className="flex w-full justify-center">
                   <img alt="Visa" className="h-10" src="/images/visa-master-logo.svg" />
                 </div>
               </div>
@@ -154,7 +154,7 @@ export function SupportStripe() {
             Bağış Yap
           </DonationButton>
 
-          <Label className="flex text-muted-foreground justify-center items-center">
+          <Label className="text-muted-foreground flex items-center justify-center">
             <CircleCheck className="mr-2 h-4 w-4" />
             Güvenli Ödeme
           </Label>

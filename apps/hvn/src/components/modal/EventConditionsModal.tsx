@@ -138,7 +138,7 @@ Başvuruyu tamamlamak için ebeveyn veya yasal vasi olarak yukarıdaki şartlar�
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <span className="underline cursor-pointer">{t('acceptEventConditions.description')}</span>
+        <span className="cursor-pointer underline">{t('acceptEventConditions.description')}</span>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>

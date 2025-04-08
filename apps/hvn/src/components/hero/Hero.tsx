@@ -8,7 +8,7 @@ export const Hero = () => {
   const t = useTranslations('Hero')
 
   return (
-    <section className="relative h-screen w-full " id="home">
+    <section className="relative h-screen w-full" id="home">
       {/* Background Image Container */}
       <div className="absolute inset-0">
         <Image

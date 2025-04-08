@@ -34,7 +34,7 @@ const jsxConverters: JSXConvertersFunction<NodeTypes> = ({ defaultConverters }) 
     // cta: ({ node }) => <CallToActionBlock {...node.fields} />,
     mediaBlock: ({ node }) => (
       <MediaBlock
-        className="col-start-1 col-span-3"
+        className="col-span-3 col-start-1"
         imgClassName="m-0"
         {...node.fields}
         captionClassName="mx-auto max-w-[48rem]"
@@ -60,7 +60,7 @@ export default function RichText(props: RichTextProps) {
         {
           container: enableGutter,
           'max-w-none': !enableGutter,
-          'mx-auto prose md:prose-md dark:prose-invert': enableProse,
+          'prose md:prose-md dark:prose-invert mx-auto': enableProse,
         },
         className,
       )}
