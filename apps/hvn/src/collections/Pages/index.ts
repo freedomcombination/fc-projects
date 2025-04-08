@@ -10,6 +10,8 @@ import {
 
 import { authenticated } from '@/access/authenticated'
 import { authenticatedOrPublished } from '@/access/authenticatedOrPublished'
+import { ContainerBlockConfigs } from '@/blocks/common/container-block-list'
+import { NonContainerBlockConfigs } from '@/blocks/common/non-container-block-list'
 import { Box } from '@/blocks/DivBlock/config'
 import { slugField } from '@/fields/slug/index'
 import { hero } from '@/heros/config'
@@ -71,7 +73,7 @@ export const Pages: CollectionConfig<'pages'> = {
               admin: {
                 initCollapsed: true,
               },
-              blocks: [Box],
+              blocks: [...ContainerBlockConfigs, ...NonContainerBlockConfigs],
               name: 'layout',
               required: true,
               type: 'blocks',

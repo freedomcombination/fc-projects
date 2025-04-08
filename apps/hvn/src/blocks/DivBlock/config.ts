@@ -6,8 +6,6 @@ import { cssRounded } from '@/fields/css/rounded'
 import { cssSize } from '@/fields/css/size'
 import { cssSpacing } from '@/fields/css/spacing'
 
-import { Component } from '../Component/config'
-import { Content } from '../Content/config'
 import { FormBlock } from '../Form/config'
 import { MediaBlock } from '../MediaBlock/config'
 
@@ -17,10 +15,7 @@ const createBoxesWithMaxDepth = (maxDepth: number): Block => {
   const boxBlocks: Record<number, Block> = {}
 
   for (let i = maxDepth; i >= 0; i--) {
-    const childrenBlocks =
-      i === maxDepth
-        ? [Content, MediaBlock, FormBlock, Component]
-        : [Content, MediaBlock, FormBlock, Component, boxBlocks[i + 1]!]
+    const childrenBlocks = i === maxDepth ? [MediaBlock, FormBlock] : [MediaBlock, FormBlock, boxBlocks[i + 1]!]
 
     boxBlocks[i] = {
       fields: [
