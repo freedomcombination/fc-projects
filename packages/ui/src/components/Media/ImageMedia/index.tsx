@@ -2,12 +2,12 @@
 
 import React from 'react'
 
+import { getClientSideURL } from '@fc/ui/lib/getURL'
+import { cn } from '@fc/ui/lib/utils'
+
 import type { StaticImageData } from 'next/image'
 
 import NextImage from 'next/image'
-
-import { getClientSideURL } from '@/utilities/getURL'
-import { cn } from '@/utilities/ui'
 
 import type { MediaProps } from '../types'
 

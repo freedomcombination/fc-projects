@@ -4,7 +4,7 @@ This document explains how to integrate our custom React components into **Paylo
 
 ## Preparation
 
-There are already many ready-to-use components in the `components` folder. When developing a new component, following a few steps will help you easily integrate it into the Payload system.
+There are already many ready-to-use components in the `packages\ui\src\components` folder. When developing a new component, following a few steps will help you easily integrate it into the Payload system.
 
 ---
 
@@ -13,7 +13,13 @@ There are already many ready-to-use components in the `components` folder. When 
 First, define the component with its props:
 
 ```tsx
-// components/ImageComponent.tsx
+// open path : `packages\ui\src\components`
+// create a folder with the name of component \ImageComponent
+// we usually create following files for;
+// - (ComponentName).tsx           for out main component file
+// - types.ts                      for common type exports for component
+// - index.ts                      for export * from './ComponentName'
+// - (ComponentName).stories.tsx   for storybook
 
 type ImageProp = {
   alt: string
@@ -34,7 +40,7 @@ export const ImageComponent: FC<ImageProp> = (props) => {
 To allow Payload to manage the component from the admin panel, we need to convert it into a block by creating a config file:
 
 ```ts
-// suggested path: blocks/Image/config.ts
+// create a new folder and a config file inside of `packages\config-payload\src\blocks`
 
 export const ImageBlock: Block = {
   slug: 'imageBlock', // slug for the admin panel
@@ -59,7 +65,7 @@ export const ImageBlock: Block = {
 To make the component and its block config available to Payload, you need to register them in the following file:
 
 ```ts
-// open the file: blocks/common/non-container-block-list.ts and modify it.
+// open the file: packages\ui\src\blocks\common\container-block-list.ts and modify it.
 
 export const NonContainerBlockConfigs: Block[] = [
   MediaBlock,
@@ -85,7 +91,7 @@ Now the component will be available in the admin panel with editable props.
 - **Non-container block**: Does not render other blocks inside itself. Example: `ImageComponent`.
 - **Container block**: Accepts `Block[]` as a prop, allowing nested blocks. Example: `Container` component.
 
-> For container blocks, similar registration is required in `container-block-list.ts`.
+> For container blocks, similar registration is required in `container-block-list.ts` (check `packages\ui\src\blocks\common`).
 
 This separation prevents infinite nested block structures.
 
@@ -93,7 +99,7 @@ This separation prevents infinite nested block structures.
 
 ## Example: Container Block
 
-If your component needs to include other blocks, check the example in `blocks/Container`.
+If your component needs to include other blocks, check the example in `packages\config-payload\src\blocks\Container`.
 
 ---
 

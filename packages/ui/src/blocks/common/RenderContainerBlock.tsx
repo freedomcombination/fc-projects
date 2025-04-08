@@ -24,10 +24,12 @@ export const RenderContainerBlocks: FC<ContainerBlockProps> = (props) => {
             const Block = blockComponents[blockType as keyof typeof blockComponents]
 
             if (Block) {
-              {
-                /* @ts-expect-error there may be some mismatch between the expected types here */
-              }
-              return <Block {...block} disableInnerContainer key={index} />
+              return (
+                <Fragment key={index}>
+                  {/* @ts-expect-error there may be mismatched types */}
+                  <Block {...block} />
+                </Fragment>
+              )
             }
             return null
           }

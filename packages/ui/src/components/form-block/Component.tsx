@@ -3,15 +3,14 @@ import React, { useCallback, useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 
 import { Button } from '@fc/ui/base/button'
+import { getClientSideURL } from '@fc/ui/lib/getURL'
 
 import type { FormFieldBlock, Form as FormType } from '@payloadcms/plugin-form-builder/types'
 import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
 
 import { useRouter } from 'next/navigation'
 
-import RichText from '@/components/RichText'
-import { getClientSideURL } from '@/utilities/getURL'
-
+import RichText from '../RichText'
 import { fields } from './fields'
 
 export type FormBlockType = {

@@ -2,8 +2,20 @@
   "extends": "@fc/config-typescript/base.json",
   "compilerOptions": {
     "declaration": false,
-    "declarationMap": false
+    "declarationMap": false,
+    "paths": {
+      "@fc/config-payload/access/*": ["./src/access/*"],
+      "@fc/config-payload/blocks/*": ["./src/blocks/*", "./src/blocks/*/config"],
+      "@fc/config-payload/collections/*": ["./src/collections/*", "./src/collections/*/index"],
+      "@fc/config-payload/fields/*": ["./src/fields/*"],
+      "@fc/config-payload/utils/*": ["./src/utils/*"]
+    }
   },
-  "include": ["."],
+  "include": [
+    ".",
+    "../ui/src/components/container/Container.tsx",
+    "../ui/src/components/div-block/DivBlock.tsx",
+    "../ui/src/components/mediablock/Component.tsx"
+  ],
   "exclude": ["dist", "build", "node_modules"]
 }

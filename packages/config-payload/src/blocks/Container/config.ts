@@ -1,6 +1,6 @@
-import type { Block } from 'payload'
+import { NonContainerBlockConfigs } from '@fc/ui/blocks/common/non-container-block-list'
 
-import { NonContainerBlockConfigs } from '../common/non-container-block-list'
+import type { Block } from 'payload'
 
 export const Container: Block = {
   fields: [

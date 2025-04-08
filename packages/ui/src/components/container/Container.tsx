@@ -1,7 +1,7 @@
-import { cn } from '@/utilities/ui'
+import { cn } from '@fc/ui/lib/utils'
 
-import { RenderContainerBlocks } from '../common/RenderContainerBlock'
-import { ExtBlock } from '../common/type'
+import { RenderContainerBlocks } from '../../blocks/common/RenderContainerBlock'
+import { ExtBlock } from '../../blocks/common/type'
 
 type ContainerProps = {
   type: string

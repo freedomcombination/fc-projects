@@ -1,3 +1,5 @@
+import { cn } from '@fc/ui/lib/utils'
+
 import {
   DefaultNodeTypes,
   type DefaultTypedEditorState,
@@ -10,10 +12,7 @@ import {
   LinkJSXConverter,
 } from '@payloadcms/richtext-lexical/react'
 
-import type { MediaBlock as MediaBlockProps } from '@/payload-types'
-
-import { MediaBlock } from '@/blocks/MediaBlock/Component'
-import { cn } from '@/utilities/ui'
+import { MediaBlock, MediaBlockProps } from '../media-block/MediaBlock'
 
 type NodeTypes = DefaultNodeTypes | SerializedBlockNode<MediaBlockProps>
 

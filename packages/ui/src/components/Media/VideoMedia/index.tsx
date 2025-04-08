@@ -2,8 +2,8 @@
 
 import React, { useEffect, useRef } from 'react'
 
-import { getClientSideURL } from '@/utilities/getURL'
-import { cn } from '@/utilities/ui'
+import { getClientSideURL } from '@fc/ui/lib/getURL'
+import { cn } from '@fc/ui/lib/utils'
 
 import type { MediaProps } from '../types'
 

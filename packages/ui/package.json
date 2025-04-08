@@ -15,7 +15,7 @@
     "./lib/*": "./src/lib/*.ts",
     "./components/*": "./src/components/*.tsx",
     "./base/*": "./src/base/*.tsx",
-    "./blocks": "./src/blocks/index.ts",
+    "./blocks/*": "./src/blocks/*.ts",
     "./hooks/*": "./src/hooks/*.ts"
   },
   "dependencies": {

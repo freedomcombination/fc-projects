@@ -1,5 +1,8 @@
 import React, { cache } from 'react'
 
+import { RenderContainerBlocks } from '@fc/ui/blocks/common/RenderContainerBlock'
+import { ExtBlock } from '@fc/ui/blocks/common/type'
+
 import type { Metadata } from 'next'
 
 import configPromise from '@payload-config'
@@ -7,7 +10,6 @@ import { draftMode } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { getPayload, type RequiredDataFromCollectionSlug } from 'payload'
 
-import { RenderBlocks } from '@/blocks/RenderBlocks'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
 import { homeStatic } from '@/data/homeStatic'
 import { RenderHero } from '@/heros/RenderHero'
@@ -62,14 +64,14 @@ export default async function Page({ params: paramsPromise }: Args) {
     return redirect('/')
   }
 
-  const { hero, layout } = page as unknown as { hero: object; layout: typeof page.layout }
+  const { hero, layout } = page as unknown as { hero: object; layout: ExtBlock[] }
 
   return (
     <article className="pb-24 pt-16">
       {draft && <LivePreviewListener />}
 
       <RenderHero type="highImpact" {...hero} />
-      <RenderBlocks blocks={layout} />
+      <RenderContainerBlocks blocks={layout} />
     </article>
   )
 }

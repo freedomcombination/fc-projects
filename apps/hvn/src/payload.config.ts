@@ -1,6 +1,6 @@
-import { Donations } from '@fc/config-payload/blocks/Donations'
-import { Media } from '@fc/config-payload/blocks/Media'
-import { Users } from '@fc/config-payload/blocks/Users'
+import { Donations } from '@fc/config-payload/collections/Donations'
+import { Media } from '@fc/config-payload/collections/Media'
+import { Users } from '@fc/config-payload/collections/Users'
 
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer'

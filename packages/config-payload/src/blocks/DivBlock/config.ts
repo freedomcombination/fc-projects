@@ -1,13 +1,12 @@
+import { NonContainerBlockConfigs } from '@fc/ui/blocks/common/non-container-block-list'
+
 import type { Block } from 'payload'
 
-import { cssColor } from '@/fields/css/color'
-import { cssLayout } from '@/fields/css/layout'
-import { cssRounded } from '@/fields/css/rounded'
-import { cssSize } from '@/fields/css/size'
-import { cssSpacing } from '@/fields/css/spacing'
-
-import { FormBlock } from '../Form/config'
-import { MediaBlock } from '../MediaBlock/config'
+import { cssColor } from '../../fields/css/color'
+import { cssLayout } from '../../fields/css/layout'
+import { cssRounded } from '../../fields/css/rounded'
+import { cssSize } from '../../fields/css/size'
+import { cssSpacing } from '../../fields/css/spacing'
 
 const MAX_LEVELS = 5
 
@@ -15,7 +14,8 @@ const createBoxesWithMaxDepth = (maxDepth: number): Block => {
   const boxBlocks: Record<number, Block> = {}
 
   for (let i = maxDepth; i >= 0; i--) {
-    const childrenBlocks = i === maxDepth ? [MediaBlock, FormBlock] : [MediaBlock, FormBlock, boxBlocks[i + 1]!]
+    const childrenBlocks =
+      i === maxDepth ? [...NonContainerBlockConfigs] : [...NonContainerBlockConfigs, boxBlocks[i + 1]!]
 
     boxBlocks[i] = {
       fields: [
