@@ -5,7 +5,7 @@ import type { Page } from '@fc/types/payload-types'
 
 import { devNull } from 'os'
 
-const blockComponents = {}
+import { blockComponentMap } from './common/blockComponentMap'
 
 export const Blocks: React.FC<{
   blocks: Page['layout']
@@ -21,15 +21,16 @@ export const Blocks: React.FC<{
   return (
     <Fragment>
       {blocks.map((block, index) => {
-        const { blockName, blockType, form } = block
+        const { blockName, blockType } = block
 
-        if (blockType && blockType in blockComponents) {
-          const Block = blockComponents[blockType]
+        if (blockType && blockType in blockComponentMap) {
+          const Block = blockComponentMap[blockType] as React.ComponentType<{ id: string }>
 
-          const id = toKebabCase(blockName || '')
+          const id = toKebabCase(blockName || index.toString())
 
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-expect-error
-          return <Block id={id || index} key={index} {...block} />
+          return <Block id={id} key={index} {...block} />
         }
         return null
       })}

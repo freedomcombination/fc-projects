@@ -1,7 +1,7 @@
 import React, { cache } from 'react'
 
-import { RenderContainerBlocks } from '@fc/ui/blocks/common/RenderContainerBlock'
-import { ExtBlock } from '@fc/ui/blocks/common/type'
+import { RenderBlocks } from '@fc/ui/blocks/common/RenderBlocks'
+import { CmsBlock } from '@fc/ui/blocks/common/type'
 
 import type { Metadata } from 'next'
 
@@ -64,14 +64,14 @@ export default async function Page({ params: paramsPromise }: Args) {
     return redirect('/')
   }
 
-  const { hero, layout } = page as unknown as { hero: object; layout: ExtBlock[] }
+  const { hero, layout } = page as unknown as { hero: object; layout: CmsBlock[] }
 
   return (
     <article className="pb-24 pt-16">
       {draft && <LivePreviewListener />}
 
       <RenderHero type="highImpact" {...hero} />
-      <RenderContainerBlocks blocks={layout} />
+      <RenderBlocks blocks={layout} />
     </article>
   )
 }

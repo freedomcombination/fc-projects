@@ -1,24 +1,25 @@
+import { CmsBlock } from '@fc/ui/blocks/common/type'
 import { cn } from '@fc/ui/lib/utils'
 
-import { RenderContainerBlocks } from '../../blocks/common/RenderContainerBlock'
-import { ExtBlock } from '../../blocks/common/type'
+import { Container as ContainerType } from '../../../../../apps/hvn/payload-types'
+import { RenderBlocks } from '../../blocks/common/RenderBlocks'
 
-type ContainerProps = {
-  type: string
-  blocks: ExtBlock[]
-}
+type ContainerProps = Pick<ContainerType, 'fluid' | 'spacing' | 'blocks'>
 
-export const ContainerBlock: React.FC<ContainerProps> = (prop) => {
-  const { blocks = [], type = 'container' } = prop
+export const Container: React.FC<ContainerProps> = (prop) => {
+  const { blocks = [], fluid, spacing } = prop
 
   return (
     <div
       className={cn({
-        'container mx-auto': type === 'container',
-        'w-screen': type === 'section',
+        'container mx-auto': !fluid,
+        'max-w-screen': fluid,
+        'py-lg': spacing === 'lg',
+        'py-md': spacing === 'md',
+        'py-sm': spacing === 'sm',
       })}
     >
-      <RenderContainerBlocks blocks={blocks} />
+      <RenderBlocks blocks={blocks as unknown as CmsBlock[]} />
     </div>
   )
 }

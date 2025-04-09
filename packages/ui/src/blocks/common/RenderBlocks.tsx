@@ -1,18 +1,12 @@
 import { FC, Fragment } from 'react'
 
-import { ContainerBlockComponentMap } from './container-block-list'
-import { NonContainerBlockComponentMap } from './non-container-block-list'
+import { blockComponentMap } from './blockComponentMap'
 import { ContainerBlockProps } from './type'
 
-export const RenderContainerBlocks: FC<ContainerBlockProps> = (props) => {
+export const RenderBlocks: FC<ContainerBlockProps> = (props) => {
   const { blocks } = props
 
   const hasBlocks = blocks && Array.isArray(blocks) && blocks.length > 0
-
-  const blockComponents = {
-    ...ContainerBlockComponentMap,
-    ...NonContainerBlockComponentMap,
-  }
 
   if (hasBlocks) {
     return (
@@ -20,8 +14,8 @@ export const RenderContainerBlocks: FC<ContainerBlockProps> = (props) => {
         {blocks.map((block, index) => {
           const { blockType } = block
 
-          if (blockType && blockType in blockComponents) {
-            const Block = blockComponents[blockType as keyof typeof blockComponents]
+          if (blockType && blockType in blockComponentMap) {
+            const Block = blockComponentMap[blockType as keyof typeof blockComponentMap]
 
             if (Block) {
               return (

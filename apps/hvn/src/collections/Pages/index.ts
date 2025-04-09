@@ -1,5 +1,6 @@
-import { ContainerBlockConfigs } from '@fc/ui/blocks/common/container-block-list'
-import { NonContainerBlockConfigs } from '@fc/ui/blocks/common/non-container-block-list'
+import { blockConfigs } from '@fc/config-payload/blocks/config'
+import { ContainerBlock } from '@fc/config-payload/blocks/ContainerBlock'
+import { SectionBlock } from '@fc/config-payload/blocks/SectionBlock'
 
 import type { CollectionConfig } from 'payload'
 
@@ -73,7 +74,7 @@ export const Pages: CollectionConfig<'pages'> = {
               admin: {
                 initCollapsed: true,
               },
-              blocks: [...ContainerBlockConfigs, ...NonContainerBlockConfigs],
+              blocks: [...blockConfigs, ContainerBlock, SectionBlock],
               name: 'layout',
               required: true,
               type: 'blocks',

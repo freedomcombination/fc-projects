@@ -8,8 +8,8 @@ import { exportBorderCSS, exportSpacingCSS } from '@fc/config-payload/fields/css
 
 import { Block } from 'payload'
 
-import { RenderContainerBlocks } from '../../blocks/common/RenderContainerBlock'
-import { ExtBlock } from '../../blocks/common/type'
+import { RenderBlocks } from '../../blocks/common/RenderBlocks'
+import { CmsBlock } from '../../blocks/common/type'
 
 type BoxSettingProps = {
   layout?: string
@@ -70,7 +70,7 @@ export const DivBlock: React.FC<DivBlockProps> = (prop) => {
             return <DivBlock key={index} {...(block as unknown as DivBlockProps)} />
           }
 
-          return <RenderContainerBlocks blocks={[block as unknown as ExtBlock]} key={index} />
+          return <RenderBlocks blocks={[block as unknown as CmsBlock]} key={index} />
         })}
       </Fragment>
     )
