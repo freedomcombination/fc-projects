@@ -7,7 +7,6 @@ import EventTimeline from './Timeline'
 export default {
   args: {
     events: EVENT_MOCKS,
-    themeColor: '#ff4444',
   },
   component: EventTimeline,
   title: 'Shared/EventTimeline',
