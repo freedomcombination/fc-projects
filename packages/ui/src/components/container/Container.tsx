@@ -1,25 +1,23 @@
-import { CmsBlock } from '@fc/ui/blocks/common/type'
+import { FC, HtmlHTMLAttributes, PropsWithChildren } from 'react'
+
+import { Container as ContainerType } from '@fc/types/payload-types'
 import { cn } from '@fc/ui/lib/utils'
 
-import { Container as ContainerType } from '../../../../../apps/hvn/payload-types'
-import { RenderBlocks } from '../../blocks/common/RenderBlocks'
+type ContainerProps = HtmlHTMLAttributes<HTMLDivElement> & PropsWithChildren<Pick<ContainerType, 'fluid' | 'spacing'>>
 
-type ContainerProps = Pick<ContainerType, 'fluid' | 'spacing' | 'blocks'>
-
-export const Container: React.FC<ContainerProps> = (prop) => {
-  const { blocks = [], fluid, spacing } = prop
-
+export const Container: FC<ContainerProps> = ({ children, className, fluid, spacing, ...props }) => {
   return (
     <div
-      className={cn({
+      className={cn(className, 'px-4 sm:px-6', {
         'container mx-auto': !fluid,
         'max-w-screen': fluid,
-        'py-lg': spacing === 'lg',
-        'py-md': spacing === 'md',
-        'py-sm': spacing === 'sm',
+        'py-16': spacing === 'lg',
+        'py-4': spacing === 'sm',
+        'py-8': spacing === 'md',
       })}
+      {...props}
     >
-      <RenderBlocks blocks={blocks as unknown as CmsBlock[]} />
+      {children}
     </div>
   )
 }

@@ -1,19 +1,15 @@
-import { Section as SectionType } from '../../../../../apps/hvn/payload-types'
-import { RenderBlocks } from '../../blocks/common/RenderBlocks'
-import { CmsBlock } from '../../blocks/common/type'
+import { PropsWithChildren } from 'react'
 
-type SectionProps = Pick<SectionType, 'blocks' | 'background' | 'image' | 'spacing'>
+import { Section as SectionType } from '@fc/types/payload-types'
+
+type SectionProps = PropsWithChildren<Pick<SectionType, 'background' | 'image' | 'spacing'>>
 
 export const Section: React.FC<SectionProps> = (prop) => {
   const {
-    blocks = [],
+    children,
     // background,
     // image
   } = prop
 
-  return (
-    <div>
-      <RenderBlocks blocks={blocks as unknown as CmsBlock[]} />
-    </div>
-  )
+  return <div>{children}</div>
 }

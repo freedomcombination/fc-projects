@@ -1,7 +1,6 @@
 import React, { cache } from 'react'
 
-import { RenderBlocks } from '@fc/ui/blocks/common/RenderBlocks'
-import { CmsBlock } from '@fc/ui/blocks/common/type'
+import { type CmsBlock, RenderBlocks } from '@fc/ui/blocks/RenderBlocks'
 
 import type { Metadata } from 'next'
 

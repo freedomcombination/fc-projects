@@ -5,7 +5,7 @@ import { Section } from '../../components/section'
 
 export const blockComponentMap = {
   container: Container,
-  formBlock: FormBlockComponent,
-  mediaBlock: MediaBlockComponent,
+  form: FormBlockComponent,
+  media: MediaBlockComponent,
   section: Section,
 }

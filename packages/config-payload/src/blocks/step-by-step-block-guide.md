@@ -75,8 +75,10 @@ export const blockConfigs: Block[] = [
 ]
 
 export const blockComponentMap = {
-  formBlock: FormBlockComponent,
-  mediaBlock: MediaBlockComponent,
+  container: Container,
+  section: Section,
+  form: FormBlockComponent,
+  media: MediaBlockComponent,
   // newly added component
   imageBlock: ImageComponent,
 }

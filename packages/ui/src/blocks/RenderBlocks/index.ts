@@ -1,2 +1,2 @@
-export * from './RichText'
 export * from './RenderBlocks'
+export * from './types'
