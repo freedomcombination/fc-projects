@@ -59,6 +59,7 @@
     "@fc/config-eslint": "workspace:*",
     "@fc/config-payload": "workspace:*",
     "@fc/config-typescript": "workspace:*",
+    "@fc/mocks": "workspace:*",
     "@fc/types": "workspace:*",
     "@storybook/addon-essentials": "^8.6.12",
     "@storybook/addon-interactions": "^8.6.12",

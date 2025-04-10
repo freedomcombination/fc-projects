@@ -11,27 +11,27 @@ export interface ContactProps {
 
 export function Contact({ address, email, phone, title }: ContactProps) {
   return (
-    <div className="p-12 text-center w-full">
-      <h2 className="mb-16 text-3xl font-semibold text-primary">{title}</h2>
+    <div className="w-full p-12 text-center">
+      <h2 className="text-primary mb-16 text-3xl font-semibold">{title}</h2>
 
       <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
         <div className="flex flex-col items-center space-y-4">
-          <a className="flex flex-col items-center space-y-4 hover:text-primary" href={`tel:${phone}`}>
-            <Phone className="h-12 w-12 text-primary" />
+          <a className="hover:text-primary flex flex-col items-center space-y-4" href={`tel:${phone}`}>
+            <Phone className="text-primary h-12 w-12" />
             {phone}
           </a>
         </div>
 
         <div className="flex flex-col items-center space-y-4">
-          <a className="flex flex-col items-center space-y-4 hover:text-primary" href={`mailto:${email}`}>
-            <Mail className="h-12 w-12 text-primary" />
+          <a className="hover:text-primary flex flex-col items-center space-y-4" href={`mailto:${email}`}>
+            <Mail className="text-primary h-12 w-12" />
             {email}
           </a>
         </div>
 
         <div className="flex flex-col items-center space-y-4">
-          <span className="flex flex-col items-center space-y-4 hover:text-primary">
-            <MapPin className="h-12 w-12 text-primary" />
+          <span className="hover:text-primary flex flex-col items-center space-y-4">
+            <MapPin className="text-primary h-12 w-12" />
             {address}
           </span>
         </div>

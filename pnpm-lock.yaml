@@ -637,6 +637,9 @@ importers:
       '@fc/config-typescript':
         specifier: workspace:*
         version: link:../config-typescript
+      '@fc/mocks':
+        specifier: workspace:*
+        version: link:../mocks
       '@fc/types':
         specifier: workspace:*
         version: link:../types
