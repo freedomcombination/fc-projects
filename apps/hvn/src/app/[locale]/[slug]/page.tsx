@@ -1,5 +1,7 @@
 import React, { cache } from 'react'
 
+import { type CmsBlock, RenderBlocks } from '@fc/ui/blocks/RenderBlocks'
+
 import type { Metadata } from 'next'
 
 import configPromise from '@payload-config'
@@ -7,7 +9,6 @@ import { draftMode } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { getPayload, type RequiredDataFromCollectionSlug } from 'payload'
 
-import { RenderBlocks } from '@/blocks/RenderBlocks'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
 import { homeStatic } from '@/data/homeStatic'
 import { RenderHero } from '@/heros/RenderHero'
@@ -55,14 +56,14 @@ export default async function Page({ params: paramsPromise }: Args) {
 
   // Remove this code once your website is seeded
   if (!page && slug === 'home') {
-    page = homeStatic
+    page = homeStatic as unknown as typeof page
   }
 
   if (!page) {
     return redirect('/')
   }
 
-  const { hero, layout } = page as unknown as { hero: object; layout: typeof page.layout }
+  const { hero, layout } = page as unknown as { hero: object; layout: CmsBlock[] }
 
   return (
     <article className="pb-24 pt-16">

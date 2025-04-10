@@ -13,7 +13,8 @@
     "generate:types": "payload generate:types",
     "lint": "next lint --fix",
     "payload": "payload",
-    "start": "next start -p 3001"
+    "start": "next start -p 3001",
+    "update-component": "cd src/blocks/Component/ && chmod +x update.sh && update.sh"
   },
   "dependencies": {
     "@fc/ui": "workspace:*",

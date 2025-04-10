@@ -5,11 +5,12 @@
     "paths": {
       "@fc/ui/*": ["./src/*"],
       "@fc/ui/base/*": ["./src/base/*"],
-      "@fc/ui/components/*": ["./src/components/*"],
+      "@fc/ui/components/*": ["./src/components/*", "./src/components/*/index"],
+      "@fc/ui/blocks/*": ["./src/blocks/*"],
       "@fc/ui/hooks/*": ["./src/hooks/*"],
       "@fc/ui/lib/*": ["./src/lib/*"]
     }
   },
-  "include": ["."],
+  "include": [".", "../../apps/hvn/src/utilities/generateMeta.ts"],
   "exclude": ["node_modules", "dist"]
 }
