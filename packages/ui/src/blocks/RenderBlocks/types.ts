@@ -1,9 +1,9 @@
 import { Block } from 'payload'
 
-export type ExtBlock = Block & {
+export type CmsBlock = Block & {
   blockType: string
 }
 
 export type ContainerBlockProps = {
-  blocks: ExtBlock[]
+  blocks: CmsBlock[]
 }

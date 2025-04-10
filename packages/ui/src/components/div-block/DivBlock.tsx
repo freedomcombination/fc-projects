@@ -6,10 +6,7 @@ import { exportRoundedCSS } from '@fc/config-payload/fields/css/rounded/exportRo
 import { exportSizeCSS } from '@fc/config-payload/fields/css/size/exportSizeCSS'
 import { exportBorderCSS, exportSpacingCSS } from '@fc/config-payload/fields/css/spacing/exportSpacingCSS'
 
-import { Block } from 'payload'
-
-import { RenderContainerBlocks } from '../../blocks/common/RenderContainerBlock'
-import { ExtBlock } from '../../blocks/common/type'
+import { type CmsBlock, RenderBlocks } from '../../blocks/RenderBlocks'
 
 type BoxSettingProps = {
   layout?: string
@@ -20,13 +17,13 @@ type BoxSettingProps = {
   backgroundColor?: string
   color?: string
   size?: string
-  children?: Block[]
+  children?: CmsBlock[]
 }
 
 type DivBlockProps = {
   className?: string
   variant?: string
-  children?: Block[]
+  children?: CmsBlock[]
   boxSettings: BoxSettingProps
 }
 
@@ -64,13 +61,13 @@ export const DivBlock: React.FC<DivBlockProps> = (prop) => {
     return (
       <Fragment>
         {children.map((block, index) => {
-          const { blockType } = block as unknown as { blockType: string }
+          const { blockType } = block
 
           if (blockType.startsWith('div')) {
             return <DivBlock key={index} {...(block as unknown as DivBlockProps)} />
           }
 
-          return <RenderContainerBlocks blocks={[block as unknown as ExtBlock]} key={index} />
+          return <RenderBlocks blocks={[block]} key={index} />
         })}
       </Fragment>
     )

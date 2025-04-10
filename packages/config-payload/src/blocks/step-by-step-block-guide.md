@@ -67,16 +67,18 @@ To make the component and its block config available to Payload, you need to reg
 ```ts
 // open the file: packages\ui\src\blocks\common\container-block-list.ts and modify it.
 
-export const NonContainerBlockConfigs: Block[] = [
+export const blockConfigs: Block[] = [
   MediaBlock,
   FormBlock,
   // newly added block
   ImageBlock,
 ]
 
-export const NonContainerBlockComponentMap = {
-  formBlock: FormBlockComponent,
-  mediaBlock: MediaBlockComponent,
+export const blockComponentMap = {
+  container: Container,
+  section: Section,
+  form: FormBlockComponent,
+  media: MediaBlockComponent,
   // newly added component
   imageBlock: ImageComponent,
 }
@@ -84,22 +86,9 @@ export const NonContainerBlockComponentMap = {
 
 Now the component will be available in the admin panel with editable props.
 
----
-
-## Extra Info: What are Container and Non-Container Blocks?
-
-- **Non-container block**: Does not render other blocks inside itself. Example: `ImageComponent`.
-- **Container block**: Accepts `Block[]` as a prop, allowing nested blocks. Example: `Container` component.
-
-> For container blocks, similar registration is required in `container-block-list.ts` (check `packages\ui\src\blocks\common`).
-
-This separation prevents infinite nested block structures.
-
----
-
 ## Example: Container Block
 
-If your component needs to include other blocks, check the example in `packages\config-payload\src\blocks\Container`.
+If your component needs to include other blocks, check the example in `packages\config-payload\src\blocks\{Container|Section}`.
 
 ---
 

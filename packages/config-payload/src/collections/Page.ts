@@ -3,7 +3,9 @@ import { slugField } from '@fc/config-payload/fields/slug'
 
 import type { CollectionConfig } from 'payload'
 
-import { FormBlock } from './Form'
+import { blockConfigs } from '../blocks/config'
+import { ContainerBlock } from '../blocks/ContainerBlock'
+import { SectionBlock } from '../blocks/SectionBlock'
 
 export const Page: CollectionConfig = {
   access: {
@@ -24,7 +26,7 @@ export const Page: CollectionConfig = {
         {
           fields: [
             {
-              blocks: [FormBlock],
+              blocks: [...blockConfigs, ContainerBlock, SectionBlock],
               name: 'layout',
               required: true,
               type: 'blocks',

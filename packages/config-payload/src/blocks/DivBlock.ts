@@ -1,12 +1,12 @@
-import { NonContainerBlockConfigs } from '@fc/ui/blocks/common/non-container-block-list'
+import { blockConfigs } from '@fc/config-payload/blocks/config'
 
 import type { Block } from 'payload'
 
-import { cssColor } from '../../fields/css/color'
-import { cssLayout } from '../../fields/css/layout'
-import { cssRounded } from '../../fields/css/rounded'
-import { cssSize } from '../../fields/css/size'
-import { cssSpacing } from '../../fields/css/spacing'
+import { cssColor } from '../fields/css/color'
+import { cssLayout } from '../fields/css/layout'
+import { cssRounded } from '../fields/css/rounded'
+import { cssSize } from '../fields/css/size'
+import { cssSpacing } from '../fields/css/spacing'
 
 const MAX_LEVELS = 5
 
@@ -14,8 +14,7 @@ const createBoxesWithMaxDepth = (maxDepth: number): Block => {
   const boxBlocks: Record<number, Block> = {}
 
   for (let i = maxDepth; i >= 0; i--) {
-    const childrenBlocks =
-      i === maxDepth ? [...NonContainerBlockConfigs] : [...NonContainerBlockConfigs, boxBlocks[i + 1]!]
+    const childrenBlocks = i === maxDepth ? [...blockConfigs] : [...blockConfigs, boxBlocks[i + 1]!]
 
     boxBlocks[i] = {
       fields: [
@@ -79,4 +78,4 @@ const createBoxesWithMaxDepth = (maxDepth: number): Block => {
   return boxBlocks[0]!
 }
 
-export const Box = createBoxesWithMaxDepth(MAX_LEVELS)
+export const DivBlock = createBoxesWithMaxDepth(MAX_LEVELS)
