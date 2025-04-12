@@ -18,12 +18,12 @@
   },
   "license": "MIT",
   "dependencies": {
-    "next": "^15.2.4",
+    "next": "^15.3.0",
     "next-intl": "^3.26.5"
   },
   "devDependencies": {
     "@fc/config-eslint": "workspace:*",
     "@fc/config-typescript": "workspace:*",
-    "@types/react": "^19.1.0"
+    "@types/react": "^19.1.1"
   }
 }
