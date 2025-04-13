@@ -516,6 +516,18 @@ importers:
         specifier: ^19.1.1
         version: 19.1.1
 
+  packages/mocks:
+    devDependencies:
+      '@fc/config-eslint':
+        specifier: workspace:*
+        version: link:../config-eslint
+      '@fc/config-typescript':
+        specifier: workspace:*
+        version: link:../config-typescript
+      '@fc/types':
+        specifier: workspace:*
+        version: link:../types
+
   packages/types:
     dependencies:
       payload:
@@ -646,6 +658,9 @@ importers:
       '@fc/config-typescript':
         specifier: workspace:*
         version: link:../config-typescript
+      '@fc/mocks':
+        specifier: workspace:*
+        version: link:../mocks
       '@fc/types':
         specifier: workspace:*
         version: link:../types
