@@ -62,38 +62,15 @@ export default async function Page({ params: paramsPromise }: Args) {
   }
 
   const { hero, layout } = page as unknown as { hero: object; layout: typeof page.layout }
-  console.log('hero', hero)
-  console.log('layout', layout)
+
   return (
     <article className="pt-16 pb-24">
-      <pre className="text-black bg-white">{JSON.stringify(page, null, 2)}</pre>
-
       {draft && <LivePreviewListener />}
-
       <RenderHero type="highImpact" {...hero} />
       <RenderBlocks blocks={layout} />
     </article>
   )
 }
-
-// const fakePages = [
-//   {
-//     content: 'Bu, duyuru 1 içeriğidir.',
-//     hero: {
-//       description: 'Statik hero açıklama',
-//       title: 'Statik Hero Başlık',
-//       type: 'highImpact' as 'highImpact' | 'none' | 'mediumImpact' | 'lowImpact',
-//     },
-//     image: '/images/announcement.jpg',
-//     layout: [ {
-//       blockName: 'Test Block',
-//       blockType: 'content',
-//       content: 'Bu bir test içeriktir.',
-//     },],
-//     slug: 'announcement-1',
-//     title: 'Duyuru 1',
-//   },
-// ]
 
 export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
   const { slug = 'home' } = await paramsPromise
