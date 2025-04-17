@@ -22,9 +22,9 @@ export const RenderBlocks: React.FC<{
   blocks: Page['layout'][0][]
 }> = (props) => {
   const { blocks } = props
-
+  console.log('blocks', blocks)
   const hasBlocks = blocks && Array.isArray(blocks) && blocks.length > 0
-
+  console.log('hasBlocks', hasBlocks)
   if (hasBlocks) {
     return (
       <Fragment>

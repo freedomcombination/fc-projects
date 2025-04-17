@@ -3,24 +3,27 @@ import React, { useRef } from 'react'
 
 import { Button } from '@fc/ui/base/button'
 
+import { useTranslations } from 'next-intl'
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
-import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-// import required modules
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 export const AnnouncementsSection = () => {
   const t = useTranslations('')
+  const pathName = usePathname()
+  const locale = pathName.split('/')[1]
   const slideAnnouncements = [
     {
       content: 'This is the content of announcement 1.',
       id: '1',
       image: '/images/announcement.jpg',
+      slug: 'announcement',
       title: 'Announcement 1',
     },
   ]
@@ -59,9 +62,11 @@ export const AnnouncementsSection = () => {
                   <p>{announcement.content}</p>
                 </div>
                 <div>
-                  <Button className="rounded-lg bg-orange-500 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-orange-600 sm:px-8 sm:py-4 sm:text-lg cursor-pointer">
-                    {t('readMore')}
-                  </Button>
+                  <Link href={`/${locale}/${announcement.slug}`}>
+                    <Button className="rounded-lg bg-orange-500 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-orange-600 sm:px-8 sm:py-4 sm:text-lg cursor-pointer">
+                      {t('readMore')}
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>
