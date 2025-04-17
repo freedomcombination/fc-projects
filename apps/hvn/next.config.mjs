@@ -25,6 +25,10 @@ const nextConfig = getNextConfig({
         pathname: '/**',
         protocol: 'https',
       },
+      { hostname: 'cdn.dsmcdn.com',
+        pathname: '/**',
+        protocol: 'https',}
+     
     ],
   },
   transpilePackages: ['@fc/ui'],

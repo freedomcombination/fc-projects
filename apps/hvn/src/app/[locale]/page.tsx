@@ -2,6 +2,7 @@ import { getTranslations } from 'next-intl/server'
 import { getPayload, TypedLocale } from 'payload'
 
 import { AboutSection } from '@/components/about/AboutSection'
+import { AnnouncementsSection } from '@/components/announcement/AnnouncementsSection'
 import { ApplicationForm } from '@/components/application-from'
 import { Footer } from '@/components/footer/Footer'
 import { Hero } from '@/components/hero/Hero'
@@ -37,7 +38,10 @@ export default async function HomePage({ params }: Props) {
       <section className="relative min-h-screen bg-gradient-to-b from-primary to-secondary" id="home">
         <Hero />
       </section>
-
+      {/* Announcements section */}
+      <section className="py-16 bg-gradient-to-b border-t border-b from-zinc-100" id="announcements">
+        <AnnouncementsSection />
+      </section>
       {/* About section */}
       <section id="about">
         <AboutSection />

@@ -57,7 +57,8 @@
     "react-phone-number-input": "^3.4.12",
     "sharp": "0.33.5",
     "sonner": "^2.0.1",
-    "stripe": "17.7.0"
+    "stripe": "17.7.0",
+    "swiper": "^11.2.6"
   },
   "devDependencies": {
     "@fc/codegen": "workspace:*",
