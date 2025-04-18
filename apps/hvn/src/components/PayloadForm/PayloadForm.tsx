@@ -14,7 +14,7 @@ import { FormTextarea } from '@fc/ui/components/form/form-textarea'
 
 import { camelCase } from 'lodash'
 import { LinkIcon, Loader2, Send } from 'lucide-react'
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import { toast } from 'sonner'
 
 import type { Form as FormData } from '../../../payload-types'
@@ -28,7 +28,6 @@ export const PayloadForm: React.FC<PayloadFormProps> = ({ formData }) => {
   const [isSubmitting, setIsSubmitting] = React.useState(false)
   const formTitle = camelCase(formData.title)
   const t = useTranslations()
-  const locale = useLocale()
 
   const { handleSubmit, reset } = form
 

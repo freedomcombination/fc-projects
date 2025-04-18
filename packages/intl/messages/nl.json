@@ -17,6 +17,7 @@
     "contactNav": "Contact",
     "application": "Aanvragen",
     "about": "Over ons",
+    "announcements": "Aankondigingen",
     "contact": "Contact",
     "support": "Ondersteuning",
     "privacy": "Privacy Policy",
@@ -203,6 +204,7 @@
     },
     "otherPlaceholder": "Gelieve te specificeren"
   },
+  "readMore": "Lees Meer",
   "close": "Sluiten",
   "search": "Zoeken"
 }

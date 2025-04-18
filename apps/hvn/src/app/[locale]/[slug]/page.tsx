@@ -54,7 +54,6 @@ export default async function Page({ params: paramsPromise }: Args) {
     slug,
   })
 
-  // Remove this code once your website is seeded
   if (!page && slug === 'home') {
     page = homeStatic as unknown as typeof page
   }
@@ -68,7 +67,6 @@ export default async function Page({ params: paramsPromise }: Args) {
   return (
     <article className="pb-24 pt-16">
       {draft && <LivePreviewListener />}
-
       <RenderHero type="highImpact" {...hero} />
       <RenderBlocks blocks={layout} />
     </article>
@@ -85,6 +83,9 @@ export async function generateMetadata({ params: paramsPromise }: Args): Promise
 }
 
 const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
+  // const staticPage = fakePages.find((p) => p.slug === slug)
+  // if (staticPage) return staticPage
+
   const { isEnabled: draft } = await draftMode()
 
   const payload = await getPayload({ config: configPromise })
@@ -101,6 +102,5 @@ const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
       },
     },
   })
-
   return result.docs?.[0] || null
 })
