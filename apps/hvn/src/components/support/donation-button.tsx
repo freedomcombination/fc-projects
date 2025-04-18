@@ -2,9 +2,10 @@
 
 import { FC } from 'react'
 
-import { usePathname, useRouter } from '@fc/intl/navigation'
+import { useRouter } from '@fc/intl/navigation'
 import { Button } from '@fc/ui/base/button'
 
+import { useLocale } from 'next-intl'
 import { toast } from 'sonner'
 
 type DonateButtonProps = {
@@ -15,11 +16,11 @@ type DonateButtonProps = {
 
 const DonateButton: FC<DonateButtonProps> = ({ amount, children, email, type, ...props }) => {
   const router = useRouter()
-  const path = usePathname()
+  const locale = useLocale()
 
   const handleDonate = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
-    const returnUrl = `${window.location.origin}${path}`
+    const returnUrl = `${window.location.origin}/${locale}`
 
     const response = await fetch('/api/donate', {
       body: JSON.stringify({ amount, email, returnUrl, type }),
