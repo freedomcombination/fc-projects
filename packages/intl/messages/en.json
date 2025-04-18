@@ -15,6 +15,7 @@
   "Header": {
     "contactNav": "Contact",
     "home": "Home",
+    "announcements": "Announcements",
     "application": "Application",
     "about": "About",
     "support": "Support",
@@ -184,6 +185,7 @@
     },
     "otherPlaceholder": "Please specify"
   },
+  "readMore": "Read More",
   "close": "Close",
   "search": "Search"
 }

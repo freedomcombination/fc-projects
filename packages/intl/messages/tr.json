@@ -11,6 +11,7 @@
   "Header": {
     "home": "Ana Sayfa",
     "contactNav": "İletişim",
+    "announcements": "Duyurular",
     "application": "Başvuru",
     "about": "Hakkımızda",
     "contact": "İletişim",
@@ -184,6 +185,7 @@
     },
     "otherPlaceholder": "Lütfen açıklayın"
   },
+  "readMore": "Daha Fazla Oku",
   "close": "Kapat",
   "search": "Ara"
 }

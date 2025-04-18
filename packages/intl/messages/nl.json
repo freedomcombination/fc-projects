@@ -14,6 +14,7 @@
   },
   "Header": {
     "home": "Home",
+    "announcements": "Aankondigingen",
     "contactNav": "Contact",
     "application": "Aanvragen",
     "about": "Over ons",
@@ -203,6 +204,7 @@
     },
     "otherPlaceholder": "Gelieve te specificeren"
   },
+  "readMore": "Lees Meer",
   "close": "Sluiten",
   "search": "Zoeken"
 }

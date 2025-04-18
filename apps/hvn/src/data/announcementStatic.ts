@@ -16,8 +16,7 @@ export const announcementStatic: Page = {
         {
           children: [
             {
-              text:
-                'Join us for a unique celebration of music and unity on November 15th, 2025, at the iconic Amsterdam Theater.',
+              text: 'Join us for a unique celebration of music and unity on November 15th, 2025, at the iconic Amsterdam Theater.',
             },
           ],
           type: 'paragraph',
@@ -31,8 +30,7 @@ export const announcementStatic: Page = {
         {
           children: [
             {
-              text:
-                'Doe mee aan een unieke viering van muziek en eenheid op 15 november 2025 in het iconische Amsterdamse Theater.',
+              text: 'Doe mee aan een unieke viering van muziek en eenheid op 15 november 2025 in het iconische Amsterdamse Theater.',
             },
           ],
           type: 'paragraph',
@@ -46,8 +44,7 @@ export const announcementStatic: Page = {
         {
           children: [
             {
-              text:
-                '15 Kasım 2025’te Amsterdam Tiyatrosu’nda müzik ve birlik dolu eşsiz bir kutlamaya katılın.',
+              text: '15 Kasım 2025’te Amsterdam Tiyatrosu’nda müzik ve birlik dolu eşsiz bir kutlamaya katılın.',
             },
           ],
           type: 'paragraph',

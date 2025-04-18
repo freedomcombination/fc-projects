@@ -38,7 +38,7 @@ export default async function HomePage({ params }: Props) {
       <section className="from-primary to-secondary relative min-h-screen bg-gradient-to-b" id="home">
         <Hero />
       </section>
-      <section className="py-16 bg-gradient-to-b border-t border-b from-zinc-100" id="announcements">
+      <section className="border-b border-t bg-gradient-to-b from-zinc-100 py-16" id="announcements">
         <AnnouncementsSection />
       </section>
       {/* About section */}
