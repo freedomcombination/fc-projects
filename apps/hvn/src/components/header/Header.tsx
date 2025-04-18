@@ -19,6 +19,7 @@ export const Header = () => {
 
   const menuItems = [
     { href: '/#home', label: t('home') },
+    { href: '/#announcements', label: t('announcements') },
     { href: '/#about', label: t('about') },
     { href: '/#application', label: t('application') },
     { href: '/#contact', label: t('contactNav') },

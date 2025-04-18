@@ -10,6 +10,7 @@ import { redirect } from 'next/navigation'
 import { getPayload, type RequiredDataFromCollectionSlug } from 'payload'
 
 import { LivePreviewListener } from '@/components/LivePreviewListener'
+import { announcementStatic } from '@/data/announcementStatic'
 import { homeStatic } from '@/data/homeStatic'
 import { RenderHero } from '@/heros/RenderHero'
 import { generateMeta } from '@/utilities/generateMeta'
@@ -28,12 +29,8 @@ export async function generateStaticParams() {
   })
 
   const params = pages.docs
-    ?.filter((doc) => {
-      return doc.slug !== 'home'
-    })
-    .map(({ slug }) => {
-      return { slug }
-    })
+    ?.filter((doc) => doc.slug !== 'home')
+    .map(({ slug }) => ({ slug }))
 
   return params
 }
@@ -45,16 +42,18 @@ type Args = {
 }
 
 export default async function Page({ params: paramsPromise }: Args) {
-  const { isEnabled: draft } = await draftMode()
   const { slug = 'home' } = await paramsPromise
+  const { isEnabled: draft } = await draftMode()
 
-  let page: RequiredDataFromCollectionSlug<'pages'> | null
+  let page: RequiredDataFromCollectionSlug<'pages'> | null = null
 
-  page = await queryPageBySlug({
-    slug,
-  })
+  if (slug === 'festival-2025-1') {
+    page = announcementStatic as unknown as RequiredDataFromCollectionSlug<'pages'>
+  }
+  if (!page) {
+    page = await queryPageBySlug({ slug })
+  }
 
-  // Remove this code once your website is seeded
   if (!page && slug === 'home') {
     page = homeStatic as unknown as typeof page
   }
@@ -68,7 +67,6 @@ export default async function Page({ params: paramsPromise }: Args) {
   return (
     <article className="pb-24 pt-16">
       {draft && <LivePreviewListener />}
-
       <RenderHero type="highImpact" {...hero} />
       <RenderBlocks blocks={layout} />
     </article>
@@ -77,9 +75,14 @@ export default async function Page({ params: paramsPromise }: Args) {
 
 export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
   const { slug = 'home' } = await paramsPromise
-  const page = await queryPageBySlug({
-    slug,
-  })
+
+  let page: RequiredDataFromCollectionSlug<'pages'> | null = null
+
+  if (slug === 'festival-2025-1') {
+    page = announcementStatic as unknown as RequiredDataFromCollectionSlug<'pages'>
+  } else {
+    page = await queryPageBySlug({ slug })
+  }
 
   return generateMeta({ doc: page })
 }
