@@ -1,6 +1,6 @@
-import type { Field, GroupField } from 'payload'
+import deepMerge from '@fc/ui/lib/deepMerge'
 
-import deepMerge from '@/utilities/deepMerge'
+import type { Field, GroupField } from 'payload'
 
 export type LinkAppearances = 'default' | 'outline'
 

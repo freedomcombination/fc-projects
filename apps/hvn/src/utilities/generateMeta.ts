@@ -1,9 +1,9 @@
+import { getServerSideURL } from '@fc/ui/lib/getURL'
+import { mergeOpenGraph } from '@fc/ui/lib/mergeOpenGraph'
+
 import type { Metadata } from 'next'
 
-import type { Config, Media, Page /*, Post*/ } from '@/payload-types'
-
-import { getServerSideURL } from './getURL'
-import { mergeOpenGraph } from './mergeOpenGraph'
+import type { Config, Media, Page /*, Post*/ } from '../../payload-types' // '@/payload-types'
 
 const getImageURL = (image?: Media | Config['db']['defaultIDType'] | null) => {
   const serverUrl = getServerSideURL()

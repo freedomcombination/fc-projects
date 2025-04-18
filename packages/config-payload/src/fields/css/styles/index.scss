@@ -1,0 +1,27 @@
+.css-fields {
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    justify-content: space-between;
+  }
+
+  .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .item {
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+
+}

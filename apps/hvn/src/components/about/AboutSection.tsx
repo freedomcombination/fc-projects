@@ -70,12 +70,12 @@ export const AboutSection = () => {
 
         return (
           <div
-            className={`min-h-screen flex items-center py-16 bg-gradient-to-b ${config?.bgFrom} ${config.bgTo}`}
+            className={`flex min-h-screen items-center bg-gradient-to-b py-16 ${config?.bgFrom} ${config.bgTo}`}
             id={`about-${section}`}
             key={section}
           >
             <div className="container mx-auto px-4">
-              <div className={`w-full grid md:grid-cols-2 gap-16 items-center ${!isEven ? 'md:grid-flow-dense' : ''}`}>
+              <div className={`grid w-full items-center gap-16 md:grid-cols-2 ${!isEven ? 'md:grid-flow-dense' : ''}`}>
                 <motion.div
                   animate={{ opacity: 1, x: 0 }}
                   className="space-y-8"
@@ -84,24 +84,24 @@ export const AboutSection = () => {
                 >
                   <div className="space-y-6">
                     <div
-                      className={`w-16 h-16 ${config.iconBg} rounded-2xl flex items-center justify-center shadow-lg`}
+                      className={`h-16 w-16 ${config.iconBg} flex items-center justify-center rounded-2xl shadow-lg`}
                     >
                       {config.icon}
                     </div>
                     <h2 className={cn('text-4xl font-bold tracking-tight', config.color)}>{t(`${section}.title`)}</h2>
-                    <p className="text-lg text-gray-600 leading-relaxed">{t(`${section}.content`)}</p>
+                    <p className="text-lg leading-relaxed text-gray-600">{t(`${section}.content`)}</p>
                     {section === 'collaborate' && (
-                      <div className=" grid grid-cols-4 gap-4">
+                      <div className="grid grid-cols-4 gap-4">
                         <a href="https://www.freedomcombination.com" rel="noreferrer" target="_blank">
                           <motion.div
                             animate={{ opacity: 1, scale: 1 }}
-                            className={`relative h-[100px] w-[100px] rounded-full overflow-hidden shadow-2xl`}
+                            className={`relative h-[100px] w-[100px] overflow-hidden rounded-full shadow-2xl`}
                             initial={{ opacity: 0, scale: 0.9 }}
                             transition={{ duration: 0.8 }}
                           >
                             <Image
                               alt={t(`${section}.title`)}
-                              className="object-cover hover:scale-105 transition-transform duration-700"
+                              className="object-cover transition-transform duration-700 hover:scale-105"
                               fill
                               quality={90}
                               src={'https://www.freedomcombination.com/images/foundation-logo.svg'}
@@ -111,13 +111,13 @@ export const AboutSection = () => {
                         <a href="https://stichtingsanat.nl" rel="noreferrer" target="_blank">
                           <motion.div
                             animate={{ opacity: 1, scale: 1 }}
-                            className={`relative h-[100px] w-[100px] rounded-full overflow-hidden shadow-2xl`}
+                            className={`relative h-[100px] w-[100px] overflow-hidden rounded-full shadow-2xl`}
                             initial={{ opacity: 0, scale: 0.9 }}
                             transition={{ duration: 0.8 }}
                           >
                             <Image
                               alt={t(`${section}.title`)}
-                              className="object-cover hover:scale-105 transition-transform duration-700"
+                              className="object-cover transition-transform duration-700 hover:scale-105"
                               fill
                               quality={90}
                               src={'https://stichtingsanat.nl/wp-content/uploads/2022/02/SANAT-logo.png'}
@@ -131,13 +131,13 @@ export const AboutSection = () => {
                         >
                           <motion.div
                             animate={{ opacity: 1, scale: 1 }}
-                            className={`relative h-[100px] w-[100px] rounded-full overflow-hidden shadow-2xl`}
+                            className={`relative h-[100px] w-[100px] overflow-hidden rounded-full shadow-2xl`}
                             initial={{ opacity: 0, scale: 0.9 }}
                             transition={{ duration: 0.8 }}
                           >
                             <Image
                               alt={t(`${section}.title`)}
-                              className="object-cover hover:scale-105 transition-transform duration-700"
+                              className="object-cover transition-transform duration-700 hover:scale-105"
                               fill
                               quality={90}
                               src={'https://api.freedomcombination.com/uploads/lotus_d559be0c32.svg'}
@@ -151,13 +151,13 @@ export const AboutSection = () => {
 
                 <motion.div
                   animate={{ opacity: 1, scale: 1 }}
-                  className={`relative h-[500px] rounded-2xl overflow-hidden shadow-2xl ${config.bgFrom}`}
+                  className={`relative h-[500px] overflow-hidden rounded-2xl shadow-2xl ${config.bgFrom}`}
                   initial={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.8 }}
                 >
                   <Image
                     alt={t(`${section}.title`)}
-                    className="object-cover hover:scale-105 transition-transform duration-700"
+                    className="object-cover transition-transform duration-700 hover:scale-105"
                     fill
                     quality={90}
                     src={config.image}

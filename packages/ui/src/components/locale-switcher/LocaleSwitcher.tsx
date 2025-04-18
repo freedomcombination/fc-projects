@@ -42,7 +42,7 @@ export function LocaleSwitcher() {
           {currentLocale.toUpperCase()}
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="p-2 gap-2 text-xl">
+      <DropdownMenuContent className="gap-2 p-2 text-xl">
         {languages.map((lang) => (
           <DropdownMenuItem
             className="cursor-pointer p-1"

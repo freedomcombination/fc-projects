@@ -1,7 +1,7 @@
-import { Blogs } from '@fc/config-payload/blocks/Blogs'
-import { Media } from '@fc/config-payload/blocks/Media'
-import { Page } from '@fc/config-payload/blocks/Page'
-import { Users } from '@fc/config-payload/blocks/Users'
+import { Blogs } from '@fc/config-payload/collections/Blogs'
+import { Media } from '@fc/config-payload/collections/Media'
+import { Page } from '@fc/config-payload/collections/Page'
+import { Users } from '@fc/config-payload/collections/Users'
 
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer'

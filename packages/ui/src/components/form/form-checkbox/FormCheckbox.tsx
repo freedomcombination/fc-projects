@@ -26,7 +26,7 @@ export const FormCheckbox = <T extends FieldValues = FieldValues, N extends Fiel
       name={name}
       render={({ field }) => (
         <FormItem>
-          <div className="flex items-center flex-row-reverse justify-end gap-2">
+          <div className="flex flex-row-reverse items-center justify-end gap-2">
             {label && (
               <FormLabel>
                 {label}{' '}

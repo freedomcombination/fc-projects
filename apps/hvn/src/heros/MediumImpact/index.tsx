@@ -1,10 +1,11 @@
 import React from 'react'
 
+import { Media } from '@fc/ui/components/Media/index'
+import RichText from '@fc/ui/components/RichText'
+
 import type { Page } from '@/payload-types'
 
 import { CMSLink } from '@/components/Link'
-import { Media } from '@/components/Media'
-import RichText from '@/components/RichText'
 
 export const MediumImpactHero: React.FC<Page['hero']> = ({ links, media, richText }) => {
   return (
@@ -24,7 +25,7 @@ export const MediumImpactHero: React.FC<Page['hero']> = ({ links, media, richTex
           </ul>
         )}
       </div>
-      <div className="container ">
+      <div className="container">
         {media && typeof media === 'object' && (
           <div>
             <Media className="-mx-4 md:-mx-8 2xl:-mx-16" imgClassName="" priority resource={media} />

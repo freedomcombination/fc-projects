@@ -149,17 +149,17 @@ export type Blog_Where_Or = {
 
 export type Blogs = {
   __typename?: 'Blogs'
-  docs?: Maybe<Array<Maybe<Blog>>>
-  hasNextPage?: Maybe<Scalars['Boolean']['output']>
-  hasPrevPage?: Maybe<Scalars['Boolean']['output']>
-  limit?: Maybe<Scalars['Int']['output']>
-  nextPage?: Maybe<Scalars['Int']['output']>
+  docs: Array<Blog>
+  hasNextPage: Scalars['Boolean']['output']
+  hasPrevPage: Scalars['Boolean']['output']
+  limit: Scalars['Int']['output']
+  nextPage: Scalars['Int']['output']
   offset?: Maybe<Scalars['Int']['output']>
-  page?: Maybe<Scalars['Int']['output']>
-  pagingCounter?: Maybe<Scalars['Int']['output']>
-  prevPage?: Maybe<Scalars['Int']['output']>
-  totalDocs?: Maybe<Scalars['Int']['output']>
-  totalPages?: Maybe<Scalars['Int']['output']>
+  page: Scalars['Int']['output']
+  pagingCounter: Scalars['Int']['output']
+  prevPage: Scalars['Int']['output']
+  totalDocs: Scalars['Int']['output']
+  totalPages: Scalars['Int']['output']
 }
 
 export type BlogsCreateAccess = {
@@ -462,6 +462,24 @@ export type Checkbox = {
   width?: Maybe<Scalars['Float']['output']>
 }
 
+export type Container = {
+  __typename?: 'Container'
+  blockName?: Maybe<Scalars['String']['output']>
+  blockType?: Maybe<Scalars['String']['output']>
+  blocks?: Maybe<Array<Container_Blocks>>
+  fluid?: Maybe<Scalars['Boolean']['output']>
+  id?: Maybe<Scalars['String']['output']>
+  spacing?: Maybe<Container_Spacing>
+}
+
+export type Container_Blocks = FormBlock | MediaBlock
+
+export enum Container_Spacing {
+  Lg = 'lg',
+  Md = 'md',
+  Sm = 'sm',
+}
+
 export type Country = {
   __typename?: 'Country'
   blockName?: Maybe<Scalars['String']['output']>
@@ -659,17 +677,17 @@ export type FormSubmission_Where_Or = {
 
 export type FormSubmissions = {
   __typename?: 'FormSubmissions'
-  docs?: Maybe<Array<Maybe<FormSubmission>>>
-  hasNextPage?: Maybe<Scalars['Boolean']['output']>
-  hasPrevPage?: Maybe<Scalars['Boolean']['output']>
-  limit?: Maybe<Scalars['Int']['output']>
-  nextPage?: Maybe<Scalars['Int']['output']>
+  docs: Array<FormSubmission>
+  hasNextPage: Scalars['Boolean']['output']
+  hasPrevPage: Scalars['Boolean']['output']
+  limit: Scalars['Int']['output']
+  nextPage: Scalars['Int']['output']
   offset?: Maybe<Scalars['Int']['output']>
-  page?: Maybe<Scalars['Int']['output']>
-  pagingCounter?: Maybe<Scalars['Int']['output']>
-  prevPage?: Maybe<Scalars['Int']['output']>
-  totalDocs?: Maybe<Scalars['Int']['output']>
-  totalPages?: Maybe<Scalars['Int']['output']>
+  page: Scalars['Int']['output']
+  pagingCounter: Scalars['Int']['output']
+  prevPage: Scalars['Int']['output']
+  totalDocs: Scalars['Int']['output']
+  totalPages: Scalars['Int']['output']
 }
 
 export type FormSubmissionsCreateAccess = {
@@ -1405,17 +1423,17 @@ export type Form_Where_Or = {
 
 export type Forms = {
   __typename?: 'Forms'
-  docs?: Maybe<Array<Maybe<Form>>>
-  hasNextPage?: Maybe<Scalars['Boolean']['output']>
-  hasPrevPage?: Maybe<Scalars['Boolean']['output']>
-  limit?: Maybe<Scalars['Int']['output']>
-  nextPage?: Maybe<Scalars['Int']['output']>
+  docs: Array<Form>
+  hasNextPage: Scalars['Boolean']['output']
+  hasPrevPage: Scalars['Boolean']['output']
+  limit: Scalars['Int']['output']
+  nextPage: Scalars['Int']['output']
   offset?: Maybe<Scalars['Int']['output']>
-  page?: Maybe<Scalars['Int']['output']>
-  pagingCounter?: Maybe<Scalars['Int']['output']>
-  prevPage?: Maybe<Scalars['Int']['output']>
-  totalDocs?: Maybe<Scalars['Int']['output']>
-  totalPages?: Maybe<Scalars['Int']['output']>
+  page: Scalars['Int']['output']
+  pagingCounter: Scalars['Int']['output']
+  prevPage: Scalars['Int']['output']
+  totalDocs: Scalars['Int']['output']
+  totalPages: Scalars['Int']['output']
 }
 
 export type FormsCreateAccess = {
@@ -2559,6 +2577,19 @@ export type Media = {
   updatedAt?: Maybe<Scalars['DateTime']['output']>
   url?: Maybe<Scalars['String']['output']>
   width?: Maybe<Scalars['Float']['output']>
+}
+
+export type MediaBlock = {
+  __typename?: 'MediaBlock'
+  blockName?: Maybe<Scalars['String']['output']>
+  blockType?: Maybe<Scalars['String']['output']>
+  id?: Maybe<Scalars['String']['output']>
+  media?: Maybe<Media>
+}
+
+export type MediaBlockMediaArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>
+  locale?: InputMaybe<LocaleInputType>
 }
 
 export type MediaCreateAccess = {
@@ -3823,7 +3854,7 @@ export type PageVersion_Version = {
   updatedAt?: Maybe<Scalars['DateTime']['output']>
 }
 
-export type PageVersion_Version_Layout = FormBlock
+export type PageVersion_Version_Layout = Container | FormBlock | MediaBlock | Section
 
 export enum PageVersion_Version__Status {
   Draft = 'draft',
@@ -3836,7 +3867,7 @@ export enum PageVersion_PublishedLocale {
   Tr = 'tr',
 }
 
-export type Page_Layout = FormBlock
+export type Page_Layout = Container | FormBlock | MediaBlock | Section
 
 export enum Page__Status {
   Draft = 'draft',
@@ -3951,17 +3982,17 @@ export type Page_Where_Or = {
 
 export type Pages = {
   __typename?: 'Pages'
-  docs?: Maybe<Array<Maybe<Page>>>
-  hasNextPage?: Maybe<Scalars['Boolean']['output']>
-  hasPrevPage?: Maybe<Scalars['Boolean']['output']>
-  limit?: Maybe<Scalars['Int']['output']>
-  nextPage?: Maybe<Scalars['Int']['output']>
+  docs: Array<Page>
+  hasNextPage: Scalars['Boolean']['output']
+  hasPrevPage: Scalars['Boolean']['output']
+  limit: Scalars['Int']['output']
+  nextPage: Scalars['Int']['output']
   offset?: Maybe<Scalars['Int']['output']>
-  page?: Maybe<Scalars['Int']['output']>
-  pagingCounter?: Maybe<Scalars['Int']['output']>
-  prevPage?: Maybe<Scalars['Int']['output']>
-  totalDocs?: Maybe<Scalars['Int']['output']>
-  totalPages?: Maybe<Scalars['Int']['output']>
+  page: Scalars['Int']['output']
+  pagingCounter: Scalars['Int']['output']
+  prevPage: Scalars['Int']['output']
+  totalDocs: Scalars['Int']['output']
+  totalPages: Scalars['Int']['output']
 }
 
 export type PagesCreateAccess = {
@@ -4578,17 +4609,17 @@ export type PayloadLockedDocument_Where_Or = {
 
 export type PayloadLockedDocuments = {
   __typename?: 'PayloadLockedDocuments'
-  docs?: Maybe<Array<Maybe<PayloadLockedDocument>>>
-  hasNextPage?: Maybe<Scalars['Boolean']['output']>
-  hasPrevPage?: Maybe<Scalars['Boolean']['output']>
-  limit?: Maybe<Scalars['Int']['output']>
-  nextPage?: Maybe<Scalars['Int']['output']>
+  docs: Array<PayloadLockedDocument>
+  hasNextPage: Scalars['Boolean']['output']
+  hasPrevPage: Scalars['Boolean']['output']
+  limit: Scalars['Int']['output']
+  nextPage: Scalars['Int']['output']
   offset?: Maybe<Scalars['Int']['output']>
-  page?: Maybe<Scalars['Int']['output']>
-  pagingCounter?: Maybe<Scalars['Int']['output']>
-  prevPage?: Maybe<Scalars['Int']['output']>
-  totalDocs?: Maybe<Scalars['Int']['output']>
-  totalPages?: Maybe<Scalars['Int']['output']>
+  page: Scalars['Int']['output']
+  pagingCounter: Scalars['Int']['output']
+  prevPage: Scalars['Int']['output']
+  totalDocs: Scalars['Int']['output']
+  totalPages: Scalars['Int']['output']
 }
 
 export type PayloadLockedDocumentsCreateAccess = {
@@ -5080,17 +5111,17 @@ export type PayloadPreference_Where_Or = {
 
 export type PayloadPreferences = {
   __typename?: 'PayloadPreferences'
-  docs?: Maybe<Array<Maybe<PayloadPreference>>>
-  hasNextPage?: Maybe<Scalars['Boolean']['output']>
-  hasPrevPage?: Maybe<Scalars['Boolean']['output']>
-  limit?: Maybe<Scalars['Int']['output']>
-  nextPage?: Maybe<Scalars['Int']['output']>
+  docs: Array<PayloadPreference>
+  hasNextPage: Scalars['Boolean']['output']
+  hasPrevPage: Scalars['Boolean']['output']
+  limit: Scalars['Int']['output']
+  nextPage: Scalars['Int']['output']
   offset?: Maybe<Scalars['Int']['output']>
-  page?: Maybe<Scalars['Int']['output']>
-  pagingCounter?: Maybe<Scalars['Int']['output']>
-  prevPage?: Maybe<Scalars['Int']['output']>
-  totalDocs?: Maybe<Scalars['Int']['output']>
-  totalPages?: Maybe<Scalars['Int']['output']>
+  page: Scalars['Int']['output']
+  pagingCounter: Scalars['Int']['output']
+  prevPage: Scalars['Int']['output']
+  totalDocs: Scalars['Int']['output']
+  totalPages: Scalars['Int']['output']
 }
 
 export type PayloadPreferencesCreateAccess = {
@@ -5720,6 +5751,30 @@ export type QueryVersionsPagesArgs = {
   where?: InputMaybe<VersionsPage_Where>
 }
 
+export type Section = {
+  __typename?: 'Section'
+  background?: Maybe<Scalars['String']['output']>
+  blockName?: Maybe<Scalars['String']['output']>
+  blockType?: Maybe<Scalars['String']['output']>
+  blocks?: Maybe<Array<Section_Blocks>>
+  id?: Maybe<Scalars['String']['output']>
+  image?: Maybe<Media>
+  spacing?: Maybe<Section_Spacing>
+}
+
+export type SectionImageArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>
+  locale?: InputMaybe<LocaleInputType>
+}
+
+export type Section_Blocks = Container | FormBlock | MediaBlock
+
+export enum Section_Spacing {
+  Lg = 'lg',
+  Md = 'md',
+  Sm = 'sm',
+}
+
 export type Select = {
   __typename?: 'Select'
   blockName?: Maybe<Scalars['String']['output']>
@@ -5729,6 +5784,7 @@ export type Select = {
   label?: Maybe<Scalars['String']['output']>
   name: Scalars['String']['output']
   options?: Maybe<Array<Select_Options>>
+  placeholder?: Maybe<Scalars['String']['output']>
   required?: Maybe<Scalars['Boolean']['output']>
   width?: Maybe<Scalars['Float']['output']>
 }
@@ -5865,17 +5921,17 @@ export type User_Where_Or = {
 
 export type Users = {
   __typename?: 'Users'
-  docs?: Maybe<Array<Maybe<User>>>
-  hasNextPage?: Maybe<Scalars['Boolean']['output']>
-  hasPrevPage?: Maybe<Scalars['Boolean']['output']>
-  limit?: Maybe<Scalars['Int']['output']>
-  nextPage?: Maybe<Scalars['Int']['output']>
+  docs: Array<User>
+  hasNextPage: Scalars['Boolean']['output']
+  hasPrevPage: Scalars['Boolean']['output']
+  limit: Scalars['Int']['output']
+  nextPage: Scalars['Int']['output']
   offset?: Maybe<Scalars['Int']['output']>
-  page?: Maybe<Scalars['Int']['output']>
-  pagingCounter?: Maybe<Scalars['Int']['output']>
-  prevPage?: Maybe<Scalars['Int']['output']>
-  totalDocs?: Maybe<Scalars['Int']['output']>
-  totalPages?: Maybe<Scalars['Int']['output']>
+  page: Scalars['Int']['output']
+  pagingCounter: Scalars['Int']['output']
+  prevPage: Scalars['Int']['output']
+  totalDocs: Scalars['Int']['output']
+  totalPages: Scalars['Int']['output']
 }
 
 export type UsersCreateAccess = {
@@ -6180,17 +6236,17 @@ export type UsersUpdateDocAccess = {
 
 export type AllMedia = {
   __typename?: 'allMedia'
-  docs?: Maybe<Array<Maybe<Media>>>
-  hasNextPage?: Maybe<Scalars['Boolean']['output']>
-  hasPrevPage?: Maybe<Scalars['Boolean']['output']>
-  limit?: Maybe<Scalars['Int']['output']>
-  nextPage?: Maybe<Scalars['Int']['output']>
+  docs: Array<Media>
+  hasNextPage: Scalars['Boolean']['output']
+  hasPrevPage: Scalars['Boolean']['output']
+  limit: Scalars['Int']['output']
+  nextPage: Scalars['Int']['output']
   offset?: Maybe<Scalars['Int']['output']>
-  page?: Maybe<Scalars['Int']['output']>
-  pagingCounter?: Maybe<Scalars['Int']['output']>
-  prevPage?: Maybe<Scalars['Int']['output']>
-  totalDocs?: Maybe<Scalars['Int']['output']>
-  totalPages?: Maybe<Scalars['Int']['output']>
+  page: Scalars['Int']['output']
+  pagingCounter: Scalars['Int']['output']
+  prevPage: Scalars['Int']['output']
+  totalDocs: Scalars['Int']['output']
+  totalPages: Scalars['Int']['output']
 }
 
 export type BlogsAccess = {
@@ -6798,17 +6854,17 @@ export type VersionsPage_Where_Or = {
 
 export type VersionsPages = {
   __typename?: 'versionsPages'
-  docs?: Maybe<Array<Maybe<PageVersion>>>
-  hasNextPage?: Maybe<Scalars['Boolean']['output']>
-  hasPrevPage?: Maybe<Scalars['Boolean']['output']>
-  limit?: Maybe<Scalars['Int']['output']>
-  nextPage?: Maybe<Scalars['Int']['output']>
+  docs: Array<PageVersion>
+  hasNextPage: Scalars['Boolean']['output']
+  hasPrevPage: Scalars['Boolean']['output']
+  limit: Scalars['Int']['output']
+  nextPage: Scalars['Int']['output']
   offset?: Maybe<Scalars['Int']['output']>
-  page?: Maybe<Scalars['Int']['output']>
-  pagingCounter?: Maybe<Scalars['Int']['output']>
-  prevPage?: Maybe<Scalars['Int']['output']>
-  totalDocs?: Maybe<Scalars['Int']['output']>
-  totalPages?: Maybe<Scalars['Int']['output']>
+  page: Scalars['Int']['output']
+  pagingCounter: Scalars['Int']['output']
+  prevPage: Scalars['Int']['output']
+  totalDocs: Scalars['Int']['output']
+  totalPages: Scalars['Int']['output']
 }
 
 export type LoginMutationVariables = Exact<{
@@ -6838,21 +6894,21 @@ export type GetBlogsQuery = {
   __typename?: 'Query'
   Blogs?: {
     __typename?: 'Blogs'
-    hasNextPage?: boolean | null
-    hasPrevPage?: boolean | null
-    limit?: number | null
+    hasNextPage: boolean
+    hasPrevPage: boolean
+    limit: number
     offset?: number | null
-    page?: number | null
-    pagingCounter?: number | null
-    prevPage?: number | null
-    totalDocs?: number | null
-    totalPages?: number | null
-    docs?: Array<{
+    page: number
+    pagingCounter: number
+    prevPage: number
+    totalDocs: number
+    totalPages: number
+    docs: Array<{
       __typename?: 'Blog'
       id: string
       title?: string | null
       author?: { __typename?: 'User'; id: string; name?: string | null } | null
-    } | null> | null
+    }>
   } | null
 }
 
@@ -6860,7 +6916,7 @@ export type GetAllMediaQueryVariables = Exact<{ [key: string]: never }>
 
 export type GetAllMediaQuery = {
   __typename?: 'Query'
-  allMedia?: { __typename?: 'allMedia'; docs?: Array<{ __typename?: 'Media'; id: string } | null> | null } | null
+  allMedia?: { __typename?: 'allMedia'; docs: Array<{ __typename?: 'Media'; id: string }> } | null
 }
 
 export const LoginDocument = `

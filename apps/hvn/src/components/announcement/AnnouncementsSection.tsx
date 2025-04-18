@@ -1,23 +1,21 @@
 'use client'
-import React, { useRef } from 'react'
 
 import { Button } from '@fc/ui/base/button'
 
 import { useTranslations } from 'next-intl'
 // Import Swiper styles
-import 'swiper/css'
-import 'swiper/css/pagination'
-import 'swiper/css/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 
 export const AnnouncementsSection = () => {
   const t = useTranslations('')
-  const pathName = usePathname()
-  const locale = pathName.split('/')[1]
+  const locale = useLocale()
+
   const slideAnnouncements = [
     {
       content: 'This is the content of announcement 1.',
@@ -29,7 +27,7 @@ export const AnnouncementsSection = () => {
   ]
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto">
+    <div className="relative mx-auto w-full max-w-4xl">
       <Swiper
         autoplay={{
           delay: 2500,
@@ -47,23 +45,23 @@ export const AnnouncementsSection = () => {
       >
         {slideAnnouncements.map((announcement) => (
           <SwiperSlide key={announcement.id}>
-            <div className="p-4 bg-white rounded-lg shadow-md text-center">
+            <div className="rounded-lg bg-white p-4 text-center shadow-md">
               <Image
                 alt="announcement"
-                className="w-full object-contain rounded-md mb-4"
+                className="mb-4 w-full rounded-md object-contain"
                 height={300}
                 src={announcement.image}
                 unoptimized
                 width={500}
               />
-              <div className="flex flex-row items-space-between justify-center gap-4">
+              <div className="items-space-between flex flex-row justify-center gap-4">
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">{announcement.title}</h3>
+                  <h3 className="mb-2 text-xl font-semibold">{announcement.title}</h3>
                   <p>{announcement.content}</p>
                 </div>
                 <div>
                   <Link href={`/${locale}/${announcement.slug}`}>
-                    <Button className="rounded-lg bg-orange-500 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-orange-600 sm:px-8 sm:py-4 sm:text-lg cursor-pointer">
+                    <Button className="cursor-pointer rounded-lg bg-orange-500 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-orange-600 sm:px-8 sm:py-4 sm:text-lg">
                       {t('readMore')}
                     </Button>
                   </Link>

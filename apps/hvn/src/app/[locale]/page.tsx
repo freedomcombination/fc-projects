@@ -35,11 +35,11 @@ export default async function HomePage({ params }: Props) {
   return (
     <main className="relative">
       {/* Hero section */}
-      <section className="relative min-h-screen bg-gradient-to-b from-primary to-secondary" id="home">
+      <section className="from-primary to-secondary relative min-h-screen bg-gradient-to-b" id="home">
         <Hero />
       </section>
       {/* Announcements section */}
-      <section className="py-16 bg-gradient-to-b border-t border-b from-zinc-100" id="announcements">
+      <section className="border-b border-t bg-gradient-to-b from-zinc-100 py-16" id="announcements">
         <AnnouncementsSection />
       </section>
       {/* About section */}
@@ -49,7 +49,7 @@ export default async function HomePage({ params }: Props) {
 
       {/* Application section */}
       {applicationForm && (
-        <section className="py-16 bg-gradient-to-b border-t border-b from-zinc-100" id="application">
+        <section className="border-b border-t bg-gradient-to-b from-zinc-100 py-16" id="application">
           <ApplicationForm applicationForm={applicationForm} />
         </section>
       )}
@@ -57,20 +57,20 @@ export default async function HomePage({ params }: Props) {
       {/* Contact section */}
       <section className="py-16" id="contact">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-8">{t('Contact.title')}</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">{t('Contact.subtitle')}</p>
+          <div className="mb-16 text-center">
+            <h2 className="mb-8 text-4xl font-bold">{t('Contact.title')}</h2>
+            <p className="text-muted-foreground mx-auto max-w-2xl">{t('Contact.subtitle')}</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-2">
             {/* Contact Information */}
             <div className="space-y-8">
-              <h3 className="text-2xl font-semibold mb-6">{t('Contact.contactInfo')}</h3>
+              <h3 className="mb-6 text-2xl font-semibold">{t('Contact.contactInfo')}</h3>
 
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div>
-                    <h4 className="font-medium text-xl">{t('Contact.email')}</h4>
+                    <h4 className="text-xl font-medium">{t('Contact.email')}</h4>
                     <p className="text-muted-foreground">info@harmonievannederland.com</p>
                   </div>
                 </div>
