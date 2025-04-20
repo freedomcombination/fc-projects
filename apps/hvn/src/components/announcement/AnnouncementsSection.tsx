@@ -1,31 +1,28 @@
 'use client'
 
+import { FC } from 'react'
+
 import { Button } from '@fc/ui/base/button'
 
 import { useTranslations } from 'next-intl'
+import { useLocale } from 'next-intl'
 // Import Swiper styles
 import Image from 'next/image'
-import Link from 'next/link'
-import { Autoplay, Navigation, Pagination } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
+import Link from 'next/link'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
+import { Autoplay, Navigation, Pagination } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
-export const AnnouncementsSection = () => {
+import { Announcement } from './types'
+
+type AnnouncementsProps = {
+  announcements: Announcement[]
+}
+export const AnnouncementsSection: FC<AnnouncementsProps> = ({ announcements }) => {
   const t = useTranslations('')
   const locale = useLocale()
-
-  const slideAnnouncements = [
-    {
-      content: 'This is the content of announcement 1.',
-      id: '1',
-      image: '/images/announcement.jpg',
-      slug: 'announcement',
-      title: 'Announcement 1',
-    },
-  ]
-
   return (
     <div className="relative mx-auto w-full max-w-4xl">
       <Swiper
@@ -43,24 +40,28 @@ export const AnnouncementsSection = () => {
         }}
         spaceBetween={30}
       >
-        {slideAnnouncements.map((announcement) => (
+        {announcements.map((announcement) => (
           <SwiperSlide key={announcement.id}>
             <div className="rounded-lg bg-white p-4 text-center shadow-md">
               <Image
                 alt="announcement"
                 className="mb-4 w-full rounded-md object-contain"
                 height={300}
-                src={announcement.image}
+                src={
+                  announcement.image
+                    ? `${process.env.NEXT_PUBLIC_PAYLOAD_URL}${announcement.image.url}`
+                    : '/path/to/default-image.jpg'
+                }
                 unoptimized
                 width={500}
               />
               <div className="items-space-between flex flex-row justify-center gap-4">
                 <div>
                   <h3 className="mb-2 text-xl font-semibold">{announcement.title}</h3>
-                  <p>{announcement.content}</p>
+                  <p>{announcement.description}</p>
                 </div>
                 <div>
-                  <Link href={`/${locale}/${announcement.slug}`}>
+                  <Link href={`/${locale}/announcements/${announcement.slug}`}>
                     <Button className="cursor-pointer rounded-lg bg-orange-500 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-orange-600 sm:px-8 sm:py-4 sm:text-lg">
                       {t('readMore')}
                     </Button>

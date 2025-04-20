@@ -3,6 +3,7 @@ import { getPayload, TypedLocale } from 'payload'
 
 import { AboutSection } from '@/components/about/AboutSection'
 import { AnnouncementsSection } from '@/components/announcement/AnnouncementsSection'
+import { Announcement } from '@/components/announcement/types'
 import { ApplicationForm } from '@/components/application-from'
 import { Footer } from '@/components/footer/Footer'
 import { Hero } from '@/components/hero/Hero'
@@ -25,9 +26,18 @@ export default async function HomePage({ params }: Props) {
   const formsResponse = await payload.find({
     collection: 'forms',
     draft: false,
-    locale: locale || 'en', // this is now redundant
+    locale: locale || 'en',
     overrideAccess: false,
   })
+
+  const announcementsResponse = await payload.find({
+    collection: 'announcements',
+    draft: false,
+    locale: locale || 'en',
+    overrideAccess: false,
+  })
+
+  const announcements = announcementsResponse.docs
 
   const applicationForm = formsResponse.docs.find((f) => f.title === 'Application Form')
   const contactForm = formsResponse.docs.find((f) => f.title === 'Contact Form')
@@ -40,7 +50,7 @@ export default async function HomePage({ params }: Props) {
       </section>
       {/* Announcements section */}
       <section className="border-b border-t bg-gradient-to-b from-zinc-100 py-16" id="announcements">
-        <AnnouncementsSection />
+        <AnnouncementsSection announcements={announcements as Announcement[]} />
       </section>
       {/* About section */}
       <section id="about">

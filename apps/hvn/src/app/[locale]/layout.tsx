@@ -7,9 +7,11 @@ import { getMessages } from 'next-intl/server'
 import { Geist } from 'next/font/google'
 import { notFound } from 'next/navigation'
 
-import { Header } from '@/components/header/Header'
+import { Footer } from '@/components/footer/Footer'
 
 import '@fc/ui/globals.css'
+
+import { Header } from '@/components/header/Header'
 
 const fontSans = Geist({
   subsets: ['latin'],
@@ -38,6 +40,7 @@ export default async function RootLayout({
           <Providers>
             <Header />
             <main className="flex-1">{children}</main>
+            <Footer />
           </Providers>
         </NextIntlClientProvider>
         <Toaster />

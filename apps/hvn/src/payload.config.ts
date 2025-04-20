@@ -13,6 +13,7 @@ import { buildConfig } from 'payload'
 import sharp from 'sharp'
 import { fileURLToPath } from 'url'
 
+import { Announcements } from './collections/announcements'
 import { Pages } from './collections/Pages'
 
 const filename = fileURLToPath(import.meta.url)
@@ -47,7 +48,7 @@ export default buildConfig({
     },
     user: Users.slug,
   },
-  collections: [Users, Media, Donations, Pages],
+  collections: [Users, Media, Donations, Pages, Announcements],
   db: mongooseAdapter({
     url: process.env.DATABASE_URL as string,
   }),

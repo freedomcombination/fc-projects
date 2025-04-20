@@ -83,9 +83,6 @@ export async function generateMetadata({ params: paramsPromise }: Args): Promise
 }
 
 const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
-  // const staticPage = fakePages.find((p) => p.slug === slug)
-  // if (staticPage) return staticPage
-
   const { isEnabled: draft } = await draftMode()
 
   const payload = await getPayload({ config: configPromise })
