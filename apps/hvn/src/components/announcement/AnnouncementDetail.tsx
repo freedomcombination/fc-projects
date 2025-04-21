@@ -22,16 +22,19 @@ export const AnnouncementDetail: FC<AnnouncementProps> = ({ announcement }) => {
 
   return (
     <div className="container mx-auto mt-4 px-4 py-12">
-      <div className="hover:text-primary cursor-pointer transition-colors">
-        <Button
-          className="hover:bg-primary/90 mb-8 flex items-center rounded-md p-2 transition-colors"
-          onClick={() => router.back()}
-        >
-          <IoMdArrowRoundBack size={24} />
-        </Button>{' '}
-      </div>
+      <Button
+        className="hover:bg-primary/90 relative z-10 mb-8 flex items-center rounded-md p-2 transition-colors hover:cursor-pointer"
+        onClick={() => {
+          if (window.history.length > 1) {
+            router.back()
+          } else {
+            router.push('/')
+          }
+        }}
+      >
+        <IoMdArrowRoundBack size={24} />
+      </Button>
       <RenderHero media={image as Page['hero']['media']} type="highImpact" />
-
       <h1 className="mb-4 text-3xl font-bold">{announcement.title}</h1>
       <div className="announcement-content prose max-w-none">
         <RichText data={announcement.content as DefaultTypedEditorState} />

@@ -13,7 +13,6 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { Announcement } from '@/payload-types'
 
-// Import Swiper styles
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css'
@@ -56,18 +55,17 @@ export const AnnouncementsSection: FC<AnnouncementsProps> = ({ announcements }) 
                 unoptimized
                 width={500}
               />
-              <div className="items-space-between flex flex-row justify-center gap-4">
-                <div>
+              <div className="flex flex-row items-center justify-between gap-4">
+                <div className="flex flex-col items-start justify-center">
                   <h3 className="mb-2 text-xl font-semibold">{announcement.title}</h3>
                   <p>{announcement.description}</p>
                 </div>
-                <div>
-                  <Link href={`/${locale}/announcements/${announcement.slug}`}>
-                    <Button className="cursor-pointer rounded-lg bg-orange-500 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-orange-600 sm:px-8 sm:py-4 sm:text-lg">
-                      {t('readMore')}
-                    </Button>
-                  </Link>
-                </div>
+
+                <Link href={`/${locale}/announcements/${announcement.slug}`}>
+                  <Button className="cursor-pointer rounded-lg bg-orange-500 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-orange-600 sm:px-8 sm:py-4 sm:text-lg">
+                    {t('readMore')}
+                  </Button>
+                </Link>
               </div>
             </div>
           </SwiperSlide>

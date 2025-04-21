@@ -49,9 +49,12 @@ export default async function HomePage({ params }: Props) {
         <Hero />
       </section>
       {/* Announcements section */}
-      <section className="border-b border-t bg-gradient-to-b from-zinc-100 py-16" id="announcements">
-        <AnnouncementsSection announcements={announcements as Announcement[]} />
-      </section>
+      {announcements && announcements.length > 0 && (
+        <section className="border-b border-t bg-gradient-to-b from-zinc-100 py-16" id="announcements">
+          <AnnouncementsSection announcements={announcements as Announcement[]} />
+        </section>
+      )}
+
       {/* About section */}
       <section id="about">
         <AboutSection />
@@ -94,9 +97,6 @@ export default async function HomePage({ params }: Props) {
 
       {/* Support section */}
       <Support />
-
-      {/* Footer */}
-      <Footer />
     </main>
   )
 }

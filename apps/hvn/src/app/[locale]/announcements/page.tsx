@@ -9,7 +9,7 @@ import config from '@/payload.config'
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
   const pages = await payload.find({
-    collection: 'pages',
+    collection: 'announcements',
     draft: false,
     limit: 1000,
     overrideAccess: false,
