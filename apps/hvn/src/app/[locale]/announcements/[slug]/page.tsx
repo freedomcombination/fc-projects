@@ -10,7 +10,12 @@ import config from '@/payload.config'
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
 
-  const pages = await payload.find({
+  const resolvedConfig = await configPromise
+  const locales = ((resolvedConfig.localization && resolvedConfig.localization.locales) || ['en']).map((l: any) =>
+    typeof l === 'string' ? l : l.code,
+  )
+
+  const announcements = await payload.find({
     collection: 'announcements',
     draft: false,
     limit: 1000,
@@ -19,9 +24,22 @@ export async function generateStaticParams() {
     select: {
       slug: true,
     },
+    where: {
+      _status: {
+        equals: 'published',
+      },
+    },
   })
 
-  const params = pages.docs?.map(({ slug }) => ({ slug }))
+  const params = []
+
+  for (const locale of locales) {
+    for (const { slug } of announcements.docs || []) {
+      if (slug) {
+        params.push({ locale, slug })
+      }
+    }
+  }
 
   return params
 }

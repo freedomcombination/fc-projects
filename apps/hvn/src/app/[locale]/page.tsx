@@ -1,3 +1,4 @@
+import configPromise from '@payload-config'
 import { getTranslations } from 'next-intl/server'
 import { getPayload, TypedLocale } from 'payload'
 
@@ -9,6 +10,14 @@ import { PayloadForm } from '@/components/PayloadForm/PayloadForm'
 import { Support } from '@/components/support/Support'
 import { Announcement } from '@/payload-types'
 import config from '@/payload.config'
+
+export async function generateStaticParams() {
+  const resolvedConfig = await configPromise
+  const locales = ((resolvedConfig.localization && resolvedConfig.localization.locales) || ['en']).map((l: any) =>
+    typeof l === 'string' ? l : l.code,
+  )
+  return locales.map((locale) => ({ locale }))
+}
 
 type Props = {
   params: Promise<{
@@ -53,7 +62,6 @@ export default async function HomePage({ params }: Props) {
           <AnnouncementsSection announcements={announcements as Announcement[]} />
         </section>
       )}
-
       {/* About section */}
       <section id="about">
         <AboutSection />
@@ -85,7 +93,6 @@ export default async function HomePage({ params }: Props) {
                 </div>
               </div>
             </div>
-
             {contactForm && <PayloadForm formData={contactForm} />}
           </div>
         </div>

@@ -7,23 +7,11 @@ import { Announcement } from '@/payload-types'
 import config from '@/payload.config'
 
 export async function generateStaticParams() {
-  const payload = await getPayload({ config: configPromise })
-  const pages = await payload.find({
-    collection: 'announcements',
-    draft: false,
-    limit: 1000,
-    overrideAccess: false,
-    pagination: false,
-    select: {
-      slug: true,
-    },
-  })
-
-  const params = pages.docs?.map(({ slug }) => {
-    return { slug }
-  })
-
-  return params
+  const resolvedConfig = await configPromise
+  const locales = ((resolvedConfig.localization && resolvedConfig.localization.locales) || ['en']).map((l: any) =>
+    typeof l === 'string' ? l : l.code,
+  )
+  return locales.map((locale) => ({ locale }))
 }
 
 type Props = {
