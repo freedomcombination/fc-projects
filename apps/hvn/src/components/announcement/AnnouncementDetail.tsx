@@ -9,9 +9,8 @@ import RichText from '@fc/ui/components/RichText'
 import { DefaultTypedEditorState } from '@payloadcms/richtext-lexical'
 import { useRouter } from 'next/navigation'
 
-import { Announcement } from '@/components/announcement/types'
 import { RenderHero } from '@/heros/RenderHero'
-import { Page } from '@/payload-types'
+import { Announcement, Page } from '@/payload-types'
 
 type AnnouncementProps = {
   announcement: Announcement
@@ -20,6 +19,7 @@ type AnnouncementProps = {
 export const AnnouncementDetail: FC<AnnouncementProps> = ({ announcement }) => {
   const { image } = announcement || {}
   const router = useRouter()
+
   return (
     <div className="container mx-auto mt-4 px-4 py-12">
       <div className="hover:text-primary cursor-pointer transition-colors">

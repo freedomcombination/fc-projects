@@ -8,10 +8,9 @@ import { Geist } from 'next/font/google'
 import { notFound } from 'next/navigation'
 
 import { Footer } from '@/components/footer/Footer'
+import { Header } from '@/components/header/Header'
 
 import '@fc/ui/globals.css'
-
-import { Header } from '@/components/header/Header'
 
 const fontSans = Geist({
   subsets: ['latin'],

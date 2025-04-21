@@ -67,6 +67,7 @@ export default async function Page({ params: paramsPromise }: Args) {
   return (
     <article className="pb-24 pt-16">
       {draft && <LivePreviewListener />}
+
       <RenderHero type="highImpact" {...hero} />
       <RenderBlocks blocks={layout} />
     </article>
@@ -99,5 +100,6 @@ const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
       },
     },
   })
+
   return result.docs?.[0] || null
 })

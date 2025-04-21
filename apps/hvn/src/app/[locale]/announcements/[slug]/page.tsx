@@ -4,11 +4,12 @@ import { notFound } from 'next/navigation'
 import { getPayload, TypedLocale } from 'payload'
 
 import { AnnouncementDetail } from '@/components/announcement/AnnouncementDetail'
-import { Announcement } from '@/components/announcement/types'
+import { Announcement } from '@/payload-types'
 import config from '@/payload.config'
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
+
   const pages = await payload.find({
     collection: 'pages',
     draft: false,
@@ -20,22 +21,16 @@ export async function generateStaticParams() {
     },
   })
 
-  const params = pages.docs
-    ?.filter((doc) => {
-      return doc.slug !== 'home'
-    })
-    .map(({ slug }) => {
-      return { slug }
-    })
+  const params = pages.docs?.filter((doc) => doc.slug !== 'home').map(({ slug }) => ({ slug }))
 
   return params
 }
 
 type Props = {
-  params: {
+  params: Promise<{
     locale: string
     slug: string
-  }
+  }>
 }
 
 export default async function AnnouncementDetailPage({ params }: Props) {

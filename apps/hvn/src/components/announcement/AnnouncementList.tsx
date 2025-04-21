@@ -6,7 +6,7 @@ import { useLocale, useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { Announcement } from './types'
+import { Announcement, Media } from '@/payload-types'
 
 type AnnouncementListProps = {
   announcements: Announcement[]
@@ -28,7 +28,7 @@ export const AnnouncementList: FC<AnnouncementListProps> = ({ announcements }) =
                   alt={item.title + ' image'}
                   className="mb-4 rounded-md object-cover"
                   height={300}
-                  src={item.image.url}
+                  src={(item.image as Media).url as string}
                   width={400}
                 />
               )}

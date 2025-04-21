@@ -6,16 +6,17 @@ import { Button } from '@fc/ui/base/button'
 
 import { useTranslations } from 'next-intl'
 import { useLocale } from 'next-intl'
-// Import Swiper styles
 import Image from 'next/image'
-import 'swiper/css'
 import Link from 'next/link'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-import { Announcement } from './types'
+import { Announcement } from '@/payload-types'
+
+// Import Swiper styles
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import 'swiper/css'
 
 type AnnouncementsProps = {
   announcements: Announcement[]
@@ -48,8 +49,8 @@ export const AnnouncementsSection: FC<AnnouncementsProps> = ({ announcements }) 
                 className="mb-4 w-full rounded-md object-contain"
                 height={300}
                 src={
-                  announcement.image
-                    ? `${process.env.NEXT_PUBLIC_PAYLOAD_URL}${announcement.image.url}`
+                  typeof announcement.image === 'object'
+                    ? `${process.env.NEXT_PUBLIC_PAYLOAD_URL}${announcement.image?.url}`
                     : '/path/to/default-image.jpg'
                 }
                 unoptimized

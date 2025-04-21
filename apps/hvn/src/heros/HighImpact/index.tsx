@@ -11,6 +11,7 @@ import { useHeaderTheme } from '@/providers/HeaderTheme'
 
 export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText }) => {
   const { setHeaderTheme } = useHeaderTheme()
+
   useEffect(() => {
     setHeaderTheme('dark')
   })

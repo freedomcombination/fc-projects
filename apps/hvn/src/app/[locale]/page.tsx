@@ -3,12 +3,12 @@ import { getPayload, TypedLocale } from 'payload'
 
 import { AboutSection } from '@/components/about/AboutSection'
 import { AnnouncementsSection } from '@/components/announcement/AnnouncementsSection'
-import { Announcement } from '@/components/announcement/types'
 import { ApplicationForm } from '@/components/application-from'
 import { Footer } from '@/components/footer/Footer'
 import { Hero } from '@/components/hero/Hero'
 import { PayloadForm } from '@/components/PayloadForm/PayloadForm'
 import { Support } from '@/components/support/Support'
+import { Announcement } from '@/payload-types'
 import config from '@/payload.config'
 
 type Props = {
