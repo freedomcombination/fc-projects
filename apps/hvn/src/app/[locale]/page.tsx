@@ -4,7 +4,6 @@ import { getPayload, TypedLocale } from 'payload'
 import { AboutSection } from '@/components/about/AboutSection'
 import { AnnouncementsSection } from '@/components/announcement/AnnouncementsSection'
 import { ApplicationForm } from '@/components/application-from'
-import { Footer } from '@/components/footer/Footer'
 import { Hero } from '@/components/hero/Hero'
 import { PayloadForm } from '@/components/PayloadForm/PayloadForm'
 import { Support } from '@/components/support/Support'
@@ -66,7 +65,6 @@ export default async function HomePage({ params }: Props) {
           <ApplicationForm applicationForm={applicationForm} />
         </section>
       )}
-
       {/* Contact section */}
       <section className="py-16" id="contact">
         <div className="container mx-auto px-4">
@@ -74,12 +72,10 @@ export default async function HomePage({ params }: Props) {
             <h2 className="mb-8 text-4xl font-bold">{t('Contact.title')}</h2>
             <p className="text-muted-foreground mx-auto max-w-2xl">{t('Contact.subtitle')}</p>
           </div>
-
           <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-2">
             {/* Contact Information */}
             <div className="space-y-8">
               <h3 className="mb-6 text-2xl font-semibold">{t('Contact.contactInfo')}</h3>
-
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div>
@@ -94,7 +90,6 @@ export default async function HomePage({ params }: Props) {
           </div>
         </div>
       </section>
-
       {/* Support section */}
       <Support />
     </main>

@@ -21,7 +21,7 @@ export async function generateStaticParams() {
     },
   })
 
-  const params = pages.docs?.filter((doc) => doc.slug !== 'home').map(({ slug }) => ({ slug }))
+  const params = pages.docs?.map(({ slug }) => ({ slug }))
 
   return params
 }
@@ -40,15 +40,12 @@ export default async function AnnouncementDetailPage({ params }: Props) {
 
   const result = await payload.find({
     collection: 'announcements',
-    draft,
+    draft: false,
     limit: 1,
     locale: locale as TypedLocale,
     overrideAccess: draft,
     pagination: false,
     where: {
-      _status: {
-        equals: 'published',
-      },
       slug: {
         equals: slug,
       },
