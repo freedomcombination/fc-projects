@@ -1,4 +1,4 @@
-import { EVENT_MOCKS } from '@fc/mocks/event'
+import { EVENT_MOCKS } from '@fc/mocks'
 
 import { Meta, StoryObj } from '@storybook/react'
 
