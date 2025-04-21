@@ -1,3 +1,4 @@
+import configPromise from '@payload-config'
 import { draftMode } from 'next/headers'
 import { notFound } from 'next/navigation'
 import { getPayload, TypedLocale } from 'payload'
@@ -5,6 +6,30 @@ import { getPayload, TypedLocale } from 'payload'
 import { AnnouncementDetail } from '@/components/announcement/AnnouncementDetail'
 import { Announcement } from '@/components/announcement/types'
 import config from '@/payload.config'
+
+export async function generateStaticParams() {
+  const payload = await getPayload({ config: configPromise })
+  const pages = await payload.find({
+    collection: 'pages',
+    draft: false,
+    limit: 1000,
+    overrideAccess: false,
+    pagination: false,
+    select: {
+      slug: true,
+    },
+  })
+
+  const params = pages.docs
+    ?.filter((doc) => {
+      return doc.slug !== 'home'
+    })
+    .map(({ slug }) => {
+      return { slug }
+    })
+
+  return params
+}
 
 type Props = {
   params: {
