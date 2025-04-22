@@ -11,7 +11,7 @@ import Link from 'next/link'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-import { Announcement } from '@/payload-types'
+import { Announcement, Media } from '@/payload-types'
 
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
@@ -47,11 +47,7 @@ export const AnnouncementsSection: FC<AnnouncementsProps> = ({ announcements }) 
                 alt="announcement"
                 className="mb-4 w-full rounded-md object-contain"
                 height={300}
-                src={
-                  typeof announcement.image === 'object'
-                    ? `${process.env.NEXT_PUBLIC_PAYLOAD_URL}${announcement.image?.url}`
-                    : '/path/to/default-image.jpg'
-                }
+                src={(announcement.image as Media).url as string}
                 unoptimized
                 width={500}
               />
