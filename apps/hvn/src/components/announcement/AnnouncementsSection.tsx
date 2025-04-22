@@ -51,7 +51,7 @@ export const AnnouncementsSection: FC<AnnouncementsProps> = ({ announcements }) 
                 unoptimized
                 width={500}
               />
-              <div className="flex flex-row items-center justify-between gap-4">
+              <div className="flex flex-row md:flex-row items-center justify-between gap-4">
                 <div className="flex flex-col items-start justify-center">
                   <h3 className="mb-2 text-xl font-semibold">{announcement.title}</h3>
                   <p>{announcement.description}</p>
