@@ -1,7 +1,15 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "ui": "tui",
-  "globalPassThroughEnv": ["COREPACK_HOME", "DATABASE_URL", "EMAIL_PASS", "NODE_ENV", "PAYLOAD_SECRET", "STRIPE_KEY"],
+  "globalPassThroughEnv": [
+    "BLOB_READ_WRITE_TOKEN",
+    "COREPACK_HOME",
+    "DATABASE_URL",
+    "EMAIL_PASS",
+    "NODE_ENV",
+    "PAYLOAD_SECRET",
+    "STRIPE_KEY"
+  ],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
