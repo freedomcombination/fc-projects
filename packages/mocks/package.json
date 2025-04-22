@@ -1,16 +1,16 @@
 {
   "name": "@fc/mocks",
   "version": "0.0.0",
-  "main": "./index.ts",
+  "private": true,
   "type": "module",
-  "types": "./index.ts",
-  "license": "MIT",
+  "main": "src/index.ts",
   "scripts": {
-    "lint": "eslint \"**/*.ts*\"",
-    "clean": "rm -rf .turbo node_modules",
-    "tsc": "npx tsc --noEmit"
+    "lint": "eslint . --fix",
+    "tsc": "tsc --noEmit"
   },
-  "dependencies": {},
+  "exports": {
+    ".": "./src/index.ts"
+  },
   "devDependencies": {
     "@fc/config-eslint": "workspace:*",
     "@fc/config-typescript": "workspace:*",

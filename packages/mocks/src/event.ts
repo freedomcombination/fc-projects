@@ -1,4 +1,4 @@
-import { Event } from '@fc/types'
+import { Event } from '@fc/types/event'
 
 export const EVENT_MOCKS: Event[] = [
   {

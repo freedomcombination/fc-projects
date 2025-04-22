@@ -1,32 +1,49 @@
 import { getTranslations } from 'next-intl/server'
+import { draftMode } from 'next/headers'
 import { getPayload, TypedLocale } from 'payload'
 
 import { AboutSection } from '@/components/about/AboutSection'
+import { AnnouncementsSection } from '@/components/announcement/AnnouncementsSection'
 import { ApplicationForm } from '@/components/application-from'
-import { Footer } from '@/components/footer/Footer'
 import { Hero } from '@/components/hero/Hero'
 import { PayloadForm } from '@/components/PayloadForm/PayloadForm'
 import { Support } from '@/components/support/Support'
+import { LOCALES } from '@/i18n/locales'
+import { Announcement } from '@/payload-types'
 import config from '@/payload.config'
 
-type Props = {
+export async function generateStaticParams() {
+  return LOCALES.map((locale) => ({ locale }))
+}
+
+type Args = {
   params: Promise<{
     locale: TypedLocale
   }>
 }
 
-export default async function HomePage({ params }: Props) {
+export default async function HomePage({ params }: Args) {
   const t = await getTranslations()
   const { locale } = await params
+  const { isEnabled: draft } = await draftMode()
 
   const payload = await getPayload({ config })
 
   const formsResponse = await payload.find({
     collection: 'forms',
-    draft: false,
-    locale: locale || 'en', // this is now redundant
-    overrideAccess: false,
+    draft,
+    locale: locale || 'en',
+    overrideAccess: draft,
   })
+
+  const announcementsResponse = await payload.find({
+    collection: 'announcements',
+    draft,
+    locale: locale || 'en',
+    overrideAccess: draft,
+  })
+
+  const announcements = announcementsResponse.docs
 
   const applicationForm = formsResponse.docs.find((f) => f.title === 'Application Form')
   const contactForm = formsResponse.docs.find((f) => f.title === 'Contact Form')
@@ -37,7 +54,12 @@ export default async function HomePage({ params }: Props) {
       <section className="from-primary to-secondary relative min-h-screen bg-gradient-to-b" id="home">
         <Hero />
       </section>
-
+      {/* Announcements section */}
+      {announcements && announcements.length > 0 && (
+        <section className="border-b border-t bg-gradient-to-b from-zinc-100 py-16" id="announcements">
+          <AnnouncementsSection announcements={announcements as Announcement[]} />
+        </section>
+      )}
       {/* About section */}
       <section id="about">
         <AboutSection />
@@ -49,7 +71,6 @@ export default async function HomePage({ params }: Props) {
           <ApplicationForm applicationForm={applicationForm} />
         </section>
       )}
-
       {/* Contact section */}
       <section className="py-16" id="contact">
         <div className="container mx-auto px-4">
@@ -57,12 +78,10 @@ export default async function HomePage({ params }: Props) {
             <h2 className="mb-8 text-4xl font-bold">{t('Contact.title')}</h2>
             <p className="text-muted-foreground mx-auto max-w-2xl">{t('Contact.subtitle')}</p>
           </div>
-
           <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-2">
             {/* Contact Information */}
             <div className="space-y-8">
               <h3 className="mb-6 text-2xl font-semibold">{t('Contact.contactInfo')}</h3>
-
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div>
@@ -72,17 +91,12 @@ export default async function HomePage({ params }: Props) {
                 </div>
               </div>
             </div>
-
             {contactForm && <PayloadForm formData={contactForm} />}
           </div>
         </div>
       </section>
-
       {/* Support section */}
       <Support />
-
-      {/* Footer */}
-      <Footer />
     </main>
   )
 }

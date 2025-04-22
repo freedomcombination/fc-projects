@@ -12,6 +12,7 @@
     "home": "Ana Sayfa",
     "contactNav": "İletişim",
     "application": "Başvuru",
+    "announcements": "Duyurular",
     "about": "Hakkımızda",
     "contact": "İletişim",
     "support": "Destek",
@@ -112,17 +113,29 @@
     "bankTransfer": "Banka Havalesi ile Destek Olun",
     "improvement": "Sayfamızı size daha iyi hizmet sunmak için sürekli olarak geliştiriyoruz."
   },
-  "donation": {
+  "Donation": {
     "title": "Bağış Yap",
     "name": "Ad",
-    "email": "E-posta",
+    "email": "E-posta:",
     "button": "Bağış Yap",
+    "card": "Kart",
     "amountPrefix": "₺",
     "success": {
       "title": "Bağışınız için teşekkür ederiz!",
       "message": "Cömert katkılarınız fark yaratacak. Bağışınızın detaylarıyla ilgili bir onay e-postası gönderdik.",
       "backHome": "Ana Sayfaya Dön"
-    }
+    },
+    "thankYou": "Teşekkürler",
+    "cancel": "İşlem iptal edildi",
+    "details": "Bağış detayları:",
+    "amount": "Bağış miktarı",
+    "typeOfDonation": "Bağış süresi",
+    "oneTime": "Tek Seferlik",
+    "monthly": "Aylık",
+    "yearly": "Yıllık",
+    "securePayment": "Güvenli Ödeme",
+    "thankYouMessage": "Değerli desteğiniz için teşekkür ederiz. Bağışınız başarıyla gerçekleştirildi. Yardımlarınız sayesinde daha fazla kişiye ulaşabileceğiz.",
+    "completeError": "Bağış işlemi tamamlanmadı. Lütfen daha sonra tekrar deneyiniz."
   },
   "Hero": {
     "title": "Hollanda'da Birlik",
@@ -184,6 +197,7 @@
     },
     "otherPlaceholder": "Lütfen açıklayın"
   },
+  "readMore": "Daha Fazla Oku",
   "close": "Kapat",
   "search": "Ara"
 }

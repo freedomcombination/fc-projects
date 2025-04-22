@@ -17,6 +17,7 @@
     "home": "Home",
     "application": "Application",
     "about": "About",
+    "announcements": "Announcements",
     "support": "Support",
     "navigation": "Navigation",
     "legal": "Legal",
@@ -105,17 +106,29 @@
     "thankYou": "Thank you for your application. We will contact you as soon as possible.",
     "title": "Application Form"
   },
-  "donation": {
+  "Donation": {
     "title": "Make a Donation",
     "name": "Name",
     "email": "Email",
     "button": "Donate",
+    "card": "Card",
     "amountPrefix": "€",
     "success": {
       "title": "Thank you for your donation!",
       "message": "Your donation has been received. We appreciate your support.",
       "backHome": "Back to Home"
-    }
+    },
+    "thankYou": "Thank you",
+    "cancel": "Transaction cancelled",
+    "details": "Donation details:",
+    "amount": "Donation amount",
+    "typeOfDonation": "Donation frequency",
+    "oneTime": "One-Time",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "securePayment": "Secure Payment",
+    "thankYouMessage": "Thank you for your valuable support. Your donation was successfully completed. Thanks to your help, we will be able to reach more people.",
+    "completeError": "The donation process was not completed. Please try again later."
   },
   "Hero": {
     "title": "Harmony of the Netherlands",
@@ -184,6 +197,7 @@
     },
     "otherPlaceholder": "Please specify"
   },
+  "readMore": "Read More",
   "close": "Close",
   "search": "Search"
 }

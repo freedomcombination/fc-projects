@@ -36,7 +36,7 @@ export const Support = () => {
           <div className="space-y-4">
             <Tabs className="h-[480px]" defaultValue="stripe">
               <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="stripe">Card / Ideal</TabsTrigger>
+                <TabsTrigger value="stripe">{t('Donation.card')} / Ideal</TabsTrigger>
                 <TabsTrigger value="bank">{t('Support.bankTransferTitle')}</TabsTrigger>
               </TabsList>
               <TabsContent className="py-2" value="stripe">
