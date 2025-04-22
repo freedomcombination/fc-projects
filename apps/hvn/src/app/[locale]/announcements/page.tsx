@@ -24,7 +24,7 @@ export default async function AnnouncementsPage({ params }: Args) {
   const { docs } = await payload.find({
     collection: 'announcements',
     draft: false,
-    locale: locale as TypedLocale,
+    locale,
     sort: '-publishedAt',
   })
 
