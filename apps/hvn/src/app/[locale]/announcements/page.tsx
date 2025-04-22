@@ -1,34 +1,31 @@
-import configPromise from '@payload-config'
 import { notFound } from 'next/navigation'
 import { getPayload, TypedLocale } from 'payload'
 
 import { AnnouncementList } from '@/components/announcement/AnnouncementList'
+import { LOCALES } from '@/i18n/locales'
 import { Announcement } from '@/payload-types'
-import config from '@/payload.config'
+import configPromise from '@/payload.config'
 
-export async function generateStaticParams() {
-  const resolvedConfig = await configPromise
-  const locales = ((resolvedConfig.localization && resolvedConfig.localization.locales) || ['en']).map((l: any) =>
-    typeof l === 'string' ? l : l.code,
-  )
-  return locales.map((locale) => ({ locale }))
-}
-
-type Props = {
+type Args = {
   params: Promise<{
-    locale: string
+    locale: TypedLocale
   }>
 }
 
-export default async function AnnouncementsPage({ params }: Props) {
+export async function generateStaticParams() {
+  return LOCALES.map((locale) => ({ locale, slug: 'announcements' }))
+}
+
+export default async function AnnouncementsPage({ params }: Args) {
   const { locale } = await params
+  const config = await configPromise
   const payload = await getPayload({ config })
 
   const { docs } = await payload.find({
     collection: 'announcements',
+    draft: false,
     locale: locale as TypedLocale,
     sort: '-publishedAt',
-    where: { _status: { equals: 'published' } },
   })
 
   if (!docs || docs.length === 0) return notFound()

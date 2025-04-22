@@ -1,4 +1,4 @@
-import React, { cache } from 'react'
+import { cache } from 'react'
 
 import { type CmsBlock, RenderBlocks } from '@fc/ui/blocks/RenderBlocks'
 
@@ -7,52 +7,77 @@ import type { Metadata } from 'next'
 import configPromise from '@payload-config'
 import { draftMode } from 'next/headers'
 import { redirect } from 'next/navigation'
-import { getPayload, type RequiredDataFromCollectionSlug } from 'payload'
+import { getPayload, TypedLocale } from 'payload'
 
 import { LivePreviewListener } from '@/components/LivePreviewListener'
 import { homeStatic } from '@/data/homeStatic'
 import { RenderHero } from '@/heros/RenderHero'
+import { LOCALES } from '@/i18n/locales'
 import { generateMeta } from '@/utilities/generateMeta'
+
+type Args = {
+  params: Promise<{
+    locale: TypedLocale
+    slug: string
+  }>
+}
 
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
+
   const pages = await payload.find({
     collection: 'pages',
     draft: false,
     limit: 1000,
     overrideAccess: false,
     pagination: false,
-    select: {
-      slug: true,
-    },
+    select: { slug: true },
+    where: { slug: { not_in: ['announcements', 'home'] } },
   })
 
-  const params = pages.docs
-    ?.filter((doc) => {
-      return doc.slug !== 'home'
-    })
-    .map(({ slug }) => {
-      return { slug }
-    })
+  const slugs = pages.docs?.map(({ slug }) => slug)
+
+  const params = []
+
+  for (const locale of LOCALES) {
+    for (const slug of slugs || []) {
+      params.push({ locale, slug })
+    }
+  }
 
   return params
 }
 
-type Args = {
-  params: Promise<{
-    slug?: string
-  }>
+export async function generateMetadata({ params }: Args): Promise<Metadata> {
+  const { locale, slug } = await params
+  const page = await queryPageBySlug({ locale, slug })
+
+  return generateMeta({ doc: page })
 }
 
-export default async function Page({ params: paramsPromise }: Args) {
+const queryPageBySlug = cache(async ({ locale, slug }: { locale: TypedLocale; slug: string }) => {
   const { isEnabled: draft } = await draftMode()
-  const { slug = 'home' } = await paramsPromise
 
-  let page: RequiredDataFromCollectionSlug<'pages'> | null
+  const payload = await getPayload({ config: configPromise })
 
-  page = await queryPageBySlug({
-    slug,
+  const result = await payload.find({
+    collection: 'pages',
+    draft,
+    limit: 1,
+    locale,
+    overrideAccess: draft,
+    pagination: false,
+    where: { slug: { equals: slug } },
   })
+
+  return result.docs?.[0] || null
+})
+
+export default async function Page({ params }: Args) {
+  const { locale, slug } = await params
+  const { isEnabled: draft } = await draftMode()
+
+  let page = await queryPageBySlug({ locale, slug })
 
   if (!page && slug === 'home') {
     page = homeStatic as unknown as typeof page
@@ -73,33 +98,3 @@ export default async function Page({ params: paramsPromise }: Args) {
     </article>
   )
 }
-
-export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
-  const { slug = 'home' } = await paramsPromise
-  const page = await queryPageBySlug({
-    slug,
-  })
-
-  return generateMeta({ doc: page })
-}
-
-const queryPageBySlug = cache(async ({ slug }: { slug: string }) => {
-  const { isEnabled: draft } = await draftMode()
-
-  const payload = await getPayload({ config: configPromise })
-
-  const result = await payload.find({
-    collection: 'pages',
-    draft,
-    limit: 1,
-    overrideAccess: draft,
-    pagination: false,
-    where: {
-      slug: {
-        equals: slug,
-      },
-    },
-  })
-
-  return result.docs?.[0] || null
-})

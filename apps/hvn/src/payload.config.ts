@@ -15,6 +15,7 @@ import { fileURLToPath } from 'url'
 
 import { Announcements } from './collections/announcements'
 import { Pages } from './collections/Pages'
+import { LOCALES } from './i18n/locales'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -71,7 +72,7 @@ export default buildConfig({
   localization: {
     defaultLocale: 'en',
     fallback: true,
-    locales: ['en', 'nl', 'tr'],
+    locales: LOCALES,
   },
   plugins: [
     payloadCloudPlugin(),

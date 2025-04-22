@@ -4,41 +4,41 @@ import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 
 const CookiePolicy = () => {
-  const t = useTranslations('legalPages.cookies')
-  const privacyt = useTranslations('legalPages.privacy')
+  const tCookies = useTranslations('legalPages.cookies')
+  const tPrivacy = useTranslations('legalPages.privacy')
 
   return (
     <div className="mx-auto max-w-4xl space-y-8 px-4 py-12">
       <div className="mb-12 text-center">
-        <h1 className="text-primary animate-fade-in mb-4 text-4xl font-bold">{t('title')}</h1>
-        <p className="text-muted-foreground mx-auto max-w-2xl">{t('content')}</p>
+        <h1 className="text-primary animate-fade-in mb-4 text-4xl font-bold">{tCookies('title')}</h1>
+        <p className="text-muted-foreground mx-auto max-w-2xl">{tCookies('content')}</p>
       </div>
 
       <div className="grid gap-8 md:grid-cols-2">
         <div className="bg-background rounded-lg border p-6 shadow-sm transition-shadow hover:shadow-md">
           <div className="mb-4 flex items-center">
             <FaCookie className="text-primary mr-4 h-8 w-8" />
-            <h2 className="text-2xl font-semibold">{t('cookieTypes.title')}</h2>
+            <h2 className="text-2xl font-semibold">{tCookies('cookieTypes.title')}</h2>
           </div>
-          <p className="text-muted-foreground">{t('cookieTypes.description')}</p>
+          <p className="text-muted-foreground">{tCookies('cookieTypes.description')}</p>
         </div>
 
         <div className="bg-background rounded-lg border p-6 shadow-sm transition-shadow hover:shadow-md">
           <div className="mb-4 flex items-center">
             <FaInfoCircle className="text-primary mr-4 h-8 w-8" />
-            <h2 className="text-2xl font-semibold">{t('userConsent.title')}</h2>
+            <h2 className="text-2xl font-semibold">{tCookies('userConsent.title')}</h2>
           </div>
-          <p className="text-muted-foreground">{t('userConsent.description')}</p>
+          <p className="text-muted-foreground">{tCookies('userConsent.description')}</p>
         </div>
       </div>
 
       <div className="bg-background rounded-lg border p-6 shadow-sm transition-shadow hover:shadow-md">
         <div className="mb-4 flex items-center">
           <FaEnvelope className="text-primary mr-4 h-8 w-8" />
-          <h2 className="text-2xl font-semibold">{privacyt('contact.title')}</h2>
+          <h2 className="text-2xl font-semibold">{tPrivacy('contact.title')}</h2>
         </div>
         <p className="text-muted-foreground">
-          {privacyt('contact.description')}{' '}
+          {tPrivacy('contact.description')}{' '}
           <Link
             className="text-primary inline-flex items-center font-medium hover:underline"
             href="mailto:info@harmonievannederland.com"
