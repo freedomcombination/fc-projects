@@ -15,12 +15,14 @@
     "start": "next start"
   },
   "dependencies": {
+    "@fc/config-payload": "workspace:*",
     "@payloadcms/db-mongodb": "^3.35.1",
     "@payloadcms/email-nodemailer": "^3.35.1",
     "@payloadcms/next": "^3.35.1",
     "@payloadcms/payload-cloud": "^3.35.1",
     "@payloadcms/plugin-form-builder": "^3.35.1",
     "@payloadcms/richtext-lexical": "^3.35.1",
+    "@payloadcms/storage-vercel-blob": "^3.35.1",
     "cross-env": "^7.0.3",
     "graphql": "^16.10.0",
     "lexical": "^0.30.0",
@@ -34,7 +36,6 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
     "@fc/config-eslint": "workspace:*",
-    "@fc/config-payload": "workspace:*",
     "@fc/ui": "workspace:*",
     "@types/node": "^22.14.1",
     "@types/nodemailer": "^6.4.17",

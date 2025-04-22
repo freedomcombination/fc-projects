@@ -7,6 +7,7 @@ import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
 import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
 import { formBuilderPlugin } from '@payloadcms/plugin-form-builder'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
+import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import nodemailer from 'nodemailer'
 import path from 'path'
 import { buildConfig } from 'payload'
@@ -75,6 +76,13 @@ export default buildConfig({
     locales: LOCALES,
   },
   plugins: [
+    vercelBlobStorage({
+      collections: {
+        media: true,
+      },
+      enabled: true,
+      token: process.env.BLOB_READ_WRITE_TOKEN,
+    }),
     payloadCloudPlugin(),
     formBuilderPlugin({
       fields: {
