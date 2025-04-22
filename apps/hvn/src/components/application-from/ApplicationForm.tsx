@@ -89,7 +89,7 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
     fetch(`/api/form-submissions`, {
       body: JSON.stringify({
         form: applicationForm.id,
-        submissionData: {
+        submissionData: Object.entries({
           city: data.city,
           dateOfBirth: data.dateOfBirth,
           email: data.email,
@@ -104,7 +104,7 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
           }),
           participationType: data.participationType,
           phone: data.phone,
-        } satisfies ApplicationFormInput,
+        }).map(([field, value]) => ({ field, value })),
       }),
       headers: { 'Content-Type': 'application/json' },
       method: 'POST',
