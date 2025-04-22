@@ -32,7 +32,7 @@ export async function generateStaticParams() {
     overrideAccess: false,
     pagination: false,
     select: { slug: true },
-    where: { slug: { not_in: ['announcements', 'home'] } },
+    where: { slug: { not_in: ['announcements'] } },
   })
 
   const slugs = pages.docs?.map(({ slug }) => slug)
