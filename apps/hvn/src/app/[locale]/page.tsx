@@ -1,4 +1,5 @@
 import { getTranslations } from 'next-intl/server'
+import { draftMode } from 'next/headers'
 import { getPayload, TypedLocale } from 'payload'
 
 import { AboutSection } from '@/components/about/AboutSection'
@@ -15,30 +16,31 @@ export async function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }))
 }
 
-type Props = {
+type Args = {
   params: Promise<{
     locale: TypedLocale
   }>
 }
 
-export default async function HomePage({ params }: Props) {
+export default async function HomePage({ params }: Args) {
   const t = await getTranslations()
   const { locale } = await params
+  const { isEnabled: draft } = await draftMode()
 
   const payload = await getPayload({ config })
 
   const formsResponse = await payload.find({
     collection: 'forms',
-    draft: false,
+    draft,
     locale: locale || 'en',
-    overrideAccess: false,
+    overrideAccess: draft,
   })
 
   const announcementsResponse = await payload.find({
     collection: 'announcements',
-    draft: false,
+    draft,
     locale: locale || 'en',
-    overrideAccess: false,
+    overrideAccess: draft,
   })
 
   const announcements = announcementsResponse.docs

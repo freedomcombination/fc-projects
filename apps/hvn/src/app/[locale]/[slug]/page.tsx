@@ -22,6 +22,24 @@ type Args = {
   }>
 }
 
+const queryPageBySlug = cache(
+  async ({ draft, locale, slug }: { locale: TypedLocale; slug: string; draft: boolean }) => {
+    const payload = await getPayload({ config: configPromise })
+
+    const result = await payload.find({
+      collection: 'pages',
+      draft,
+      limit: 1,
+      locale,
+      overrideAccess: draft,
+      pagination: false,
+      where: { slug: { equals: slug } },
+    })
+
+    return result.docs?.[0] || null
+  },
+)
+
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
 
@@ -50,34 +68,16 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Args): Promise<Metadata> {
   const { locale, slug } = await params
-  const page = await queryPageBySlug({ locale, slug })
+  const page = await queryPageBySlug({ draft: false, locale, slug })
 
   return generateMeta({ doc: page })
 }
-
-const queryPageBySlug = cache(async ({ locale, slug }: { locale: TypedLocale; slug: string }) => {
-  const { isEnabled: draft } = await draftMode()
-
-  const payload = await getPayload({ config: configPromise })
-
-  const result = await payload.find({
-    collection: 'pages',
-    draft,
-    limit: 1,
-    locale,
-    overrideAccess: draft,
-    pagination: false,
-    where: { slug: { equals: slug } },
-  })
-
-  return result.docs?.[0] || null
-})
 
 export default async function Page({ params }: Args) {
   const { locale, slug } = await params
   const { isEnabled: draft } = await draftMode()
 
-  let page = await queryPageBySlug({ locale, slug })
+  let page = await queryPageBySlug({ draft, locale, slug })
 
   if (!page && slug === 'home') {
     page = homeStatic as unknown as typeof page
