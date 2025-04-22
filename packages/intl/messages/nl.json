@@ -123,8 +123,9 @@
     "bankTransfer": "Ondersteuning bij bankoverschrijving",
     "improvement": "We werken continu aan onze site om u betere diensten te bieden."
   },
-  "donation": {
+  "Donation": {
     "title": "Donatie maken",
+    "card": "Kaart",
     "name": "Naam",
     "email": "E-mail",
     "button": "Doneren",
@@ -133,7 +134,18 @@
       "title": "Bedankt voor uw donatie!",
       "message": "Uw gulle bijdrage zal ons helpen een verschil te maken. We hebben u een bevestigingsmail gestuurd met de details van uw donatie.",
       "backHome": "Terug naar Home"
-    }
+    },
+    "thankYou": "Dank je wel",
+    "cancel": "Transactie geannuleerd",
+    "details": "Donatiegegevens:",
+    "amount": "Donatiebedrag",
+    "typeOfDonation": "Donatiefrequentie",
+    "oneTime": "Eenmalig",
+    "monthly": "Maandelijks",
+    "yearly": "Jaarlijks",
+    "securePayment": "Veilige Betaling",
+    "thankYouMessage": "Bedankt voor je waardevolle steun. Je donatie is succesvol voltooid. Dankzij jouw hulp kunnen we meer mensen bereiken.",
+    "completeError": "De donatie is niet voltooid. Probeer het later opnieuw."
   },
   "Hero": {
     "title": "Harmonie van Nederland",

@@ -9,6 +9,7 @@ import { Label } from '@fc/ui/base/label'
 import { cn } from '@fc/ui/lib/utils'
 
 import { CircleCheck, Lock } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 import DonationButton from './donation-button'
 
@@ -26,6 +27,7 @@ interface FormData {
 }
 
 export function SupportStripe() {
+  const t = useTranslations('Donation')
   const [formData, setFormData] = useState<FormData>({
     customAmount: '25',
     email: process.env.NODE_ENV !== 'production' ? 'B1X3F@example.com' : '',
@@ -53,7 +55,7 @@ export function SupportStripe() {
       <CardContent>
         <form className="space-y-6">
           <div className="space-y-2">
-            <Label htmlFor="email">E-mail</Label>
+            <Label htmlFor="email">{t('email')}</Label>
             <Input
               autoComplete="email"
               className="px-2"
@@ -71,7 +73,7 @@ export function SupportStripe() {
           </div>
 
           <div className="flex flex-col space-y-2">
-            <Label>Bağış Miktarı (€)</Label>
+            <Label>{t('amount')} (€)</Label>
             <Input
               className="w-full p-2 text-center"
               onChange={(e) => handleCustomAmount(e.target.value)}
@@ -98,7 +100,7 @@ export function SupportStripe() {
           </div>
 
           <div className="space-y-2">
-            <Label>Bağış Sıklığı</Label>
+            <Label>{t('typeOfDonation')}</Label>
             <div className="grid w-full grid-cols-3 gap-2">
               <Button
                 className={cn(
@@ -114,7 +116,7 @@ export function SupportStripe() {
                 type="button"
                 variant={formData.frequency === 'monthly' ? 'default' : 'outline'}
               >
-                Aylık
+                {t('monthly')}
               </Button>
               <Button
                 className={cn(
@@ -130,7 +132,7 @@ export function SupportStripe() {
                 type="button"
                 variant={formData.frequency === 'one-time' ? 'default' : 'outline'}
               >
-                Tek Seferlik
+                {t('oneTime')}
               </Button>
               <div className="flex flex-row items-center justify-between">
                 <div className="flex w-full justify-center">
@@ -151,12 +153,12 @@ export function SupportStripe() {
             type={formData.frequency}
           >
             <Lock className="mr-2 h-4 w-4" />
-            Bağış Yap
+            {t('title')}
           </DonationButton>
 
           <Label className="text-muted-foreground flex items-center justify-center">
             <CircleCheck className="mr-2 h-4 w-4" />
-            Güvenli Ödeme
+            {t('securePayment')}
           </Label>
         </form>
       </CardContent>
