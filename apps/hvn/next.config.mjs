@@ -16,11 +16,6 @@ const nextConfig = getNextConfig({
         protocol: 'https',
       },
       {
-        hostname: 'scontent.fgrq1-1.fna.fbcdn.net',
-        pathname: '/**',
-        protocol: 'https',
-      },
-      {
         hostname: 'stichtingsanat.nl',
         pathname: '/**',
         protocol: 'https',

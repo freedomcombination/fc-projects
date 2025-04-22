@@ -7,6 +7,7 @@ import { getMessages } from 'next-intl/server'
 import { Geist } from 'next/font/google'
 import { notFound } from 'next/navigation'
 
+import { Footer } from '@/components/footer/Footer'
 import { Header } from '@/components/header/Header'
 
 import '@fc/ui/globals.css'
@@ -38,6 +39,7 @@ export default async function RootLayout({
           <Providers>
             <Header />
             <main className="flex-1">{children}</main>
+            <Footer />
           </Providers>
         </NextIntlClientProvider>
         <Toaster />

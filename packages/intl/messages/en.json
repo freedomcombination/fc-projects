@@ -17,6 +17,7 @@
     "home": "Home",
     "application": "Application",
     "about": "About",
+    "announcements": "Announcements",
     "support": "Support",
     "navigation": "Navigation",
     "legal": "Legal",
@@ -196,6 +197,7 @@
     },
     "otherPlaceholder": "Please specify"
   },
+  "readMore": "Read More",
   "close": "Close",
   "search": "Search"
 }

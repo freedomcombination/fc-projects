@@ -12,6 +12,7 @@
     "home": "Ana Sayfa",
     "contactNav": "İletişim",
     "application": "Başvuru",
+    "announcements": "Duyurular",
     "about": "Hakkımızda",
     "contact": "İletişim",
     "support": "Destek",
@@ -196,6 +197,7 @@
     },
     "otherPlaceholder": "Lütfen açıklayın"
   },
+  "readMore": "Daha Fazla Oku",
   "close": "Kapat",
   "search": "Ara"
 }
