@@ -2,7 +2,7 @@ import { draftMode } from 'next/headers'
 import { notFound } from 'next/navigation'
 import { getPayload, TypedLocale } from 'payload'
 
-import { AnnouncementDetail } from '@/components/announcement/AnnouncementDetail'
+import { AnnouncementDetail } from '@/components/Announcement/AnnouncementDetail'
 import { LOCALES } from '@/i18n/locales'
 import { Announcement } from '@/payload-types'
 import configPromise from '@/payload.config'

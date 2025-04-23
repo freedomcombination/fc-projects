@@ -1,9 +1,9 @@
 import { Suspense } from 'react'
 
 import { Button } from '@fc/ui/base/button'
-import { Contact } from '@fc/ui/components/contact'
-import { LocaleSwitcher } from '@fc/ui/components/locale-switcher'
-import { ModeToggle } from '@fc/ui/components/mode-toggle'
+import { Contact } from '@fc/ui/components/Contact'
+import { LocaleSwitcher } from '@fc/ui/components/LocaleSwitcher'
+import { ModeToggle } from '@fc/ui/components/ModeToggle'
 
 import { useTranslations } from 'next-intl'
 

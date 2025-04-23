@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { IoClose, IoMenu } from 'react-icons/io5'
 
-import { LocaleSwitcher } from '@fc/ui/components/locale-switcher'
+import { LocaleSwitcher } from '@fc/ui/components/LocaleSwitcher'
 
 import { AnimatePresence, motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'

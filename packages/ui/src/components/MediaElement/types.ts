@@ -4,7 +4,7 @@ import { Media } from '@fc/types/payload-types'
 
 import type { StaticImageData } from 'next/image'
 
-export interface MediaProps {
+export interface MediaElementProps {
   alt?: string
   className?: string
   fill?: boolean // for NextImage only

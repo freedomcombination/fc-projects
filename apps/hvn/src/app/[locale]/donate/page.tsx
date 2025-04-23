@@ -1,7 +1,7 @@
 import { redirect } from '@fc/intl/navigation'
 
-import { Hero } from '@/components/hero/Hero'
-import DonationResultCard from '@/components/support/DonationResultCard'
+import { Hero } from '@/components/Hero/Hero'
+import DonationResultCard from '@/components/Support/DonationResultCard'
 
 type DonatePageProps = {
   params: Promise<{

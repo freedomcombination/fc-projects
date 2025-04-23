@@ -1,7 +1,7 @@
-import { Container } from '../../components/container/Container'
-import { FormBlock as FormBlockComponent } from '../../components/form-block/Component'
-import { MediaBlock as MediaBlockComponent } from '../../components/media-block/MediaBlock'
-import { Section } from '../../components/section'
+import { Container } from '../../components/Container/Container'
+import { FormBlock as FormBlockComponent } from '../../components/FormBlock/Component'
+import { MediaBlock as MediaBlockComponent } from '../../components/MediaBlock'
+import { Section } from '../../components/Section'
 
 export const blockComponentMap = {
   container: Container,

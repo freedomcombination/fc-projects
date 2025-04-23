@@ -12,7 +12,7 @@ import {
   LinkJSXConverter,
 } from '@payloadcms/richtext-lexical/react'
 
-import { MediaBlock, MediaBlockProps } from '../media-block/MediaBlock'
+import { MediaBlock, MediaBlockProps } from '../MediaBlock'
 
 type NodeTypes = DefaultNodeTypes | SerializedBlockNode<MediaBlockProps>
 

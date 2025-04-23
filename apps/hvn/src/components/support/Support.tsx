@@ -3,8 +3,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@fc/ui/base/tabs'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 
-import { SupportStripe } from './stripe-form'
-import { SupportBank } from './support-bank'
+import { SupportStripe } from './StripeForm'
+import { SupportBank } from './SupportBank'
 
 export const Support = () => {
   const t = useTranslations()

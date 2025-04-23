@@ -1,31 +1,12 @@
 import React from 'react'
 
-import { Media } from '@fc/types/payload-types'
 import { cn } from '@fc/ui/lib/utils'
 
-import type { StaticImageData } from 'next/image'
+import { MediaElement } from '../MediaElement/MediaElement'
+import RichText, { RichTextProps } from '../RichText/RichText'
+import { MediaBlockProps } from './types'
 
-import { MediaElement } from '../MediaElement'
-import RichText, { RichTextProps } from '../RichText'
-
-export type MediaBlockProps = {
-  media: string | Media
-  id?: string | null
-  blockName?: string | null
-  blockType: 'mediaBlock'
-}
-
-type Props = MediaBlockProps & {
-  breakout?: boolean
-  captionClassName?: string
-  className?: string
-  enableGutter?: boolean
-  imgClassName?: string
-  staticImage?: StaticImageData
-  disableInnerContainer?: boolean
-}
-
-export const MediaBlock: React.FC<Props> = (props) => {
+export const MediaBlock: React.FC<MediaBlockProps> = (props) => {
   const {
     captionClassName,
     className,

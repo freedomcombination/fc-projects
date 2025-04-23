@@ -11,7 +11,7 @@ import { cn } from '@fc/ui/lib/utils'
 import { CircleCheck, Lock } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
-import DonationButton from './donation-button'
+import DonationButton from './DonationButton'
 
 const amounts = [
   { label: '€ 10', value: '10' },

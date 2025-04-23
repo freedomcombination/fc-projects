@@ -20,7 +20,7 @@ import { useTranslations } from 'next-intl'
 import { toast } from 'sonner'
 
 import { Form as FormType } from '../../../payload-types'
-import { EventConditionsModal } from '../modal/EventConditionsModal'
+import { EventConditionsModal } from '../EventConditionsModal/EventConditionsModal'
 import { cityOptions } from './cityOptions'
 import { ApplicationFormData, useApplicationFormSchema } from './schema'
 

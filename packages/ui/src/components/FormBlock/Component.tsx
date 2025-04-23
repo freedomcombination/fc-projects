@@ -8,7 +8,7 @@ import { Button } from '@fc/ui/base/button'
 import type { FormFieldBlock, Form as FormType } from '@payloadcms/plugin-form-builder/types'
 import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
 
-import RichText from '../RichText'
+import RichText from '../RichText/RichText'
 import { fields } from './fields'
 
 export type FormBlockType = {
