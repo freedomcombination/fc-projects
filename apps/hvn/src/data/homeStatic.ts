@@ -1,5 +1,3 @@
-import { RequiredDataFromCollectionSlug } from 'payload'
-
 export const homeStatic = {
   _status: 'published',
   hero: {

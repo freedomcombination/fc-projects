@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Media } from '@fc/ui/components/Media/index'
+import { MediaElement } from '@fc/ui/components/MediaElement'
 import RichText from '@fc/ui/components/RichText'
 
 import type { Page } from '@/payload-types'
@@ -28,7 +28,7 @@ export const MediumImpactHero: React.FC<Page['hero']> = ({ links, media, richTex
       <div className="container">
         {media && typeof media === 'object' && (
           <div>
-            <Media className="-mx-4 md:-mx-8 2xl:-mx-16" imgClassName="" priority resource={media} />
+            <MediaElement className="-mx-4 md:-mx-8 2xl:-mx-16" imgClassName="" priority resource={media} />
             {/* TODO: Caption doesn't exist, remove if not needed */}
             {/* {media?.caption && (
               <div className="mt-3">

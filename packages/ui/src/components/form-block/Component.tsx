@@ -2,13 +2,11 @@
 import React, { useCallback, useState } from 'react'
 import { FormProvider, useForm } from 'react-hook-form'
 
+import { useRouter } from '@fc/intl/navigation'
 import { Button } from '@fc/ui/base/button'
-import { getClientSideURL } from '@fc/ui/lib/getURL'
 
 import type { FormFieldBlock, Form as FormType } from '@payloadcms/plugin-form-builder/types'
 import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
-
-import { useRouter } from 'next/navigation'
 
 import RichText from '../RichText'
 import { fields } from './fields'
@@ -65,7 +63,7 @@ export const FormBlock: React.FC<
         }, 1000)
 
         try {
-          const req = await fetch(`${getClientSideURL()}/api/form-submissions`, {
+          const req = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/form-submissions`, {
             body: JSON.stringify({
               form: formID,
               submissionData: dataToSend,

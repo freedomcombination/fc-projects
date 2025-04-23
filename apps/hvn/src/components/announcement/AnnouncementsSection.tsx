@@ -2,12 +2,12 @@
 
 import { FC } from 'react'
 
+import { Link } from '@fc/intl/navigation'
 import { Button } from '@fc/ui/base/button'
 
 import { useTranslations } from 'next-intl'
 import { useLocale } from 'next-intl'
 import Image from 'next/image'
-import Link from 'next/link'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 

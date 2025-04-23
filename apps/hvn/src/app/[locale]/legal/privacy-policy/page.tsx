@@ -1,7 +1,8 @@
 import { FaEnvelope, FaShieldAlt, FaUserShield } from 'react-icons/fa'
 
+import { Link } from '@fc/intl/navigation'
+
 import { useTranslations } from 'next-intl'
-import Link from 'next/link'
 
 const PrivacyPolicy = () => {
   const t = useTranslations('legalPages.privacy')

@@ -1,27 +1,12 @@
 import React from 'react'
 
+import { Media } from '@fc/types/payload-types'
 import { cn } from '@fc/ui/lib/utils'
 
 import type { StaticImageData } from 'next/image'
 
-import { Media } from '../Media'
+import { MediaElement } from '../MediaElement'
 import RichText, { RichTextProps } from '../RichText'
-
-export type Media = {
-  id: string
-  alt: string
-  updatedAt: string
-  createdAt: string
-  url?: string | null
-  thumbnailURL?: string | null
-  filename?: string | null
-  mimeType?: string | null
-  filesize?: number | null
-  width?: number | null
-  height?: number | null
-  focalX?: number | null
-  focalY?: number | null
-}
 
 export type MediaBlockProps = {
   media: string | Media
@@ -65,7 +50,7 @@ export const MediaBlock: React.FC<Props> = (props) => {
       )}
     >
       {(media || staticImage) && (
-        <Media
+        <MediaElement
           imgClassName={cn('border border-border rounded-[0.8rem]', imgClassName)}
           resource={media}
           src={staticImage}

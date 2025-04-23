@@ -2,9 +2,10 @@
 
 import { FC } from 'react'
 
-import { useLocale, useTranslations } from 'next-intl'
+import { Link } from '@fc/intl/navigation'
+
+import { useTranslations } from 'next-intl'
 import Image from 'next/image'
-import Link from 'next/link'
 
 import { Announcement, Media } from '@/payload-types'
 
@@ -13,7 +14,6 @@ type AnnouncementListProps = {
 }
 
 export const AnnouncementList: FC<AnnouncementListProps> = ({ announcements }) => {
-  const locale = useLocale()
   const t = useTranslations('Header')
 
   return (
@@ -21,7 +21,7 @@ export const AnnouncementList: FC<AnnouncementListProps> = ({ announcements }) =
       <h1 className="mb-10 text-3xl font-bold">{t('announcements')}</h1>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {announcements.map((item) => (
-          <Link className="cursor-pointer" href={`/${locale}/announcements/${item.slug}`} key={item.id}>
+          <Link className="cursor-pointer" href={`/announcements/${item.slug}`} key={item.id}>
             <div className="rounded-lg border p-4 shadow" key={item.id}>
               {item.image && (
                 <Image

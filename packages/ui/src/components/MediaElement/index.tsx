@@ -5,7 +5,7 @@ import type { MediaProps } from './types'
 import { ImageMedia } from './ImageMedia'
 import { VideoMedia } from './VideoMedia'
 
-export const Media: React.FC<MediaProps> = (props) => {
+export const MediaElement: React.FC<MediaProps> = (props) => {
   const { className, htmlElement = 'div', resource } = props
 
   const isVideo = typeof resource === 'object' && resource?.mimeType?.includes('video')

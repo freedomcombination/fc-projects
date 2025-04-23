@@ -2,7 +2,6 @@
 
 import React from 'react'
 
-import { getClientSideURL } from '@fc/ui/lib/getURL'
 import { cn } from '@fc/ui/lib/utils'
 
 import type { StaticImageData } from 'next/image'
@@ -55,7 +54,7 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
 
     const cacheTag = resource.updatedAt
 
-    src = `${getClientSideURL()}${url}?${cacheTag}`
+    src = `${process.env.NEXT_PUBLIC_SERVER_URL}${url}?${cacheTag}`
   }
 
   const loading = loadingFromProps || (!priority ? 'lazy' : undefined)

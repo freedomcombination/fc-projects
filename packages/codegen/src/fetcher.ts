@@ -12,7 +12,7 @@ type RequestInit = {
 export const fetcher = <TData, TVariables>(query: string, variables?: TVariables, options?: RequestInit['headers']) => {
   return async (): Promise<TData> => {
     const { cache, next, ...restOptions } = options || {}
-    const res = await fetch(`${process.env.NEXT_PUBLIC_CMS_URL}/api/graphql`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/graphql`, {
       body: JSON.stringify({ query, variables }),
       cache,
       headers: {
