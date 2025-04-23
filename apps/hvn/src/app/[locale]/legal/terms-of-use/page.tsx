@@ -1,7 +1,8 @@
 import { FaBook, FaEnvelope, FaGavel } from 'react-icons/fa'
 
+import { Link } from '@fc/intl/navigation'
+
 import { useTranslations } from 'next-intl'
-import Link from 'next/link'
 
 const TermsOfUse = () => {
   const tTerms = useTranslations('legalPages.terms')

@@ -1,7 +1,8 @@
 import { FaCookie, FaEnvelope, FaInfoCircle } from 'react-icons/fa'
 
+import { Link } from '@fc/intl/navigation'
+
 import { useTranslations } from 'next-intl'
-import Link from 'next/link'
 
 const CookiePolicy = () => {
   const tCookies = useTranslations('legalPages.cookies')

@@ -13,10 +13,10 @@
     "./globals.css": "./src/styles/globals.css",
     "./postcss.config": "./postcss.config.mjs",
     "./lib/*": "./src/lib/*.ts",
-    "./components/*": "./src/components/*.tsx",
-    "./base/*": "./src/base/*.tsx",
-    "./blocks/*": "./src/blocks/*.ts",
-    "./hooks/*": "./src/hooks/*.ts"
+    "./components/*": "./src/components/*.{ts,tsx}",
+    "./base/*": "./src/base/*.{ts,tsx}",
+    "./blocks/*": "./src/blocks/*.{ts,tsx}",
+    "./hooks/*": "./src/hooks/*.{ts,tsx}"
   },
   "dependencies": {
     "@fc/intl": "workspace:*",

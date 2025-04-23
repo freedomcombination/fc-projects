@@ -11,6 +11,6 @@
       "@fc/ui/lib/*": ["./src/lib/*"]
     }
   },
-  "include": [".", "../../apps/hvn/src/utilities/generateMeta.ts"],
+  "include": ["."],
   "exclude": ["node_modules", "dist"]
 }

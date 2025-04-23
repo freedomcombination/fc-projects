@@ -4,15 +4,15 @@ import { redirect } from 'next/navigation'
 import { getPayload, type PayloadRequest } from 'payload'
 import { CollectionSlug } from 'payload'
 
-export async function GET(
-  req: {
-    cookies: {
-      get: (name: string) => {
-        value: string
-      }
+type PreviewRequest = {
+  cookies: {
+    get: (name: string) => {
+      value: string
     }
-  } & Request,
-): Promise<Response> {
+  }
+} & Request
+
+export async function GET(req: PreviewRequest) {
   const payload = await getPayload({ config: configPromise })
   const { searchParams } = new URL(req.url)
   const path = searchParams.get('path')

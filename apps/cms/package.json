@@ -16,6 +16,8 @@
   },
   "dependencies": {
     "@fc/config-payload": "workspace:*",
+    "@fc/intl": "workspace:*",
+    "@fc/ui": "workspace:*",
     "@payloadcms/db-mongodb": "^3.35.1",
     "@payloadcms/email-nodemailer": "^3.35.1",
     "@payloadcms/next": "^3.35.1",
@@ -36,7 +38,6 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
     "@fc/config-eslint": "workspace:*",
-    "@fc/ui": "workspace:*",
     "@types/node": "^22.14.1",
     "@types/nodemailer": "^6.4.17",
     "@types/react": "19.1.2",
@@ -44,8 +45,5 @@
     "eslint-config-next": "^15.3.1",
     "prettier": "^3.5.3",
     "typescript": "5.7.3"
-  },
-  "engines": {
-    "node": "^18.20.2 || >=20.9.0"
   }
 }

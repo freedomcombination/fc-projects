@@ -1,9 +1,12 @@
-import { redirect } from 'next/navigation'
+import { redirect } from '@fc/intl/navigation'
 
-import { Hero } from '@/components/hero/Hero'
-import DonationResultCard from '@/components/support/DonationResultCard'
+import { Hero } from '@/components/Hero/Hero'
+import DonationResultCard from '@/components/Support/DonationResultCard'
 
 type DonatePageProps = {
+  params: Promise<{
+    locale: string
+  }>
   searchParams: Promise<{
     status: string
     email: string
@@ -12,11 +15,12 @@ type DonatePageProps = {
   }>
 }
 
-const DonatePage = async ({ searchParams }: DonatePageProps) => {
+export default async function DonatePage({ params, searchParams }: DonatePageProps) {
   const { amount, email, status, type } = await searchParams
+  const { locale } = await params
 
   if (!status) {
-    redirect('/')
+    redirect({ href: '/', locale })
   }
 
   return (
@@ -29,5 +33,3 @@ const DonatePage = async ({ searchParams }: DonatePageProps) => {
     </main>
   )
 }
-
-export default DonatePage

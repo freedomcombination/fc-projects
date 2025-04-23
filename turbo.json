@@ -6,9 +6,13 @@
     "COREPACK_HOME",
     "DATABASE_URL",
     "EMAIL_PASS",
+    "NEXT_PUBLIC_SERVER_URL",
     "NODE_ENV",
     "PAYLOAD_SECRET",
-    "STRIPE_KEY"
+    "PREVIEW_SECRET",
+    "STRIPE_KEY",
+    "STRIPE_WEBHOOK_SECRET",
+    "VERCEL_PROJECT_PRODUCTION_URL"
   ],
   "tasks": {
     "build": {

@@ -51,6 +51,12 @@ importers:
       '@fc/config-payload':
         specifier: workspace:*
         version: link:../../packages/config-payload
+      '@fc/intl':
+        specifier: workspace:*
+        version: link:../../packages/intl
+      '@fc/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
       '@payloadcms/db-mongodb':
         specifier: ^3.35.1
         version: 3.35.1(@aws-sdk/credential-providers@3.782.0)(payload@3.35.1(graphql@16.10.0)(typescript@5.7.3))(socks@2.8.4)
@@ -106,9 +112,6 @@ importers:
       '@fc/config-eslint':
         specifier: workspace:*
         version: link:../../packages/config-eslint
-      '@fc/ui':
-        specifier: workspace:*
-        version: link:../../packages/ui
       '@types/node':
         specifier: ^22.14.1
         version: 22.14.1

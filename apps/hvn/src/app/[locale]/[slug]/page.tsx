@@ -1,12 +1,12 @@
 import { cache } from 'react'
 
+import { redirect } from '@fc/intl/navigation'
 import { type CmsBlock, RenderBlocks } from '@fc/ui/blocks/RenderBlocks'
 
 import type { Metadata } from 'next'
 
 import configPromise from '@payload-config'
 import { draftMode } from 'next/headers'
-import { redirect } from 'next/navigation'
 import { getPayload, TypedLocale } from 'payload'
 
 import { LivePreviewListener } from '@/components/LivePreviewListener'
@@ -84,7 +84,7 @@ export default async function Page({ params }: Args) {
   }
 
   if (!page) {
-    return redirect('/')
+    return redirect({ href: '/', locale })
   }
 
   const { hero, layout } = page as unknown as { hero: object; layout: CmsBlock[] }
