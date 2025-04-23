@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import { getPayload, TypedLocale } from 'payload'
 
-import { AnnouncementList } from '@/components/Announcement_/AnnouncementList'
+import { AnnouncementList } from '@/components/Announcement/AnnouncementList'
 import { LOCALES } from '@/i18n/locales'
 import { Announcement } from '@/payload-types'
 import configPromise from '@/payload.config'

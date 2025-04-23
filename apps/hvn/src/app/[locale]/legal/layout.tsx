@@ -1,5 +1,5 @@
-import { Footer } from '@/components/Footer_/Footer'
-import { Header } from '@/components/Header_/Header'
+import { Footer } from '@/components/Footer/Footer'
+import { Header } from '@/components/Header/Header'
 
 export default function LegalLayout({ children }: { children: React.ReactNode }) {
   return (
