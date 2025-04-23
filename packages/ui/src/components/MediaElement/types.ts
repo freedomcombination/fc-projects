@@ -1,8 +1,8 @@
 import type { ElementType, Ref } from 'react'
 
-import type { StaticImageData } from 'next/image'
+import { Media } from '@fc/types/payload-types'
 
-import type { Media as MediaType } from '../media-block/MediaBlock'
+import type { StaticImageData } from 'next/image'
 
 export interface MediaProps {
   alt?: string
@@ -15,7 +15,7 @@ export interface MediaProps {
   loading?: 'lazy' | 'eager' // for NextImage only
   priority?: boolean // for NextImage only
   ref?: Ref<HTMLImageElement | HTMLVideoElement | null>
-  resource?: MediaType | string | number | null // for Payload media
+  resource?: Media | string | number | null // for Payload media
   size?: string // for NextImage only
   src?: StaticImageData // for static media
   videoClassName?: string
