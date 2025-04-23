@@ -2,27 +2,14 @@
 
 import React from 'react'
 
+import { deviceSizes } from '@fc/ui/lib/breakpoints'
 import { cn } from '@fc/ui/lib/utils'
 
 import type { StaticImageData } from 'next/image'
 
 import NextImage from 'next/image'
 
-import type { MediaElementProps } from '../types'
-
-// Keep these in sync with the CSS variables in your tailwind configuration
-const cssVariables = {
-  breakpoints: {
-    '2xl': 1536,
-    '3xl': 1920,
-    lg: 1024,
-    md: 768,
-    sm: 640,
-    xl: 1280,
-  },
-}
-
-const { breakpoints } = cssVariables
+import type { MediaElementProps } from './types'
 
 // A base64 encoded image to use as a placeholder while the image is loading
 const placeholderBlur =
@@ -62,9 +49,7 @@ export const ImageMedia: React.FC<MediaElementProps> = (props) => {
   // NOTE: this is used by the browser to determine which image to download at different screen sizes
   const sizes = sizeFromProps
     ? sizeFromProps
-    : Object.entries(breakpoints)
-        .map(([, value]) => `(max-width: ${value}px) ${value * 2}w`)
-        .join(', ')
+    : deviceSizes.map((value) => `(max-width: ${value}px) ${value * 2}w`).join(', ')
 
   return (
     <picture>

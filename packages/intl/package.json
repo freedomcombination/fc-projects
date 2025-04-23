@@ -12,7 +12,7 @@
     "./getRequestConfig": "./src/request.ts",
     "./messages/*": "./src/messages/*.json",
     "./navigation": "./src/navigation.ts",
-    "./next.config": "./next.config.mjs",
+    "./next.config": "./next.config.ts",
     "./routing": "./src/routing.ts",
     "./middleware": "./src/middleware.ts"
   },
