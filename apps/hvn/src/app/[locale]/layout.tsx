@@ -7,8 +7,8 @@ import { getMessages } from 'next-intl/server'
 import { Geist } from 'next/font/google'
 import { notFound } from 'next/navigation'
 
-import { Footer } from '@/components/Footer/Footer'
-import { Header } from '@/components/Header/Header'
+import { Footer } from '@/components/Footer_/Footer'
+import { Header } from '@/components/Header_/Header'
 
 import '@fc/ui/globals.css'
 
