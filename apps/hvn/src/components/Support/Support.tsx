@@ -13,15 +13,6 @@ export const Support = () => {
     <section className="bg-gray-100 py-16" id="support">
       <div className="container mx-auto max-w-6xl px-4 py-8">
         <h2 className="mb-4 text-4xl font-bold">{t('Header.support')}</h2>
-        <div className="flex justify-center rounded-lg bg-white">
-          <Image
-            alt="ANBI Logo"
-            className="mt-4 h-20 object-cover shadow-md"
-            height={100}
-            src="/images/anbi-logo.png"
-            width={100}
-          />
-        </div>
         <div className="grid grid-cols-1 gap-8 rounded-lg bg-white p-6 md:grid-cols-2">
           <div className="flex flex-col items-center justify-center gap-6 text-left">
             <Image
