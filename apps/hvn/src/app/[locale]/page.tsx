@@ -1,4 +1,3 @@
-import { getTranslations } from 'next-intl/server'
 import { draftMode } from 'next/headers'
 import { getPayload, TypedLocale } from 'payload'
 
@@ -6,8 +5,6 @@ import { AboutSection } from '@/components/AboutSection/AboutSection'
 import { AnnouncementsSection } from '@/components/Announcement/AnnouncementsSection'
 import { ApplicationForm } from '@/components/ApplicationForm'
 import { Hero } from '@/components/Hero/Hero'
-import { PayloadForm } from '@/components/PayloadForm/PayloadForm'
-import { Support } from '@/components/Support/Support'
 import { LOCALES } from '@/i18n/locales'
 import { Announcement } from '@/payload-types'
 import config from '@/payload.config'
@@ -23,7 +20,6 @@ type Args = {
 }
 
 export default async function HomePage({ params }: Args) {
-  const t = await getTranslations()
   const { locale } = await params
   const { isEnabled: draft } = await draftMode()
 
@@ -46,7 +42,6 @@ export default async function HomePage({ params }: Args) {
   const announcements = announcementsResponse.docs
 
   const applicationForm = formsResponse.docs.find((f) => f.title === 'Application Form')
-  const contactForm = formsResponse.docs.find((f) => f.title === 'Contact Form')
 
   return (
     <main className="relative">
@@ -71,32 +66,6 @@ export default async function HomePage({ params }: Args) {
           <ApplicationForm applicationForm={applicationForm} />
         </section>
       )}
-      {/* Contact section */}
-      <section className="py-16" id="contact">
-        <div className="container mx-auto px-4">
-          <div className="mb-16 text-center">
-            <h2 className="mb-8 text-4xl font-bold">{t('Contact.title')}</h2>
-            <p className="text-muted-foreground mx-auto max-w-2xl">{t('Contact.subtitle')}</p>
-          </div>
-          <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-2">
-            {/* Contact Information */}
-            <div className="space-y-8">
-              <h3 className="mb-6 text-2xl font-semibold">{t('Contact.contactInfo')}</h3>
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div>
-                    <h4 className="text-xl font-medium">{t('Contact.email')}</h4>
-                    <p className="text-muted-foreground">info@harmonievannederland.com</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {contactForm && <PayloadForm formData={contactForm} />}
-          </div>
-        </div>
-      </section>
-      {/* Support section */}
-      <Support />
     </main>
   )
 }

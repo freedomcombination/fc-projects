@@ -4,18 +4,19 @@ import { Link } from '@fc/intl/navigation'
 
 import { Copyright } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import Image from 'next/image'
+
+import { Logo } from '../Logo/Logo'
 
 export const Footer = () => {
   const headerTranslations = useTranslations('Header')
   const legalTranslations = useTranslations('legalPages')
 
   const menuItems = [
-    { href: `#home`, label: headerTranslations('home') },
-    { href: `#about`, label: headerTranslations('about') },
-    { href: `#application`, label: headerTranslations('application') },
-    { href: `#contact`, label: headerTranslations('contactNav') },
-    { href: `#support`, label: headerTranslations('support') },
+    { href: `/#home`, label: headerTranslations('home') },
+    { href: `/#about`, label: headerTranslations('about') },
+    { href: `/#application`, label: headerTranslations('application') },
+    { href: `/contact`, label: headerTranslations('contactNav') },
+    { href: `/support`, label: headerTranslations('support') },
   ]
 
   const legalLinks = [
@@ -31,8 +32,8 @@ export const Footer = () => {
           {/* Logo & Description */}
           <div className="col-span-1 md:col-span-2">
             {/* Logo */}
-            <Image alt="Logo" className="rounded-full object-contain" height={50} src="/images/logo.png" width={50} />
-
+            <Logo />
+            {/* Description */}
             <p className="text-muted-foreground mb-4">{headerTranslations('footerDescription')}</p>
           </div>
 
@@ -42,9 +43,9 @@ export const Footer = () => {
             <ul className="space-y-2">
               {menuItems.map((item) => (
                 <li key={item.href}>
-                  <a className="text-muted-foreground hover:text-primary transition-colors" href={item.href}>
+                  <Link className="text-muted-foreground hover:text-primary transition-colors" href={item.href}>
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -67,10 +68,12 @@ export const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="text-muted-foreground mt-8 border-t pt-8 text-center text-sm">
-          <p className="flex items-center justify-center gap-1">
-            <Copyright size={14} />
-            {new Date().getFullYear()} Harmonie van Nederland {headerTranslations('allRightsReserved')}
-          </p>
+          <div className="flex-no-wrap flex items-center justify-center gap-x-1 gap-y-2">
+            <Copyright className="shrink-0" size={14} />
+            <span className="whitespace-nowrap">
+              {new Date().getFullYear()} Harmonie van Nederland {headerTranslations('allRightsReserved')}
+            </span>
+          </div>
         </div>
       </div>
     </footer>

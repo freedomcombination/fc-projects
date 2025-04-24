@@ -6,7 +6,6 @@ import { Link } from '@fc/intl/navigation'
 import { Button } from '@fc/ui/base/button'
 
 import { useTranslations } from 'next-intl'
-import { useLocale } from 'next-intl'
 import Image from 'next/image'
 import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -22,7 +21,7 @@ type AnnouncementsProps = {
 }
 export const AnnouncementsSection: FC<AnnouncementsProps> = ({ announcements }) => {
   const t = useTranslations('')
-  const locale = useLocale()
+
   return (
     <div className="relative mx-auto w-full max-w-4xl">
       <Swiper
@@ -57,7 +56,7 @@ export const AnnouncementsSection: FC<AnnouncementsProps> = ({ announcements }) 
                   <p>{announcement.description}</p>
                 </div>
 
-                <Link href={`/${locale}/announcements/${announcement.slug}`}>
+                <Link href={`/announcements/${announcement.slug}`}>
                   <Button className="cursor-pointer rounded-lg bg-orange-500 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-orange-600 sm:px-8 sm:py-4 sm:text-lg">
                     {t('readMore')}
                   </Button>
