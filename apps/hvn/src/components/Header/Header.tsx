@@ -8,6 +8,8 @@ import { LocaleSwitcher } from '@fc/ui/components/LocaleSwitcher'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 
+import { getMenuItems } from '@/config/menuItems'
+
 import { Logo } from '../Logo/Logo'
 import { HeaderItem } from './HeaderItem'
 
@@ -18,14 +20,7 @@ export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const mobileMenuRef = useRef<HTMLDivElement>(null)
 
-  const menuItems = [
-    { href: '/#home', label: t('home') },
-    { href: '/#about', label: t('about') },
-    { href: '/announcements', label: t('announcements') },
-    { href: '/#application', label: t('application') },
-    { href: '/contact', label: t('contactNav') },
-    { href: '/support', label: t('support') },
-  ]
+  const menuItems = getMenuItems(t)
 
   useEffect(() => {
     const observer = new IntersectionObserver(

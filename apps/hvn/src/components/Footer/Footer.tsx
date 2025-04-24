@@ -5,25 +5,17 @@ import { Link } from '@fc/intl/navigation'
 import { Copyright } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
+import { getLegalLinks } from '@/config/legalLinks'
+import { getMenuItems } from '@/config/menuItems'
+
 import { Logo } from '../Logo/Logo'
 
 export const Footer = () => {
   const headerTranslations = useTranslations('Header')
   const legalTranslations = useTranslations('legalPages')
 
-  const menuItems = [
-    { href: `/#home`, label: headerTranslations('home') },
-    { href: `/#about`, label: headerTranslations('about') },
-    { href: `/#application`, label: headerTranslations('application') },
-    { href: `/contact`, label: headerTranslations('contactNav') },
-    { href: `/support`, label: headerTranslations('support') },
-  ]
-
-  const legalLinks = [
-    { href: `/legal/privacy-policy`, label: legalTranslations('privacy.title') },
-    { href: `/legal/terms-of-use`, label: legalTranslations('terms.title') },
-    { href: `/legal/cookie-policy`, label: legalTranslations('cookies.title') },
-  ]
+  const menuItems = getMenuItems(headerTranslations)
+  const legalLinks = getLegalLinks(legalTranslations)
 
   return (
     <footer className="bg-background mt-auto border-t">
