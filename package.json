@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "build": "turbo build",
-    "hvn": "turbo hvn",
-    "dev": "turbo dev",
+    "hvn": "turbo hvn -- --turbopack",
+    "dev": "turbo dev -- --turbopack",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{js,jsx,css,ts,tsx,md,json}\"",
     "storybook": "turbo run storybook --filter=@fc/ui",
