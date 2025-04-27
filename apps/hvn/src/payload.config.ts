@@ -10,7 +10,7 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import nodemailer from 'nodemailer'
 import path from 'path'
-import { buildConfig } from 'payload'
+import { buildConfig, SharpDependency } from 'payload'
 import sharp from 'sharp'
 import { fileURLToPath } from 'url'
 
@@ -106,5 +106,5 @@ export default buildConfig({
     }),
   ],
   secret: process.env.PAYLOAD_SECRET || '',
-  sharp,
+  sharp: sharp as SharpDependency,
 })
