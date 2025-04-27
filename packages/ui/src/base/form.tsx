@@ -3,9 +3,9 @@
 import * as React from 'react'
 import {
   Controller,
-  ControllerProps,
-  FieldPath,
-  FieldValues,
+  type ControllerProps,
+  type FieldPath,
+  type FieldValues,
   FormProvider,
   useFormContext,
   useFormState,
@@ -85,7 +85,7 @@ function FormLabel({ className, ...props }: React.ComponentProps<typeof LabelPri
 
   return (
     <Label
-      className={cn('data-[error=true]:text-destructive-foreground', className)}
+      className={cn('data-[error=true]:text-destructive', className)}
       data-error={!!error}
       data-slot="form-label"
       htmlFor={formItemId}
@@ -130,12 +130,7 @@ function FormMessage({ className, ...props }: React.ComponentProps<'p'>) {
   }
 
   return (
-    <p
-      className={cn('text-destructive-foreground text-sm', className)}
-      data-slot="form-message"
-      id={formMessageId}
-      {...props}
-    >
+    <p className={cn('text-destructive text-sm', className)} data-slot="form-message" id={formMessageId} {...props}>
       {body}
     </p>
   )
