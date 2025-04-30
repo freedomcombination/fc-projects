@@ -14,6 +14,10 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  transpilePackages: ['@fc/ui'],
+  turbopack: {
+    resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.json'],
+  },
 }
 
 export const getNextConfig = (config = nextConfig) => withNextIntl(config)

@@ -24,6 +24,10 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  transpilePackages: ['@fc/ui'],
+  turbopack: {
+    resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.json'],
+  },
 }
 
 export default withPayload(nextConfig)
