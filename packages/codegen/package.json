@@ -11,7 +11,7 @@
     "./generated": "./src/generated.ts"
   },
   "dependencies": {
-    "@tanstack/react-query": "^5.74.4",
+    "@tanstack/react-query": "^5.74.11",
     "graphql": "^16.11.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"

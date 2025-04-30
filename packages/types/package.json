@@ -10,7 +10,7 @@
     "./*": "./*.ts"
   },
   "dependencies": {
-    "payload": "^3.35.1"
+    "payload": "^3.36.0"
   },
   "devDependencies": {
     "@fc/config-eslint": "workspace:*",
