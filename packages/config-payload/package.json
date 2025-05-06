@@ -17,14 +17,14 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@payloadcms/next": "^3.36.0",
-    "@payloadcms/richtext-lexical": "^3.36.0",
-    "@payloadcms/ui": "^3.36.0",
-    "@uiw/react-color-sketch": "^2.5.2",
+    "@payloadcms/next": "^3.37.0",
+    "@payloadcms/richtext-lexical": "^3.37.0",
+    "@payloadcms/ui": "^3.37.0",
+    "@uiw/react-color-sketch": "^2.5.4",
     "lodash": "^4.17.21",
     "lucide-react": "^0.503.0",
     "next": "^15.3.1",
-    "payload": "^3.36.0",
+    "payload": "^3.37.0",
     "react": "^19.1.0"
   },
   "devDependencies": {
@@ -32,6 +32,6 @@
     "@fc/config-typescript": "workspace:*",
     "@fc/types": "workspace:*",
     "@types/lodash": "^4.17.16",
-    "@types/react": "^19.1.2"
+    "@types/react": "^19.1.3"
   }
 }

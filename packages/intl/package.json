@@ -24,6 +24,6 @@
   "devDependencies": {
     "@fc/config-eslint": "workspace:*",
     "@fc/config-typescript": "workspace:*",
-    "@types/react": "^19.1.2"
+    "@types/react": "^19.1.3"
   }
 }
