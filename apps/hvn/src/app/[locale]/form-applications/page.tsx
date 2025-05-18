@@ -1,6 +1,7 @@
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 
+import { Form } from '@/payload-types'
 import { getMe } from '@/utilities/getMe'
 
 export default async function FormApplicationsPage() {
@@ -13,7 +14,7 @@ export default async function FormApplicationsPage() {
     limit: 100,
   })
 
-  const formConfig = form.docs.find((doc) => doc.form.title === 'Application Form')?.form
+  const formConfig = form.docs.find((doc) => (doc.form as Form).title === 'Application Form')?.form as Form
   const fields = formConfig?.fields?.map((field) => field.blockName) as string[]
 
   // Extract formData from form.docs
@@ -23,7 +24,7 @@ export default async function FormApplicationsPage() {
   const formData: FormDataRow[] = form.docs.map((doc: any) => {
     const row: { [key: string]: string } = {}
 
-    fields.forEach((field: FormField) => {
+    fields?.forEach((field: FormField) => {
       const found = doc.submissionData?.find((item: any) => item.field === field)
       row[field] = found ? found.value : ''
     })
