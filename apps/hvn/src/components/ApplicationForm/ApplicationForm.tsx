@@ -15,7 +15,7 @@ import { FormTextarea } from '@fc/ui/components/form/form-textarea'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { isAfter, isSameDay } from 'date-fns'
-import { Loader2 } from 'lucide-react'
+import { CheckCircle, Loader2 } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import { toast } from 'sonner'
 
@@ -30,28 +30,13 @@ type ApplicationFormProps = {
   applicationForm: FormType
 }
 
-type ApplicationFormInput = {
-  dateOfBirth: string
-  fullName: string
-  email: string
-  phone: string
-  city: string
-  event: string
-  participationType: string
-  otherParticipation?: string
-  parentFullName?: string
-  parentPhone?: string
-  parentEmail?: string
-  message: string
-}
-
 export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const t = useTranslations('Application')
   const tParticipation = useTranslations('participation')
 
-  const [isUnder18State, setIsUnder18State] = useState(true)
+  const [isUnder18State, setIsUnder18State] = useState(false)
 
   const schema = useApplicationFormSchema(isUnder18State)
 
@@ -65,6 +50,7 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
       email: '',
       event: 'hvn_amsterdam',
       fullName: '',
+      message: '',
       otherParticipation: '',
       parentEmail: '',
       parentFullName: '',
@@ -97,7 +83,7 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
           fullName: data.fullName,
           message: data.message,
           otherParticipation: data.otherParticipation,
-          ...(isUnder18 && {
+          ...(isUnder18State && {
             parentEmail: data.parentEmail as string,
             parentFullName: data.parentFullName as string,
             parentPhone: data.parentPhone as string,
@@ -110,10 +96,13 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
       method: 'POST',
     })
       .then((response) => response.json())
-      .then(() => {
-        toast(t('thankYou'), {
-          duration: 5000,
+      .then(async () => {
+        toast.success(t('thankYou'), {
+          duration: 15000,
+          icon: <CheckCircle className="h-4 w-4" />,
+          richColors: true,
         })
+
         form.reset()
       })
       .catch((error) => {
@@ -123,7 +112,8 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
         })
         console.error('Error happened when sending form:', error)
       })
-      .finally(() => setIsSubmitting(false))
+
+    setIsSubmitting(false)
   }
 
   const dateOfBirth = form.watch('dateOfBirth')
@@ -137,12 +127,11 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
   const eighteenthBirthday = new Date(birthDate.getFullYear() + 18, birthDate.getMonth(), birthDate.getDate() + 1)
 
   // Person is 18 or older if their 18th birthday is today or has already passed
-  const isAdult = isAfter(today, eighteenthBirthday) || isSameDay(today, eighteenthBirthday)
-  const isUnder18 = !isAdult
+  const isAdult = dateOfBirth ? isAfter(today, eighteenthBirthday) || isSameDay(today, eighteenthBirthday) : true
 
   useEffect(() => {
-    setIsUnder18State(isUnder18)
-  }, [isUnder18])
+    setIsUnder18State(!isAdult)
+  }, [isAdult])
 
   const { event = 'hvn_amsterdam', fullName } = form.watch()
   const eventLabel = eventOptions.find((option) => option.value === event)?.label
@@ -163,7 +152,7 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
                 required
                 type="date"
               />
-              {isUnder18 && <CardTitle className="text-lg">{t('participantTitle')}</CardTitle>}
+              {isUnder18State && <CardTitle className="text-lg">{t('participantTitle')}</CardTitle>}
 
               <FormInput label={t('fullName')} name="fullName" required />
               <FormInput label={t('email')} name="email" required />
@@ -187,9 +176,9 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
               {participationType === 'other' && (
                 <FormInput label={tParticipation('otherPlaceholder')} name="otherParticipation" />
               )}
-              <FormTextarea label={t('message')} name="message" placeholder={t('message')} />
+              <FormTextarea label={t('message')} name="message" placeholder={t('message')} required />
 
-              {isUnder18 && (
+              {isUnder18State && (
                 <>
                   <hr />
                   <CardTitle className="text-lg">{t('parent.title')}</CardTitle>
@@ -224,7 +213,7 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
                 required
               />
 
-              {isUnder18 && (
+              {isUnder18State && (
                 <FormCheckbox
                   description={t.rich('acceptParent.description', {
                     eventLabel,
