@@ -21,13 +21,13 @@
   "dependencies": {
     "@fc/ui": "workspace:*",
     "kill-port-process": "^3.2.1",
-    "zod": "^3.24.4"
+    "zod": "^3.25.32"
   },
   "devDependencies": {
     "@fc/config-typescript": "workspace:*",
     "@turbo/gen": "^2.5.3",
-    "@types/node": "^22.15.14",
-    "eslint": "^9.26.0",
+    "@types/node": "^22.15.23",
+    "eslint": "^9.27.0",
     "husky": "^9.1.7",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
