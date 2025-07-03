@@ -18,7 +18,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "next": "^15.3.2",
+    "next": "^15.3.3",
     "next-intl": "^3.26.5"
   },
   "devDependencies": {
