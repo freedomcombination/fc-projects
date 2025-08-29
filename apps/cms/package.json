@@ -30,7 +30,7 @@
     "lexical": "^0.30.0",
     "next": "^15.3.2",
     "nodemailer": "^6.10.1",
-    "payload": "^3.39.1",
+    "payload": "^3.44.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "sharp": "0.34.1"
