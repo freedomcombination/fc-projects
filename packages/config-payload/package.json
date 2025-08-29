@@ -17,7 +17,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@payloadcms/next": "^3.39.1",
+    "@payloadcms/next": "^3.44.0",
     "@payloadcms/richtext-lexical": "^3.39.1",
     "@payloadcms/ui": "^3.39.1",
     "@uiw/react-color-sketch": "^2.5.5",
