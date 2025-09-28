@@ -18,13 +18,13 @@
   },
   "license": "MIT",
   "dependencies": {
-    "next": "^15.3.2",
-    "next-intl": "^3.26.5"
+    "next": "^15.5.4",
+    "next-intl": "^4.3.9"
   },
   "devDependencies": {
     "@fc/config-eslint": "workspace:*",
     "@fc/config-typescript": "workspace:*",
-    "@types/react": "^19.1.6",
-    "@types/react-dom": "^19.1.5"
+    "@types/react": "^19.1.15",
+    "@types/react-dom": "^19.1.9"
   }
 }

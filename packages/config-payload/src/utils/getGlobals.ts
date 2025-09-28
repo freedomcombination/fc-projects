@@ -4,7 +4,7 @@ import { unstable_cache } from 'next/cache'
 import { getPayload } from 'payload'
 
 // TODO: Path?
-import configPromise from '../../../../apps/cms/src/payload.config'
+import configPromise from '../../../../apps/hvn/src/payload.config'
 
 type Global = keyof Config['globals']
 

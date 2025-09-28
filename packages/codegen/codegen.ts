@@ -42,6 +42,6 @@ next?: NextFetchRequestConfig;
   },
   overwrite: true,
   // Where your GQL schema is located (could also be externally hosted)
-  schema: `${process.env.NEXT_PUBLIC_SERVER_URL}/api/graphql`,
+  schema: `http://localhost:3000/api/graphql`,
 }
 export default config

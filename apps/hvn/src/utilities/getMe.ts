@@ -1,8 +1,8 @@
-import config from '@payload-config'
 import { cookies, headers } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { getPayload } from 'payload'
 
+import config from '@/payload-config'
 import { User } from '@/payload-types'
 
 // Get authenticated user in server components

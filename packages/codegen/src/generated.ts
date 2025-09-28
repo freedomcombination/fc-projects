@@ -39,32 +39,160 @@ export type Scalars = {
 
 export type Access = {
   __typename?: 'Access'
-  blogs?: Maybe<BlogsAccess>
+  announcements?: Maybe<AnnouncementsAccess>
   canAccessAdmin: Scalars['Boolean']['output']
+  donations?: Maybe<DonationsAccess>
   form_submissions?: Maybe<Form_SubmissionsAccess>
   forms?: Maybe<FormsAccess>
   media?: Maybe<MediaAccess>
   pages?: Maybe<PagesAccess>
+  payload_jobs?: Maybe<Payload_JobsAccess>
   payload_locked_documents?: Maybe<Payload_Locked_DocumentsAccess>
   payload_preferences?: Maybe<Payload_PreferencesAccess>
   users?: Maybe<UsersAccess>
 }
 
-export type Blog = {
-  __typename?: 'Blog'
-  author?: Maybe<User>
+export type Announcement = {
+  __typename?: 'Announcement'
+  _status?: Maybe<Announcement__Status>
+  content?: Maybe<Scalars['JSON']['output']>
   createdAt?: Maybe<Scalars['DateTime']['output']>
+  description?: Maybe<Scalars['String']['output']>
   id: Scalars['String']['output']
+  image?: Maybe<Media>
+  publishedAt?: Maybe<Scalars['DateTime']['output']>
+  slug?: Maybe<Scalars['String']['output']>
   title?: Maybe<Scalars['String']['output']>
   updatedAt?: Maybe<Scalars['DateTime']['output']>
 }
 
-export type BlogAuthorArgs = {
+export type AnnouncementContentArgs = {
+  depth?: InputMaybe<Scalars['Int']['input']>
+}
+
+export type AnnouncementImageArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>
   locale?: InputMaybe<LocaleInputType>
 }
 
-export type Blog_Author_Operator = {
+export enum AnnouncementUpdate__Status_MutationInput {
+  Draft = 'draft',
+  Published = 'published',
+}
+
+export type AnnouncementVersion = {
+  __typename?: 'AnnouncementVersion'
+  autosave?: Maybe<Scalars['Boolean']['output']>
+  createdAt?: Maybe<Scalars['DateTime']['output']>
+  id?: Maybe<Scalars['String']['output']>
+  latest?: Maybe<Scalars['Boolean']['output']>
+  parent?: Maybe<Announcement>
+  publishedLocale?: Maybe<AnnouncementVersion_PublishedLocale>
+  snapshot?: Maybe<Scalars['Boolean']['output']>
+  updatedAt?: Maybe<Scalars['DateTime']['output']>
+  version?: Maybe<AnnouncementVersion_Version>
+}
+
+export type AnnouncementVersionParentArgs = {
+  draft?: InputMaybe<Scalars['Boolean']['input']>
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>
+  locale?: InputMaybe<LocaleInputType>
+}
+
+export type AnnouncementVersion_Version = {
+  __typename?: 'AnnouncementVersion_Version'
+  _status?: Maybe<AnnouncementVersion_Version__Status>
+  content?: Maybe<Scalars['JSON']['output']>
+  createdAt?: Maybe<Scalars['DateTime']['output']>
+  description?: Maybe<Scalars['String']['output']>
+  image?: Maybe<Media>
+  publishedAt?: Maybe<Scalars['DateTime']['output']>
+  slug?: Maybe<Scalars['String']['output']>
+  title?: Maybe<Scalars['String']['output']>
+  updatedAt?: Maybe<Scalars['DateTime']['output']>
+}
+
+export type AnnouncementVersion_VersionContentArgs = {
+  depth?: InputMaybe<Scalars['Int']['input']>
+}
+
+export type AnnouncementVersion_VersionImageArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>
+  locale?: InputMaybe<LocaleInputType>
+}
+
+export enum AnnouncementVersion_Version__Status {
+  Draft = 'draft',
+  Published = 'published',
+}
+
+export enum AnnouncementVersion_PublishedLocale {
+  En = 'en',
+  Nl = 'nl',
+  Tr = 'tr',
+}
+
+export enum Announcement__Status {
+  Draft = 'draft',
+  Published = 'published',
+}
+
+export enum Announcement__Status_Input {
+  Draft = 'draft',
+  Published = 'published',
+}
+
+export enum Announcement__Status_MutationInput {
+  Draft = 'draft',
+  Published = 'published',
+}
+
+export type Announcement__Status_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Announcement__Status_Input>>>
+  equals?: InputMaybe<Announcement__Status_Input>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  in?: InputMaybe<Array<InputMaybe<Announcement__Status_Input>>>
+  not_equals?: InputMaybe<Announcement__Status_Input>
+  not_in?: InputMaybe<Array<InputMaybe<Announcement__Status_Input>>>
+}
+
+export type Announcement_Content_Operator = {
+  contains?: InputMaybe<Scalars['JSON']['input']>
+  equals?: InputMaybe<Scalars['JSON']['input']>
+  like?: InputMaybe<Scalars['JSON']['input']>
+  not_equals?: InputMaybe<Scalars['JSON']['input']>
+}
+
+export type Announcement_CreatedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  greater_than?: InputMaybe<Scalars['DateTime']['input']>
+  greater_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  less_than?: InputMaybe<Scalars['DateTime']['input']>
+  less_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  like?: InputMaybe<Scalars['DateTime']['input']>
+  not_equals?: InputMaybe<Scalars['DateTime']['input']>
+}
+
+export type Announcement_Description_Operator = {
+  contains?: InputMaybe<Scalars['String']['input']>
+  equals?: InputMaybe<Scalars['String']['input']>
+  like?: InputMaybe<Scalars['String']['input']>
+  not_equals?: InputMaybe<Scalars['String']['input']>
+}
+
+export type Announcement_Id_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  contains?: InputMaybe<Scalars['String']['input']>
+  equals?: InputMaybe<Scalars['String']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  like?: InputMaybe<Scalars['String']['input']>
+  not_equals?: InputMaybe<Scalars['String']['input']>
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+}
+
+export type Announcement_Image_Operator = {
   all?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>
   equals?: InputMaybe<Scalars['JSON']['input']>
   exists?: InputMaybe<Scalars['Boolean']['input']>
@@ -73,7 +201,7 @@ export type Blog_Author_Operator = {
   not_in?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>
 }
 
-export type Blog_CreatedAt_Operator = {
+export type Announcement_PublishedAt_Operator = {
   equals?: InputMaybe<Scalars['DateTime']['input']>
   exists?: InputMaybe<Scalars['Boolean']['input']>
   greater_than?: InputMaybe<Scalars['DateTime']['input']>
@@ -84,7 +212,7 @@ export type Blog_CreatedAt_Operator = {
   not_equals?: InputMaybe<Scalars['DateTime']['input']>
 }
 
-export type Blog_Id_Operator = {
+export type Announcement_Slug_Operator = {
   all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
   contains?: InputMaybe<Scalars['String']['input']>
   equals?: InputMaybe<Scalars['String']['input']>
@@ -95,18 +223,17 @@ export type Blog_Id_Operator = {
   not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
 }
 
-export type Blog_Title_Operator = {
+export type Announcement_Title_Operator = {
   all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
   contains?: InputMaybe<Scalars['String']['input']>
   equals?: InputMaybe<Scalars['String']['input']>
-  exists?: InputMaybe<Scalars['Boolean']['input']>
   in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
   like?: InputMaybe<Scalars['String']['input']>
   not_equals?: InputMaybe<Scalars['String']['input']>
   not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
 }
 
-export type Blog_UpdatedAt_Operator = {
+export type Announcement_UpdatedAt_Operator = {
   equals?: InputMaybe<Scalars['DateTime']['input']>
   exists?: InputMaybe<Scalars['Boolean']['input']>
   greater_than?: InputMaybe<Scalars['DateTime']['input']>
@@ -117,335 +244,652 @@ export type Blog_UpdatedAt_Operator = {
   not_equals?: InputMaybe<Scalars['DateTime']['input']>
 }
 
-export type Blog_Where = {
-  AND?: InputMaybe<Array<InputMaybe<Blog_Where_And>>>
-  OR?: InputMaybe<Array<InputMaybe<Blog_Where_Or>>>
-  author?: InputMaybe<Blog_Author_Operator>
-  createdAt?: InputMaybe<Blog_CreatedAt_Operator>
-  id?: InputMaybe<Blog_Id_Operator>
-  title?: InputMaybe<Blog_Title_Operator>
-  updatedAt?: InputMaybe<Blog_UpdatedAt_Operator>
+export type Announcement_Where = {
+  AND?: InputMaybe<Array<InputMaybe<Announcement_Where_And>>>
+  OR?: InputMaybe<Array<InputMaybe<Announcement_Where_Or>>>
+  _status?: InputMaybe<Announcement__Status_Operator>
+  content?: InputMaybe<Announcement_Content_Operator>
+  createdAt?: InputMaybe<Announcement_CreatedAt_Operator>
+  description?: InputMaybe<Announcement_Description_Operator>
+  id?: InputMaybe<Announcement_Id_Operator>
+  image?: InputMaybe<Announcement_Image_Operator>
+  publishedAt?: InputMaybe<Announcement_PublishedAt_Operator>
+  slug?: InputMaybe<Announcement_Slug_Operator>
+  title?: InputMaybe<Announcement_Title_Operator>
+  updatedAt?: InputMaybe<Announcement_UpdatedAt_Operator>
 }
 
-export type Blog_Where_And = {
-  AND?: InputMaybe<Array<InputMaybe<Blog_Where_And>>>
-  OR?: InputMaybe<Array<InputMaybe<Blog_Where_Or>>>
-  author?: InputMaybe<Blog_Author_Operator>
-  createdAt?: InputMaybe<Blog_CreatedAt_Operator>
-  id?: InputMaybe<Blog_Id_Operator>
-  title?: InputMaybe<Blog_Title_Operator>
-  updatedAt?: InputMaybe<Blog_UpdatedAt_Operator>
+export type Announcement_Where_And = {
+  AND?: InputMaybe<Array<InputMaybe<Announcement_Where_And>>>
+  OR?: InputMaybe<Array<InputMaybe<Announcement_Where_Or>>>
+  _status?: InputMaybe<Announcement__Status_Operator>
+  content?: InputMaybe<Announcement_Content_Operator>
+  createdAt?: InputMaybe<Announcement_CreatedAt_Operator>
+  description?: InputMaybe<Announcement_Description_Operator>
+  id?: InputMaybe<Announcement_Id_Operator>
+  image?: InputMaybe<Announcement_Image_Operator>
+  publishedAt?: InputMaybe<Announcement_PublishedAt_Operator>
+  slug?: InputMaybe<Announcement_Slug_Operator>
+  title?: InputMaybe<Announcement_Title_Operator>
+  updatedAt?: InputMaybe<Announcement_UpdatedAt_Operator>
 }
 
-export type Blog_Where_Or = {
-  AND?: InputMaybe<Array<InputMaybe<Blog_Where_And>>>
-  OR?: InputMaybe<Array<InputMaybe<Blog_Where_Or>>>
-  author?: InputMaybe<Blog_Author_Operator>
-  createdAt?: InputMaybe<Blog_CreatedAt_Operator>
-  id?: InputMaybe<Blog_Id_Operator>
-  title?: InputMaybe<Blog_Title_Operator>
-  updatedAt?: InputMaybe<Blog_UpdatedAt_Operator>
+export type Announcement_Where_Or = {
+  AND?: InputMaybe<Array<InputMaybe<Announcement_Where_And>>>
+  OR?: InputMaybe<Array<InputMaybe<Announcement_Where_Or>>>
+  _status?: InputMaybe<Announcement__Status_Operator>
+  content?: InputMaybe<Announcement_Content_Operator>
+  createdAt?: InputMaybe<Announcement_CreatedAt_Operator>
+  description?: InputMaybe<Announcement_Description_Operator>
+  id?: InputMaybe<Announcement_Id_Operator>
+  image?: InputMaybe<Announcement_Image_Operator>
+  publishedAt?: InputMaybe<Announcement_PublishedAt_Operator>
+  slug?: InputMaybe<Announcement_Slug_Operator>
+  title?: InputMaybe<Announcement_Title_Operator>
+  updatedAt?: InputMaybe<Announcement_UpdatedAt_Operator>
 }
 
-export type Blogs = {
-  __typename?: 'Blogs'
-  docs: Array<Blog>
+export type Announcements = {
+  __typename?: 'Announcements'
+  docs: Array<Announcement>
   hasNextPage: Scalars['Boolean']['output']
   hasPrevPage: Scalars['Boolean']['output']
   limit: Scalars['Int']['output']
-  nextPage: Scalars['Int']['output']
+  nextPage?: Maybe<Scalars['Int']['output']>
   offset?: Maybe<Scalars['Int']['output']>
   page: Scalars['Int']['output']
   pagingCounter: Scalars['Int']['output']
-  prevPage: Scalars['Int']['output']
+  prevPage?: Maybe<Scalars['Int']['output']>
   totalDocs: Scalars['Int']['output']
   totalPages: Scalars['Int']['output']
 }
 
-export type BlogsCreateAccess = {
-  __typename?: 'BlogsCreateAccess'
+export type AnnouncementsCreateAccess = {
+  __typename?: 'AnnouncementsCreateAccess'
   permission: Scalars['Boolean']['output']
   where?: Maybe<Scalars['JSONObject']['output']>
 }
 
-export type BlogsCreateDocAccess = {
-  __typename?: 'BlogsCreateDocAccess'
+export type AnnouncementsCreateDocAccess = {
+  __typename?: 'AnnouncementsCreateDocAccess'
   permission: Scalars['Boolean']['output']
   where?: Maybe<Scalars['JSONObject']['output']>
 }
 
-export type BlogsDeleteAccess = {
-  __typename?: 'BlogsDeleteAccess'
+export type AnnouncementsDeleteAccess = {
+  __typename?: 'AnnouncementsDeleteAccess'
   permission: Scalars['Boolean']['output']
   where?: Maybe<Scalars['JSONObject']['output']>
 }
 
-export type BlogsDeleteDocAccess = {
-  __typename?: 'BlogsDeleteDocAccess'
+export type AnnouncementsDeleteDocAccess = {
+  __typename?: 'AnnouncementsDeleteDocAccess'
   permission: Scalars['Boolean']['output']
   where?: Maybe<Scalars['JSONObject']['output']>
 }
 
-export type BlogsDocAccessFields = {
-  __typename?: 'BlogsDocAccessFields'
-  author?: Maybe<BlogsDocAccessFields_Author>
-  createdAt?: Maybe<BlogsDocAccessFields_CreatedAt>
-  title?: Maybe<BlogsDocAccessFields_Title>
-  updatedAt?: Maybe<BlogsDocAccessFields_UpdatedAt>
+export type AnnouncementsDocAccessFields = {
+  __typename?: 'AnnouncementsDocAccessFields'
+  _status?: Maybe<AnnouncementsDocAccessFields__Status>
+  content?: Maybe<AnnouncementsDocAccessFields_Content>
+  createdAt?: Maybe<AnnouncementsDocAccessFields_CreatedAt>
+  description?: Maybe<AnnouncementsDocAccessFields_Description>
+  image?: Maybe<AnnouncementsDocAccessFields_Image>
+  publishedAt?: Maybe<AnnouncementsDocAccessFields_PublishedAt>
+  slug?: Maybe<AnnouncementsDocAccessFields_Slug>
+  title?: Maybe<AnnouncementsDocAccessFields_Title>
+  updatedAt?: Maybe<AnnouncementsDocAccessFields_UpdatedAt>
 }
 
-export type BlogsDocAccessFields_Author = {
-  __typename?: 'BlogsDocAccessFields_author'
-  create?: Maybe<BlogsDocAccessFields_Author_Create>
-  delete?: Maybe<BlogsDocAccessFields_Author_Delete>
-  read?: Maybe<BlogsDocAccessFields_Author_Read>
-  update?: Maybe<BlogsDocAccessFields_Author_Update>
+export type AnnouncementsDocAccessFields__Status = {
+  __typename?: 'AnnouncementsDocAccessFields__status'
+  create?: Maybe<AnnouncementsDocAccessFields__Status_Create>
+  delete?: Maybe<AnnouncementsDocAccessFields__Status_Delete>
+  read?: Maybe<AnnouncementsDocAccessFields__Status_Read>
+  update?: Maybe<AnnouncementsDocAccessFields__Status_Update>
 }
 
-export type BlogsDocAccessFields_Author_Create = {
-  __typename?: 'BlogsDocAccessFields_author_Create'
+export type AnnouncementsDocAccessFields__Status_Create = {
+  __typename?: 'AnnouncementsDocAccessFields__status_Create'
   permission: Scalars['Boolean']['output']
 }
 
-export type BlogsDocAccessFields_Author_Delete = {
-  __typename?: 'BlogsDocAccessFields_author_Delete'
+export type AnnouncementsDocAccessFields__Status_Delete = {
+  __typename?: 'AnnouncementsDocAccessFields__status_Delete'
   permission: Scalars['Boolean']['output']
 }
 
-export type BlogsDocAccessFields_Author_Read = {
-  __typename?: 'BlogsDocAccessFields_author_Read'
+export type AnnouncementsDocAccessFields__Status_Read = {
+  __typename?: 'AnnouncementsDocAccessFields__status_Read'
   permission: Scalars['Boolean']['output']
 }
 
-export type BlogsDocAccessFields_Author_Update = {
-  __typename?: 'BlogsDocAccessFields_author_Update'
+export type AnnouncementsDocAccessFields__Status_Update = {
+  __typename?: 'AnnouncementsDocAccessFields__status_Update'
   permission: Scalars['Boolean']['output']
 }
 
-export type BlogsDocAccessFields_CreatedAt = {
-  __typename?: 'BlogsDocAccessFields_createdAt'
-  create?: Maybe<BlogsDocAccessFields_CreatedAt_Create>
-  delete?: Maybe<BlogsDocAccessFields_CreatedAt_Delete>
-  read?: Maybe<BlogsDocAccessFields_CreatedAt_Read>
-  update?: Maybe<BlogsDocAccessFields_CreatedAt_Update>
+export type AnnouncementsDocAccessFields_Content = {
+  __typename?: 'AnnouncementsDocAccessFields_content'
+  create?: Maybe<AnnouncementsDocAccessFields_Content_Create>
+  delete?: Maybe<AnnouncementsDocAccessFields_Content_Delete>
+  read?: Maybe<AnnouncementsDocAccessFields_Content_Read>
+  update?: Maybe<AnnouncementsDocAccessFields_Content_Update>
 }
 
-export type BlogsDocAccessFields_CreatedAt_Create = {
-  __typename?: 'BlogsDocAccessFields_createdAt_Create'
+export type AnnouncementsDocAccessFields_Content_Create = {
+  __typename?: 'AnnouncementsDocAccessFields_content_Create'
   permission: Scalars['Boolean']['output']
 }
 
-export type BlogsDocAccessFields_CreatedAt_Delete = {
-  __typename?: 'BlogsDocAccessFields_createdAt_Delete'
+export type AnnouncementsDocAccessFields_Content_Delete = {
+  __typename?: 'AnnouncementsDocAccessFields_content_Delete'
   permission: Scalars['Boolean']['output']
 }
 
-export type BlogsDocAccessFields_CreatedAt_Read = {
-  __typename?: 'BlogsDocAccessFields_createdAt_Read'
+export type AnnouncementsDocAccessFields_Content_Read = {
+  __typename?: 'AnnouncementsDocAccessFields_content_Read'
   permission: Scalars['Boolean']['output']
 }
 
-export type BlogsDocAccessFields_CreatedAt_Update = {
-  __typename?: 'BlogsDocAccessFields_createdAt_Update'
+export type AnnouncementsDocAccessFields_Content_Update = {
+  __typename?: 'AnnouncementsDocAccessFields_content_Update'
   permission: Scalars['Boolean']['output']
 }
 
-export type BlogsDocAccessFields_Title = {
-  __typename?: 'BlogsDocAccessFields_title'
-  create?: Maybe<BlogsDocAccessFields_Title_Create>
-  delete?: Maybe<BlogsDocAccessFields_Title_Delete>
-  read?: Maybe<BlogsDocAccessFields_Title_Read>
-  update?: Maybe<BlogsDocAccessFields_Title_Update>
+export type AnnouncementsDocAccessFields_CreatedAt = {
+  __typename?: 'AnnouncementsDocAccessFields_createdAt'
+  create?: Maybe<AnnouncementsDocAccessFields_CreatedAt_Create>
+  delete?: Maybe<AnnouncementsDocAccessFields_CreatedAt_Delete>
+  read?: Maybe<AnnouncementsDocAccessFields_CreatedAt_Read>
+  update?: Maybe<AnnouncementsDocAccessFields_CreatedAt_Update>
 }
 
-export type BlogsDocAccessFields_Title_Create = {
-  __typename?: 'BlogsDocAccessFields_title_Create'
+export type AnnouncementsDocAccessFields_CreatedAt_Create = {
+  __typename?: 'AnnouncementsDocAccessFields_createdAt_Create'
   permission: Scalars['Boolean']['output']
 }
 
-export type BlogsDocAccessFields_Title_Delete = {
-  __typename?: 'BlogsDocAccessFields_title_Delete'
+export type AnnouncementsDocAccessFields_CreatedAt_Delete = {
+  __typename?: 'AnnouncementsDocAccessFields_createdAt_Delete'
   permission: Scalars['Boolean']['output']
 }
 
-export type BlogsDocAccessFields_Title_Read = {
-  __typename?: 'BlogsDocAccessFields_title_Read'
+export type AnnouncementsDocAccessFields_CreatedAt_Read = {
+  __typename?: 'AnnouncementsDocAccessFields_createdAt_Read'
   permission: Scalars['Boolean']['output']
 }
 
-export type BlogsDocAccessFields_Title_Update = {
-  __typename?: 'BlogsDocAccessFields_title_Update'
+export type AnnouncementsDocAccessFields_CreatedAt_Update = {
+  __typename?: 'AnnouncementsDocAccessFields_createdAt_Update'
   permission: Scalars['Boolean']['output']
 }
 
-export type BlogsDocAccessFields_UpdatedAt = {
-  __typename?: 'BlogsDocAccessFields_updatedAt'
-  create?: Maybe<BlogsDocAccessFields_UpdatedAt_Create>
-  delete?: Maybe<BlogsDocAccessFields_UpdatedAt_Delete>
-  read?: Maybe<BlogsDocAccessFields_UpdatedAt_Read>
-  update?: Maybe<BlogsDocAccessFields_UpdatedAt_Update>
+export type AnnouncementsDocAccessFields_Description = {
+  __typename?: 'AnnouncementsDocAccessFields_description'
+  create?: Maybe<AnnouncementsDocAccessFields_Description_Create>
+  delete?: Maybe<AnnouncementsDocAccessFields_Description_Delete>
+  read?: Maybe<AnnouncementsDocAccessFields_Description_Read>
+  update?: Maybe<AnnouncementsDocAccessFields_Description_Update>
 }
 
-export type BlogsDocAccessFields_UpdatedAt_Create = {
-  __typename?: 'BlogsDocAccessFields_updatedAt_Create'
+export type AnnouncementsDocAccessFields_Description_Create = {
+  __typename?: 'AnnouncementsDocAccessFields_description_Create'
   permission: Scalars['Boolean']['output']
 }
 
-export type BlogsDocAccessFields_UpdatedAt_Delete = {
-  __typename?: 'BlogsDocAccessFields_updatedAt_Delete'
+export type AnnouncementsDocAccessFields_Description_Delete = {
+  __typename?: 'AnnouncementsDocAccessFields_description_Delete'
   permission: Scalars['Boolean']['output']
 }
 
-export type BlogsDocAccessFields_UpdatedAt_Read = {
-  __typename?: 'BlogsDocAccessFields_updatedAt_Read'
+export type AnnouncementsDocAccessFields_Description_Read = {
+  __typename?: 'AnnouncementsDocAccessFields_description_Read'
   permission: Scalars['Boolean']['output']
 }
 
-export type BlogsDocAccessFields_UpdatedAt_Update = {
-  __typename?: 'BlogsDocAccessFields_updatedAt_Update'
+export type AnnouncementsDocAccessFields_Description_Update = {
+  __typename?: 'AnnouncementsDocAccessFields_description_Update'
   permission: Scalars['Boolean']['output']
 }
 
-export type BlogsFields = {
-  __typename?: 'BlogsFields'
-  author?: Maybe<BlogsFields_Author>
-  createdAt?: Maybe<BlogsFields_CreatedAt>
-  title?: Maybe<BlogsFields_Title>
-  updatedAt?: Maybe<BlogsFields_UpdatedAt>
+export type AnnouncementsDocAccessFields_Image = {
+  __typename?: 'AnnouncementsDocAccessFields_image'
+  create?: Maybe<AnnouncementsDocAccessFields_Image_Create>
+  delete?: Maybe<AnnouncementsDocAccessFields_Image_Delete>
+  read?: Maybe<AnnouncementsDocAccessFields_Image_Read>
+  update?: Maybe<AnnouncementsDocAccessFields_Image_Update>
 }
 
-export type BlogsFields_Author = {
-  __typename?: 'BlogsFields_author'
-  create?: Maybe<BlogsFields_Author_Create>
-  delete?: Maybe<BlogsFields_Author_Delete>
-  read?: Maybe<BlogsFields_Author_Read>
-  update?: Maybe<BlogsFields_Author_Update>
-}
-
-export type BlogsFields_Author_Create = {
-  __typename?: 'BlogsFields_author_Create'
+export type AnnouncementsDocAccessFields_Image_Create = {
+  __typename?: 'AnnouncementsDocAccessFields_image_Create'
   permission: Scalars['Boolean']['output']
 }
 
-export type BlogsFields_Author_Delete = {
-  __typename?: 'BlogsFields_author_Delete'
+export type AnnouncementsDocAccessFields_Image_Delete = {
+  __typename?: 'AnnouncementsDocAccessFields_image_Delete'
   permission: Scalars['Boolean']['output']
 }
 
-export type BlogsFields_Author_Read = {
-  __typename?: 'BlogsFields_author_Read'
+export type AnnouncementsDocAccessFields_Image_Read = {
+  __typename?: 'AnnouncementsDocAccessFields_image_Read'
   permission: Scalars['Boolean']['output']
 }
 
-export type BlogsFields_Author_Update = {
-  __typename?: 'BlogsFields_author_Update'
+export type AnnouncementsDocAccessFields_Image_Update = {
+  __typename?: 'AnnouncementsDocAccessFields_image_Update'
   permission: Scalars['Boolean']['output']
 }
 
-export type BlogsFields_CreatedAt = {
-  __typename?: 'BlogsFields_createdAt'
-  create?: Maybe<BlogsFields_CreatedAt_Create>
-  delete?: Maybe<BlogsFields_CreatedAt_Delete>
-  read?: Maybe<BlogsFields_CreatedAt_Read>
-  update?: Maybe<BlogsFields_CreatedAt_Update>
+export type AnnouncementsDocAccessFields_PublishedAt = {
+  __typename?: 'AnnouncementsDocAccessFields_publishedAt'
+  create?: Maybe<AnnouncementsDocAccessFields_PublishedAt_Create>
+  delete?: Maybe<AnnouncementsDocAccessFields_PublishedAt_Delete>
+  read?: Maybe<AnnouncementsDocAccessFields_PublishedAt_Read>
+  update?: Maybe<AnnouncementsDocAccessFields_PublishedAt_Update>
 }
 
-export type BlogsFields_CreatedAt_Create = {
-  __typename?: 'BlogsFields_createdAt_Create'
+export type AnnouncementsDocAccessFields_PublishedAt_Create = {
+  __typename?: 'AnnouncementsDocAccessFields_publishedAt_Create'
   permission: Scalars['Boolean']['output']
 }
 
-export type BlogsFields_CreatedAt_Delete = {
-  __typename?: 'BlogsFields_createdAt_Delete'
+export type AnnouncementsDocAccessFields_PublishedAt_Delete = {
+  __typename?: 'AnnouncementsDocAccessFields_publishedAt_Delete'
   permission: Scalars['Boolean']['output']
 }
 
-export type BlogsFields_CreatedAt_Read = {
-  __typename?: 'BlogsFields_createdAt_Read'
+export type AnnouncementsDocAccessFields_PublishedAt_Read = {
+  __typename?: 'AnnouncementsDocAccessFields_publishedAt_Read'
   permission: Scalars['Boolean']['output']
 }
 
-export type BlogsFields_CreatedAt_Update = {
-  __typename?: 'BlogsFields_createdAt_Update'
+export type AnnouncementsDocAccessFields_PublishedAt_Update = {
+  __typename?: 'AnnouncementsDocAccessFields_publishedAt_Update'
   permission: Scalars['Boolean']['output']
 }
 
-export type BlogsFields_Title = {
-  __typename?: 'BlogsFields_title'
-  create?: Maybe<BlogsFields_Title_Create>
-  delete?: Maybe<BlogsFields_Title_Delete>
-  read?: Maybe<BlogsFields_Title_Read>
-  update?: Maybe<BlogsFields_Title_Update>
+export type AnnouncementsDocAccessFields_Slug = {
+  __typename?: 'AnnouncementsDocAccessFields_slug'
+  create?: Maybe<AnnouncementsDocAccessFields_Slug_Create>
+  delete?: Maybe<AnnouncementsDocAccessFields_Slug_Delete>
+  read?: Maybe<AnnouncementsDocAccessFields_Slug_Read>
+  update?: Maybe<AnnouncementsDocAccessFields_Slug_Update>
 }
 
-export type BlogsFields_Title_Create = {
-  __typename?: 'BlogsFields_title_Create'
+export type AnnouncementsDocAccessFields_Slug_Create = {
+  __typename?: 'AnnouncementsDocAccessFields_slug_Create'
   permission: Scalars['Boolean']['output']
 }
 
-export type BlogsFields_Title_Delete = {
-  __typename?: 'BlogsFields_title_Delete'
+export type AnnouncementsDocAccessFields_Slug_Delete = {
+  __typename?: 'AnnouncementsDocAccessFields_slug_Delete'
   permission: Scalars['Boolean']['output']
 }
 
-export type BlogsFields_Title_Read = {
-  __typename?: 'BlogsFields_title_Read'
+export type AnnouncementsDocAccessFields_Slug_Read = {
+  __typename?: 'AnnouncementsDocAccessFields_slug_Read'
   permission: Scalars['Boolean']['output']
 }
 
-export type BlogsFields_Title_Update = {
-  __typename?: 'BlogsFields_title_Update'
+export type AnnouncementsDocAccessFields_Slug_Update = {
+  __typename?: 'AnnouncementsDocAccessFields_slug_Update'
   permission: Scalars['Boolean']['output']
 }
 
-export type BlogsFields_UpdatedAt = {
-  __typename?: 'BlogsFields_updatedAt'
-  create?: Maybe<BlogsFields_UpdatedAt_Create>
-  delete?: Maybe<BlogsFields_UpdatedAt_Delete>
-  read?: Maybe<BlogsFields_UpdatedAt_Read>
-  update?: Maybe<BlogsFields_UpdatedAt_Update>
+export type AnnouncementsDocAccessFields_Title = {
+  __typename?: 'AnnouncementsDocAccessFields_title'
+  create?: Maybe<AnnouncementsDocAccessFields_Title_Create>
+  delete?: Maybe<AnnouncementsDocAccessFields_Title_Delete>
+  read?: Maybe<AnnouncementsDocAccessFields_Title_Read>
+  update?: Maybe<AnnouncementsDocAccessFields_Title_Update>
 }
 
-export type BlogsFields_UpdatedAt_Create = {
-  __typename?: 'BlogsFields_updatedAt_Create'
+export type AnnouncementsDocAccessFields_Title_Create = {
+  __typename?: 'AnnouncementsDocAccessFields_title_Create'
   permission: Scalars['Boolean']['output']
 }
 
-export type BlogsFields_UpdatedAt_Delete = {
-  __typename?: 'BlogsFields_updatedAt_Delete'
+export type AnnouncementsDocAccessFields_Title_Delete = {
+  __typename?: 'AnnouncementsDocAccessFields_title_Delete'
   permission: Scalars['Boolean']['output']
 }
 
-export type BlogsFields_UpdatedAt_Read = {
-  __typename?: 'BlogsFields_updatedAt_Read'
+export type AnnouncementsDocAccessFields_Title_Read = {
+  __typename?: 'AnnouncementsDocAccessFields_title_Read'
   permission: Scalars['Boolean']['output']
 }
 
-export type BlogsFields_UpdatedAt_Update = {
-  __typename?: 'BlogsFields_updatedAt_Update'
+export type AnnouncementsDocAccessFields_Title_Update = {
+  __typename?: 'AnnouncementsDocAccessFields_title_Update'
   permission: Scalars['Boolean']['output']
 }
 
-export type BlogsReadAccess = {
-  __typename?: 'BlogsReadAccess'
+export type AnnouncementsDocAccessFields_UpdatedAt = {
+  __typename?: 'AnnouncementsDocAccessFields_updatedAt'
+  create?: Maybe<AnnouncementsDocAccessFields_UpdatedAt_Create>
+  delete?: Maybe<AnnouncementsDocAccessFields_UpdatedAt_Delete>
+  read?: Maybe<AnnouncementsDocAccessFields_UpdatedAt_Read>
+  update?: Maybe<AnnouncementsDocAccessFields_UpdatedAt_Update>
+}
+
+export type AnnouncementsDocAccessFields_UpdatedAt_Create = {
+  __typename?: 'AnnouncementsDocAccessFields_updatedAt_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsDocAccessFields_UpdatedAt_Delete = {
+  __typename?: 'AnnouncementsDocAccessFields_updatedAt_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsDocAccessFields_UpdatedAt_Read = {
+  __typename?: 'AnnouncementsDocAccessFields_updatedAt_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsDocAccessFields_UpdatedAt_Update = {
+  __typename?: 'AnnouncementsDocAccessFields_updatedAt_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields = {
+  __typename?: 'AnnouncementsFields'
+  _status?: Maybe<AnnouncementsFields__Status>
+  content?: Maybe<AnnouncementsFields_Content>
+  createdAt?: Maybe<AnnouncementsFields_CreatedAt>
+  description?: Maybe<AnnouncementsFields_Description>
+  image?: Maybe<AnnouncementsFields_Image>
+  publishedAt?: Maybe<AnnouncementsFields_PublishedAt>
+  slug?: Maybe<AnnouncementsFields_Slug>
+  title?: Maybe<AnnouncementsFields_Title>
+  updatedAt?: Maybe<AnnouncementsFields_UpdatedAt>
+}
+
+export type AnnouncementsFields__Status = {
+  __typename?: 'AnnouncementsFields__status'
+  create?: Maybe<AnnouncementsFields__Status_Create>
+  delete?: Maybe<AnnouncementsFields__Status_Delete>
+  read?: Maybe<AnnouncementsFields__Status_Read>
+  update?: Maybe<AnnouncementsFields__Status_Update>
+}
+
+export type AnnouncementsFields__Status_Create = {
+  __typename?: 'AnnouncementsFields__status_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields__Status_Delete = {
+  __typename?: 'AnnouncementsFields__status_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields__Status_Read = {
+  __typename?: 'AnnouncementsFields__status_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields__Status_Update = {
+  __typename?: 'AnnouncementsFields__status_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields_Content = {
+  __typename?: 'AnnouncementsFields_content'
+  create?: Maybe<AnnouncementsFields_Content_Create>
+  delete?: Maybe<AnnouncementsFields_Content_Delete>
+  read?: Maybe<AnnouncementsFields_Content_Read>
+  update?: Maybe<AnnouncementsFields_Content_Update>
+}
+
+export type AnnouncementsFields_Content_Create = {
+  __typename?: 'AnnouncementsFields_content_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields_Content_Delete = {
+  __typename?: 'AnnouncementsFields_content_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields_Content_Read = {
+  __typename?: 'AnnouncementsFields_content_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields_Content_Update = {
+  __typename?: 'AnnouncementsFields_content_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields_CreatedAt = {
+  __typename?: 'AnnouncementsFields_createdAt'
+  create?: Maybe<AnnouncementsFields_CreatedAt_Create>
+  delete?: Maybe<AnnouncementsFields_CreatedAt_Delete>
+  read?: Maybe<AnnouncementsFields_CreatedAt_Read>
+  update?: Maybe<AnnouncementsFields_CreatedAt_Update>
+}
+
+export type AnnouncementsFields_CreatedAt_Create = {
+  __typename?: 'AnnouncementsFields_createdAt_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields_CreatedAt_Delete = {
+  __typename?: 'AnnouncementsFields_createdAt_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields_CreatedAt_Read = {
+  __typename?: 'AnnouncementsFields_createdAt_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields_CreatedAt_Update = {
+  __typename?: 'AnnouncementsFields_createdAt_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields_Description = {
+  __typename?: 'AnnouncementsFields_description'
+  create?: Maybe<AnnouncementsFields_Description_Create>
+  delete?: Maybe<AnnouncementsFields_Description_Delete>
+  read?: Maybe<AnnouncementsFields_Description_Read>
+  update?: Maybe<AnnouncementsFields_Description_Update>
+}
+
+export type AnnouncementsFields_Description_Create = {
+  __typename?: 'AnnouncementsFields_description_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields_Description_Delete = {
+  __typename?: 'AnnouncementsFields_description_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields_Description_Read = {
+  __typename?: 'AnnouncementsFields_description_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields_Description_Update = {
+  __typename?: 'AnnouncementsFields_description_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields_Image = {
+  __typename?: 'AnnouncementsFields_image'
+  create?: Maybe<AnnouncementsFields_Image_Create>
+  delete?: Maybe<AnnouncementsFields_Image_Delete>
+  read?: Maybe<AnnouncementsFields_Image_Read>
+  update?: Maybe<AnnouncementsFields_Image_Update>
+}
+
+export type AnnouncementsFields_Image_Create = {
+  __typename?: 'AnnouncementsFields_image_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields_Image_Delete = {
+  __typename?: 'AnnouncementsFields_image_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields_Image_Read = {
+  __typename?: 'AnnouncementsFields_image_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields_Image_Update = {
+  __typename?: 'AnnouncementsFields_image_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields_PublishedAt = {
+  __typename?: 'AnnouncementsFields_publishedAt'
+  create?: Maybe<AnnouncementsFields_PublishedAt_Create>
+  delete?: Maybe<AnnouncementsFields_PublishedAt_Delete>
+  read?: Maybe<AnnouncementsFields_PublishedAt_Read>
+  update?: Maybe<AnnouncementsFields_PublishedAt_Update>
+}
+
+export type AnnouncementsFields_PublishedAt_Create = {
+  __typename?: 'AnnouncementsFields_publishedAt_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields_PublishedAt_Delete = {
+  __typename?: 'AnnouncementsFields_publishedAt_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields_PublishedAt_Read = {
+  __typename?: 'AnnouncementsFields_publishedAt_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields_PublishedAt_Update = {
+  __typename?: 'AnnouncementsFields_publishedAt_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields_Slug = {
+  __typename?: 'AnnouncementsFields_slug'
+  create?: Maybe<AnnouncementsFields_Slug_Create>
+  delete?: Maybe<AnnouncementsFields_Slug_Delete>
+  read?: Maybe<AnnouncementsFields_Slug_Read>
+  update?: Maybe<AnnouncementsFields_Slug_Update>
+}
+
+export type AnnouncementsFields_Slug_Create = {
+  __typename?: 'AnnouncementsFields_slug_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields_Slug_Delete = {
+  __typename?: 'AnnouncementsFields_slug_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields_Slug_Read = {
+  __typename?: 'AnnouncementsFields_slug_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields_Slug_Update = {
+  __typename?: 'AnnouncementsFields_slug_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields_Title = {
+  __typename?: 'AnnouncementsFields_title'
+  create?: Maybe<AnnouncementsFields_Title_Create>
+  delete?: Maybe<AnnouncementsFields_Title_Delete>
+  read?: Maybe<AnnouncementsFields_Title_Read>
+  update?: Maybe<AnnouncementsFields_Title_Update>
+}
+
+export type AnnouncementsFields_Title_Create = {
+  __typename?: 'AnnouncementsFields_title_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields_Title_Delete = {
+  __typename?: 'AnnouncementsFields_title_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields_Title_Read = {
+  __typename?: 'AnnouncementsFields_title_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields_Title_Update = {
+  __typename?: 'AnnouncementsFields_title_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields_UpdatedAt = {
+  __typename?: 'AnnouncementsFields_updatedAt'
+  create?: Maybe<AnnouncementsFields_UpdatedAt_Create>
+  delete?: Maybe<AnnouncementsFields_UpdatedAt_Delete>
+  read?: Maybe<AnnouncementsFields_UpdatedAt_Read>
+  update?: Maybe<AnnouncementsFields_UpdatedAt_Update>
+}
+
+export type AnnouncementsFields_UpdatedAt_Create = {
+  __typename?: 'AnnouncementsFields_updatedAt_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields_UpdatedAt_Delete = {
+  __typename?: 'AnnouncementsFields_updatedAt_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields_UpdatedAt_Read = {
+  __typename?: 'AnnouncementsFields_updatedAt_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsFields_UpdatedAt_Update = {
+  __typename?: 'AnnouncementsFields_updatedAt_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type AnnouncementsReadAccess = {
+  __typename?: 'AnnouncementsReadAccess'
   permission: Scalars['Boolean']['output']
   where?: Maybe<Scalars['JSONObject']['output']>
 }
 
-export type BlogsReadDocAccess = {
-  __typename?: 'BlogsReadDocAccess'
+export type AnnouncementsReadDocAccess = {
+  __typename?: 'AnnouncementsReadDocAccess'
   permission: Scalars['Boolean']['output']
   where?: Maybe<Scalars['JSONObject']['output']>
 }
 
-export type BlogsUpdateAccess = {
-  __typename?: 'BlogsUpdateAccess'
+export type AnnouncementsReadVersionsAccess = {
+  __typename?: 'AnnouncementsReadVersionsAccess'
   permission: Scalars['Boolean']['output']
   where?: Maybe<Scalars['JSONObject']['output']>
 }
 
-export type BlogsUpdateDocAccess = {
-  __typename?: 'BlogsUpdateDocAccess'
+export type AnnouncementsReadVersionsDocAccess = {
+  __typename?: 'AnnouncementsReadVersionsDocAccess'
+  permission: Scalars['Boolean']['output']
+  where?: Maybe<Scalars['JSONObject']['output']>
+}
+
+export type AnnouncementsUpdateAccess = {
+  __typename?: 'AnnouncementsUpdateAccess'
+  permission: Scalars['Boolean']['output']
+  where?: Maybe<Scalars['JSONObject']['output']>
+}
+
+export type AnnouncementsUpdateDocAccess = {
+  __typename?: 'AnnouncementsUpdateDocAccess'
   permission: Scalars['Boolean']['output']
   where?: Maybe<Scalars['JSONObject']['output']>
 }
@@ -489,6 +933,942 @@ export type Country = {
   name: Scalars['String']['output']
   required?: Maybe<Scalars['Boolean']['output']>
   width?: Maybe<Scalars['Float']['output']>
+}
+
+export type Donation = {
+  __typename?: 'Donation'
+  amount: Scalars['Float']['output']
+  campaign?: Maybe<Scalars['String']['output']>
+  createdAt?: Maybe<Scalars['DateTime']['output']>
+  currency: Scalars['String']['output']
+  date: Scalars['DateTime']['output']
+  email?: Maybe<Scalars['String']['output']>
+  id: Scalars['String']['output']
+  message?: Maybe<Scalars['String']['output']>
+  paymentType?: Maybe<Donation_PaymentType>
+  status?: Maybe<Donation_Status>
+  stripePaymentIntentId: Scalars['String']['output']
+  updatedAt?: Maybe<Scalars['DateTime']['output']>
+}
+
+export enum DonationUpdate_PaymentType_MutationInput {
+  Monthly = 'monthly',
+  OneTime = 'one_time',
+}
+
+export enum DonationUpdate_Status_MutationInput {
+  Paid = 'paid',
+  Pending = 'pending',
+}
+
+export type Donation_Amount_Operator = {
+  equals?: InputMaybe<Scalars['Float']['input']>
+  greater_than?: InputMaybe<Scalars['Float']['input']>
+  greater_than_equal?: InputMaybe<Scalars['Float']['input']>
+  less_than?: InputMaybe<Scalars['Float']['input']>
+  less_than_equal?: InputMaybe<Scalars['Float']['input']>
+  not_equals?: InputMaybe<Scalars['Float']['input']>
+}
+
+export type Donation_Campaign_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  contains?: InputMaybe<Scalars['String']['input']>
+  equals?: InputMaybe<Scalars['String']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  like?: InputMaybe<Scalars['String']['input']>
+  not_equals?: InputMaybe<Scalars['String']['input']>
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+}
+
+export type Donation_CreatedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  greater_than?: InputMaybe<Scalars['DateTime']['input']>
+  greater_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  less_than?: InputMaybe<Scalars['DateTime']['input']>
+  less_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  like?: InputMaybe<Scalars['DateTime']['input']>
+  not_equals?: InputMaybe<Scalars['DateTime']['input']>
+}
+
+export type Donation_Currency_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  contains?: InputMaybe<Scalars['String']['input']>
+  equals?: InputMaybe<Scalars['String']['input']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  like?: InputMaybe<Scalars['String']['input']>
+  not_equals?: InputMaybe<Scalars['String']['input']>
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+}
+
+export type Donation_Date_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']['input']>
+  greater_than?: InputMaybe<Scalars['DateTime']['input']>
+  greater_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  less_than?: InputMaybe<Scalars['DateTime']['input']>
+  less_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  like?: InputMaybe<Scalars['DateTime']['input']>
+  not_equals?: InputMaybe<Scalars['DateTime']['input']>
+}
+
+export type Donation_Email_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  contains?: InputMaybe<Scalars['String']['input']>
+  equals?: InputMaybe<Scalars['String']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  like?: InputMaybe<Scalars['String']['input']>
+  not_equals?: InputMaybe<Scalars['String']['input']>
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+}
+
+export type Donation_Id_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  contains?: InputMaybe<Scalars['String']['input']>
+  equals?: InputMaybe<Scalars['String']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  like?: InputMaybe<Scalars['String']['input']>
+  not_equals?: InputMaybe<Scalars['String']['input']>
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+}
+
+export type Donation_Message_Operator = {
+  contains?: InputMaybe<Scalars['String']['input']>
+  equals?: InputMaybe<Scalars['String']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  like?: InputMaybe<Scalars['String']['input']>
+  not_equals?: InputMaybe<Scalars['String']['input']>
+}
+
+export enum Donation_PaymentType {
+  Monthly = 'monthly',
+  OneTime = 'one_time',
+}
+
+export enum Donation_PaymentType_Input {
+  Monthly = 'monthly',
+  OneTime = 'one_time',
+}
+
+export enum Donation_PaymentType_MutationInput {
+  Monthly = 'monthly',
+  OneTime = 'one_time',
+}
+
+export type Donation_PaymentType_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Donation_PaymentType_Input>>>
+  equals?: InputMaybe<Donation_PaymentType_Input>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  in?: InputMaybe<Array<InputMaybe<Donation_PaymentType_Input>>>
+  not_equals?: InputMaybe<Donation_PaymentType_Input>
+  not_in?: InputMaybe<Array<InputMaybe<Donation_PaymentType_Input>>>
+}
+
+export enum Donation_Status {
+  Paid = 'paid',
+  Pending = 'pending',
+}
+
+export enum Donation_Status_Input {
+  Paid = 'paid',
+  Pending = 'pending',
+}
+
+export enum Donation_Status_MutationInput {
+  Paid = 'paid',
+  Pending = 'pending',
+}
+
+export type Donation_Status_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Donation_Status_Input>>>
+  equals?: InputMaybe<Donation_Status_Input>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  in?: InputMaybe<Array<InputMaybe<Donation_Status_Input>>>
+  not_equals?: InputMaybe<Donation_Status_Input>
+  not_in?: InputMaybe<Array<InputMaybe<Donation_Status_Input>>>
+}
+
+export type Donation_StripePaymentIntentId_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  contains?: InputMaybe<Scalars['String']['input']>
+  equals?: InputMaybe<Scalars['String']['input']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  like?: InputMaybe<Scalars['String']['input']>
+  not_equals?: InputMaybe<Scalars['String']['input']>
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+}
+
+export type Donation_UpdatedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  greater_than?: InputMaybe<Scalars['DateTime']['input']>
+  greater_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  less_than?: InputMaybe<Scalars['DateTime']['input']>
+  less_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  like?: InputMaybe<Scalars['DateTime']['input']>
+  not_equals?: InputMaybe<Scalars['DateTime']['input']>
+}
+
+export type Donation_Where = {
+  AND?: InputMaybe<Array<InputMaybe<Donation_Where_And>>>
+  OR?: InputMaybe<Array<InputMaybe<Donation_Where_Or>>>
+  amount?: InputMaybe<Donation_Amount_Operator>
+  campaign?: InputMaybe<Donation_Campaign_Operator>
+  createdAt?: InputMaybe<Donation_CreatedAt_Operator>
+  currency?: InputMaybe<Donation_Currency_Operator>
+  date?: InputMaybe<Donation_Date_Operator>
+  email?: InputMaybe<Donation_Email_Operator>
+  id?: InputMaybe<Donation_Id_Operator>
+  message?: InputMaybe<Donation_Message_Operator>
+  paymentType?: InputMaybe<Donation_PaymentType_Operator>
+  status?: InputMaybe<Donation_Status_Operator>
+  stripePaymentIntentId?: InputMaybe<Donation_StripePaymentIntentId_Operator>
+  updatedAt?: InputMaybe<Donation_UpdatedAt_Operator>
+}
+
+export type Donation_Where_And = {
+  AND?: InputMaybe<Array<InputMaybe<Donation_Where_And>>>
+  OR?: InputMaybe<Array<InputMaybe<Donation_Where_Or>>>
+  amount?: InputMaybe<Donation_Amount_Operator>
+  campaign?: InputMaybe<Donation_Campaign_Operator>
+  createdAt?: InputMaybe<Donation_CreatedAt_Operator>
+  currency?: InputMaybe<Donation_Currency_Operator>
+  date?: InputMaybe<Donation_Date_Operator>
+  email?: InputMaybe<Donation_Email_Operator>
+  id?: InputMaybe<Donation_Id_Operator>
+  message?: InputMaybe<Donation_Message_Operator>
+  paymentType?: InputMaybe<Donation_PaymentType_Operator>
+  status?: InputMaybe<Donation_Status_Operator>
+  stripePaymentIntentId?: InputMaybe<Donation_StripePaymentIntentId_Operator>
+  updatedAt?: InputMaybe<Donation_UpdatedAt_Operator>
+}
+
+export type Donation_Where_Or = {
+  AND?: InputMaybe<Array<InputMaybe<Donation_Where_And>>>
+  OR?: InputMaybe<Array<InputMaybe<Donation_Where_Or>>>
+  amount?: InputMaybe<Donation_Amount_Operator>
+  campaign?: InputMaybe<Donation_Campaign_Operator>
+  createdAt?: InputMaybe<Donation_CreatedAt_Operator>
+  currency?: InputMaybe<Donation_Currency_Operator>
+  date?: InputMaybe<Donation_Date_Operator>
+  email?: InputMaybe<Donation_Email_Operator>
+  id?: InputMaybe<Donation_Id_Operator>
+  message?: InputMaybe<Donation_Message_Operator>
+  paymentType?: InputMaybe<Donation_PaymentType_Operator>
+  status?: InputMaybe<Donation_Status_Operator>
+  stripePaymentIntentId?: InputMaybe<Donation_StripePaymentIntentId_Operator>
+  updatedAt?: InputMaybe<Donation_UpdatedAt_Operator>
+}
+
+export type Donations = {
+  __typename?: 'Donations'
+  docs: Array<Donation>
+  hasNextPage: Scalars['Boolean']['output']
+  hasPrevPage: Scalars['Boolean']['output']
+  limit: Scalars['Int']['output']
+  nextPage?: Maybe<Scalars['Int']['output']>
+  offset?: Maybe<Scalars['Int']['output']>
+  page: Scalars['Int']['output']
+  pagingCounter: Scalars['Int']['output']
+  prevPage?: Maybe<Scalars['Int']['output']>
+  totalDocs: Scalars['Int']['output']
+  totalPages: Scalars['Int']['output']
+}
+
+export type DonationsCreateAccess = {
+  __typename?: 'DonationsCreateAccess'
+  permission: Scalars['Boolean']['output']
+  where?: Maybe<Scalars['JSONObject']['output']>
+}
+
+export type DonationsCreateDocAccess = {
+  __typename?: 'DonationsCreateDocAccess'
+  permission: Scalars['Boolean']['output']
+  where?: Maybe<Scalars['JSONObject']['output']>
+}
+
+export type DonationsDeleteAccess = {
+  __typename?: 'DonationsDeleteAccess'
+  permission: Scalars['Boolean']['output']
+  where?: Maybe<Scalars['JSONObject']['output']>
+}
+
+export type DonationsDeleteDocAccess = {
+  __typename?: 'DonationsDeleteDocAccess'
+  permission: Scalars['Boolean']['output']
+  where?: Maybe<Scalars['JSONObject']['output']>
+}
+
+export type DonationsDocAccessFields = {
+  __typename?: 'DonationsDocAccessFields'
+  amount?: Maybe<DonationsDocAccessFields_Amount>
+  campaign?: Maybe<DonationsDocAccessFields_Campaign>
+  createdAt?: Maybe<DonationsDocAccessFields_CreatedAt>
+  currency?: Maybe<DonationsDocAccessFields_Currency>
+  date?: Maybe<DonationsDocAccessFields_Date>
+  email?: Maybe<DonationsDocAccessFields_Email>
+  message?: Maybe<DonationsDocAccessFields_Message>
+  paymentType?: Maybe<DonationsDocAccessFields_PaymentType>
+  status?: Maybe<DonationsDocAccessFields_Status>
+  stripePaymentIntentId?: Maybe<DonationsDocAccessFields_StripePaymentIntentId>
+  updatedAt?: Maybe<DonationsDocAccessFields_UpdatedAt>
+}
+
+export type DonationsDocAccessFields_Amount = {
+  __typename?: 'DonationsDocAccessFields_amount'
+  create?: Maybe<DonationsDocAccessFields_Amount_Create>
+  delete?: Maybe<DonationsDocAccessFields_Amount_Delete>
+  read?: Maybe<DonationsDocAccessFields_Amount_Read>
+  update?: Maybe<DonationsDocAccessFields_Amount_Update>
+}
+
+export type DonationsDocAccessFields_Amount_Create = {
+  __typename?: 'DonationsDocAccessFields_amount_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_Amount_Delete = {
+  __typename?: 'DonationsDocAccessFields_amount_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_Amount_Read = {
+  __typename?: 'DonationsDocAccessFields_amount_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_Amount_Update = {
+  __typename?: 'DonationsDocAccessFields_amount_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_Campaign = {
+  __typename?: 'DonationsDocAccessFields_campaign'
+  create?: Maybe<DonationsDocAccessFields_Campaign_Create>
+  delete?: Maybe<DonationsDocAccessFields_Campaign_Delete>
+  read?: Maybe<DonationsDocAccessFields_Campaign_Read>
+  update?: Maybe<DonationsDocAccessFields_Campaign_Update>
+}
+
+export type DonationsDocAccessFields_Campaign_Create = {
+  __typename?: 'DonationsDocAccessFields_campaign_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_Campaign_Delete = {
+  __typename?: 'DonationsDocAccessFields_campaign_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_Campaign_Read = {
+  __typename?: 'DonationsDocAccessFields_campaign_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_Campaign_Update = {
+  __typename?: 'DonationsDocAccessFields_campaign_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_CreatedAt = {
+  __typename?: 'DonationsDocAccessFields_createdAt'
+  create?: Maybe<DonationsDocAccessFields_CreatedAt_Create>
+  delete?: Maybe<DonationsDocAccessFields_CreatedAt_Delete>
+  read?: Maybe<DonationsDocAccessFields_CreatedAt_Read>
+  update?: Maybe<DonationsDocAccessFields_CreatedAt_Update>
+}
+
+export type DonationsDocAccessFields_CreatedAt_Create = {
+  __typename?: 'DonationsDocAccessFields_createdAt_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_CreatedAt_Delete = {
+  __typename?: 'DonationsDocAccessFields_createdAt_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_CreatedAt_Read = {
+  __typename?: 'DonationsDocAccessFields_createdAt_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_CreatedAt_Update = {
+  __typename?: 'DonationsDocAccessFields_createdAt_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_Currency = {
+  __typename?: 'DonationsDocAccessFields_currency'
+  create?: Maybe<DonationsDocAccessFields_Currency_Create>
+  delete?: Maybe<DonationsDocAccessFields_Currency_Delete>
+  read?: Maybe<DonationsDocAccessFields_Currency_Read>
+  update?: Maybe<DonationsDocAccessFields_Currency_Update>
+}
+
+export type DonationsDocAccessFields_Currency_Create = {
+  __typename?: 'DonationsDocAccessFields_currency_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_Currency_Delete = {
+  __typename?: 'DonationsDocAccessFields_currency_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_Currency_Read = {
+  __typename?: 'DonationsDocAccessFields_currency_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_Currency_Update = {
+  __typename?: 'DonationsDocAccessFields_currency_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_Date = {
+  __typename?: 'DonationsDocAccessFields_date'
+  create?: Maybe<DonationsDocAccessFields_Date_Create>
+  delete?: Maybe<DonationsDocAccessFields_Date_Delete>
+  read?: Maybe<DonationsDocAccessFields_Date_Read>
+  update?: Maybe<DonationsDocAccessFields_Date_Update>
+}
+
+export type DonationsDocAccessFields_Date_Create = {
+  __typename?: 'DonationsDocAccessFields_date_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_Date_Delete = {
+  __typename?: 'DonationsDocAccessFields_date_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_Date_Read = {
+  __typename?: 'DonationsDocAccessFields_date_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_Date_Update = {
+  __typename?: 'DonationsDocAccessFields_date_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_Email = {
+  __typename?: 'DonationsDocAccessFields_email'
+  create?: Maybe<DonationsDocAccessFields_Email_Create>
+  delete?: Maybe<DonationsDocAccessFields_Email_Delete>
+  read?: Maybe<DonationsDocAccessFields_Email_Read>
+  update?: Maybe<DonationsDocAccessFields_Email_Update>
+}
+
+export type DonationsDocAccessFields_Email_Create = {
+  __typename?: 'DonationsDocAccessFields_email_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_Email_Delete = {
+  __typename?: 'DonationsDocAccessFields_email_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_Email_Read = {
+  __typename?: 'DonationsDocAccessFields_email_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_Email_Update = {
+  __typename?: 'DonationsDocAccessFields_email_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_Message = {
+  __typename?: 'DonationsDocAccessFields_message'
+  create?: Maybe<DonationsDocAccessFields_Message_Create>
+  delete?: Maybe<DonationsDocAccessFields_Message_Delete>
+  read?: Maybe<DonationsDocAccessFields_Message_Read>
+  update?: Maybe<DonationsDocAccessFields_Message_Update>
+}
+
+export type DonationsDocAccessFields_Message_Create = {
+  __typename?: 'DonationsDocAccessFields_message_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_Message_Delete = {
+  __typename?: 'DonationsDocAccessFields_message_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_Message_Read = {
+  __typename?: 'DonationsDocAccessFields_message_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_Message_Update = {
+  __typename?: 'DonationsDocAccessFields_message_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_PaymentType = {
+  __typename?: 'DonationsDocAccessFields_paymentType'
+  create?: Maybe<DonationsDocAccessFields_PaymentType_Create>
+  delete?: Maybe<DonationsDocAccessFields_PaymentType_Delete>
+  read?: Maybe<DonationsDocAccessFields_PaymentType_Read>
+  update?: Maybe<DonationsDocAccessFields_PaymentType_Update>
+}
+
+export type DonationsDocAccessFields_PaymentType_Create = {
+  __typename?: 'DonationsDocAccessFields_paymentType_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_PaymentType_Delete = {
+  __typename?: 'DonationsDocAccessFields_paymentType_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_PaymentType_Read = {
+  __typename?: 'DonationsDocAccessFields_paymentType_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_PaymentType_Update = {
+  __typename?: 'DonationsDocAccessFields_paymentType_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_Status = {
+  __typename?: 'DonationsDocAccessFields_status'
+  create?: Maybe<DonationsDocAccessFields_Status_Create>
+  delete?: Maybe<DonationsDocAccessFields_Status_Delete>
+  read?: Maybe<DonationsDocAccessFields_Status_Read>
+  update?: Maybe<DonationsDocAccessFields_Status_Update>
+}
+
+export type DonationsDocAccessFields_Status_Create = {
+  __typename?: 'DonationsDocAccessFields_status_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_Status_Delete = {
+  __typename?: 'DonationsDocAccessFields_status_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_Status_Read = {
+  __typename?: 'DonationsDocAccessFields_status_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_Status_Update = {
+  __typename?: 'DonationsDocAccessFields_status_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_StripePaymentIntentId = {
+  __typename?: 'DonationsDocAccessFields_stripePaymentIntentId'
+  create?: Maybe<DonationsDocAccessFields_StripePaymentIntentId_Create>
+  delete?: Maybe<DonationsDocAccessFields_StripePaymentIntentId_Delete>
+  read?: Maybe<DonationsDocAccessFields_StripePaymentIntentId_Read>
+  update?: Maybe<DonationsDocAccessFields_StripePaymentIntentId_Update>
+}
+
+export type DonationsDocAccessFields_StripePaymentIntentId_Create = {
+  __typename?: 'DonationsDocAccessFields_stripePaymentIntentId_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_StripePaymentIntentId_Delete = {
+  __typename?: 'DonationsDocAccessFields_stripePaymentIntentId_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_StripePaymentIntentId_Read = {
+  __typename?: 'DonationsDocAccessFields_stripePaymentIntentId_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_StripePaymentIntentId_Update = {
+  __typename?: 'DonationsDocAccessFields_stripePaymentIntentId_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_UpdatedAt = {
+  __typename?: 'DonationsDocAccessFields_updatedAt'
+  create?: Maybe<DonationsDocAccessFields_UpdatedAt_Create>
+  delete?: Maybe<DonationsDocAccessFields_UpdatedAt_Delete>
+  read?: Maybe<DonationsDocAccessFields_UpdatedAt_Read>
+  update?: Maybe<DonationsDocAccessFields_UpdatedAt_Update>
+}
+
+export type DonationsDocAccessFields_UpdatedAt_Create = {
+  __typename?: 'DonationsDocAccessFields_updatedAt_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_UpdatedAt_Delete = {
+  __typename?: 'DonationsDocAccessFields_updatedAt_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_UpdatedAt_Read = {
+  __typename?: 'DonationsDocAccessFields_updatedAt_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsDocAccessFields_UpdatedAt_Update = {
+  __typename?: 'DonationsDocAccessFields_updatedAt_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields = {
+  __typename?: 'DonationsFields'
+  amount?: Maybe<DonationsFields_Amount>
+  campaign?: Maybe<DonationsFields_Campaign>
+  createdAt?: Maybe<DonationsFields_CreatedAt>
+  currency?: Maybe<DonationsFields_Currency>
+  date?: Maybe<DonationsFields_Date>
+  email?: Maybe<DonationsFields_Email>
+  message?: Maybe<DonationsFields_Message>
+  paymentType?: Maybe<DonationsFields_PaymentType>
+  status?: Maybe<DonationsFields_Status>
+  stripePaymentIntentId?: Maybe<DonationsFields_StripePaymentIntentId>
+  updatedAt?: Maybe<DonationsFields_UpdatedAt>
+}
+
+export type DonationsFields_Amount = {
+  __typename?: 'DonationsFields_amount'
+  create?: Maybe<DonationsFields_Amount_Create>
+  delete?: Maybe<DonationsFields_Amount_Delete>
+  read?: Maybe<DonationsFields_Amount_Read>
+  update?: Maybe<DonationsFields_Amount_Update>
+}
+
+export type DonationsFields_Amount_Create = {
+  __typename?: 'DonationsFields_amount_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_Amount_Delete = {
+  __typename?: 'DonationsFields_amount_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_Amount_Read = {
+  __typename?: 'DonationsFields_amount_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_Amount_Update = {
+  __typename?: 'DonationsFields_amount_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_Campaign = {
+  __typename?: 'DonationsFields_campaign'
+  create?: Maybe<DonationsFields_Campaign_Create>
+  delete?: Maybe<DonationsFields_Campaign_Delete>
+  read?: Maybe<DonationsFields_Campaign_Read>
+  update?: Maybe<DonationsFields_Campaign_Update>
+}
+
+export type DonationsFields_Campaign_Create = {
+  __typename?: 'DonationsFields_campaign_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_Campaign_Delete = {
+  __typename?: 'DonationsFields_campaign_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_Campaign_Read = {
+  __typename?: 'DonationsFields_campaign_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_Campaign_Update = {
+  __typename?: 'DonationsFields_campaign_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_CreatedAt = {
+  __typename?: 'DonationsFields_createdAt'
+  create?: Maybe<DonationsFields_CreatedAt_Create>
+  delete?: Maybe<DonationsFields_CreatedAt_Delete>
+  read?: Maybe<DonationsFields_CreatedAt_Read>
+  update?: Maybe<DonationsFields_CreatedAt_Update>
+}
+
+export type DonationsFields_CreatedAt_Create = {
+  __typename?: 'DonationsFields_createdAt_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_CreatedAt_Delete = {
+  __typename?: 'DonationsFields_createdAt_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_CreatedAt_Read = {
+  __typename?: 'DonationsFields_createdAt_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_CreatedAt_Update = {
+  __typename?: 'DonationsFields_createdAt_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_Currency = {
+  __typename?: 'DonationsFields_currency'
+  create?: Maybe<DonationsFields_Currency_Create>
+  delete?: Maybe<DonationsFields_Currency_Delete>
+  read?: Maybe<DonationsFields_Currency_Read>
+  update?: Maybe<DonationsFields_Currency_Update>
+}
+
+export type DonationsFields_Currency_Create = {
+  __typename?: 'DonationsFields_currency_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_Currency_Delete = {
+  __typename?: 'DonationsFields_currency_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_Currency_Read = {
+  __typename?: 'DonationsFields_currency_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_Currency_Update = {
+  __typename?: 'DonationsFields_currency_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_Date = {
+  __typename?: 'DonationsFields_date'
+  create?: Maybe<DonationsFields_Date_Create>
+  delete?: Maybe<DonationsFields_Date_Delete>
+  read?: Maybe<DonationsFields_Date_Read>
+  update?: Maybe<DonationsFields_Date_Update>
+}
+
+export type DonationsFields_Date_Create = {
+  __typename?: 'DonationsFields_date_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_Date_Delete = {
+  __typename?: 'DonationsFields_date_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_Date_Read = {
+  __typename?: 'DonationsFields_date_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_Date_Update = {
+  __typename?: 'DonationsFields_date_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_Email = {
+  __typename?: 'DonationsFields_email'
+  create?: Maybe<DonationsFields_Email_Create>
+  delete?: Maybe<DonationsFields_Email_Delete>
+  read?: Maybe<DonationsFields_Email_Read>
+  update?: Maybe<DonationsFields_Email_Update>
+}
+
+export type DonationsFields_Email_Create = {
+  __typename?: 'DonationsFields_email_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_Email_Delete = {
+  __typename?: 'DonationsFields_email_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_Email_Read = {
+  __typename?: 'DonationsFields_email_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_Email_Update = {
+  __typename?: 'DonationsFields_email_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_Message = {
+  __typename?: 'DonationsFields_message'
+  create?: Maybe<DonationsFields_Message_Create>
+  delete?: Maybe<DonationsFields_Message_Delete>
+  read?: Maybe<DonationsFields_Message_Read>
+  update?: Maybe<DonationsFields_Message_Update>
+}
+
+export type DonationsFields_Message_Create = {
+  __typename?: 'DonationsFields_message_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_Message_Delete = {
+  __typename?: 'DonationsFields_message_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_Message_Read = {
+  __typename?: 'DonationsFields_message_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_Message_Update = {
+  __typename?: 'DonationsFields_message_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_PaymentType = {
+  __typename?: 'DonationsFields_paymentType'
+  create?: Maybe<DonationsFields_PaymentType_Create>
+  delete?: Maybe<DonationsFields_PaymentType_Delete>
+  read?: Maybe<DonationsFields_PaymentType_Read>
+  update?: Maybe<DonationsFields_PaymentType_Update>
+}
+
+export type DonationsFields_PaymentType_Create = {
+  __typename?: 'DonationsFields_paymentType_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_PaymentType_Delete = {
+  __typename?: 'DonationsFields_paymentType_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_PaymentType_Read = {
+  __typename?: 'DonationsFields_paymentType_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_PaymentType_Update = {
+  __typename?: 'DonationsFields_paymentType_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_Status = {
+  __typename?: 'DonationsFields_status'
+  create?: Maybe<DonationsFields_Status_Create>
+  delete?: Maybe<DonationsFields_Status_Delete>
+  read?: Maybe<DonationsFields_Status_Read>
+  update?: Maybe<DonationsFields_Status_Update>
+}
+
+export type DonationsFields_Status_Create = {
+  __typename?: 'DonationsFields_status_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_Status_Delete = {
+  __typename?: 'DonationsFields_status_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_Status_Read = {
+  __typename?: 'DonationsFields_status_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_Status_Update = {
+  __typename?: 'DonationsFields_status_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_StripePaymentIntentId = {
+  __typename?: 'DonationsFields_stripePaymentIntentId'
+  create?: Maybe<DonationsFields_StripePaymentIntentId_Create>
+  delete?: Maybe<DonationsFields_StripePaymentIntentId_Delete>
+  read?: Maybe<DonationsFields_StripePaymentIntentId_Read>
+  update?: Maybe<DonationsFields_StripePaymentIntentId_Update>
+}
+
+export type DonationsFields_StripePaymentIntentId_Create = {
+  __typename?: 'DonationsFields_stripePaymentIntentId_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_StripePaymentIntentId_Delete = {
+  __typename?: 'DonationsFields_stripePaymentIntentId_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_StripePaymentIntentId_Read = {
+  __typename?: 'DonationsFields_stripePaymentIntentId_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_StripePaymentIntentId_Update = {
+  __typename?: 'DonationsFields_stripePaymentIntentId_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_UpdatedAt = {
+  __typename?: 'DonationsFields_updatedAt'
+  create?: Maybe<DonationsFields_UpdatedAt_Create>
+  delete?: Maybe<DonationsFields_UpdatedAt_Delete>
+  read?: Maybe<DonationsFields_UpdatedAt_Read>
+  update?: Maybe<DonationsFields_UpdatedAt_Update>
+}
+
+export type DonationsFields_UpdatedAt_Create = {
+  __typename?: 'DonationsFields_updatedAt_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_UpdatedAt_Delete = {
+  __typename?: 'DonationsFields_updatedAt_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_UpdatedAt_Read = {
+  __typename?: 'DonationsFields_updatedAt_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsFields_UpdatedAt_Update = {
+  __typename?: 'DonationsFields_updatedAt_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type DonationsReadAccess = {
+  __typename?: 'DonationsReadAccess'
+  permission: Scalars['Boolean']['output']
+  where?: Maybe<Scalars['JSONObject']['output']>
+}
+
+export type DonationsReadDocAccess = {
+  __typename?: 'DonationsReadDocAccess'
+  permission: Scalars['Boolean']['output']
+  where?: Maybe<Scalars['JSONObject']['output']>
+}
+
+export type DonationsUpdateAccess = {
+  __typename?: 'DonationsUpdateAccess'
+  permission: Scalars['Boolean']['output']
+  where?: Maybe<Scalars['JSONObject']['output']>
+}
+
+export type DonationsUpdateDocAccess = {
+  __typename?: 'DonationsUpdateDocAccess'
+  permission: Scalars['Boolean']['output']
+  where?: Maybe<Scalars['JSONObject']['output']>
 }
 
 export type Email = {
@@ -681,11 +2061,11 @@ export type FormSubmissions = {
   hasNextPage: Scalars['Boolean']['output']
   hasPrevPage: Scalars['Boolean']['output']
   limit: Scalars['Int']['output']
-  nextPage: Scalars['Int']['output']
+  nextPage?: Maybe<Scalars['Int']['output']>
   offset?: Maybe<Scalars['Int']['output']>
   page: Scalars['Int']['output']
   pagingCounter: Scalars['Int']['output']
-  prevPage: Scalars['Int']['output']
+  prevPage?: Maybe<Scalars['Int']['output']>
   totalDocs: Scalars['Int']['output']
   totalPages: Scalars['Int']['output']
 }
@@ -1427,11 +2807,11 @@ export type Forms = {
   hasNextPage: Scalars['Boolean']['output']
   hasPrevPage: Scalars['Boolean']['output']
   limit: Scalars['Int']['output']
-  nextPage: Scalars['Int']['output']
+  nextPage?: Maybe<Scalars['Int']['output']>
   offset?: Maybe<Scalars['Int']['output']>
   page: Scalars['Int']['output']
   pagingCounter: Scalars['Int']['output']
-  prevPage: Scalars['Int']['output']
+  prevPage?: Maybe<Scalars['Int']['output']>
   totalDocs: Scalars['Int']['output']
   totalPages: Scalars['Int']['output']
 }
@@ -3549,27 +4929,33 @@ export type MessageMessageArgs = {
 
 export type Mutation = {
   __typename?: 'Mutation'
-  createBlog?: Maybe<Blog>
+  createAnnouncement?: Maybe<Announcement>
+  createDonation?: Maybe<Donation>
   createForm?: Maybe<Form>
   createFormSubmission?: Maybe<FormSubmission>
   createMedia?: Maybe<Media>
   createPage?: Maybe<Page>
+  createPayloadJob?: Maybe<PayloadJob>
   createPayloadLockedDocument?: Maybe<PayloadLockedDocument>
   createPayloadPreference?: Maybe<PayloadPreference>
   createUser?: Maybe<User>
-  deleteBlog?: Maybe<Blog>
+  deleteAnnouncement?: Maybe<Announcement>
+  deleteDonation?: Maybe<Donation>
   deleteForm?: Maybe<Form>
   deleteFormSubmission?: Maybe<FormSubmission>
   deleteMedia?: Maybe<Media>
   deletePage?: Maybe<Page>
+  deletePayloadJob?: Maybe<PayloadJob>
   deletePayloadLockedDocument?: Maybe<PayloadLockedDocument>
   deletePayloadPreference?: Maybe<PayloadPreference>
   deleteUser?: Maybe<User>
-  duplicateBlog?: Maybe<Blog>
+  duplicateAnnouncement?: Maybe<Announcement>
+  duplicateDonation?: Maybe<Donation>
   duplicateForm?: Maybe<Form>
   duplicateFormSubmission?: Maybe<FormSubmission>
   duplicateMedia?: Maybe<Media>
   duplicatePage?: Maybe<Page>
+  duplicatePayloadJob?: Maybe<PayloadJob>
   duplicatePayloadLockedDocument?: Maybe<PayloadLockedDocument>
   duplicatePayloadPreference?: Maybe<PayloadPreference>
   forgotPasswordUser: Scalars['Boolean']['output']
@@ -3577,21 +4963,30 @@ export type Mutation = {
   logoutUser?: Maybe<Scalars['String']['output']>
   refreshTokenUser?: Maybe<UsersRefreshedUser>
   resetPasswordUser?: Maybe<UsersResetPassword>
+  restoreVersionAnnouncement?: Maybe<Announcement>
   restoreVersionPage?: Maybe<Page>
   unlockUser: Scalars['Boolean']['output']
-  updateBlog?: Maybe<Blog>
+  updateAnnouncement?: Maybe<Announcement>
+  updateDonation?: Maybe<Donation>
   updateForm?: Maybe<Form>
   updateFormSubmission?: Maybe<FormSubmission>
   updateMedia?: Maybe<Media>
   updatePage?: Maybe<Page>
+  updatePayloadJob?: Maybe<PayloadJob>
   updatePayloadLockedDocument?: Maybe<PayloadLockedDocument>
   updatePayloadPreference?: Maybe<PayloadPreference>
   updateUser?: Maybe<User>
   verifyEmailUser?: Maybe<Scalars['Boolean']['output']>
 }
 
-export type MutationCreateBlogArgs = {
-  data: MutationBlogInput
+export type MutationCreateAnnouncementArgs = {
+  data: MutationAnnouncementInput
+  draft?: InputMaybe<Scalars['Boolean']['input']>
+  locale?: InputMaybe<LocaleInputType>
+}
+
+export type MutationCreateDonationArgs = {
+  data: MutationDonationInput
   draft?: InputMaybe<Scalars['Boolean']['input']>
   locale?: InputMaybe<LocaleInputType>
 }
@@ -3620,6 +5015,12 @@ export type MutationCreatePageArgs = {
   locale?: InputMaybe<LocaleInputType>
 }
 
+export type MutationCreatePayloadJobArgs = {
+  data: MutationPayloadJobInput
+  draft?: InputMaybe<Scalars['Boolean']['input']>
+  locale?: InputMaybe<LocaleInputType>
+}
+
 export type MutationCreatePayloadLockedDocumentArgs = {
   data: MutationPayloadLockedDocumentInput
   draft?: InputMaybe<Scalars['Boolean']['input']>
@@ -3638,40 +5039,63 @@ export type MutationCreateUserArgs = {
   locale?: InputMaybe<LocaleInputType>
 }
 
-export type MutationDeleteBlogArgs = {
+export type MutationDeleteAnnouncementArgs = {
   id: Scalars['String']['input']
+  trash?: InputMaybe<Scalars['Boolean']['input']>
+}
+
+export type MutationDeleteDonationArgs = {
+  id: Scalars['String']['input']
+  trash?: InputMaybe<Scalars['Boolean']['input']>
 }
 
 export type MutationDeleteFormArgs = {
   id: Scalars['String']['input']
+  trash?: InputMaybe<Scalars['Boolean']['input']>
 }
 
 export type MutationDeleteFormSubmissionArgs = {
   id: Scalars['String']['input']
+  trash?: InputMaybe<Scalars['Boolean']['input']>
 }
 
 export type MutationDeleteMediaArgs = {
   id: Scalars['String']['input']
+  trash?: InputMaybe<Scalars['Boolean']['input']>
 }
 
 export type MutationDeletePageArgs = {
   id: Scalars['String']['input']
+  trash?: InputMaybe<Scalars['Boolean']['input']>
+}
+
+export type MutationDeletePayloadJobArgs = {
+  id: Scalars['String']['input']
+  trash?: InputMaybe<Scalars['Boolean']['input']>
 }
 
 export type MutationDeletePayloadLockedDocumentArgs = {
   id: Scalars['String']['input']
+  trash?: InputMaybe<Scalars['Boolean']['input']>
 }
 
 export type MutationDeletePayloadPreferenceArgs = {
   id: Scalars['String']['input']
+  trash?: InputMaybe<Scalars['Boolean']['input']>
 }
 
 export type MutationDeleteUserArgs = {
   id: Scalars['String']['input']
+  trash?: InputMaybe<Scalars['Boolean']['input']>
 }
 
-export type MutationDuplicateBlogArgs = {
-  data: MutationBlogInput
+export type MutationDuplicateAnnouncementArgs = {
+  data: MutationAnnouncementInput
+  id: Scalars['String']['input']
+}
+
+export type MutationDuplicateDonationArgs = {
+  data: MutationDonationInput
   id: Scalars['String']['input']
 }
 
@@ -3692,6 +5116,11 @@ export type MutationDuplicateMediaArgs = {
 
 export type MutationDuplicatePageArgs = {
   data: MutationPageInput
+  id: Scalars['String']['input']
+}
+
+export type MutationDuplicatePayloadJobArgs = {
+  data: MutationPayloadJobInput
   id: Scalars['String']['input']
 }
 
@@ -3716,9 +5145,18 @@ export type MutationLoginUserArgs = {
   password?: InputMaybe<Scalars['String']['input']>
 }
 
+export type MutationLogoutUserArgs = {
+  allSessions?: InputMaybe<Scalars['Boolean']['input']>
+}
+
 export type MutationResetPasswordUserArgs = {
   password?: InputMaybe<Scalars['String']['input']>
   token?: InputMaybe<Scalars['String']['input']>
+}
+
+export type MutationRestoreVersionAnnouncementArgs = {
+  draft?: InputMaybe<Scalars['Boolean']['input']>
+  id?: InputMaybe<Scalars['String']['input']>
 }
 
 export type MutationRestoreVersionPageArgs = {
@@ -3730,12 +5168,22 @@ export type MutationUnlockUserArgs = {
   email: Scalars['String']['input']
 }
 
-export type MutationUpdateBlogArgs = {
+export type MutationUpdateAnnouncementArgs = {
   autosave?: InputMaybe<Scalars['Boolean']['input']>
-  data: MutationBlogUpdateInput
+  data: MutationAnnouncementUpdateInput
   draft?: InputMaybe<Scalars['Boolean']['input']>
   id: Scalars['String']['input']
   locale?: InputMaybe<LocaleInputType>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
+}
+
+export type MutationUpdateDonationArgs = {
+  autosave?: InputMaybe<Scalars['Boolean']['input']>
+  data: MutationDonationUpdateInput
+  draft?: InputMaybe<Scalars['Boolean']['input']>
+  id: Scalars['String']['input']
+  locale?: InputMaybe<LocaleInputType>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
 }
 
 export type MutationUpdateFormArgs = {
@@ -3744,6 +5192,7 @@ export type MutationUpdateFormArgs = {
   draft?: InputMaybe<Scalars['Boolean']['input']>
   id: Scalars['String']['input']
   locale?: InputMaybe<LocaleInputType>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
 }
 
 export type MutationUpdateFormSubmissionArgs = {
@@ -3752,6 +5201,7 @@ export type MutationUpdateFormSubmissionArgs = {
   draft?: InputMaybe<Scalars['Boolean']['input']>
   id: Scalars['String']['input']
   locale?: InputMaybe<LocaleInputType>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
 }
 
 export type MutationUpdateMediaArgs = {
@@ -3760,6 +5210,7 @@ export type MutationUpdateMediaArgs = {
   draft?: InputMaybe<Scalars['Boolean']['input']>
   id: Scalars['String']['input']
   locale?: InputMaybe<LocaleInputType>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
 }
 
 export type MutationUpdatePageArgs = {
@@ -3768,6 +5219,16 @@ export type MutationUpdatePageArgs = {
   draft?: InputMaybe<Scalars['Boolean']['input']>
   id: Scalars['String']['input']
   locale?: InputMaybe<LocaleInputType>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
+}
+
+export type MutationUpdatePayloadJobArgs = {
+  autosave?: InputMaybe<Scalars['Boolean']['input']>
+  data: MutationPayloadJobUpdateInput
+  draft?: InputMaybe<Scalars['Boolean']['input']>
+  id: Scalars['String']['input']
+  locale?: InputMaybe<LocaleInputType>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
 }
 
 export type MutationUpdatePayloadLockedDocumentArgs = {
@@ -3776,6 +5237,7 @@ export type MutationUpdatePayloadLockedDocumentArgs = {
   draft?: InputMaybe<Scalars['Boolean']['input']>
   id: Scalars['String']['input']
   locale?: InputMaybe<LocaleInputType>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
 }
 
 export type MutationUpdatePayloadPreferenceArgs = {
@@ -3784,6 +5246,7 @@ export type MutationUpdatePayloadPreferenceArgs = {
   draft?: InputMaybe<Scalars['Boolean']['input']>
   id: Scalars['String']['input']
   locale?: InputMaybe<LocaleInputType>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
 }
 
 export type MutationUpdateUserArgs = {
@@ -3792,6 +5255,7 @@ export type MutationUpdateUserArgs = {
   draft?: InputMaybe<Scalars['Boolean']['input']>
   id: Scalars['String']['input']
   locale?: InputMaybe<LocaleInputType>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
 }
 
 export type MutationVerifyEmailUserArgs = {
@@ -3814,11 +5278,36 @@ export type Page = {
   __typename?: 'Page'
   _status?: Maybe<Page__Status>
   createdAt?: Maybe<Scalars['DateTime']['output']>
+  hero?: Maybe<Page_Hero>
   id: Scalars['String']['output']
   layout: Array<Page_Layout>
+  meta?: Maybe<Page_Meta>
+  publishedAt?: Maybe<Scalars['DateTime']['output']>
   slug?: Maybe<Scalars['String']['output']>
+  slugLock?: Maybe<Scalars['Boolean']['output']>
   title?: Maybe<Scalars['String']['output']>
   updatedAt?: Maybe<Scalars['DateTime']['output']>
+}
+
+export type PageUpdate_Hero_Links_Link_ReferenceRelationshipInput = {
+  relationTo?: InputMaybe<PageUpdate_Hero_Links_Link_ReferenceRelationshipInputRelationTo>
+  value?: InputMaybe<Scalars['JSON']['input']>
+}
+
+export enum PageUpdate_Hero_Links_Link_ReferenceRelationshipInputRelationTo {
+  Pages = 'pages',
+}
+
+export enum PageUpdate_Hero_Links_Link_Appearance_MutationInput {
+  Default = 'default',
+  Outline = 'outline',
+}
+
+export enum PageUpdate_Hero_Type_MutationInput {
+  HighImpact = 'highImpact',
+  LowImpact = 'lowImpact',
+  MediumImpact = 'mediumImpact',
+  None = 'none',
 }
 
 export enum PageUpdate__Status_MutationInput {
@@ -3828,6 +5317,7 @@ export enum PageUpdate__Status_MutationInput {
 
 export type PageVersion = {
   __typename?: 'PageVersion'
+  autosave?: Maybe<Scalars['Boolean']['output']>
   createdAt?: Maybe<Scalars['DateTime']['output']>
   id?: Maybe<Scalars['String']['output']>
   latest?: Maybe<Scalars['Boolean']['output']>
@@ -3848,13 +5338,97 @@ export type PageVersion_Version = {
   __typename?: 'PageVersion_Version'
   _status?: Maybe<PageVersion_Version__Status>
   createdAt?: Maybe<Scalars['DateTime']['output']>
+  hero?: Maybe<PageVersion_Version_Hero>
   layout: Array<PageVersion_Version_Layout>
+  meta?: Maybe<PageVersion_Version_Meta>
+  publishedAt?: Maybe<Scalars['DateTime']['output']>
   slug?: Maybe<Scalars['String']['output']>
+  slugLock?: Maybe<Scalars['Boolean']['output']>
   title?: Maybe<Scalars['String']['output']>
   updatedAt?: Maybe<Scalars['DateTime']['output']>
 }
 
+export type PageVersion_Version_Hero = {
+  __typename?: 'PageVersion_Version_Hero'
+  links?: Maybe<Array<PageVersion_Version_Hero_Links>>
+  media?: Maybe<Media>
+  richText?: Maybe<Scalars['JSON']['output']>
+  type?: Maybe<PageVersion_Version_Hero_Type>
+}
+
+export type PageVersion_Version_HeroMediaArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>
+  locale?: InputMaybe<LocaleInputType>
+}
+
+export type PageVersion_Version_HeroRichTextArgs = {
+  depth?: InputMaybe<Scalars['Int']['input']>
+}
+
+export type PageVersion_Version_Hero_Links = {
+  __typename?: 'PageVersion_Version_Hero_Links'
+  id?: Maybe<Scalars['String']['output']>
+  link?: Maybe<PageVersion_Version_Hero_Links_Link>
+}
+
+export type PageVersion_Version_Hero_Links_Link = {
+  __typename?: 'PageVersion_Version_Hero_Links_Link'
+  appearance?: Maybe<PageVersion_Version_Hero_Links_Link_Appearance>
+  label?: Maybe<Scalars['String']['output']>
+  newTab?: Maybe<Scalars['Boolean']['output']>
+  reference?: Maybe<PageVersion_Version_Hero_Links_Link_Reference_Relationship>
+  type?: Maybe<PageVersion_Version_Hero_Links_Link_Type>
+  url?: Maybe<Scalars['String']['output']>
+}
+
+export type PageVersion_Version_Hero_Links_LinkReferenceArgs = {
+  draft?: InputMaybe<Scalars['Boolean']['input']>
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>
+  locale?: InputMaybe<LocaleInputType>
+}
+
+export type PageVersion_Version_Hero_Links_Link_Reference = Page
+
+export enum PageVersion_Version_Hero_Links_Link_Reference_RelationTo {
+  Pages = 'pages',
+}
+
+export type PageVersion_Version_Hero_Links_Link_Reference_Relationship = {
+  __typename?: 'PageVersion_Version_Hero_Links_Link_Reference_Relationship'
+  relationTo?: Maybe<PageVersion_Version_Hero_Links_Link_Reference_RelationTo>
+  value?: Maybe<PageVersion_Version_Hero_Links_Link_Reference>
+}
+
+export enum PageVersion_Version_Hero_Links_Link_Appearance {
+  Default = 'default',
+  Outline = 'outline',
+}
+
+export enum PageVersion_Version_Hero_Links_Link_Type {
+  Custom = 'custom',
+  Reference = 'reference',
+}
+
+export enum PageVersion_Version_Hero_Type {
+  HighImpact = 'highImpact',
+  LowImpact = 'lowImpact',
+  MediumImpact = 'mediumImpact',
+  None = 'none',
+}
+
 export type PageVersion_Version_Layout = Container | FormBlock | MediaBlock | Section
+
+export type PageVersion_Version_Meta = {
+  __typename?: 'PageVersion_Version_Meta'
+  description?: Maybe<Scalars['String']['output']>
+  image?: Maybe<Media>
+  title?: Maybe<Scalars['String']['output']>
+}
+
+export type PageVersion_Version_MetaImageArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>
+  locale?: InputMaybe<LocaleInputType>
+}
 
 export enum PageVersion_Version__Status {
   Draft = 'draft',
@@ -3867,7 +5441,108 @@ export enum PageVersion_PublishedLocale {
   Tr = 'tr',
 }
 
+export type Page_Hero = {
+  __typename?: 'Page_Hero'
+  links?: Maybe<Array<Page_Hero_Links>>
+  media?: Maybe<Media>
+  richText?: Maybe<Scalars['JSON']['output']>
+  type?: Maybe<Page_Hero_Type>
+}
+
+export type Page_HeroMediaArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>
+  locale?: InputMaybe<LocaleInputType>
+}
+
+export type Page_HeroRichTextArgs = {
+  depth?: InputMaybe<Scalars['Int']['input']>
+}
+
+export type Page_Hero_Links = {
+  __typename?: 'Page_Hero_Links'
+  id?: Maybe<Scalars['String']['output']>
+  link?: Maybe<Page_Hero_Links_Link>
+}
+
+export type Page_Hero_Links_Link = {
+  __typename?: 'Page_Hero_Links_Link'
+  appearance?: Maybe<Page_Hero_Links_Link_Appearance>
+  label?: Maybe<Scalars['String']['output']>
+  newTab?: Maybe<Scalars['Boolean']['output']>
+  reference?: Maybe<Page_Hero_Links_Link_Reference_Relationship>
+  type?: Maybe<Page_Hero_Links_Link_Type>
+  url?: Maybe<Scalars['String']['output']>
+}
+
+export type Page_Hero_Links_LinkReferenceArgs = {
+  draft?: InputMaybe<Scalars['Boolean']['input']>
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>
+  locale?: InputMaybe<LocaleInputType>
+}
+
+export type Page_Hero_Links_Link_Reference = Page
+
+export type Page_Hero_Links_Link_ReferenceRelationshipInput = {
+  relationTo?: InputMaybe<Page_Hero_Links_Link_ReferenceRelationshipInputRelationTo>
+  value?: InputMaybe<Scalars['JSON']['input']>
+}
+
+export enum Page_Hero_Links_Link_ReferenceRelationshipInputRelationTo {
+  Pages = 'pages',
+}
+
+export enum Page_Hero_Links_Link_Reference_RelationTo {
+  Pages = 'pages',
+}
+
+export type Page_Hero_Links_Link_Reference_Relationship = {
+  __typename?: 'Page_Hero_Links_Link_Reference_Relationship'
+  relationTo?: Maybe<Page_Hero_Links_Link_Reference_RelationTo>
+  value?: Maybe<Page_Hero_Links_Link_Reference>
+}
+
+export enum Page_Hero_Links_Link_Appearance {
+  Default = 'default',
+  Outline = 'outline',
+}
+
+export enum Page_Hero_Links_Link_Appearance_MutationInput {
+  Default = 'default',
+  Outline = 'outline',
+}
+
+export enum Page_Hero_Links_Link_Type {
+  Custom = 'custom',
+  Reference = 'reference',
+}
+
+export enum Page_Hero_Type {
+  HighImpact = 'highImpact',
+  LowImpact = 'lowImpact',
+  MediumImpact = 'mediumImpact',
+  None = 'none',
+}
+
+export enum Page_Hero_Type_MutationInput {
+  HighImpact = 'highImpact',
+  LowImpact = 'lowImpact',
+  MediumImpact = 'mediumImpact',
+  None = 'none',
+}
+
 export type Page_Layout = Container | FormBlock | MediaBlock | Section
+
+export type Page_Meta = {
+  __typename?: 'Page_Meta'
+  description?: Maybe<Scalars['String']['output']>
+  image?: Maybe<Media>
+  title?: Maybe<Scalars['String']['output']>
+}
+
+export type Page_MetaImageArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>
+  locale?: InputMaybe<LocaleInputType>
+}
 
 export enum Page__Status {
   Draft = 'draft',
@@ -3904,6 +5579,110 @@ export type Page_CreatedAt_Operator = {
   not_equals?: InputMaybe<Scalars['DateTime']['input']>
 }
 
+export type Page_Hero__Links__Id_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  contains?: InputMaybe<Scalars['String']['input']>
+  equals?: InputMaybe<Scalars['String']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  like?: InputMaybe<Scalars['String']['input']>
+  not_equals?: InputMaybe<Scalars['String']['input']>
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+}
+
+export enum Page_Hero__Links__Link__Appearance_Input {
+  Default = 'default',
+  Outline = 'outline',
+}
+
+export type Page_Hero__Links__Link__Appearance_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Page_Hero__Links__Link__Appearance_Input>>>
+  equals?: InputMaybe<Page_Hero__Links__Link__Appearance_Input>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  in?: InputMaybe<Array<InputMaybe<Page_Hero__Links__Link__Appearance_Input>>>
+  not_equals?: InputMaybe<Page_Hero__Links__Link__Appearance_Input>
+  not_in?: InputMaybe<Array<InputMaybe<Page_Hero__Links__Link__Appearance_Input>>>
+}
+
+export type Page_Hero__Links__Link__Label_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  contains?: InputMaybe<Scalars['String']['input']>
+  equals?: InputMaybe<Scalars['String']['input']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  like?: InputMaybe<Scalars['String']['input']>
+  not_equals?: InputMaybe<Scalars['String']['input']>
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+}
+
+export type Page_Hero__Links__Link__NewTab_Operator = {
+  equals?: InputMaybe<Scalars['Boolean']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  not_equals?: InputMaybe<Scalars['Boolean']['input']>
+}
+
+export type Page_Hero__Links__Link__Reference_Relation = {
+  relationTo?: InputMaybe<Page_Hero__Links__Link__Reference_Relation_RelationTo>
+  value?: InputMaybe<Scalars['JSON']['input']>
+}
+
+export enum Page_Hero__Links__Link__Reference_Relation_RelationTo {
+  Pages = 'pages',
+}
+
+export enum Page_Hero__Links__Link__Type_Input {
+  Custom = 'custom',
+  Reference = 'reference',
+}
+
+export type Page_Hero__Links__Link__Type_Operator = {
+  contains?: InputMaybe<Page_Hero__Links__Link__Type_Input>
+  equals?: InputMaybe<Page_Hero__Links__Link__Type_Input>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  like?: InputMaybe<Page_Hero__Links__Link__Type_Input>
+  not_equals?: InputMaybe<Page_Hero__Links__Link__Type_Input>
+}
+
+export type Page_Hero__Links__Link__Url_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  contains?: InputMaybe<Scalars['String']['input']>
+  equals?: InputMaybe<Scalars['String']['input']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  like?: InputMaybe<Scalars['String']['input']>
+  not_equals?: InputMaybe<Scalars['String']['input']>
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+}
+
+export type Page_Hero__Media_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>
+  equals?: InputMaybe<Scalars['JSON']['input']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>
+  not_equals?: InputMaybe<Scalars['JSON']['input']>
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>
+}
+
+export type Page_Hero__RichText_Operator = {
+  contains?: InputMaybe<Scalars['JSON']['input']>
+  equals?: InputMaybe<Scalars['JSON']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  like?: InputMaybe<Scalars['JSON']['input']>
+  not_equals?: InputMaybe<Scalars['JSON']['input']>
+}
+
+export enum Page_Hero__Type_Input {
+  HighImpact = 'highImpact',
+  LowImpact = 'lowImpact',
+  MediumImpact = 'mediumImpact',
+  None = 'none',
+}
+
+export type Page_Hero__Type_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Page_Hero__Type_Input>>>
+  equals?: InputMaybe<Page_Hero__Type_Input>
+  in?: InputMaybe<Array<InputMaybe<Page_Hero__Type_Input>>>
+  not_equals?: InputMaybe<Page_Hero__Type_Input>
+  not_in?: InputMaybe<Array<InputMaybe<Page_Hero__Type_Input>>>
+}
+
 export type Page_Id_Operator = {
   all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
   contains?: InputMaybe<Scalars['String']['input']>
@@ -3913,6 +5692,51 @@ export type Page_Id_Operator = {
   like?: InputMaybe<Scalars['String']['input']>
   not_equals?: InputMaybe<Scalars['String']['input']>
   not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+}
+
+export type Page_Meta__Description_Operator = {
+  contains?: InputMaybe<Scalars['String']['input']>
+  equals?: InputMaybe<Scalars['String']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  like?: InputMaybe<Scalars['String']['input']>
+  not_equals?: InputMaybe<Scalars['String']['input']>
+}
+
+export type Page_Meta__Image_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>
+  equals?: InputMaybe<Scalars['JSON']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>
+  not_equals?: InputMaybe<Scalars['JSON']['input']>
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>
+}
+
+export type Page_Meta__Title_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  contains?: InputMaybe<Scalars['String']['input']>
+  equals?: InputMaybe<Scalars['String']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  like?: InputMaybe<Scalars['String']['input']>
+  not_equals?: InputMaybe<Scalars['String']['input']>
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+}
+
+export type Page_PublishedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  greater_than?: InputMaybe<Scalars['DateTime']['input']>
+  greater_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  less_than?: InputMaybe<Scalars['DateTime']['input']>
+  less_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  like?: InputMaybe<Scalars['DateTime']['input']>
+  not_equals?: InputMaybe<Scalars['DateTime']['input']>
+}
+
+export type Page_SlugLock_Operator = {
+  equals?: InputMaybe<Scalars['Boolean']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  not_equals?: InputMaybe<Scalars['Boolean']['input']>
 }
 
 export type Page_Slug_Operator = {
@@ -3952,8 +5776,23 @@ export type Page_Where = {
   OR?: InputMaybe<Array<InputMaybe<Page_Where_Or>>>
   _status?: InputMaybe<Page__Status_Operator>
   createdAt?: InputMaybe<Page_CreatedAt_Operator>
+  hero__links__id?: InputMaybe<Page_Hero__Links__Id_Operator>
+  hero__links__link__appearance?: InputMaybe<Page_Hero__Links__Link__Appearance_Operator>
+  hero__links__link__label?: InputMaybe<Page_Hero__Links__Link__Label_Operator>
+  hero__links__link__newTab?: InputMaybe<Page_Hero__Links__Link__NewTab_Operator>
+  hero__links__link__reference?: InputMaybe<Page_Hero__Links__Link__Reference_Relation>
+  hero__links__link__type?: InputMaybe<Page_Hero__Links__Link__Type_Operator>
+  hero__links__link__url?: InputMaybe<Page_Hero__Links__Link__Url_Operator>
+  hero__media?: InputMaybe<Page_Hero__Media_Operator>
+  hero__richText?: InputMaybe<Page_Hero__RichText_Operator>
+  hero__type?: InputMaybe<Page_Hero__Type_Operator>
   id?: InputMaybe<Page_Id_Operator>
+  meta__description?: InputMaybe<Page_Meta__Description_Operator>
+  meta__image?: InputMaybe<Page_Meta__Image_Operator>
+  meta__title?: InputMaybe<Page_Meta__Title_Operator>
+  publishedAt?: InputMaybe<Page_PublishedAt_Operator>
   slug?: InputMaybe<Page_Slug_Operator>
+  slugLock?: InputMaybe<Page_SlugLock_Operator>
   title?: InputMaybe<Page_Title_Operator>
   updatedAt?: InputMaybe<Page_UpdatedAt_Operator>
 }
@@ -3963,8 +5802,23 @@ export type Page_Where_And = {
   OR?: InputMaybe<Array<InputMaybe<Page_Where_Or>>>
   _status?: InputMaybe<Page__Status_Operator>
   createdAt?: InputMaybe<Page_CreatedAt_Operator>
+  hero__links__id?: InputMaybe<Page_Hero__Links__Id_Operator>
+  hero__links__link__appearance?: InputMaybe<Page_Hero__Links__Link__Appearance_Operator>
+  hero__links__link__label?: InputMaybe<Page_Hero__Links__Link__Label_Operator>
+  hero__links__link__newTab?: InputMaybe<Page_Hero__Links__Link__NewTab_Operator>
+  hero__links__link__reference?: InputMaybe<Page_Hero__Links__Link__Reference_Relation>
+  hero__links__link__type?: InputMaybe<Page_Hero__Links__Link__Type_Operator>
+  hero__links__link__url?: InputMaybe<Page_Hero__Links__Link__Url_Operator>
+  hero__media?: InputMaybe<Page_Hero__Media_Operator>
+  hero__richText?: InputMaybe<Page_Hero__RichText_Operator>
+  hero__type?: InputMaybe<Page_Hero__Type_Operator>
   id?: InputMaybe<Page_Id_Operator>
+  meta__description?: InputMaybe<Page_Meta__Description_Operator>
+  meta__image?: InputMaybe<Page_Meta__Image_Operator>
+  meta__title?: InputMaybe<Page_Meta__Title_Operator>
+  publishedAt?: InputMaybe<Page_PublishedAt_Operator>
   slug?: InputMaybe<Page_Slug_Operator>
+  slugLock?: InputMaybe<Page_SlugLock_Operator>
   title?: InputMaybe<Page_Title_Operator>
   updatedAt?: InputMaybe<Page_UpdatedAt_Operator>
 }
@@ -3974,8 +5828,23 @@ export type Page_Where_Or = {
   OR?: InputMaybe<Array<InputMaybe<Page_Where_Or>>>
   _status?: InputMaybe<Page__Status_Operator>
   createdAt?: InputMaybe<Page_CreatedAt_Operator>
+  hero__links__id?: InputMaybe<Page_Hero__Links__Id_Operator>
+  hero__links__link__appearance?: InputMaybe<Page_Hero__Links__Link__Appearance_Operator>
+  hero__links__link__label?: InputMaybe<Page_Hero__Links__Link__Label_Operator>
+  hero__links__link__newTab?: InputMaybe<Page_Hero__Links__Link__NewTab_Operator>
+  hero__links__link__reference?: InputMaybe<Page_Hero__Links__Link__Reference_Relation>
+  hero__links__link__type?: InputMaybe<Page_Hero__Links__Link__Type_Operator>
+  hero__links__link__url?: InputMaybe<Page_Hero__Links__Link__Url_Operator>
+  hero__media?: InputMaybe<Page_Hero__Media_Operator>
+  hero__richText?: InputMaybe<Page_Hero__RichText_Operator>
+  hero__type?: InputMaybe<Page_Hero__Type_Operator>
   id?: InputMaybe<Page_Id_Operator>
+  meta__description?: InputMaybe<Page_Meta__Description_Operator>
+  meta__image?: InputMaybe<Page_Meta__Image_Operator>
+  meta__title?: InputMaybe<Page_Meta__Title_Operator>
+  publishedAt?: InputMaybe<Page_PublishedAt_Operator>
   slug?: InputMaybe<Page_Slug_Operator>
+  slugLock?: InputMaybe<Page_SlugLock_Operator>
   title?: InputMaybe<Page_Title_Operator>
   updatedAt?: InputMaybe<Page_UpdatedAt_Operator>
 }
@@ -3986,11 +5855,11 @@ export type Pages = {
   hasNextPage: Scalars['Boolean']['output']
   hasPrevPage: Scalars['Boolean']['output']
   limit: Scalars['Int']['output']
-  nextPage: Scalars['Int']['output']
+  nextPage?: Maybe<Scalars['Int']['output']>
   offset?: Maybe<Scalars['Int']['output']>
   page: Scalars['Int']['output']
   pagingCounter: Scalars['Int']['output']
-  prevPage: Scalars['Int']['output']
+  prevPage?: Maybe<Scalars['Int']['output']>
   totalDocs: Scalars['Int']['output']
   totalPages: Scalars['Int']['output']
 }
@@ -4023,8 +5892,12 @@ export type PagesDocAccessFields = {
   __typename?: 'PagesDocAccessFields'
   _status?: Maybe<PagesDocAccessFields__Status>
   createdAt?: Maybe<PagesDocAccessFields_CreatedAt>
+  hero?: Maybe<PagesDocAccessFields_Hero>
   layout?: Maybe<PagesDocAccessFields_Layout>
+  meta?: Maybe<PagesDocAccessFields_Meta>
+  publishedAt?: Maybe<PagesDocAccessFields_PublishedAt>
   slug?: Maybe<PagesDocAccessFields_Slug>
+  slugLock?: Maybe<PagesDocAccessFields_SlugLock>
   title?: Maybe<PagesDocAccessFields_Title>
   updatedAt?: Maybe<PagesDocAccessFields_UpdatedAt>
 }
@@ -4085,6 +5958,397 @@ export type PagesDocAccessFields_CreatedAt_Update = {
   permission: Scalars['Boolean']['output']
 }
 
+export type PagesDocAccessFields_Hero = {
+  __typename?: 'PagesDocAccessFields_hero'
+  create?: Maybe<PagesDocAccessFields_Hero_Create>
+  delete?: Maybe<PagesDocAccessFields_Hero_Delete>
+  fields?: Maybe<PagesDocAccessFields_Hero_Fields>
+  read?: Maybe<PagesDocAccessFields_Hero_Read>
+  update?: Maybe<PagesDocAccessFields_Hero_Update>
+}
+
+export type PagesDocAccessFields_Hero_Create = {
+  __typename?: 'PagesDocAccessFields_hero_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Delete = {
+  __typename?: 'PagesDocAccessFields_hero_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Fields = {
+  __typename?: 'PagesDocAccessFields_hero_Fields'
+  links?: Maybe<PagesDocAccessFields_Hero_Links>
+  media?: Maybe<PagesDocAccessFields_Hero_Media>
+  richText?: Maybe<PagesDocAccessFields_Hero_RichText>
+  type?: Maybe<PagesDocAccessFields_Hero_Type>
+}
+
+export type PagesDocAccessFields_Hero_Read = {
+  __typename?: 'PagesDocAccessFields_hero_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Update = {
+  __typename?: 'PagesDocAccessFields_hero_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links = {
+  __typename?: 'PagesDocAccessFields_hero_links'
+  create?: Maybe<PagesDocAccessFields_Hero_Links_Create>
+  delete?: Maybe<PagesDocAccessFields_Hero_Links_Delete>
+  fields?: Maybe<PagesDocAccessFields_Hero_Links_Fields>
+  read?: Maybe<PagesDocAccessFields_Hero_Links_Read>
+  update?: Maybe<PagesDocAccessFields_Hero_Links_Update>
+}
+
+export type PagesDocAccessFields_Hero_Links_Create = {
+  __typename?: 'PagesDocAccessFields_hero_links_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Delete = {
+  __typename?: 'PagesDocAccessFields_hero_links_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Fields = {
+  __typename?: 'PagesDocAccessFields_hero_links_Fields'
+  id?: Maybe<PagesDocAccessFields_Hero_Links_Id>
+  link?: Maybe<PagesDocAccessFields_Hero_Links_Link>
+}
+
+export type PagesDocAccessFields_Hero_Links_Read = {
+  __typename?: 'PagesDocAccessFields_hero_links_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Update = {
+  __typename?: 'PagesDocAccessFields_hero_links_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Id = {
+  __typename?: 'PagesDocAccessFields_hero_links_id'
+  create?: Maybe<PagesDocAccessFields_Hero_Links_Id_Create>
+  delete?: Maybe<PagesDocAccessFields_Hero_Links_Id_Delete>
+  read?: Maybe<PagesDocAccessFields_Hero_Links_Id_Read>
+  update?: Maybe<PagesDocAccessFields_Hero_Links_Id_Update>
+}
+
+export type PagesDocAccessFields_Hero_Links_Id_Create = {
+  __typename?: 'PagesDocAccessFields_hero_links_id_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Id_Delete = {
+  __typename?: 'PagesDocAccessFields_hero_links_id_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Id_Read = {
+  __typename?: 'PagesDocAccessFields_hero_links_id_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Id_Update = {
+  __typename?: 'PagesDocAccessFields_hero_links_id_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Link = {
+  __typename?: 'PagesDocAccessFields_hero_links_link'
+  create?: Maybe<PagesDocAccessFields_Hero_Links_Link_Create>
+  delete?: Maybe<PagesDocAccessFields_Hero_Links_Link_Delete>
+  fields?: Maybe<PagesDocAccessFields_Hero_Links_Link_Fields>
+  read?: Maybe<PagesDocAccessFields_Hero_Links_Link_Read>
+  update?: Maybe<PagesDocAccessFields_Hero_Links_Link_Update>
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_Create = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_Delete = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_Fields = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_Fields'
+  appearance?: Maybe<PagesDocAccessFields_Hero_Links_Link_Appearance>
+  label?: Maybe<PagesDocAccessFields_Hero_Links_Link_Label>
+  newTab?: Maybe<PagesDocAccessFields_Hero_Links_Link_NewTab>
+  reference?: Maybe<PagesDocAccessFields_Hero_Links_Link_Reference>
+  type?: Maybe<PagesDocAccessFields_Hero_Links_Link_Type>
+  url?: Maybe<PagesDocAccessFields_Hero_Links_Link_Url>
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_Read = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_Update = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_Appearance = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_appearance'
+  create?: Maybe<PagesDocAccessFields_Hero_Links_Link_Appearance_Create>
+  delete?: Maybe<PagesDocAccessFields_Hero_Links_Link_Appearance_Delete>
+  read?: Maybe<PagesDocAccessFields_Hero_Links_Link_Appearance_Read>
+  update?: Maybe<PagesDocAccessFields_Hero_Links_Link_Appearance_Update>
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_Appearance_Create = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_appearance_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_Appearance_Delete = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_appearance_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_Appearance_Read = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_appearance_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_Appearance_Update = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_appearance_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_Label = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_label'
+  create?: Maybe<PagesDocAccessFields_Hero_Links_Link_Label_Create>
+  delete?: Maybe<PagesDocAccessFields_Hero_Links_Link_Label_Delete>
+  read?: Maybe<PagesDocAccessFields_Hero_Links_Link_Label_Read>
+  update?: Maybe<PagesDocAccessFields_Hero_Links_Link_Label_Update>
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_Label_Create = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_label_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_Label_Delete = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_label_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_Label_Read = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_label_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_Label_Update = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_label_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_NewTab = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_newTab'
+  create?: Maybe<PagesDocAccessFields_Hero_Links_Link_NewTab_Create>
+  delete?: Maybe<PagesDocAccessFields_Hero_Links_Link_NewTab_Delete>
+  read?: Maybe<PagesDocAccessFields_Hero_Links_Link_NewTab_Read>
+  update?: Maybe<PagesDocAccessFields_Hero_Links_Link_NewTab_Update>
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_NewTab_Create = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_newTab_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_NewTab_Delete = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_newTab_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_NewTab_Read = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_newTab_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_NewTab_Update = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_newTab_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_Reference = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_reference'
+  create?: Maybe<PagesDocAccessFields_Hero_Links_Link_Reference_Create>
+  delete?: Maybe<PagesDocAccessFields_Hero_Links_Link_Reference_Delete>
+  read?: Maybe<PagesDocAccessFields_Hero_Links_Link_Reference_Read>
+  update?: Maybe<PagesDocAccessFields_Hero_Links_Link_Reference_Update>
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_Reference_Create = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_reference_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_Reference_Delete = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_reference_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_Reference_Read = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_reference_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_Reference_Update = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_reference_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_Type = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_type'
+  create?: Maybe<PagesDocAccessFields_Hero_Links_Link_Type_Create>
+  delete?: Maybe<PagesDocAccessFields_Hero_Links_Link_Type_Delete>
+  read?: Maybe<PagesDocAccessFields_Hero_Links_Link_Type_Read>
+  update?: Maybe<PagesDocAccessFields_Hero_Links_Link_Type_Update>
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_Type_Create = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_type_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_Type_Delete = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_type_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_Type_Read = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_type_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_Type_Update = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_type_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_Url = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_url'
+  create?: Maybe<PagesDocAccessFields_Hero_Links_Link_Url_Create>
+  delete?: Maybe<PagesDocAccessFields_Hero_Links_Link_Url_Delete>
+  read?: Maybe<PagesDocAccessFields_Hero_Links_Link_Url_Read>
+  update?: Maybe<PagesDocAccessFields_Hero_Links_Link_Url_Update>
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_Url_Create = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_url_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_Url_Delete = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_url_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_Url_Read = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_url_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Links_Link_Url_Update = {
+  __typename?: 'PagesDocAccessFields_hero_links_link_url_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Media = {
+  __typename?: 'PagesDocAccessFields_hero_media'
+  create?: Maybe<PagesDocAccessFields_Hero_Media_Create>
+  delete?: Maybe<PagesDocAccessFields_Hero_Media_Delete>
+  read?: Maybe<PagesDocAccessFields_Hero_Media_Read>
+  update?: Maybe<PagesDocAccessFields_Hero_Media_Update>
+}
+
+export type PagesDocAccessFields_Hero_Media_Create = {
+  __typename?: 'PagesDocAccessFields_hero_media_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Media_Delete = {
+  __typename?: 'PagesDocAccessFields_hero_media_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Media_Read = {
+  __typename?: 'PagesDocAccessFields_hero_media_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Media_Update = {
+  __typename?: 'PagesDocAccessFields_hero_media_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_RichText = {
+  __typename?: 'PagesDocAccessFields_hero_richText'
+  create?: Maybe<PagesDocAccessFields_Hero_RichText_Create>
+  delete?: Maybe<PagesDocAccessFields_Hero_RichText_Delete>
+  read?: Maybe<PagesDocAccessFields_Hero_RichText_Read>
+  update?: Maybe<PagesDocAccessFields_Hero_RichText_Update>
+}
+
+export type PagesDocAccessFields_Hero_RichText_Create = {
+  __typename?: 'PagesDocAccessFields_hero_richText_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_RichText_Delete = {
+  __typename?: 'PagesDocAccessFields_hero_richText_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_RichText_Read = {
+  __typename?: 'PagesDocAccessFields_hero_richText_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_RichText_Update = {
+  __typename?: 'PagesDocAccessFields_hero_richText_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Type = {
+  __typename?: 'PagesDocAccessFields_hero_type'
+  create?: Maybe<PagesDocAccessFields_Hero_Type_Create>
+  delete?: Maybe<PagesDocAccessFields_Hero_Type_Delete>
+  read?: Maybe<PagesDocAccessFields_Hero_Type_Read>
+  update?: Maybe<PagesDocAccessFields_Hero_Type_Update>
+}
+
+export type PagesDocAccessFields_Hero_Type_Create = {
+  __typename?: 'PagesDocAccessFields_hero_type_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Type_Delete = {
+  __typename?: 'PagesDocAccessFields_hero_type_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Type_Read = {
+  __typename?: 'PagesDocAccessFields_hero_type_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Hero_Type_Update = {
+  __typename?: 'PagesDocAccessFields_hero_type_Update'
+  permission: Scalars['Boolean']['output']
+}
+
 export type PagesDocAccessFields_Layout = {
   __typename?: 'PagesDocAccessFields_layout'
   create?: Maybe<PagesDocAccessFields_Layout_Create>
@@ -4113,12 +6377,159 @@ export type PagesDocAccessFields_Layout_Update = {
   permission: Scalars['Boolean']['output']
 }
 
+export type PagesDocAccessFields_Meta = {
+  __typename?: 'PagesDocAccessFields_meta'
+  description?: Maybe<PagesDocAccessFields_Meta_Description>
+  image?: Maybe<PagesDocAccessFields_Meta_Image>
+  title?: Maybe<PagesDocAccessFields_Meta_Title>
+}
+
+export type PagesDocAccessFields_Meta_Description = {
+  __typename?: 'PagesDocAccessFields_meta_description'
+  create?: Maybe<PagesDocAccessFields_Meta_Description_Create>
+  delete?: Maybe<PagesDocAccessFields_Meta_Description_Delete>
+  read?: Maybe<PagesDocAccessFields_Meta_Description_Read>
+  update?: Maybe<PagesDocAccessFields_Meta_Description_Update>
+}
+
+export type PagesDocAccessFields_Meta_Description_Create = {
+  __typename?: 'PagesDocAccessFields_meta_description_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Meta_Description_Delete = {
+  __typename?: 'PagesDocAccessFields_meta_description_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Meta_Description_Read = {
+  __typename?: 'PagesDocAccessFields_meta_description_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Meta_Description_Update = {
+  __typename?: 'PagesDocAccessFields_meta_description_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Meta_Image = {
+  __typename?: 'PagesDocAccessFields_meta_image'
+  create?: Maybe<PagesDocAccessFields_Meta_Image_Create>
+  delete?: Maybe<PagesDocAccessFields_Meta_Image_Delete>
+  read?: Maybe<PagesDocAccessFields_Meta_Image_Read>
+  update?: Maybe<PagesDocAccessFields_Meta_Image_Update>
+}
+
+export type PagesDocAccessFields_Meta_Image_Create = {
+  __typename?: 'PagesDocAccessFields_meta_image_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Meta_Image_Delete = {
+  __typename?: 'PagesDocAccessFields_meta_image_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Meta_Image_Read = {
+  __typename?: 'PagesDocAccessFields_meta_image_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Meta_Image_Update = {
+  __typename?: 'PagesDocAccessFields_meta_image_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Meta_Title = {
+  __typename?: 'PagesDocAccessFields_meta_title'
+  create?: Maybe<PagesDocAccessFields_Meta_Title_Create>
+  delete?: Maybe<PagesDocAccessFields_Meta_Title_Delete>
+  read?: Maybe<PagesDocAccessFields_Meta_Title_Read>
+  update?: Maybe<PagesDocAccessFields_Meta_Title_Update>
+}
+
+export type PagesDocAccessFields_Meta_Title_Create = {
+  __typename?: 'PagesDocAccessFields_meta_title_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Meta_Title_Delete = {
+  __typename?: 'PagesDocAccessFields_meta_title_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Meta_Title_Read = {
+  __typename?: 'PagesDocAccessFields_meta_title_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_Meta_Title_Update = {
+  __typename?: 'PagesDocAccessFields_meta_title_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_PublishedAt = {
+  __typename?: 'PagesDocAccessFields_publishedAt'
+  create?: Maybe<PagesDocAccessFields_PublishedAt_Create>
+  delete?: Maybe<PagesDocAccessFields_PublishedAt_Delete>
+  read?: Maybe<PagesDocAccessFields_PublishedAt_Read>
+  update?: Maybe<PagesDocAccessFields_PublishedAt_Update>
+}
+
+export type PagesDocAccessFields_PublishedAt_Create = {
+  __typename?: 'PagesDocAccessFields_publishedAt_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_PublishedAt_Delete = {
+  __typename?: 'PagesDocAccessFields_publishedAt_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_PublishedAt_Read = {
+  __typename?: 'PagesDocAccessFields_publishedAt_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_PublishedAt_Update = {
+  __typename?: 'PagesDocAccessFields_publishedAt_Update'
+  permission: Scalars['Boolean']['output']
+}
+
 export type PagesDocAccessFields_Slug = {
   __typename?: 'PagesDocAccessFields_slug'
   create?: Maybe<PagesDocAccessFields_Slug_Create>
   delete?: Maybe<PagesDocAccessFields_Slug_Delete>
   read?: Maybe<PagesDocAccessFields_Slug_Read>
   update?: Maybe<PagesDocAccessFields_Slug_Update>
+}
+
+export type PagesDocAccessFields_SlugLock = {
+  __typename?: 'PagesDocAccessFields_slugLock'
+  create?: Maybe<PagesDocAccessFields_SlugLock_Create>
+  delete?: Maybe<PagesDocAccessFields_SlugLock_Delete>
+  read?: Maybe<PagesDocAccessFields_SlugLock_Read>
+  update?: Maybe<PagesDocAccessFields_SlugLock_Update>
+}
+
+export type PagesDocAccessFields_SlugLock_Create = {
+  __typename?: 'PagesDocAccessFields_slugLock_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_SlugLock_Delete = {
+  __typename?: 'PagesDocAccessFields_slugLock_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_SlugLock_Read = {
+  __typename?: 'PagesDocAccessFields_slugLock_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesDocAccessFields_SlugLock_Update = {
+  __typename?: 'PagesDocAccessFields_slugLock_Update'
+  permission: Scalars['Boolean']['output']
 }
 
 export type PagesDocAccessFields_Slug_Create = {
@@ -4201,8 +6612,12 @@ export type PagesFields = {
   __typename?: 'PagesFields'
   _status?: Maybe<PagesFields__Status>
   createdAt?: Maybe<PagesFields_CreatedAt>
+  hero?: Maybe<PagesFields_Hero>
   layout?: Maybe<PagesFields_Layout>
+  meta?: Maybe<PagesFields_Meta>
+  publishedAt?: Maybe<PagesFields_PublishedAt>
   slug?: Maybe<PagesFields_Slug>
+  slugLock?: Maybe<PagesFields_SlugLock>
   title?: Maybe<PagesFields_Title>
   updatedAt?: Maybe<PagesFields_UpdatedAt>
 }
@@ -4263,6 +6678,397 @@ export type PagesFields_CreatedAt_Update = {
   permission: Scalars['Boolean']['output']
 }
 
+export type PagesFields_Hero = {
+  __typename?: 'PagesFields_hero'
+  create?: Maybe<PagesFields_Hero_Create>
+  delete?: Maybe<PagesFields_Hero_Delete>
+  fields?: Maybe<PagesFields_Hero_Fields>
+  read?: Maybe<PagesFields_Hero_Read>
+  update?: Maybe<PagesFields_Hero_Update>
+}
+
+export type PagesFields_Hero_Create = {
+  __typename?: 'PagesFields_hero_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Delete = {
+  __typename?: 'PagesFields_hero_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Fields = {
+  __typename?: 'PagesFields_hero_Fields'
+  links?: Maybe<PagesFields_Hero_Links>
+  media?: Maybe<PagesFields_Hero_Media>
+  richText?: Maybe<PagesFields_Hero_RichText>
+  type?: Maybe<PagesFields_Hero_Type>
+}
+
+export type PagesFields_Hero_Read = {
+  __typename?: 'PagesFields_hero_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Update = {
+  __typename?: 'PagesFields_hero_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links = {
+  __typename?: 'PagesFields_hero_links'
+  create?: Maybe<PagesFields_Hero_Links_Create>
+  delete?: Maybe<PagesFields_Hero_Links_Delete>
+  fields?: Maybe<PagesFields_Hero_Links_Fields>
+  read?: Maybe<PagesFields_Hero_Links_Read>
+  update?: Maybe<PagesFields_Hero_Links_Update>
+}
+
+export type PagesFields_Hero_Links_Create = {
+  __typename?: 'PagesFields_hero_links_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Delete = {
+  __typename?: 'PagesFields_hero_links_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Fields = {
+  __typename?: 'PagesFields_hero_links_Fields'
+  id?: Maybe<PagesFields_Hero_Links_Id>
+  link?: Maybe<PagesFields_Hero_Links_Link>
+}
+
+export type PagesFields_Hero_Links_Read = {
+  __typename?: 'PagesFields_hero_links_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Update = {
+  __typename?: 'PagesFields_hero_links_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Id = {
+  __typename?: 'PagesFields_hero_links_id'
+  create?: Maybe<PagesFields_Hero_Links_Id_Create>
+  delete?: Maybe<PagesFields_Hero_Links_Id_Delete>
+  read?: Maybe<PagesFields_Hero_Links_Id_Read>
+  update?: Maybe<PagesFields_Hero_Links_Id_Update>
+}
+
+export type PagesFields_Hero_Links_Id_Create = {
+  __typename?: 'PagesFields_hero_links_id_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Id_Delete = {
+  __typename?: 'PagesFields_hero_links_id_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Id_Read = {
+  __typename?: 'PagesFields_hero_links_id_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Id_Update = {
+  __typename?: 'PagesFields_hero_links_id_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Link = {
+  __typename?: 'PagesFields_hero_links_link'
+  create?: Maybe<PagesFields_Hero_Links_Link_Create>
+  delete?: Maybe<PagesFields_Hero_Links_Link_Delete>
+  fields?: Maybe<PagesFields_Hero_Links_Link_Fields>
+  read?: Maybe<PagesFields_Hero_Links_Link_Read>
+  update?: Maybe<PagesFields_Hero_Links_Link_Update>
+}
+
+export type PagesFields_Hero_Links_Link_Create = {
+  __typename?: 'PagesFields_hero_links_link_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Link_Delete = {
+  __typename?: 'PagesFields_hero_links_link_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Link_Fields = {
+  __typename?: 'PagesFields_hero_links_link_Fields'
+  appearance?: Maybe<PagesFields_Hero_Links_Link_Appearance>
+  label?: Maybe<PagesFields_Hero_Links_Link_Label>
+  newTab?: Maybe<PagesFields_Hero_Links_Link_NewTab>
+  reference?: Maybe<PagesFields_Hero_Links_Link_Reference>
+  type?: Maybe<PagesFields_Hero_Links_Link_Type>
+  url?: Maybe<PagesFields_Hero_Links_Link_Url>
+}
+
+export type PagesFields_Hero_Links_Link_Read = {
+  __typename?: 'PagesFields_hero_links_link_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Link_Update = {
+  __typename?: 'PagesFields_hero_links_link_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Link_Appearance = {
+  __typename?: 'PagesFields_hero_links_link_appearance'
+  create?: Maybe<PagesFields_Hero_Links_Link_Appearance_Create>
+  delete?: Maybe<PagesFields_Hero_Links_Link_Appearance_Delete>
+  read?: Maybe<PagesFields_Hero_Links_Link_Appearance_Read>
+  update?: Maybe<PagesFields_Hero_Links_Link_Appearance_Update>
+}
+
+export type PagesFields_Hero_Links_Link_Appearance_Create = {
+  __typename?: 'PagesFields_hero_links_link_appearance_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Link_Appearance_Delete = {
+  __typename?: 'PagesFields_hero_links_link_appearance_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Link_Appearance_Read = {
+  __typename?: 'PagesFields_hero_links_link_appearance_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Link_Appearance_Update = {
+  __typename?: 'PagesFields_hero_links_link_appearance_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Link_Label = {
+  __typename?: 'PagesFields_hero_links_link_label'
+  create?: Maybe<PagesFields_Hero_Links_Link_Label_Create>
+  delete?: Maybe<PagesFields_Hero_Links_Link_Label_Delete>
+  read?: Maybe<PagesFields_Hero_Links_Link_Label_Read>
+  update?: Maybe<PagesFields_Hero_Links_Link_Label_Update>
+}
+
+export type PagesFields_Hero_Links_Link_Label_Create = {
+  __typename?: 'PagesFields_hero_links_link_label_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Link_Label_Delete = {
+  __typename?: 'PagesFields_hero_links_link_label_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Link_Label_Read = {
+  __typename?: 'PagesFields_hero_links_link_label_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Link_Label_Update = {
+  __typename?: 'PagesFields_hero_links_link_label_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Link_NewTab = {
+  __typename?: 'PagesFields_hero_links_link_newTab'
+  create?: Maybe<PagesFields_Hero_Links_Link_NewTab_Create>
+  delete?: Maybe<PagesFields_Hero_Links_Link_NewTab_Delete>
+  read?: Maybe<PagesFields_Hero_Links_Link_NewTab_Read>
+  update?: Maybe<PagesFields_Hero_Links_Link_NewTab_Update>
+}
+
+export type PagesFields_Hero_Links_Link_NewTab_Create = {
+  __typename?: 'PagesFields_hero_links_link_newTab_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Link_NewTab_Delete = {
+  __typename?: 'PagesFields_hero_links_link_newTab_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Link_NewTab_Read = {
+  __typename?: 'PagesFields_hero_links_link_newTab_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Link_NewTab_Update = {
+  __typename?: 'PagesFields_hero_links_link_newTab_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Link_Reference = {
+  __typename?: 'PagesFields_hero_links_link_reference'
+  create?: Maybe<PagesFields_Hero_Links_Link_Reference_Create>
+  delete?: Maybe<PagesFields_Hero_Links_Link_Reference_Delete>
+  read?: Maybe<PagesFields_Hero_Links_Link_Reference_Read>
+  update?: Maybe<PagesFields_Hero_Links_Link_Reference_Update>
+}
+
+export type PagesFields_Hero_Links_Link_Reference_Create = {
+  __typename?: 'PagesFields_hero_links_link_reference_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Link_Reference_Delete = {
+  __typename?: 'PagesFields_hero_links_link_reference_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Link_Reference_Read = {
+  __typename?: 'PagesFields_hero_links_link_reference_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Link_Reference_Update = {
+  __typename?: 'PagesFields_hero_links_link_reference_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Link_Type = {
+  __typename?: 'PagesFields_hero_links_link_type'
+  create?: Maybe<PagesFields_Hero_Links_Link_Type_Create>
+  delete?: Maybe<PagesFields_Hero_Links_Link_Type_Delete>
+  read?: Maybe<PagesFields_Hero_Links_Link_Type_Read>
+  update?: Maybe<PagesFields_Hero_Links_Link_Type_Update>
+}
+
+export type PagesFields_Hero_Links_Link_Type_Create = {
+  __typename?: 'PagesFields_hero_links_link_type_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Link_Type_Delete = {
+  __typename?: 'PagesFields_hero_links_link_type_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Link_Type_Read = {
+  __typename?: 'PagesFields_hero_links_link_type_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Link_Type_Update = {
+  __typename?: 'PagesFields_hero_links_link_type_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Link_Url = {
+  __typename?: 'PagesFields_hero_links_link_url'
+  create?: Maybe<PagesFields_Hero_Links_Link_Url_Create>
+  delete?: Maybe<PagesFields_Hero_Links_Link_Url_Delete>
+  read?: Maybe<PagesFields_Hero_Links_Link_Url_Read>
+  update?: Maybe<PagesFields_Hero_Links_Link_Url_Update>
+}
+
+export type PagesFields_Hero_Links_Link_Url_Create = {
+  __typename?: 'PagesFields_hero_links_link_url_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Link_Url_Delete = {
+  __typename?: 'PagesFields_hero_links_link_url_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Link_Url_Read = {
+  __typename?: 'PagesFields_hero_links_link_url_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Links_Link_Url_Update = {
+  __typename?: 'PagesFields_hero_links_link_url_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Media = {
+  __typename?: 'PagesFields_hero_media'
+  create?: Maybe<PagesFields_Hero_Media_Create>
+  delete?: Maybe<PagesFields_Hero_Media_Delete>
+  read?: Maybe<PagesFields_Hero_Media_Read>
+  update?: Maybe<PagesFields_Hero_Media_Update>
+}
+
+export type PagesFields_Hero_Media_Create = {
+  __typename?: 'PagesFields_hero_media_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Media_Delete = {
+  __typename?: 'PagesFields_hero_media_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Media_Read = {
+  __typename?: 'PagesFields_hero_media_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Media_Update = {
+  __typename?: 'PagesFields_hero_media_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_RichText = {
+  __typename?: 'PagesFields_hero_richText'
+  create?: Maybe<PagesFields_Hero_RichText_Create>
+  delete?: Maybe<PagesFields_Hero_RichText_Delete>
+  read?: Maybe<PagesFields_Hero_RichText_Read>
+  update?: Maybe<PagesFields_Hero_RichText_Update>
+}
+
+export type PagesFields_Hero_RichText_Create = {
+  __typename?: 'PagesFields_hero_richText_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_RichText_Delete = {
+  __typename?: 'PagesFields_hero_richText_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_RichText_Read = {
+  __typename?: 'PagesFields_hero_richText_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_RichText_Update = {
+  __typename?: 'PagesFields_hero_richText_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Type = {
+  __typename?: 'PagesFields_hero_type'
+  create?: Maybe<PagesFields_Hero_Type_Create>
+  delete?: Maybe<PagesFields_Hero_Type_Delete>
+  read?: Maybe<PagesFields_Hero_Type_Read>
+  update?: Maybe<PagesFields_Hero_Type_Update>
+}
+
+export type PagesFields_Hero_Type_Create = {
+  __typename?: 'PagesFields_hero_type_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Type_Delete = {
+  __typename?: 'PagesFields_hero_type_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Type_Read = {
+  __typename?: 'PagesFields_hero_type_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Hero_Type_Update = {
+  __typename?: 'PagesFields_hero_type_Update'
+  permission: Scalars['Boolean']['output']
+}
+
 export type PagesFields_Layout = {
   __typename?: 'PagesFields_layout'
   create?: Maybe<PagesFields_Layout_Create>
@@ -4291,12 +7097,159 @@ export type PagesFields_Layout_Update = {
   permission: Scalars['Boolean']['output']
 }
 
+export type PagesFields_Meta = {
+  __typename?: 'PagesFields_meta'
+  description?: Maybe<PagesFields_Meta_Description>
+  image?: Maybe<PagesFields_Meta_Image>
+  title?: Maybe<PagesFields_Meta_Title>
+}
+
+export type PagesFields_Meta_Description = {
+  __typename?: 'PagesFields_meta_description'
+  create?: Maybe<PagesFields_Meta_Description_Create>
+  delete?: Maybe<PagesFields_Meta_Description_Delete>
+  read?: Maybe<PagesFields_Meta_Description_Read>
+  update?: Maybe<PagesFields_Meta_Description_Update>
+}
+
+export type PagesFields_Meta_Description_Create = {
+  __typename?: 'PagesFields_meta_description_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Meta_Description_Delete = {
+  __typename?: 'PagesFields_meta_description_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Meta_Description_Read = {
+  __typename?: 'PagesFields_meta_description_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Meta_Description_Update = {
+  __typename?: 'PagesFields_meta_description_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Meta_Image = {
+  __typename?: 'PagesFields_meta_image'
+  create?: Maybe<PagesFields_Meta_Image_Create>
+  delete?: Maybe<PagesFields_Meta_Image_Delete>
+  read?: Maybe<PagesFields_Meta_Image_Read>
+  update?: Maybe<PagesFields_Meta_Image_Update>
+}
+
+export type PagesFields_Meta_Image_Create = {
+  __typename?: 'PagesFields_meta_image_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Meta_Image_Delete = {
+  __typename?: 'PagesFields_meta_image_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Meta_Image_Read = {
+  __typename?: 'PagesFields_meta_image_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Meta_Image_Update = {
+  __typename?: 'PagesFields_meta_image_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Meta_Title = {
+  __typename?: 'PagesFields_meta_title'
+  create?: Maybe<PagesFields_Meta_Title_Create>
+  delete?: Maybe<PagesFields_Meta_Title_Delete>
+  read?: Maybe<PagesFields_Meta_Title_Read>
+  update?: Maybe<PagesFields_Meta_Title_Update>
+}
+
+export type PagesFields_Meta_Title_Create = {
+  __typename?: 'PagesFields_meta_title_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Meta_Title_Delete = {
+  __typename?: 'PagesFields_meta_title_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Meta_Title_Read = {
+  __typename?: 'PagesFields_meta_title_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_Meta_Title_Update = {
+  __typename?: 'PagesFields_meta_title_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_PublishedAt = {
+  __typename?: 'PagesFields_publishedAt'
+  create?: Maybe<PagesFields_PublishedAt_Create>
+  delete?: Maybe<PagesFields_PublishedAt_Delete>
+  read?: Maybe<PagesFields_PublishedAt_Read>
+  update?: Maybe<PagesFields_PublishedAt_Update>
+}
+
+export type PagesFields_PublishedAt_Create = {
+  __typename?: 'PagesFields_publishedAt_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_PublishedAt_Delete = {
+  __typename?: 'PagesFields_publishedAt_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_PublishedAt_Read = {
+  __typename?: 'PagesFields_publishedAt_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_PublishedAt_Update = {
+  __typename?: 'PagesFields_publishedAt_Update'
+  permission: Scalars['Boolean']['output']
+}
+
 export type PagesFields_Slug = {
   __typename?: 'PagesFields_slug'
   create?: Maybe<PagesFields_Slug_Create>
   delete?: Maybe<PagesFields_Slug_Delete>
   read?: Maybe<PagesFields_Slug_Read>
   update?: Maybe<PagesFields_Slug_Update>
+}
+
+export type PagesFields_SlugLock = {
+  __typename?: 'PagesFields_slugLock'
+  create?: Maybe<PagesFields_SlugLock_Create>
+  delete?: Maybe<PagesFields_SlugLock_Delete>
+  read?: Maybe<PagesFields_SlugLock_Read>
+  update?: Maybe<PagesFields_SlugLock_Update>
+}
+
+export type PagesFields_SlugLock_Create = {
+  __typename?: 'PagesFields_slugLock_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_SlugLock_Delete = {
+  __typename?: 'PagesFields_slugLock_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_SlugLock_Read = {
+  __typename?: 'PagesFields_slugLock_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PagesFields_SlugLock_Update = {
+  __typename?: 'PagesFields_slugLock_Update'
+  permission: Scalars['Boolean']['output']
 }
 
 export type PagesFields_Slug_Create = {
@@ -4411,6 +7364,1737 @@ export type PagesUpdateDocAccess = {
   where?: Maybe<Scalars['JSONObject']['output']>
 }
 
+export type PayloadJob = {
+  __typename?: 'PayloadJob'
+  completedAt?: Maybe<Scalars['DateTime']['output']>
+  createdAt?: Maybe<Scalars['DateTime']['output']>
+  error?: Maybe<Scalars['JSON']['output']>
+  hasError?: Maybe<Scalars['Boolean']['output']>
+  id: Scalars['String']['output']
+  input?: Maybe<Scalars['JSON']['output']>
+  log?: Maybe<Array<PayloadJob_Log>>
+  processing?: Maybe<Scalars['Boolean']['output']>
+  queue?: Maybe<Scalars['String']['output']>
+  taskSlug?: Maybe<PayloadJob_TaskSlug>
+  taskStatus?: Maybe<Scalars['JSON']['output']>
+  totalTried?: Maybe<Scalars['Float']['output']>
+  updatedAt?: Maybe<Scalars['DateTime']['output']>
+  waitUntil?: Maybe<Scalars['DateTime']['output']>
+}
+
+export enum PayloadJobUpdate_Log_TaskSlug_MutationInput {
+  Inline = 'inline',
+  SchedulePublish = 'schedulePublish',
+}
+
+export enum PayloadJobUpdate_TaskSlug_MutationInput {
+  Inline = 'inline',
+  SchedulePublish = 'schedulePublish',
+}
+
+export type PayloadJob_Log = {
+  __typename?: 'PayloadJob_Log'
+  completedAt?: Maybe<Scalars['DateTime']['output']>
+  error?: Maybe<Scalars['JSON']['output']>
+  executedAt?: Maybe<Scalars['DateTime']['output']>
+  id?: Maybe<Scalars['String']['output']>
+  input?: Maybe<Scalars['JSON']['output']>
+  output?: Maybe<Scalars['JSON']['output']>
+  state?: Maybe<PayloadJob_Log_State>
+  taskID?: Maybe<Scalars['String']['output']>
+  taskSlug?: Maybe<PayloadJob_Log_TaskSlug>
+}
+
+export enum PayloadJob_Log_State {
+  Failed = 'failed',
+  Succeeded = 'succeeded',
+}
+
+export enum PayloadJob_Log_TaskSlug {
+  Inline = 'inline',
+  SchedulePublish = 'schedulePublish',
+}
+
+export enum PayloadJob_Log_TaskSlug_MutationInput {
+  Inline = 'inline',
+  SchedulePublish = 'schedulePublish',
+}
+
+export type PayloadJob_CompletedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  greater_than?: InputMaybe<Scalars['DateTime']['input']>
+  greater_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  less_than?: InputMaybe<Scalars['DateTime']['input']>
+  less_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  like?: InputMaybe<Scalars['DateTime']['input']>
+  not_equals?: InputMaybe<Scalars['DateTime']['input']>
+}
+
+export type PayloadJob_CreatedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  greater_than?: InputMaybe<Scalars['DateTime']['input']>
+  greater_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  less_than?: InputMaybe<Scalars['DateTime']['input']>
+  less_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  like?: InputMaybe<Scalars['DateTime']['input']>
+  not_equals?: InputMaybe<Scalars['DateTime']['input']>
+}
+
+export type PayloadJob_Error_Operator = {
+  contains?: InputMaybe<Scalars['JSON']['input']>
+  equals?: InputMaybe<Scalars['JSON']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  intersects?: InputMaybe<Scalars['JSON']['input']>
+  like?: InputMaybe<Scalars['JSON']['input']>
+  not_equals?: InputMaybe<Scalars['JSON']['input']>
+  within?: InputMaybe<Scalars['JSON']['input']>
+}
+
+export type PayloadJob_HasError_Operator = {
+  equals?: InputMaybe<Scalars['Boolean']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  not_equals?: InputMaybe<Scalars['Boolean']['input']>
+}
+
+export type PayloadJob_Id_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  contains?: InputMaybe<Scalars['String']['input']>
+  equals?: InputMaybe<Scalars['String']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  like?: InputMaybe<Scalars['String']['input']>
+  not_equals?: InputMaybe<Scalars['String']['input']>
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+}
+
+export type PayloadJob_Input_Operator = {
+  contains?: InputMaybe<Scalars['JSON']['input']>
+  equals?: InputMaybe<Scalars['JSON']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  intersects?: InputMaybe<Scalars['JSON']['input']>
+  like?: InputMaybe<Scalars['JSON']['input']>
+  not_equals?: InputMaybe<Scalars['JSON']['input']>
+  within?: InputMaybe<Scalars['JSON']['input']>
+}
+
+export type PayloadJob_Log__CompletedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']['input']>
+  greater_than?: InputMaybe<Scalars['DateTime']['input']>
+  greater_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  less_than?: InputMaybe<Scalars['DateTime']['input']>
+  less_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  like?: InputMaybe<Scalars['DateTime']['input']>
+  not_equals?: InputMaybe<Scalars['DateTime']['input']>
+}
+
+export type PayloadJob_Log__Error_Operator = {
+  contains?: InputMaybe<Scalars['JSON']['input']>
+  equals?: InputMaybe<Scalars['JSON']['input']>
+  intersects?: InputMaybe<Scalars['JSON']['input']>
+  like?: InputMaybe<Scalars['JSON']['input']>
+  not_equals?: InputMaybe<Scalars['JSON']['input']>
+  within?: InputMaybe<Scalars['JSON']['input']>
+}
+
+export type PayloadJob_Log__ExecutedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']['input']>
+  greater_than?: InputMaybe<Scalars['DateTime']['input']>
+  greater_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  less_than?: InputMaybe<Scalars['DateTime']['input']>
+  less_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  like?: InputMaybe<Scalars['DateTime']['input']>
+  not_equals?: InputMaybe<Scalars['DateTime']['input']>
+}
+
+export type PayloadJob_Log__Id_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  contains?: InputMaybe<Scalars['String']['input']>
+  equals?: InputMaybe<Scalars['String']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  like?: InputMaybe<Scalars['String']['input']>
+  not_equals?: InputMaybe<Scalars['String']['input']>
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+}
+
+export type PayloadJob_Log__Input_Operator = {
+  contains?: InputMaybe<Scalars['JSON']['input']>
+  equals?: InputMaybe<Scalars['JSON']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  intersects?: InputMaybe<Scalars['JSON']['input']>
+  like?: InputMaybe<Scalars['JSON']['input']>
+  not_equals?: InputMaybe<Scalars['JSON']['input']>
+  within?: InputMaybe<Scalars['JSON']['input']>
+}
+
+export type PayloadJob_Log__Output_Operator = {
+  contains?: InputMaybe<Scalars['JSON']['input']>
+  equals?: InputMaybe<Scalars['JSON']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  intersects?: InputMaybe<Scalars['JSON']['input']>
+  like?: InputMaybe<Scalars['JSON']['input']>
+  not_equals?: InputMaybe<Scalars['JSON']['input']>
+  within?: InputMaybe<Scalars['JSON']['input']>
+}
+
+export enum PayloadJob_Log__State_Input {
+  Failed = 'failed',
+  Succeeded = 'succeeded',
+}
+
+export type PayloadJob_Log__State_Operator = {
+  contains?: InputMaybe<PayloadJob_Log__State_Input>
+  equals?: InputMaybe<PayloadJob_Log__State_Input>
+  like?: InputMaybe<PayloadJob_Log__State_Input>
+  not_equals?: InputMaybe<PayloadJob_Log__State_Input>
+}
+
+export type PayloadJob_Log__TaskId_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  contains?: InputMaybe<Scalars['String']['input']>
+  equals?: InputMaybe<Scalars['String']['input']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  like?: InputMaybe<Scalars['String']['input']>
+  not_equals?: InputMaybe<Scalars['String']['input']>
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+}
+
+export enum PayloadJob_Log__TaskSlug_Input {
+  Inline = 'inline',
+  SchedulePublish = 'schedulePublish',
+}
+
+export type PayloadJob_Log__TaskSlug_Operator = {
+  all?: InputMaybe<Array<InputMaybe<PayloadJob_Log__TaskSlug_Input>>>
+  equals?: InputMaybe<PayloadJob_Log__TaskSlug_Input>
+  in?: InputMaybe<Array<InputMaybe<PayloadJob_Log__TaskSlug_Input>>>
+  not_equals?: InputMaybe<PayloadJob_Log__TaskSlug_Input>
+  not_in?: InputMaybe<Array<InputMaybe<PayloadJob_Log__TaskSlug_Input>>>
+}
+
+export type PayloadJob_Processing_Operator = {
+  equals?: InputMaybe<Scalars['Boolean']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  not_equals?: InputMaybe<Scalars['Boolean']['input']>
+}
+
+export type PayloadJob_Queue_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  contains?: InputMaybe<Scalars['String']['input']>
+  equals?: InputMaybe<Scalars['String']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  like?: InputMaybe<Scalars['String']['input']>
+  not_equals?: InputMaybe<Scalars['String']['input']>
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+}
+
+export enum PayloadJob_TaskSlug {
+  Inline = 'inline',
+  SchedulePublish = 'schedulePublish',
+}
+
+export enum PayloadJob_TaskSlug_Input {
+  Inline = 'inline',
+  SchedulePublish = 'schedulePublish',
+}
+
+export enum PayloadJob_TaskSlug_MutationInput {
+  Inline = 'inline',
+  SchedulePublish = 'schedulePublish',
+}
+
+export type PayloadJob_TaskSlug_Operator = {
+  all?: InputMaybe<Array<InputMaybe<PayloadJob_TaskSlug_Input>>>
+  equals?: InputMaybe<PayloadJob_TaskSlug_Input>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  in?: InputMaybe<Array<InputMaybe<PayloadJob_TaskSlug_Input>>>
+  not_equals?: InputMaybe<PayloadJob_TaskSlug_Input>
+  not_in?: InputMaybe<Array<InputMaybe<PayloadJob_TaskSlug_Input>>>
+}
+
+export type PayloadJob_TaskStatus_Operator = {
+  contains?: InputMaybe<Scalars['JSON']['input']>
+  equals?: InputMaybe<Scalars['JSON']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  intersects?: InputMaybe<Scalars['JSON']['input']>
+  like?: InputMaybe<Scalars['JSON']['input']>
+  not_equals?: InputMaybe<Scalars['JSON']['input']>
+  within?: InputMaybe<Scalars['JSON']['input']>
+}
+
+export type PayloadJob_TotalTried_Operator = {
+  equals?: InputMaybe<Scalars['Float']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  greater_than?: InputMaybe<Scalars['Float']['input']>
+  greater_than_equal?: InputMaybe<Scalars['Float']['input']>
+  less_than?: InputMaybe<Scalars['Float']['input']>
+  less_than_equal?: InputMaybe<Scalars['Float']['input']>
+  not_equals?: InputMaybe<Scalars['Float']['input']>
+}
+
+export type PayloadJob_UpdatedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  greater_than?: InputMaybe<Scalars['DateTime']['input']>
+  greater_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  less_than?: InputMaybe<Scalars['DateTime']['input']>
+  less_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  like?: InputMaybe<Scalars['DateTime']['input']>
+  not_equals?: InputMaybe<Scalars['DateTime']['input']>
+}
+
+export type PayloadJob_WaitUntil_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  greater_than?: InputMaybe<Scalars['DateTime']['input']>
+  greater_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  less_than?: InputMaybe<Scalars['DateTime']['input']>
+  less_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  like?: InputMaybe<Scalars['DateTime']['input']>
+  not_equals?: InputMaybe<Scalars['DateTime']['input']>
+}
+
+export type PayloadJob_Where = {
+  AND?: InputMaybe<Array<InputMaybe<PayloadJob_Where_And>>>
+  OR?: InputMaybe<Array<InputMaybe<PayloadJob_Where_Or>>>
+  completedAt?: InputMaybe<PayloadJob_CompletedAt_Operator>
+  createdAt?: InputMaybe<PayloadJob_CreatedAt_Operator>
+  error?: InputMaybe<PayloadJob_Error_Operator>
+  hasError?: InputMaybe<PayloadJob_HasError_Operator>
+  id?: InputMaybe<PayloadJob_Id_Operator>
+  input?: InputMaybe<PayloadJob_Input_Operator>
+  log__completedAt?: InputMaybe<PayloadJob_Log__CompletedAt_Operator>
+  log__error?: InputMaybe<PayloadJob_Log__Error_Operator>
+  log__executedAt?: InputMaybe<PayloadJob_Log__ExecutedAt_Operator>
+  log__id?: InputMaybe<PayloadJob_Log__Id_Operator>
+  log__input?: InputMaybe<PayloadJob_Log__Input_Operator>
+  log__output?: InputMaybe<PayloadJob_Log__Output_Operator>
+  log__state?: InputMaybe<PayloadJob_Log__State_Operator>
+  log__taskID?: InputMaybe<PayloadJob_Log__TaskId_Operator>
+  log__taskSlug?: InputMaybe<PayloadJob_Log__TaskSlug_Operator>
+  processing?: InputMaybe<PayloadJob_Processing_Operator>
+  queue?: InputMaybe<PayloadJob_Queue_Operator>
+  taskSlug?: InputMaybe<PayloadJob_TaskSlug_Operator>
+  taskStatus?: InputMaybe<PayloadJob_TaskStatus_Operator>
+  totalTried?: InputMaybe<PayloadJob_TotalTried_Operator>
+  updatedAt?: InputMaybe<PayloadJob_UpdatedAt_Operator>
+  waitUntil?: InputMaybe<PayloadJob_WaitUntil_Operator>
+}
+
+export type PayloadJob_Where_And = {
+  AND?: InputMaybe<Array<InputMaybe<PayloadJob_Where_And>>>
+  OR?: InputMaybe<Array<InputMaybe<PayloadJob_Where_Or>>>
+  completedAt?: InputMaybe<PayloadJob_CompletedAt_Operator>
+  createdAt?: InputMaybe<PayloadJob_CreatedAt_Operator>
+  error?: InputMaybe<PayloadJob_Error_Operator>
+  hasError?: InputMaybe<PayloadJob_HasError_Operator>
+  id?: InputMaybe<PayloadJob_Id_Operator>
+  input?: InputMaybe<PayloadJob_Input_Operator>
+  log__completedAt?: InputMaybe<PayloadJob_Log__CompletedAt_Operator>
+  log__error?: InputMaybe<PayloadJob_Log__Error_Operator>
+  log__executedAt?: InputMaybe<PayloadJob_Log__ExecutedAt_Operator>
+  log__id?: InputMaybe<PayloadJob_Log__Id_Operator>
+  log__input?: InputMaybe<PayloadJob_Log__Input_Operator>
+  log__output?: InputMaybe<PayloadJob_Log__Output_Operator>
+  log__state?: InputMaybe<PayloadJob_Log__State_Operator>
+  log__taskID?: InputMaybe<PayloadJob_Log__TaskId_Operator>
+  log__taskSlug?: InputMaybe<PayloadJob_Log__TaskSlug_Operator>
+  processing?: InputMaybe<PayloadJob_Processing_Operator>
+  queue?: InputMaybe<PayloadJob_Queue_Operator>
+  taskSlug?: InputMaybe<PayloadJob_TaskSlug_Operator>
+  taskStatus?: InputMaybe<PayloadJob_TaskStatus_Operator>
+  totalTried?: InputMaybe<PayloadJob_TotalTried_Operator>
+  updatedAt?: InputMaybe<PayloadJob_UpdatedAt_Operator>
+  waitUntil?: InputMaybe<PayloadJob_WaitUntil_Operator>
+}
+
+export type PayloadJob_Where_Or = {
+  AND?: InputMaybe<Array<InputMaybe<PayloadJob_Where_And>>>
+  OR?: InputMaybe<Array<InputMaybe<PayloadJob_Where_Or>>>
+  completedAt?: InputMaybe<PayloadJob_CompletedAt_Operator>
+  createdAt?: InputMaybe<PayloadJob_CreatedAt_Operator>
+  error?: InputMaybe<PayloadJob_Error_Operator>
+  hasError?: InputMaybe<PayloadJob_HasError_Operator>
+  id?: InputMaybe<PayloadJob_Id_Operator>
+  input?: InputMaybe<PayloadJob_Input_Operator>
+  log__completedAt?: InputMaybe<PayloadJob_Log__CompletedAt_Operator>
+  log__error?: InputMaybe<PayloadJob_Log__Error_Operator>
+  log__executedAt?: InputMaybe<PayloadJob_Log__ExecutedAt_Operator>
+  log__id?: InputMaybe<PayloadJob_Log__Id_Operator>
+  log__input?: InputMaybe<PayloadJob_Log__Input_Operator>
+  log__output?: InputMaybe<PayloadJob_Log__Output_Operator>
+  log__state?: InputMaybe<PayloadJob_Log__State_Operator>
+  log__taskID?: InputMaybe<PayloadJob_Log__TaskId_Operator>
+  log__taskSlug?: InputMaybe<PayloadJob_Log__TaskSlug_Operator>
+  processing?: InputMaybe<PayloadJob_Processing_Operator>
+  queue?: InputMaybe<PayloadJob_Queue_Operator>
+  taskSlug?: InputMaybe<PayloadJob_TaskSlug_Operator>
+  taskStatus?: InputMaybe<PayloadJob_TaskStatus_Operator>
+  totalTried?: InputMaybe<PayloadJob_TotalTried_Operator>
+  updatedAt?: InputMaybe<PayloadJob_UpdatedAt_Operator>
+  waitUntil?: InputMaybe<PayloadJob_WaitUntil_Operator>
+}
+
+export type PayloadJobs = {
+  __typename?: 'PayloadJobs'
+  docs: Array<PayloadJob>
+  hasNextPage: Scalars['Boolean']['output']
+  hasPrevPage: Scalars['Boolean']['output']
+  limit: Scalars['Int']['output']
+  nextPage?: Maybe<Scalars['Int']['output']>
+  offset?: Maybe<Scalars['Int']['output']>
+  page: Scalars['Int']['output']
+  pagingCounter: Scalars['Int']['output']
+  prevPage?: Maybe<Scalars['Int']['output']>
+  totalDocs: Scalars['Int']['output']
+  totalPages: Scalars['Int']['output']
+}
+
+export type PayloadJobsCreateAccess = {
+  __typename?: 'PayloadJobsCreateAccess'
+  permission: Scalars['Boolean']['output']
+  where?: Maybe<Scalars['JSONObject']['output']>
+}
+
+export type PayloadJobsCreateDocAccess = {
+  __typename?: 'PayloadJobsCreateDocAccess'
+  permission: Scalars['Boolean']['output']
+  where?: Maybe<Scalars['JSONObject']['output']>
+}
+
+export type PayloadJobsDeleteAccess = {
+  __typename?: 'PayloadJobsDeleteAccess'
+  permission: Scalars['Boolean']['output']
+  where?: Maybe<Scalars['JSONObject']['output']>
+}
+
+export type PayloadJobsDeleteDocAccess = {
+  __typename?: 'PayloadJobsDeleteDocAccess'
+  permission: Scalars['Boolean']['output']
+  where?: Maybe<Scalars['JSONObject']['output']>
+}
+
+export type PayloadJobsDocAccessFields = {
+  __typename?: 'PayloadJobsDocAccessFields'
+  completedAt?: Maybe<PayloadJobsDocAccessFields_CompletedAt>
+  createdAt?: Maybe<PayloadJobsDocAccessFields_CreatedAt>
+  error?: Maybe<PayloadJobsDocAccessFields_Error>
+  hasError?: Maybe<PayloadJobsDocAccessFields_HasError>
+  input?: Maybe<PayloadJobsDocAccessFields_Input>
+  log?: Maybe<PayloadJobsDocAccessFields_Log>
+  processing?: Maybe<PayloadJobsDocAccessFields_Processing>
+  queue?: Maybe<PayloadJobsDocAccessFields_Queue>
+  taskSlug?: Maybe<PayloadJobsDocAccessFields_TaskSlug>
+  taskStatus?: Maybe<PayloadJobsDocAccessFields_TaskStatus>
+  totalTried?: Maybe<PayloadJobsDocAccessFields_TotalTried>
+  updatedAt?: Maybe<PayloadJobsDocAccessFields_UpdatedAt>
+  waitUntil?: Maybe<PayloadJobsDocAccessFields_WaitUntil>
+}
+
+export type PayloadJobsDocAccessFields_CompletedAt = {
+  __typename?: 'PayloadJobsDocAccessFields_completedAt'
+  create?: Maybe<PayloadJobsDocAccessFields_CompletedAt_Create>
+  delete?: Maybe<PayloadJobsDocAccessFields_CompletedAt_Delete>
+  read?: Maybe<PayloadJobsDocAccessFields_CompletedAt_Read>
+  update?: Maybe<PayloadJobsDocAccessFields_CompletedAt_Update>
+}
+
+export type PayloadJobsDocAccessFields_CompletedAt_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_completedAt_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_CompletedAt_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_completedAt_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_CompletedAt_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_completedAt_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_CompletedAt_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_completedAt_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_CreatedAt = {
+  __typename?: 'PayloadJobsDocAccessFields_createdAt'
+  create?: Maybe<PayloadJobsDocAccessFields_CreatedAt_Create>
+  delete?: Maybe<PayloadJobsDocAccessFields_CreatedAt_Delete>
+  read?: Maybe<PayloadJobsDocAccessFields_CreatedAt_Read>
+  update?: Maybe<PayloadJobsDocAccessFields_CreatedAt_Update>
+}
+
+export type PayloadJobsDocAccessFields_CreatedAt_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_createdAt_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_CreatedAt_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_createdAt_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_CreatedAt_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_createdAt_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_CreatedAt_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_createdAt_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Error = {
+  __typename?: 'PayloadJobsDocAccessFields_error'
+  create?: Maybe<PayloadJobsDocAccessFields_Error_Create>
+  delete?: Maybe<PayloadJobsDocAccessFields_Error_Delete>
+  read?: Maybe<PayloadJobsDocAccessFields_Error_Read>
+  update?: Maybe<PayloadJobsDocAccessFields_Error_Update>
+}
+
+export type PayloadJobsDocAccessFields_Error_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_error_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Error_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_error_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Error_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_error_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Error_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_error_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_HasError = {
+  __typename?: 'PayloadJobsDocAccessFields_hasError'
+  create?: Maybe<PayloadJobsDocAccessFields_HasError_Create>
+  delete?: Maybe<PayloadJobsDocAccessFields_HasError_Delete>
+  read?: Maybe<PayloadJobsDocAccessFields_HasError_Read>
+  update?: Maybe<PayloadJobsDocAccessFields_HasError_Update>
+}
+
+export type PayloadJobsDocAccessFields_HasError_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_hasError_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_HasError_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_hasError_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_HasError_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_hasError_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_HasError_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_hasError_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Input = {
+  __typename?: 'PayloadJobsDocAccessFields_input'
+  create?: Maybe<PayloadJobsDocAccessFields_Input_Create>
+  delete?: Maybe<PayloadJobsDocAccessFields_Input_Delete>
+  read?: Maybe<PayloadJobsDocAccessFields_Input_Read>
+  update?: Maybe<PayloadJobsDocAccessFields_Input_Update>
+}
+
+export type PayloadJobsDocAccessFields_Input_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_input_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Input_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_input_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Input_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_input_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Input_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_input_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log = {
+  __typename?: 'PayloadJobsDocAccessFields_log'
+  create?: Maybe<PayloadJobsDocAccessFields_Log_Create>
+  delete?: Maybe<PayloadJobsDocAccessFields_Log_Delete>
+  fields?: Maybe<PayloadJobsDocAccessFields_Log_Fields>
+  read?: Maybe<PayloadJobsDocAccessFields_Log_Read>
+  update?: Maybe<PayloadJobsDocAccessFields_Log_Update>
+}
+
+export type PayloadJobsDocAccessFields_Log_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_log_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_log_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_Fields = {
+  __typename?: 'PayloadJobsDocAccessFields_log_Fields'
+  completedAt?: Maybe<PayloadJobsDocAccessFields_Log_CompletedAt>
+  error?: Maybe<PayloadJobsDocAccessFields_Log_Error>
+  executedAt?: Maybe<PayloadJobsDocAccessFields_Log_ExecutedAt>
+  id?: Maybe<PayloadJobsDocAccessFields_Log_Id>
+  input?: Maybe<PayloadJobsDocAccessFields_Log_Input>
+  output?: Maybe<PayloadJobsDocAccessFields_Log_Output>
+  state?: Maybe<PayloadJobsDocAccessFields_Log_State>
+  taskID?: Maybe<PayloadJobsDocAccessFields_Log_TaskId>
+  taskSlug?: Maybe<PayloadJobsDocAccessFields_Log_TaskSlug>
+}
+
+export type PayloadJobsDocAccessFields_Log_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_log_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_log_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_CompletedAt = {
+  __typename?: 'PayloadJobsDocAccessFields_log_completedAt'
+  create?: Maybe<PayloadJobsDocAccessFields_Log_CompletedAt_Create>
+  delete?: Maybe<PayloadJobsDocAccessFields_Log_CompletedAt_Delete>
+  read?: Maybe<PayloadJobsDocAccessFields_Log_CompletedAt_Read>
+  update?: Maybe<PayloadJobsDocAccessFields_Log_CompletedAt_Update>
+}
+
+export type PayloadJobsDocAccessFields_Log_CompletedAt_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_log_completedAt_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_CompletedAt_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_log_completedAt_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_CompletedAt_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_log_completedAt_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_CompletedAt_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_log_completedAt_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_Error = {
+  __typename?: 'PayloadJobsDocAccessFields_log_error'
+  create?: Maybe<PayloadJobsDocAccessFields_Log_Error_Create>
+  delete?: Maybe<PayloadJobsDocAccessFields_Log_Error_Delete>
+  read?: Maybe<PayloadJobsDocAccessFields_Log_Error_Read>
+  update?: Maybe<PayloadJobsDocAccessFields_Log_Error_Update>
+}
+
+export type PayloadJobsDocAccessFields_Log_Error_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_log_error_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_Error_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_log_error_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_Error_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_log_error_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_Error_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_log_error_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_ExecutedAt = {
+  __typename?: 'PayloadJobsDocAccessFields_log_executedAt'
+  create?: Maybe<PayloadJobsDocAccessFields_Log_ExecutedAt_Create>
+  delete?: Maybe<PayloadJobsDocAccessFields_Log_ExecutedAt_Delete>
+  read?: Maybe<PayloadJobsDocAccessFields_Log_ExecutedAt_Read>
+  update?: Maybe<PayloadJobsDocAccessFields_Log_ExecutedAt_Update>
+}
+
+export type PayloadJobsDocAccessFields_Log_ExecutedAt_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_log_executedAt_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_ExecutedAt_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_log_executedAt_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_ExecutedAt_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_log_executedAt_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_ExecutedAt_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_log_executedAt_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_Id = {
+  __typename?: 'PayloadJobsDocAccessFields_log_id'
+  create?: Maybe<PayloadJobsDocAccessFields_Log_Id_Create>
+  delete?: Maybe<PayloadJobsDocAccessFields_Log_Id_Delete>
+  read?: Maybe<PayloadJobsDocAccessFields_Log_Id_Read>
+  update?: Maybe<PayloadJobsDocAccessFields_Log_Id_Update>
+}
+
+export type PayloadJobsDocAccessFields_Log_Id_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_log_id_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_Id_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_log_id_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_Id_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_log_id_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_Id_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_log_id_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_Input = {
+  __typename?: 'PayloadJobsDocAccessFields_log_input'
+  create?: Maybe<PayloadJobsDocAccessFields_Log_Input_Create>
+  delete?: Maybe<PayloadJobsDocAccessFields_Log_Input_Delete>
+  read?: Maybe<PayloadJobsDocAccessFields_Log_Input_Read>
+  update?: Maybe<PayloadJobsDocAccessFields_Log_Input_Update>
+}
+
+export type PayloadJobsDocAccessFields_Log_Input_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_log_input_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_Input_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_log_input_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_Input_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_log_input_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_Input_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_log_input_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_Output = {
+  __typename?: 'PayloadJobsDocAccessFields_log_output'
+  create?: Maybe<PayloadJobsDocAccessFields_Log_Output_Create>
+  delete?: Maybe<PayloadJobsDocAccessFields_Log_Output_Delete>
+  read?: Maybe<PayloadJobsDocAccessFields_Log_Output_Read>
+  update?: Maybe<PayloadJobsDocAccessFields_Log_Output_Update>
+}
+
+export type PayloadJobsDocAccessFields_Log_Output_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_log_output_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_Output_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_log_output_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_Output_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_log_output_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_Output_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_log_output_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_State = {
+  __typename?: 'PayloadJobsDocAccessFields_log_state'
+  create?: Maybe<PayloadJobsDocAccessFields_Log_State_Create>
+  delete?: Maybe<PayloadJobsDocAccessFields_Log_State_Delete>
+  read?: Maybe<PayloadJobsDocAccessFields_Log_State_Read>
+  update?: Maybe<PayloadJobsDocAccessFields_Log_State_Update>
+}
+
+export type PayloadJobsDocAccessFields_Log_State_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_log_state_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_State_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_log_state_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_State_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_log_state_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_State_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_log_state_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_TaskId = {
+  __typename?: 'PayloadJobsDocAccessFields_log_taskID'
+  create?: Maybe<PayloadJobsDocAccessFields_Log_TaskId_Create>
+  delete?: Maybe<PayloadJobsDocAccessFields_Log_TaskId_Delete>
+  read?: Maybe<PayloadJobsDocAccessFields_Log_TaskId_Read>
+  update?: Maybe<PayloadJobsDocAccessFields_Log_TaskId_Update>
+}
+
+export type PayloadJobsDocAccessFields_Log_TaskId_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_log_taskID_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_TaskId_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_log_taskID_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_TaskId_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_log_taskID_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_TaskId_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_log_taskID_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_TaskSlug = {
+  __typename?: 'PayloadJobsDocAccessFields_log_taskSlug'
+  create?: Maybe<PayloadJobsDocAccessFields_Log_TaskSlug_Create>
+  delete?: Maybe<PayloadJobsDocAccessFields_Log_TaskSlug_Delete>
+  read?: Maybe<PayloadJobsDocAccessFields_Log_TaskSlug_Read>
+  update?: Maybe<PayloadJobsDocAccessFields_Log_TaskSlug_Update>
+}
+
+export type PayloadJobsDocAccessFields_Log_TaskSlug_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_log_taskSlug_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_TaskSlug_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_log_taskSlug_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_TaskSlug_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_log_taskSlug_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Log_TaskSlug_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_log_taskSlug_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Processing = {
+  __typename?: 'PayloadJobsDocAccessFields_processing'
+  create?: Maybe<PayloadJobsDocAccessFields_Processing_Create>
+  delete?: Maybe<PayloadJobsDocAccessFields_Processing_Delete>
+  read?: Maybe<PayloadJobsDocAccessFields_Processing_Read>
+  update?: Maybe<PayloadJobsDocAccessFields_Processing_Update>
+}
+
+export type PayloadJobsDocAccessFields_Processing_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_processing_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Processing_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_processing_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Processing_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_processing_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Processing_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_processing_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Queue = {
+  __typename?: 'PayloadJobsDocAccessFields_queue'
+  create?: Maybe<PayloadJobsDocAccessFields_Queue_Create>
+  delete?: Maybe<PayloadJobsDocAccessFields_Queue_Delete>
+  read?: Maybe<PayloadJobsDocAccessFields_Queue_Read>
+  update?: Maybe<PayloadJobsDocAccessFields_Queue_Update>
+}
+
+export type PayloadJobsDocAccessFields_Queue_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_queue_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Queue_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_queue_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Queue_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_queue_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_Queue_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_queue_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_TaskSlug = {
+  __typename?: 'PayloadJobsDocAccessFields_taskSlug'
+  create?: Maybe<PayloadJobsDocAccessFields_TaskSlug_Create>
+  delete?: Maybe<PayloadJobsDocAccessFields_TaskSlug_Delete>
+  read?: Maybe<PayloadJobsDocAccessFields_TaskSlug_Read>
+  update?: Maybe<PayloadJobsDocAccessFields_TaskSlug_Update>
+}
+
+export type PayloadJobsDocAccessFields_TaskSlug_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_taskSlug_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_TaskSlug_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_taskSlug_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_TaskSlug_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_taskSlug_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_TaskSlug_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_taskSlug_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_TaskStatus = {
+  __typename?: 'PayloadJobsDocAccessFields_taskStatus'
+  create?: Maybe<PayloadJobsDocAccessFields_TaskStatus_Create>
+  delete?: Maybe<PayloadJobsDocAccessFields_TaskStatus_Delete>
+  read?: Maybe<PayloadJobsDocAccessFields_TaskStatus_Read>
+  update?: Maybe<PayloadJobsDocAccessFields_TaskStatus_Update>
+}
+
+export type PayloadJobsDocAccessFields_TaskStatus_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_taskStatus_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_TaskStatus_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_taskStatus_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_TaskStatus_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_taskStatus_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_TaskStatus_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_taskStatus_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_TotalTried = {
+  __typename?: 'PayloadJobsDocAccessFields_totalTried'
+  create?: Maybe<PayloadJobsDocAccessFields_TotalTried_Create>
+  delete?: Maybe<PayloadJobsDocAccessFields_TotalTried_Delete>
+  read?: Maybe<PayloadJobsDocAccessFields_TotalTried_Read>
+  update?: Maybe<PayloadJobsDocAccessFields_TotalTried_Update>
+}
+
+export type PayloadJobsDocAccessFields_TotalTried_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_totalTried_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_TotalTried_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_totalTried_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_TotalTried_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_totalTried_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_TotalTried_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_totalTried_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_UpdatedAt = {
+  __typename?: 'PayloadJobsDocAccessFields_updatedAt'
+  create?: Maybe<PayloadJobsDocAccessFields_UpdatedAt_Create>
+  delete?: Maybe<PayloadJobsDocAccessFields_UpdatedAt_Delete>
+  read?: Maybe<PayloadJobsDocAccessFields_UpdatedAt_Read>
+  update?: Maybe<PayloadJobsDocAccessFields_UpdatedAt_Update>
+}
+
+export type PayloadJobsDocAccessFields_UpdatedAt_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_updatedAt_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_UpdatedAt_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_updatedAt_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_UpdatedAt_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_updatedAt_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_UpdatedAt_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_updatedAt_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_WaitUntil = {
+  __typename?: 'PayloadJobsDocAccessFields_waitUntil'
+  create?: Maybe<PayloadJobsDocAccessFields_WaitUntil_Create>
+  delete?: Maybe<PayloadJobsDocAccessFields_WaitUntil_Delete>
+  read?: Maybe<PayloadJobsDocAccessFields_WaitUntil_Read>
+  update?: Maybe<PayloadJobsDocAccessFields_WaitUntil_Update>
+}
+
+export type PayloadJobsDocAccessFields_WaitUntil_Create = {
+  __typename?: 'PayloadJobsDocAccessFields_waitUntil_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_WaitUntil_Delete = {
+  __typename?: 'PayloadJobsDocAccessFields_waitUntil_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_WaitUntil_Read = {
+  __typename?: 'PayloadJobsDocAccessFields_waitUntil_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsDocAccessFields_WaitUntil_Update = {
+  __typename?: 'PayloadJobsDocAccessFields_waitUntil_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields = {
+  __typename?: 'PayloadJobsFields'
+  completedAt?: Maybe<PayloadJobsFields_CompletedAt>
+  createdAt?: Maybe<PayloadJobsFields_CreatedAt>
+  error?: Maybe<PayloadJobsFields_Error>
+  hasError?: Maybe<PayloadJobsFields_HasError>
+  input?: Maybe<PayloadJobsFields_Input>
+  log?: Maybe<PayloadJobsFields_Log>
+  processing?: Maybe<PayloadJobsFields_Processing>
+  queue?: Maybe<PayloadJobsFields_Queue>
+  taskSlug?: Maybe<PayloadJobsFields_TaskSlug>
+  taskStatus?: Maybe<PayloadJobsFields_TaskStatus>
+  totalTried?: Maybe<PayloadJobsFields_TotalTried>
+  updatedAt?: Maybe<PayloadJobsFields_UpdatedAt>
+  waitUntil?: Maybe<PayloadJobsFields_WaitUntil>
+}
+
+export type PayloadJobsFields_CompletedAt = {
+  __typename?: 'PayloadJobsFields_completedAt'
+  create?: Maybe<PayloadJobsFields_CompletedAt_Create>
+  delete?: Maybe<PayloadJobsFields_CompletedAt_Delete>
+  read?: Maybe<PayloadJobsFields_CompletedAt_Read>
+  update?: Maybe<PayloadJobsFields_CompletedAt_Update>
+}
+
+export type PayloadJobsFields_CompletedAt_Create = {
+  __typename?: 'PayloadJobsFields_completedAt_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_CompletedAt_Delete = {
+  __typename?: 'PayloadJobsFields_completedAt_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_CompletedAt_Read = {
+  __typename?: 'PayloadJobsFields_completedAt_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_CompletedAt_Update = {
+  __typename?: 'PayloadJobsFields_completedAt_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_CreatedAt = {
+  __typename?: 'PayloadJobsFields_createdAt'
+  create?: Maybe<PayloadJobsFields_CreatedAt_Create>
+  delete?: Maybe<PayloadJobsFields_CreatedAt_Delete>
+  read?: Maybe<PayloadJobsFields_CreatedAt_Read>
+  update?: Maybe<PayloadJobsFields_CreatedAt_Update>
+}
+
+export type PayloadJobsFields_CreatedAt_Create = {
+  __typename?: 'PayloadJobsFields_createdAt_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_CreatedAt_Delete = {
+  __typename?: 'PayloadJobsFields_createdAt_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_CreatedAt_Read = {
+  __typename?: 'PayloadJobsFields_createdAt_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_CreatedAt_Update = {
+  __typename?: 'PayloadJobsFields_createdAt_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Error = {
+  __typename?: 'PayloadJobsFields_error'
+  create?: Maybe<PayloadJobsFields_Error_Create>
+  delete?: Maybe<PayloadJobsFields_Error_Delete>
+  read?: Maybe<PayloadJobsFields_Error_Read>
+  update?: Maybe<PayloadJobsFields_Error_Update>
+}
+
+export type PayloadJobsFields_Error_Create = {
+  __typename?: 'PayloadJobsFields_error_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Error_Delete = {
+  __typename?: 'PayloadJobsFields_error_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Error_Read = {
+  __typename?: 'PayloadJobsFields_error_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Error_Update = {
+  __typename?: 'PayloadJobsFields_error_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_HasError = {
+  __typename?: 'PayloadJobsFields_hasError'
+  create?: Maybe<PayloadJobsFields_HasError_Create>
+  delete?: Maybe<PayloadJobsFields_HasError_Delete>
+  read?: Maybe<PayloadJobsFields_HasError_Read>
+  update?: Maybe<PayloadJobsFields_HasError_Update>
+}
+
+export type PayloadJobsFields_HasError_Create = {
+  __typename?: 'PayloadJobsFields_hasError_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_HasError_Delete = {
+  __typename?: 'PayloadJobsFields_hasError_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_HasError_Read = {
+  __typename?: 'PayloadJobsFields_hasError_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_HasError_Update = {
+  __typename?: 'PayloadJobsFields_hasError_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Input = {
+  __typename?: 'PayloadJobsFields_input'
+  create?: Maybe<PayloadJobsFields_Input_Create>
+  delete?: Maybe<PayloadJobsFields_Input_Delete>
+  read?: Maybe<PayloadJobsFields_Input_Read>
+  update?: Maybe<PayloadJobsFields_Input_Update>
+}
+
+export type PayloadJobsFields_Input_Create = {
+  __typename?: 'PayloadJobsFields_input_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Input_Delete = {
+  __typename?: 'PayloadJobsFields_input_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Input_Read = {
+  __typename?: 'PayloadJobsFields_input_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Input_Update = {
+  __typename?: 'PayloadJobsFields_input_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log = {
+  __typename?: 'PayloadJobsFields_log'
+  create?: Maybe<PayloadJobsFields_Log_Create>
+  delete?: Maybe<PayloadJobsFields_Log_Delete>
+  fields?: Maybe<PayloadJobsFields_Log_Fields>
+  read?: Maybe<PayloadJobsFields_Log_Read>
+  update?: Maybe<PayloadJobsFields_Log_Update>
+}
+
+export type PayloadJobsFields_Log_Create = {
+  __typename?: 'PayloadJobsFields_log_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_Delete = {
+  __typename?: 'PayloadJobsFields_log_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_Fields = {
+  __typename?: 'PayloadJobsFields_log_Fields'
+  completedAt?: Maybe<PayloadJobsFields_Log_CompletedAt>
+  error?: Maybe<PayloadJobsFields_Log_Error>
+  executedAt?: Maybe<PayloadJobsFields_Log_ExecutedAt>
+  id?: Maybe<PayloadJobsFields_Log_Id>
+  input?: Maybe<PayloadJobsFields_Log_Input>
+  output?: Maybe<PayloadJobsFields_Log_Output>
+  state?: Maybe<PayloadJobsFields_Log_State>
+  taskID?: Maybe<PayloadJobsFields_Log_TaskId>
+  taskSlug?: Maybe<PayloadJobsFields_Log_TaskSlug>
+}
+
+export type PayloadJobsFields_Log_Read = {
+  __typename?: 'PayloadJobsFields_log_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_Update = {
+  __typename?: 'PayloadJobsFields_log_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_CompletedAt = {
+  __typename?: 'PayloadJobsFields_log_completedAt'
+  create?: Maybe<PayloadJobsFields_Log_CompletedAt_Create>
+  delete?: Maybe<PayloadJobsFields_Log_CompletedAt_Delete>
+  read?: Maybe<PayloadJobsFields_Log_CompletedAt_Read>
+  update?: Maybe<PayloadJobsFields_Log_CompletedAt_Update>
+}
+
+export type PayloadJobsFields_Log_CompletedAt_Create = {
+  __typename?: 'PayloadJobsFields_log_completedAt_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_CompletedAt_Delete = {
+  __typename?: 'PayloadJobsFields_log_completedAt_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_CompletedAt_Read = {
+  __typename?: 'PayloadJobsFields_log_completedAt_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_CompletedAt_Update = {
+  __typename?: 'PayloadJobsFields_log_completedAt_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_Error = {
+  __typename?: 'PayloadJobsFields_log_error'
+  create?: Maybe<PayloadJobsFields_Log_Error_Create>
+  delete?: Maybe<PayloadJobsFields_Log_Error_Delete>
+  read?: Maybe<PayloadJobsFields_Log_Error_Read>
+  update?: Maybe<PayloadJobsFields_Log_Error_Update>
+}
+
+export type PayloadJobsFields_Log_Error_Create = {
+  __typename?: 'PayloadJobsFields_log_error_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_Error_Delete = {
+  __typename?: 'PayloadJobsFields_log_error_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_Error_Read = {
+  __typename?: 'PayloadJobsFields_log_error_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_Error_Update = {
+  __typename?: 'PayloadJobsFields_log_error_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_ExecutedAt = {
+  __typename?: 'PayloadJobsFields_log_executedAt'
+  create?: Maybe<PayloadJobsFields_Log_ExecutedAt_Create>
+  delete?: Maybe<PayloadJobsFields_Log_ExecutedAt_Delete>
+  read?: Maybe<PayloadJobsFields_Log_ExecutedAt_Read>
+  update?: Maybe<PayloadJobsFields_Log_ExecutedAt_Update>
+}
+
+export type PayloadJobsFields_Log_ExecutedAt_Create = {
+  __typename?: 'PayloadJobsFields_log_executedAt_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_ExecutedAt_Delete = {
+  __typename?: 'PayloadJobsFields_log_executedAt_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_ExecutedAt_Read = {
+  __typename?: 'PayloadJobsFields_log_executedAt_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_ExecutedAt_Update = {
+  __typename?: 'PayloadJobsFields_log_executedAt_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_Id = {
+  __typename?: 'PayloadJobsFields_log_id'
+  create?: Maybe<PayloadJobsFields_Log_Id_Create>
+  delete?: Maybe<PayloadJobsFields_Log_Id_Delete>
+  read?: Maybe<PayloadJobsFields_Log_Id_Read>
+  update?: Maybe<PayloadJobsFields_Log_Id_Update>
+}
+
+export type PayloadJobsFields_Log_Id_Create = {
+  __typename?: 'PayloadJobsFields_log_id_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_Id_Delete = {
+  __typename?: 'PayloadJobsFields_log_id_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_Id_Read = {
+  __typename?: 'PayloadJobsFields_log_id_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_Id_Update = {
+  __typename?: 'PayloadJobsFields_log_id_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_Input = {
+  __typename?: 'PayloadJobsFields_log_input'
+  create?: Maybe<PayloadJobsFields_Log_Input_Create>
+  delete?: Maybe<PayloadJobsFields_Log_Input_Delete>
+  read?: Maybe<PayloadJobsFields_Log_Input_Read>
+  update?: Maybe<PayloadJobsFields_Log_Input_Update>
+}
+
+export type PayloadJobsFields_Log_Input_Create = {
+  __typename?: 'PayloadJobsFields_log_input_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_Input_Delete = {
+  __typename?: 'PayloadJobsFields_log_input_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_Input_Read = {
+  __typename?: 'PayloadJobsFields_log_input_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_Input_Update = {
+  __typename?: 'PayloadJobsFields_log_input_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_Output = {
+  __typename?: 'PayloadJobsFields_log_output'
+  create?: Maybe<PayloadJobsFields_Log_Output_Create>
+  delete?: Maybe<PayloadJobsFields_Log_Output_Delete>
+  read?: Maybe<PayloadJobsFields_Log_Output_Read>
+  update?: Maybe<PayloadJobsFields_Log_Output_Update>
+}
+
+export type PayloadJobsFields_Log_Output_Create = {
+  __typename?: 'PayloadJobsFields_log_output_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_Output_Delete = {
+  __typename?: 'PayloadJobsFields_log_output_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_Output_Read = {
+  __typename?: 'PayloadJobsFields_log_output_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_Output_Update = {
+  __typename?: 'PayloadJobsFields_log_output_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_State = {
+  __typename?: 'PayloadJobsFields_log_state'
+  create?: Maybe<PayloadJobsFields_Log_State_Create>
+  delete?: Maybe<PayloadJobsFields_Log_State_Delete>
+  read?: Maybe<PayloadJobsFields_Log_State_Read>
+  update?: Maybe<PayloadJobsFields_Log_State_Update>
+}
+
+export type PayloadJobsFields_Log_State_Create = {
+  __typename?: 'PayloadJobsFields_log_state_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_State_Delete = {
+  __typename?: 'PayloadJobsFields_log_state_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_State_Read = {
+  __typename?: 'PayloadJobsFields_log_state_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_State_Update = {
+  __typename?: 'PayloadJobsFields_log_state_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_TaskId = {
+  __typename?: 'PayloadJobsFields_log_taskID'
+  create?: Maybe<PayloadJobsFields_Log_TaskId_Create>
+  delete?: Maybe<PayloadJobsFields_Log_TaskId_Delete>
+  read?: Maybe<PayloadJobsFields_Log_TaskId_Read>
+  update?: Maybe<PayloadJobsFields_Log_TaskId_Update>
+}
+
+export type PayloadJobsFields_Log_TaskId_Create = {
+  __typename?: 'PayloadJobsFields_log_taskID_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_TaskId_Delete = {
+  __typename?: 'PayloadJobsFields_log_taskID_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_TaskId_Read = {
+  __typename?: 'PayloadJobsFields_log_taskID_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_TaskId_Update = {
+  __typename?: 'PayloadJobsFields_log_taskID_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_TaskSlug = {
+  __typename?: 'PayloadJobsFields_log_taskSlug'
+  create?: Maybe<PayloadJobsFields_Log_TaskSlug_Create>
+  delete?: Maybe<PayloadJobsFields_Log_TaskSlug_Delete>
+  read?: Maybe<PayloadJobsFields_Log_TaskSlug_Read>
+  update?: Maybe<PayloadJobsFields_Log_TaskSlug_Update>
+}
+
+export type PayloadJobsFields_Log_TaskSlug_Create = {
+  __typename?: 'PayloadJobsFields_log_taskSlug_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_TaskSlug_Delete = {
+  __typename?: 'PayloadJobsFields_log_taskSlug_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_TaskSlug_Read = {
+  __typename?: 'PayloadJobsFields_log_taskSlug_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Log_TaskSlug_Update = {
+  __typename?: 'PayloadJobsFields_log_taskSlug_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Processing = {
+  __typename?: 'PayloadJobsFields_processing'
+  create?: Maybe<PayloadJobsFields_Processing_Create>
+  delete?: Maybe<PayloadJobsFields_Processing_Delete>
+  read?: Maybe<PayloadJobsFields_Processing_Read>
+  update?: Maybe<PayloadJobsFields_Processing_Update>
+}
+
+export type PayloadJobsFields_Processing_Create = {
+  __typename?: 'PayloadJobsFields_processing_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Processing_Delete = {
+  __typename?: 'PayloadJobsFields_processing_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Processing_Read = {
+  __typename?: 'PayloadJobsFields_processing_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Processing_Update = {
+  __typename?: 'PayloadJobsFields_processing_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Queue = {
+  __typename?: 'PayloadJobsFields_queue'
+  create?: Maybe<PayloadJobsFields_Queue_Create>
+  delete?: Maybe<PayloadJobsFields_Queue_Delete>
+  read?: Maybe<PayloadJobsFields_Queue_Read>
+  update?: Maybe<PayloadJobsFields_Queue_Update>
+}
+
+export type PayloadJobsFields_Queue_Create = {
+  __typename?: 'PayloadJobsFields_queue_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Queue_Delete = {
+  __typename?: 'PayloadJobsFields_queue_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Queue_Read = {
+  __typename?: 'PayloadJobsFields_queue_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_Queue_Update = {
+  __typename?: 'PayloadJobsFields_queue_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_TaskSlug = {
+  __typename?: 'PayloadJobsFields_taskSlug'
+  create?: Maybe<PayloadJobsFields_TaskSlug_Create>
+  delete?: Maybe<PayloadJobsFields_TaskSlug_Delete>
+  read?: Maybe<PayloadJobsFields_TaskSlug_Read>
+  update?: Maybe<PayloadJobsFields_TaskSlug_Update>
+}
+
+export type PayloadJobsFields_TaskSlug_Create = {
+  __typename?: 'PayloadJobsFields_taskSlug_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_TaskSlug_Delete = {
+  __typename?: 'PayloadJobsFields_taskSlug_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_TaskSlug_Read = {
+  __typename?: 'PayloadJobsFields_taskSlug_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_TaskSlug_Update = {
+  __typename?: 'PayloadJobsFields_taskSlug_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_TaskStatus = {
+  __typename?: 'PayloadJobsFields_taskStatus'
+  create?: Maybe<PayloadJobsFields_TaskStatus_Create>
+  delete?: Maybe<PayloadJobsFields_TaskStatus_Delete>
+  read?: Maybe<PayloadJobsFields_TaskStatus_Read>
+  update?: Maybe<PayloadJobsFields_TaskStatus_Update>
+}
+
+export type PayloadJobsFields_TaskStatus_Create = {
+  __typename?: 'PayloadJobsFields_taskStatus_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_TaskStatus_Delete = {
+  __typename?: 'PayloadJobsFields_taskStatus_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_TaskStatus_Read = {
+  __typename?: 'PayloadJobsFields_taskStatus_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_TaskStatus_Update = {
+  __typename?: 'PayloadJobsFields_taskStatus_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_TotalTried = {
+  __typename?: 'PayloadJobsFields_totalTried'
+  create?: Maybe<PayloadJobsFields_TotalTried_Create>
+  delete?: Maybe<PayloadJobsFields_TotalTried_Delete>
+  read?: Maybe<PayloadJobsFields_TotalTried_Read>
+  update?: Maybe<PayloadJobsFields_TotalTried_Update>
+}
+
+export type PayloadJobsFields_TotalTried_Create = {
+  __typename?: 'PayloadJobsFields_totalTried_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_TotalTried_Delete = {
+  __typename?: 'PayloadJobsFields_totalTried_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_TotalTried_Read = {
+  __typename?: 'PayloadJobsFields_totalTried_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_TotalTried_Update = {
+  __typename?: 'PayloadJobsFields_totalTried_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_UpdatedAt = {
+  __typename?: 'PayloadJobsFields_updatedAt'
+  create?: Maybe<PayloadJobsFields_UpdatedAt_Create>
+  delete?: Maybe<PayloadJobsFields_UpdatedAt_Delete>
+  read?: Maybe<PayloadJobsFields_UpdatedAt_Read>
+  update?: Maybe<PayloadJobsFields_UpdatedAt_Update>
+}
+
+export type PayloadJobsFields_UpdatedAt_Create = {
+  __typename?: 'PayloadJobsFields_updatedAt_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_UpdatedAt_Delete = {
+  __typename?: 'PayloadJobsFields_updatedAt_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_UpdatedAt_Read = {
+  __typename?: 'PayloadJobsFields_updatedAt_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_UpdatedAt_Update = {
+  __typename?: 'PayloadJobsFields_updatedAt_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_WaitUntil = {
+  __typename?: 'PayloadJobsFields_waitUntil'
+  create?: Maybe<PayloadJobsFields_WaitUntil_Create>
+  delete?: Maybe<PayloadJobsFields_WaitUntil_Delete>
+  read?: Maybe<PayloadJobsFields_WaitUntil_Read>
+  update?: Maybe<PayloadJobsFields_WaitUntil_Update>
+}
+
+export type PayloadJobsFields_WaitUntil_Create = {
+  __typename?: 'PayloadJobsFields_waitUntil_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_WaitUntil_Delete = {
+  __typename?: 'PayloadJobsFields_waitUntil_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_WaitUntil_Read = {
+  __typename?: 'PayloadJobsFields_waitUntil_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsFields_WaitUntil_Update = {
+  __typename?: 'PayloadJobsFields_waitUntil_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type PayloadJobsReadAccess = {
+  __typename?: 'PayloadJobsReadAccess'
+  permission: Scalars['Boolean']['output']
+  where?: Maybe<Scalars['JSONObject']['output']>
+}
+
+export type PayloadJobsReadDocAccess = {
+  __typename?: 'PayloadJobsReadDocAccess'
+  permission: Scalars['Boolean']['output']
+  where?: Maybe<Scalars['JSONObject']['output']>
+}
+
+export type PayloadJobsUpdateAccess = {
+  __typename?: 'PayloadJobsUpdateAccess'
+  permission: Scalars['Boolean']['output']
+  where?: Maybe<Scalars['JSONObject']['output']>
+}
+
+export type PayloadJobsUpdateDocAccess = {
+  __typename?: 'PayloadJobsUpdateDocAccess'
+  permission: Scalars['Boolean']['output']
+  where?: Maybe<Scalars['JSONObject']['output']>
+}
+
 export type PayloadLockedDocument = {
   __typename?: 'PayloadLockedDocument'
   createdAt?: Maybe<Scalars['DateTime']['output']>
@@ -4438,11 +9122,13 @@ export type PayloadLockedDocumentUpdate_DocumentRelationshipInput = {
 }
 
 export enum PayloadLockedDocumentUpdate_DocumentRelationshipInputRelationTo {
-  Blogs = 'blogs',
+  Announcements = 'announcements',
+  Donations = 'donations',
   FormSubmissions = 'form_submissions',
   Forms = 'forms',
   Media = 'media',
   Pages = 'pages',
+  PayloadJobs = 'payload_jobs',
   Users = 'users',
 }
 
@@ -4455,7 +9141,15 @@ export enum PayloadLockedDocumentUpdate_UserRelationshipInputRelationTo {
   Users = 'users',
 }
 
-export type PayloadLockedDocument_Document = Blog | Form | FormSubmission | Media | Page | User
+export type PayloadLockedDocument_Document =
+  | Announcement
+  | Donation
+  | Form
+  | FormSubmission
+  | Media
+  | Page
+  | PayloadJob
+  | User
 
 export type PayloadLockedDocument_DocumentRelationshipInput = {
   relationTo?: InputMaybe<PayloadLockedDocument_DocumentRelationshipInputRelationTo>
@@ -4463,20 +9157,24 @@ export type PayloadLockedDocument_DocumentRelationshipInput = {
 }
 
 export enum PayloadLockedDocument_DocumentRelationshipInputRelationTo {
-  Blogs = 'blogs',
+  Announcements = 'announcements',
+  Donations = 'donations',
   FormSubmissions = 'form_submissions',
   Forms = 'forms',
   Media = 'media',
   Pages = 'pages',
+  PayloadJobs = 'payload_jobs',
   Users = 'users',
 }
 
 export enum PayloadLockedDocument_Document_RelationTo {
-  Blogs = 'blogs',
+  Announcements = 'announcements',
+  Donations = 'donations',
   FormSubmissions = 'form_submissions',
   Forms = 'forms',
   Media = 'media',
   Pages = 'pages',
+  PayloadJobs = 'payload_jobs',
   Users = 'users',
 }
 
@@ -4524,11 +9222,13 @@ export type PayloadLockedDocument_Document_Relation = {
 }
 
 export enum PayloadLockedDocument_Document_Relation_RelationTo {
-  Blogs = 'blogs',
+  Announcements = 'announcements',
+  Donations = 'donations',
   FormSubmissions = 'form_submissions',
   Forms = 'forms',
   Media = 'media',
   Pages = 'pages',
+  PayloadJobs = 'payload_jobs',
   Users = 'users',
 }
 
@@ -4613,11 +9313,11 @@ export type PayloadLockedDocuments = {
   hasNextPage: Scalars['Boolean']['output']
   hasPrevPage: Scalars['Boolean']['output']
   limit: Scalars['Int']['output']
-  nextPage: Scalars['Int']['output']
+  nextPage?: Maybe<Scalars['Int']['output']>
   offset?: Maybe<Scalars['Int']['output']>
   page: Scalars['Int']['output']
   pagingCounter: Scalars['Int']['output']
-  prevPage: Scalars['Int']['output']
+  prevPage?: Maybe<Scalars['Int']['output']>
   totalDocs: Scalars['Int']['output']
   totalPages: Scalars['Int']['output']
 }
@@ -5115,11 +9815,11 @@ export type PayloadPreferences = {
   hasNextPage: Scalars['Boolean']['output']
   hasPrevPage: Scalars['Boolean']['output']
   limit: Scalars['Int']['output']
-  nextPage: Scalars['Int']['output']
+  nextPage?: Maybe<Scalars['Int']['output']>
   offset?: Maybe<Scalars['Int']['output']>
   page: Scalars['Int']['output']
   pagingCounter: Scalars['Int']['output']
-  prevPage: Scalars['Int']['output']
+  prevPage?: Maybe<Scalars['Int']['output']>
   totalDocs: Scalars['Int']['output']
   totalPages: Scalars['Int']['output']
 }
@@ -5473,8 +10173,10 @@ export type PayloadPreferencesUpdateDocAccess = {
 export type Query = {
   __typename?: 'Query'
   Access?: Maybe<Access>
-  Blog?: Maybe<Blog>
-  Blogs?: Maybe<Blogs>
+  Announcement?: Maybe<Announcement>
+  Announcements?: Maybe<Announcements>
+  Donation?: Maybe<Donation>
+  Donations?: Maybe<Donations>
   Form?: Maybe<Form>
   FormSubmission?: Maybe<FormSubmission>
   FormSubmissions?: Maybe<FormSubmissions>
@@ -5482,6 +10184,8 @@ export type Query = {
   Media?: Maybe<Media>
   Page?: Maybe<Page>
   Pages?: Maybe<Pages>
+  PayloadJob?: Maybe<PayloadJob>
+  PayloadJobs?: Maybe<PayloadJobs>
   PayloadLockedDocument?: Maybe<PayloadLockedDocument>
   PayloadLockedDocuments?: Maybe<PayloadLockedDocuments>
   PayloadPreference?: Maybe<PayloadPreference>
@@ -5489,36 +10193,43 @@ export type Query = {
   User?: Maybe<User>
   Users?: Maybe<Users>
   allMedia?: Maybe<AllMedia>
-  countBlogs?: Maybe<CountBlogs>
+  countAnnouncements?: Maybe<CountAnnouncements>
+  countDonations?: Maybe<CountDonations>
   countFormSubmissions?: Maybe<CountFormSubmissions>
   countForms?: Maybe<CountForms>
   countPages?: Maybe<CountPages>
+  countPayloadJobs?: Maybe<CountPayloadJobs>
   countPayloadLockedDocuments?: Maybe<CountPayloadLockedDocuments>
   countPayloadPreferences?: Maybe<CountPayloadPreferences>
   countUsers?: Maybe<CountUsers>
   countallMedia?: Maybe<CountallMedia>
-  docAccessBlog?: Maybe<BlogsDocAccess>
+  docAccessAnnouncement?: Maybe<AnnouncementsDocAccess>
+  docAccessDonation?: Maybe<DonationsDocAccess>
   docAccessForm?: Maybe<FormsDocAccess>
   docAccessFormSubmission?: Maybe<Form_SubmissionsDocAccess>
   docAccessMedia?: Maybe<MediaDocAccess>
   docAccessPage?: Maybe<PagesDocAccess>
+  docAccessPayloadJob?: Maybe<Payload_JobsDocAccess>
   docAccessPayloadLockedDocument?: Maybe<Payload_Locked_DocumentsDocAccess>
   docAccessPayloadPreference?: Maybe<Payload_PreferencesDocAccess>
   docAccessUser?: Maybe<UsersDocAccess>
   initializedUser?: Maybe<Scalars['Boolean']['output']>
   meUser?: Maybe<UsersMe>
+  versionAnnouncement?: Maybe<AnnouncementVersion>
   versionPage?: Maybe<PageVersion>
+  versionsAnnouncements?: Maybe<VersionsAnnouncements>
   versionsPages?: Maybe<VersionsPages>
 }
 
-export type QueryBlogArgs = {
+export type QueryAnnouncementArgs = {
   draft?: InputMaybe<Scalars['Boolean']['input']>
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>
   id: Scalars['String']['input']
   locale?: InputMaybe<LocaleInputType>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
 }
 
-export type QueryBlogsArgs = {
+export type QueryAnnouncementsArgs = {
   draft?: InputMaybe<Scalars['Boolean']['input']>
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>
   limit?: InputMaybe<Scalars['Int']['input']>
@@ -5526,7 +10237,28 @@ export type QueryBlogsArgs = {
   page?: InputMaybe<Scalars['Int']['input']>
   pagination?: InputMaybe<Scalars['Boolean']['input']>
   sort?: InputMaybe<Scalars['String']['input']>
-  where?: InputMaybe<Blog_Where>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
+  where?: InputMaybe<Announcement_Where>
+}
+
+export type QueryDonationArgs = {
+  draft?: InputMaybe<Scalars['Boolean']['input']>
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>
+  id: Scalars['String']['input']
+  locale?: InputMaybe<LocaleInputType>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
+}
+
+export type QueryDonationsArgs = {
+  draft?: InputMaybe<Scalars['Boolean']['input']>
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>
+  limit?: InputMaybe<Scalars['Int']['input']>
+  locale?: InputMaybe<LocaleInputType>
+  page?: InputMaybe<Scalars['Int']['input']>
+  pagination?: InputMaybe<Scalars['Boolean']['input']>
+  sort?: InputMaybe<Scalars['String']['input']>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
+  where?: InputMaybe<Donation_Where>
 }
 
 export type QueryFormArgs = {
@@ -5534,6 +10266,7 @@ export type QueryFormArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>
   id: Scalars['String']['input']
   locale?: InputMaybe<LocaleInputType>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
 }
 
 export type QueryFormSubmissionArgs = {
@@ -5541,6 +10274,7 @@ export type QueryFormSubmissionArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>
   id: Scalars['String']['input']
   locale?: InputMaybe<LocaleInputType>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
 }
 
 export type QueryFormSubmissionsArgs = {
@@ -5551,6 +10285,7 @@ export type QueryFormSubmissionsArgs = {
   page?: InputMaybe<Scalars['Int']['input']>
   pagination?: InputMaybe<Scalars['Boolean']['input']>
   sort?: InputMaybe<Scalars['String']['input']>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
   where?: InputMaybe<FormSubmission_Where>
 }
 
@@ -5562,6 +10297,7 @@ export type QueryFormsArgs = {
   page?: InputMaybe<Scalars['Int']['input']>
   pagination?: InputMaybe<Scalars['Boolean']['input']>
   sort?: InputMaybe<Scalars['String']['input']>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
   where?: InputMaybe<Form_Where>
 }
 
@@ -5570,6 +10306,7 @@ export type QueryMediaArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>
   id: Scalars['String']['input']
   locale?: InputMaybe<LocaleInputType>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
 }
 
 export type QueryPageArgs = {
@@ -5577,6 +10314,7 @@ export type QueryPageArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>
   id: Scalars['String']['input']
   locale?: InputMaybe<LocaleInputType>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
 }
 
 export type QueryPagesArgs = {
@@ -5587,7 +10325,28 @@ export type QueryPagesArgs = {
   page?: InputMaybe<Scalars['Int']['input']>
   pagination?: InputMaybe<Scalars['Boolean']['input']>
   sort?: InputMaybe<Scalars['String']['input']>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
   where?: InputMaybe<Page_Where>
+}
+
+export type QueryPayloadJobArgs = {
+  draft?: InputMaybe<Scalars['Boolean']['input']>
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>
+  id: Scalars['String']['input']
+  locale?: InputMaybe<LocaleInputType>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
+}
+
+export type QueryPayloadJobsArgs = {
+  draft?: InputMaybe<Scalars['Boolean']['input']>
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>
+  limit?: InputMaybe<Scalars['Int']['input']>
+  locale?: InputMaybe<LocaleInputType>
+  page?: InputMaybe<Scalars['Int']['input']>
+  pagination?: InputMaybe<Scalars['Boolean']['input']>
+  sort?: InputMaybe<Scalars['String']['input']>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
+  where?: InputMaybe<PayloadJob_Where>
 }
 
 export type QueryPayloadLockedDocumentArgs = {
@@ -5595,6 +10354,7 @@ export type QueryPayloadLockedDocumentArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>
   id: Scalars['String']['input']
   locale?: InputMaybe<LocaleInputType>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
 }
 
 export type QueryPayloadLockedDocumentsArgs = {
@@ -5605,6 +10365,7 @@ export type QueryPayloadLockedDocumentsArgs = {
   page?: InputMaybe<Scalars['Int']['input']>
   pagination?: InputMaybe<Scalars['Boolean']['input']>
   sort?: InputMaybe<Scalars['String']['input']>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
   where?: InputMaybe<PayloadLockedDocument_Where>
 }
 
@@ -5613,6 +10374,7 @@ export type QueryPayloadPreferenceArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>
   id: Scalars['String']['input']
   locale?: InputMaybe<LocaleInputType>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
 }
 
 export type QueryPayloadPreferencesArgs = {
@@ -5623,6 +10385,7 @@ export type QueryPayloadPreferencesArgs = {
   page?: InputMaybe<Scalars['Int']['input']>
   pagination?: InputMaybe<Scalars['Boolean']['input']>
   sort?: InputMaybe<Scalars['String']['input']>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
   where?: InputMaybe<PayloadPreference_Where>
 }
 
@@ -5631,6 +10394,7 @@ export type QueryUserArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>
   id: Scalars['String']['input']
   locale?: InputMaybe<LocaleInputType>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
 }
 
 export type QueryUsersArgs = {
@@ -5641,6 +10405,7 @@ export type QueryUsersArgs = {
   page?: InputMaybe<Scalars['Int']['input']>
   pagination?: InputMaybe<Scalars['Boolean']['input']>
   sort?: InputMaybe<Scalars['String']['input']>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
   where?: InputMaybe<User_Where>
 }
 
@@ -5652,58 +10417,85 @@ export type QueryAllMediaArgs = {
   page?: InputMaybe<Scalars['Int']['input']>
   pagination?: InputMaybe<Scalars['Boolean']['input']>
   sort?: InputMaybe<Scalars['String']['input']>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
   where?: InputMaybe<Media_Where>
 }
 
-export type QueryCountBlogsArgs = {
+export type QueryCountAnnouncementsArgs = {
   draft?: InputMaybe<Scalars['Boolean']['input']>
   locale?: InputMaybe<LocaleInputType>
-  where?: InputMaybe<Blog_Where>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
+  where?: InputMaybe<Announcement_Where>
+}
+
+export type QueryCountDonationsArgs = {
+  draft?: InputMaybe<Scalars['Boolean']['input']>
+  locale?: InputMaybe<LocaleInputType>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
+  where?: InputMaybe<Donation_Where>
 }
 
 export type QueryCountFormSubmissionsArgs = {
   draft?: InputMaybe<Scalars['Boolean']['input']>
   locale?: InputMaybe<LocaleInputType>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
   where?: InputMaybe<FormSubmission_Where>
 }
 
 export type QueryCountFormsArgs = {
   draft?: InputMaybe<Scalars['Boolean']['input']>
   locale?: InputMaybe<LocaleInputType>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
   where?: InputMaybe<Form_Where>
 }
 
 export type QueryCountPagesArgs = {
   draft?: InputMaybe<Scalars['Boolean']['input']>
   locale?: InputMaybe<LocaleInputType>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
   where?: InputMaybe<Page_Where>
+}
+
+export type QueryCountPayloadJobsArgs = {
+  draft?: InputMaybe<Scalars['Boolean']['input']>
+  locale?: InputMaybe<LocaleInputType>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
+  where?: InputMaybe<PayloadJob_Where>
 }
 
 export type QueryCountPayloadLockedDocumentsArgs = {
   draft?: InputMaybe<Scalars['Boolean']['input']>
   locale?: InputMaybe<LocaleInputType>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
   where?: InputMaybe<PayloadLockedDocument_Where>
 }
 
 export type QueryCountPayloadPreferencesArgs = {
   draft?: InputMaybe<Scalars['Boolean']['input']>
   locale?: InputMaybe<LocaleInputType>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
   where?: InputMaybe<PayloadPreference_Where>
 }
 
 export type QueryCountUsersArgs = {
   draft?: InputMaybe<Scalars['Boolean']['input']>
   locale?: InputMaybe<LocaleInputType>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
   where?: InputMaybe<User_Where>
 }
 
 export type QueryCountallMediaArgs = {
   draft?: InputMaybe<Scalars['Boolean']['input']>
   locale?: InputMaybe<LocaleInputType>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
   where?: InputMaybe<Media_Where>
 }
 
-export type QueryDocAccessBlogArgs = {
+export type QueryDocAccessAnnouncementArgs = {
+  id: Scalars['String']['input']
+}
+
+export type QueryDocAccessDonationArgs = {
   id: Scalars['String']['input']
 }
 
@@ -5723,6 +10515,10 @@ export type QueryDocAccessPageArgs = {
   id: Scalars['String']['input']
 }
 
+export type QueryDocAccessPayloadJobArgs = {
+  id: Scalars['String']['input']
+}
+
 export type QueryDocAccessPayloadLockedDocumentArgs = {
   id: Scalars['String']['input']
 }
@@ -5735,10 +10531,29 @@ export type QueryDocAccessUserArgs = {
   id: Scalars['String']['input']
 }
 
+export type QueryVersionAnnouncementArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>
+  id?: InputMaybe<Scalars['String']['input']>
+  locale?: InputMaybe<LocaleInputType>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
+}
+
 export type QueryVersionPageArgs = {
   fallbackLocale?: InputMaybe<FallbackLocaleInputType>
   id?: InputMaybe<Scalars['String']['input']>
   locale?: InputMaybe<LocaleInputType>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
+}
+
+export type QueryVersionsAnnouncementsArgs = {
+  fallbackLocale?: InputMaybe<FallbackLocaleInputType>
+  limit?: InputMaybe<Scalars['Int']['input']>
+  locale?: InputMaybe<LocaleInputType>
+  page?: InputMaybe<Scalars['Int']['input']>
+  pagination?: InputMaybe<Scalars['Boolean']['input']>
+  sort?: InputMaybe<Scalars['String']['input']>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
+  where?: InputMaybe<VersionsAnnouncement_Where>
 }
 
 export type QueryVersionsPagesArgs = {
@@ -5748,6 +10563,7 @@ export type QueryVersionsPagesArgs = {
   page?: InputMaybe<Scalars['Int']['input']>
   pagination?: InputMaybe<Scalars['Boolean']['input']>
   sort?: InputMaybe<Scalars['String']['input']>
+  trash?: InputMaybe<Scalars['Boolean']['input']>
   where?: InputMaybe<VersionsPage_Where>
 }
 
@@ -5832,7 +10648,15 @@ export type User = {
   resetPasswordExpiration?: Maybe<Scalars['DateTime']['output']>
   resetPasswordToken?: Maybe<Scalars['String']['output']>
   salt?: Maybe<Scalars['String']['output']>
+  sessions?: Maybe<Array<User_Sessions>>
   updatedAt?: Maybe<Scalars['DateTime']['output']>
+}
+
+export type User_Sessions = {
+  __typename?: 'User_Sessions'
+  createdAt?: Maybe<Scalars['DateTime']['output']>
+  expiresAt?: Maybe<Scalars['DateTime']['output']>
+  id?: Maybe<Scalars['String']['output']>
 }
 
 export type User_CreatedAt_Operator = {
@@ -5878,6 +10702,37 @@ export type User_Name_Operator = {
   not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
 }
 
+export type User_Sessions__CreatedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  greater_than?: InputMaybe<Scalars['DateTime']['input']>
+  greater_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  less_than?: InputMaybe<Scalars['DateTime']['input']>
+  less_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  like?: InputMaybe<Scalars['DateTime']['input']>
+  not_equals?: InputMaybe<Scalars['DateTime']['input']>
+}
+
+export type User_Sessions__ExpiresAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']['input']>
+  greater_than?: InputMaybe<Scalars['DateTime']['input']>
+  greater_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  less_than?: InputMaybe<Scalars['DateTime']['input']>
+  less_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  like?: InputMaybe<Scalars['DateTime']['input']>
+  not_equals?: InputMaybe<Scalars['DateTime']['input']>
+}
+
+export type User_Sessions__Id_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  contains?: InputMaybe<Scalars['String']['input']>
+  equals?: InputMaybe<Scalars['String']['input']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  like?: InputMaybe<Scalars['String']['input']>
+  not_equals?: InputMaybe<Scalars['String']['input']>
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+}
+
 export type User_UpdatedAt_Operator = {
   equals?: InputMaybe<Scalars['DateTime']['input']>
   exists?: InputMaybe<Scalars['Boolean']['input']>
@@ -5896,6 +10751,9 @@ export type User_Where = {
   email?: InputMaybe<User_Email_Operator>
   id?: InputMaybe<User_Id_Operator>
   name?: InputMaybe<User_Name_Operator>
+  sessions__createdAt?: InputMaybe<User_Sessions__CreatedAt_Operator>
+  sessions__expiresAt?: InputMaybe<User_Sessions__ExpiresAt_Operator>
+  sessions__id?: InputMaybe<User_Sessions__Id_Operator>
   updatedAt?: InputMaybe<User_UpdatedAt_Operator>
 }
 
@@ -5906,6 +10764,9 @@ export type User_Where_And = {
   email?: InputMaybe<User_Email_Operator>
   id?: InputMaybe<User_Id_Operator>
   name?: InputMaybe<User_Name_Operator>
+  sessions__createdAt?: InputMaybe<User_Sessions__CreatedAt_Operator>
+  sessions__expiresAt?: InputMaybe<User_Sessions__ExpiresAt_Operator>
+  sessions__id?: InputMaybe<User_Sessions__Id_Operator>
   updatedAt?: InputMaybe<User_UpdatedAt_Operator>
 }
 
@@ -5916,6 +10777,9 @@ export type User_Where_Or = {
   email?: InputMaybe<User_Email_Operator>
   id?: InputMaybe<User_Id_Operator>
   name?: InputMaybe<User_Name_Operator>
+  sessions__createdAt?: InputMaybe<User_Sessions__CreatedAt_Operator>
+  sessions__expiresAt?: InputMaybe<User_Sessions__ExpiresAt_Operator>
+  sessions__id?: InputMaybe<User_Sessions__Id_Operator>
   updatedAt?: InputMaybe<User_UpdatedAt_Operator>
 }
 
@@ -5925,11 +10789,11 @@ export type Users = {
   hasNextPage: Scalars['Boolean']['output']
   hasPrevPage: Scalars['Boolean']['output']
   limit: Scalars['Int']['output']
-  nextPage: Scalars['Int']['output']
+  nextPage?: Maybe<Scalars['Int']['output']>
   offset?: Maybe<Scalars['Int']['output']>
   page: Scalars['Int']['output']
   pagingCounter: Scalars['Int']['output']
-  prevPage: Scalars['Int']['output']
+  prevPage?: Maybe<Scalars['Int']['output']>
   totalDocs: Scalars['Int']['output']
   totalPages: Scalars['Int']['output']
 }
@@ -5963,6 +10827,7 @@ export type UsersDocAccessFields = {
   createdAt?: Maybe<UsersDocAccessFields_CreatedAt>
   email?: Maybe<UsersDocAccessFields_Email>
   name?: Maybe<UsersDocAccessFields_Name>
+  sessions?: Maybe<UsersDocAccessFields_Sessions>
   updatedAt?: Maybe<UsersDocAccessFields_UpdatedAt>
 }
 
@@ -6050,6 +10915,126 @@ export type UsersDocAccessFields_Name_Update = {
   permission: Scalars['Boolean']['output']
 }
 
+export type UsersDocAccessFields_Sessions = {
+  __typename?: 'UsersDocAccessFields_sessions'
+  create?: Maybe<UsersDocAccessFields_Sessions_Create>
+  delete?: Maybe<UsersDocAccessFields_Sessions_Delete>
+  fields?: Maybe<UsersDocAccessFields_Sessions_Fields>
+  read?: Maybe<UsersDocAccessFields_Sessions_Read>
+  update?: Maybe<UsersDocAccessFields_Sessions_Update>
+}
+
+export type UsersDocAccessFields_Sessions_Create = {
+  __typename?: 'UsersDocAccessFields_sessions_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type UsersDocAccessFields_Sessions_Delete = {
+  __typename?: 'UsersDocAccessFields_sessions_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type UsersDocAccessFields_Sessions_Fields = {
+  __typename?: 'UsersDocAccessFields_sessions_Fields'
+  createdAt?: Maybe<UsersDocAccessFields_Sessions_CreatedAt>
+  expiresAt?: Maybe<UsersDocAccessFields_Sessions_ExpiresAt>
+  id?: Maybe<UsersDocAccessFields_Sessions_Id>
+}
+
+export type UsersDocAccessFields_Sessions_Read = {
+  __typename?: 'UsersDocAccessFields_sessions_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type UsersDocAccessFields_Sessions_Update = {
+  __typename?: 'UsersDocAccessFields_sessions_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type UsersDocAccessFields_Sessions_CreatedAt = {
+  __typename?: 'UsersDocAccessFields_sessions_createdAt'
+  create?: Maybe<UsersDocAccessFields_Sessions_CreatedAt_Create>
+  delete?: Maybe<UsersDocAccessFields_Sessions_CreatedAt_Delete>
+  read?: Maybe<UsersDocAccessFields_Sessions_CreatedAt_Read>
+  update?: Maybe<UsersDocAccessFields_Sessions_CreatedAt_Update>
+}
+
+export type UsersDocAccessFields_Sessions_CreatedAt_Create = {
+  __typename?: 'UsersDocAccessFields_sessions_createdAt_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type UsersDocAccessFields_Sessions_CreatedAt_Delete = {
+  __typename?: 'UsersDocAccessFields_sessions_createdAt_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type UsersDocAccessFields_Sessions_CreatedAt_Read = {
+  __typename?: 'UsersDocAccessFields_sessions_createdAt_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type UsersDocAccessFields_Sessions_CreatedAt_Update = {
+  __typename?: 'UsersDocAccessFields_sessions_createdAt_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type UsersDocAccessFields_Sessions_ExpiresAt = {
+  __typename?: 'UsersDocAccessFields_sessions_expiresAt'
+  create?: Maybe<UsersDocAccessFields_Sessions_ExpiresAt_Create>
+  delete?: Maybe<UsersDocAccessFields_Sessions_ExpiresAt_Delete>
+  read?: Maybe<UsersDocAccessFields_Sessions_ExpiresAt_Read>
+  update?: Maybe<UsersDocAccessFields_Sessions_ExpiresAt_Update>
+}
+
+export type UsersDocAccessFields_Sessions_ExpiresAt_Create = {
+  __typename?: 'UsersDocAccessFields_sessions_expiresAt_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type UsersDocAccessFields_Sessions_ExpiresAt_Delete = {
+  __typename?: 'UsersDocAccessFields_sessions_expiresAt_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type UsersDocAccessFields_Sessions_ExpiresAt_Read = {
+  __typename?: 'UsersDocAccessFields_sessions_expiresAt_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type UsersDocAccessFields_Sessions_ExpiresAt_Update = {
+  __typename?: 'UsersDocAccessFields_sessions_expiresAt_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type UsersDocAccessFields_Sessions_Id = {
+  __typename?: 'UsersDocAccessFields_sessions_id'
+  create?: Maybe<UsersDocAccessFields_Sessions_Id_Create>
+  delete?: Maybe<UsersDocAccessFields_Sessions_Id_Delete>
+  read?: Maybe<UsersDocAccessFields_Sessions_Id_Read>
+  update?: Maybe<UsersDocAccessFields_Sessions_Id_Update>
+}
+
+export type UsersDocAccessFields_Sessions_Id_Create = {
+  __typename?: 'UsersDocAccessFields_sessions_id_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type UsersDocAccessFields_Sessions_Id_Delete = {
+  __typename?: 'UsersDocAccessFields_sessions_id_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type UsersDocAccessFields_Sessions_Id_Read = {
+  __typename?: 'UsersDocAccessFields_sessions_id_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type UsersDocAccessFields_Sessions_Id_Update = {
+  __typename?: 'UsersDocAccessFields_sessions_id_Update'
+  permission: Scalars['Boolean']['output']
+}
+
 export type UsersDocAccessFields_UpdatedAt = {
   __typename?: 'UsersDocAccessFields_updatedAt'
   create?: Maybe<UsersDocAccessFields_UpdatedAt_Create>
@@ -6083,6 +11068,7 @@ export type UsersFields = {
   createdAt?: Maybe<UsersFields_CreatedAt>
   email?: Maybe<UsersFields_Email>
   name?: Maybe<UsersFields_Name>
+  sessions?: Maybe<UsersFields_Sessions>
   updatedAt?: Maybe<UsersFields_UpdatedAt>
 }
 
@@ -6170,6 +11156,126 @@ export type UsersFields_Name_Update = {
   permission: Scalars['Boolean']['output']
 }
 
+export type UsersFields_Sessions = {
+  __typename?: 'UsersFields_sessions'
+  create?: Maybe<UsersFields_Sessions_Create>
+  delete?: Maybe<UsersFields_Sessions_Delete>
+  fields?: Maybe<UsersFields_Sessions_Fields>
+  read?: Maybe<UsersFields_Sessions_Read>
+  update?: Maybe<UsersFields_Sessions_Update>
+}
+
+export type UsersFields_Sessions_Create = {
+  __typename?: 'UsersFields_sessions_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type UsersFields_Sessions_Delete = {
+  __typename?: 'UsersFields_sessions_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type UsersFields_Sessions_Fields = {
+  __typename?: 'UsersFields_sessions_Fields'
+  createdAt?: Maybe<UsersFields_Sessions_CreatedAt>
+  expiresAt?: Maybe<UsersFields_Sessions_ExpiresAt>
+  id?: Maybe<UsersFields_Sessions_Id>
+}
+
+export type UsersFields_Sessions_Read = {
+  __typename?: 'UsersFields_sessions_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type UsersFields_Sessions_Update = {
+  __typename?: 'UsersFields_sessions_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type UsersFields_Sessions_CreatedAt = {
+  __typename?: 'UsersFields_sessions_createdAt'
+  create?: Maybe<UsersFields_Sessions_CreatedAt_Create>
+  delete?: Maybe<UsersFields_Sessions_CreatedAt_Delete>
+  read?: Maybe<UsersFields_Sessions_CreatedAt_Read>
+  update?: Maybe<UsersFields_Sessions_CreatedAt_Update>
+}
+
+export type UsersFields_Sessions_CreatedAt_Create = {
+  __typename?: 'UsersFields_sessions_createdAt_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type UsersFields_Sessions_CreatedAt_Delete = {
+  __typename?: 'UsersFields_sessions_createdAt_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type UsersFields_Sessions_CreatedAt_Read = {
+  __typename?: 'UsersFields_sessions_createdAt_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type UsersFields_Sessions_CreatedAt_Update = {
+  __typename?: 'UsersFields_sessions_createdAt_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type UsersFields_Sessions_ExpiresAt = {
+  __typename?: 'UsersFields_sessions_expiresAt'
+  create?: Maybe<UsersFields_Sessions_ExpiresAt_Create>
+  delete?: Maybe<UsersFields_Sessions_ExpiresAt_Delete>
+  read?: Maybe<UsersFields_Sessions_ExpiresAt_Read>
+  update?: Maybe<UsersFields_Sessions_ExpiresAt_Update>
+}
+
+export type UsersFields_Sessions_ExpiresAt_Create = {
+  __typename?: 'UsersFields_sessions_expiresAt_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type UsersFields_Sessions_ExpiresAt_Delete = {
+  __typename?: 'UsersFields_sessions_expiresAt_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type UsersFields_Sessions_ExpiresAt_Read = {
+  __typename?: 'UsersFields_sessions_expiresAt_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type UsersFields_Sessions_ExpiresAt_Update = {
+  __typename?: 'UsersFields_sessions_expiresAt_Update'
+  permission: Scalars['Boolean']['output']
+}
+
+export type UsersFields_Sessions_Id = {
+  __typename?: 'UsersFields_sessions_id'
+  create?: Maybe<UsersFields_Sessions_Id_Create>
+  delete?: Maybe<UsersFields_Sessions_Id_Delete>
+  read?: Maybe<UsersFields_Sessions_Id_Read>
+  update?: Maybe<UsersFields_Sessions_Id_Update>
+}
+
+export type UsersFields_Sessions_Id_Create = {
+  __typename?: 'UsersFields_sessions_id_Create'
+  permission: Scalars['Boolean']['output']
+}
+
+export type UsersFields_Sessions_Id_Delete = {
+  __typename?: 'UsersFields_sessions_id_Delete'
+  permission: Scalars['Boolean']['output']
+}
+
+export type UsersFields_Sessions_Id_Read = {
+  __typename?: 'UsersFields_sessions_id_Read'
+  permission: Scalars['Boolean']['output']
+}
+
+export type UsersFields_Sessions_Id_Update = {
+  __typename?: 'UsersFields_sessions_id_Update'
+  permission: Scalars['Boolean']['output']
+}
+
 export type UsersFields_UpdatedAt = {
   __typename?: 'UsersFields_updatedAt'
   create?: Maybe<UsersFields_UpdatedAt_Create>
@@ -6240,35 +11346,42 @@ export type AllMedia = {
   hasNextPage: Scalars['Boolean']['output']
   hasPrevPage: Scalars['Boolean']['output']
   limit: Scalars['Int']['output']
-  nextPage: Scalars['Int']['output']
+  nextPage?: Maybe<Scalars['Int']['output']>
   offset?: Maybe<Scalars['Int']['output']>
   page: Scalars['Int']['output']
   pagingCounter: Scalars['Int']['output']
-  prevPage: Scalars['Int']['output']
+  prevPage?: Maybe<Scalars['Int']['output']>
   totalDocs: Scalars['Int']['output']
   totalPages: Scalars['Int']['output']
 }
 
-export type BlogsAccess = {
-  __typename?: 'blogsAccess'
-  create?: Maybe<BlogsCreateAccess>
-  delete?: Maybe<BlogsDeleteAccess>
-  fields?: Maybe<BlogsFields>
-  read?: Maybe<BlogsReadAccess>
-  update?: Maybe<BlogsUpdateAccess>
+export type AnnouncementsAccess = {
+  __typename?: 'announcementsAccess'
+  create?: Maybe<AnnouncementsCreateAccess>
+  delete?: Maybe<AnnouncementsDeleteAccess>
+  fields?: Maybe<AnnouncementsFields>
+  read?: Maybe<AnnouncementsReadAccess>
+  readVersions?: Maybe<AnnouncementsReadVersionsAccess>
+  update?: Maybe<AnnouncementsUpdateAccess>
 }
 
-export type BlogsDocAccess = {
-  __typename?: 'blogsDocAccess'
-  create?: Maybe<BlogsCreateDocAccess>
-  delete?: Maybe<BlogsDeleteDocAccess>
-  fields?: Maybe<BlogsDocAccessFields>
-  read?: Maybe<BlogsReadDocAccess>
-  update?: Maybe<BlogsUpdateDocAccess>
+export type AnnouncementsDocAccess = {
+  __typename?: 'announcementsDocAccess'
+  create?: Maybe<AnnouncementsCreateDocAccess>
+  delete?: Maybe<AnnouncementsDeleteDocAccess>
+  fields?: Maybe<AnnouncementsDocAccessFields>
+  read?: Maybe<AnnouncementsReadDocAccess>
+  readVersions?: Maybe<AnnouncementsReadVersionsDocAccess>
+  update?: Maybe<AnnouncementsUpdateDocAccess>
 }
 
-export type CountBlogs = {
-  __typename?: 'countBlogs'
+export type CountAnnouncements = {
+  __typename?: 'countAnnouncements'
+  totalDocs?: Maybe<Scalars['Int']['output']>
+}
+
+export type CountDonations = {
+  __typename?: 'countDonations'
   totalDocs?: Maybe<Scalars['Int']['output']>
 }
 
@@ -6284,6 +11397,11 @@ export type CountForms = {
 
 export type CountPages = {
   __typename?: 'countPages'
+  totalDocs?: Maybe<Scalars['Int']['output']>
+}
+
+export type CountPayloadJobs = {
+  __typename?: 'countPayloadJobs'
   totalDocs?: Maybe<Scalars['Int']['output']>
 }
 
@@ -6305,6 +11423,24 @@ export type CountUsers = {
 export type CountallMedia = {
   __typename?: 'countallMedia'
   totalDocs?: Maybe<Scalars['Int']['output']>
+}
+
+export type DonationsAccess = {
+  __typename?: 'donationsAccess'
+  create?: Maybe<DonationsCreateAccess>
+  delete?: Maybe<DonationsDeleteAccess>
+  fields?: Maybe<DonationsFields>
+  read?: Maybe<DonationsReadAccess>
+  update?: Maybe<DonationsUpdateAccess>
+}
+
+export type DonationsDocAccess = {
+  __typename?: 'donationsDocAccess'
+  create?: Maybe<DonationsCreateDocAccess>
+  delete?: Maybe<DonationsDeleteDocAccess>
+  fields?: Maybe<DonationsDocAccessFields>
+  read?: Maybe<DonationsReadDocAccess>
+  update?: Maybe<DonationsUpdateDocAccess>
 }
 
 export type Form_SubmissionsAccess = {
@@ -6361,17 +11497,55 @@ export type MediaDocAccess = {
   update?: Maybe<MediaUpdateDocAccess>
 }
 
-export type MutationBlogInput = {
-  author?: InputMaybe<Scalars['String']['input']>
+export type MutationAnnouncementInput = {
+  _status?: InputMaybe<Announcement__Status_MutationInput>
+  content: Scalars['JSON']['input']
   createdAt?: InputMaybe<Scalars['String']['input']>
+  description: Scalars['String']['input']
+  image?: InputMaybe<Scalars['String']['input']>
+  publishedAt?: InputMaybe<Scalars['String']['input']>
+  slug?: InputMaybe<Scalars['String']['input']>
+  title: Scalars['String']['input']
+  updatedAt?: InputMaybe<Scalars['String']['input']>
+}
+
+export type MutationAnnouncementUpdateInput = {
+  _status?: InputMaybe<AnnouncementUpdate__Status_MutationInput>
+  content?: InputMaybe<Scalars['JSON']['input']>
+  createdAt?: InputMaybe<Scalars['String']['input']>
+  description?: InputMaybe<Scalars['String']['input']>
+  image?: InputMaybe<Scalars['String']['input']>
+  publishedAt?: InputMaybe<Scalars['String']['input']>
+  slug?: InputMaybe<Scalars['String']['input']>
   title?: InputMaybe<Scalars['String']['input']>
   updatedAt?: InputMaybe<Scalars['String']['input']>
 }
 
-export type MutationBlogUpdateInput = {
-  author?: InputMaybe<Scalars['String']['input']>
+export type MutationDonationInput = {
+  amount: Scalars['Float']['input']
+  campaign?: InputMaybe<Scalars['String']['input']>
   createdAt?: InputMaybe<Scalars['String']['input']>
-  title?: InputMaybe<Scalars['String']['input']>
+  currency: Scalars['String']['input']
+  date: Scalars['String']['input']
+  email?: InputMaybe<Scalars['String']['input']>
+  message?: InputMaybe<Scalars['String']['input']>
+  paymentType?: InputMaybe<Donation_PaymentType_MutationInput>
+  status?: InputMaybe<Donation_Status_MutationInput>
+  stripePaymentIntentId: Scalars['String']['input']
+  updatedAt?: InputMaybe<Scalars['String']['input']>
+}
+
+export type MutationDonationUpdateInput = {
+  amount?: InputMaybe<Scalars['Float']['input']>
+  campaign?: InputMaybe<Scalars['String']['input']>
+  createdAt?: InputMaybe<Scalars['String']['input']>
+  currency?: InputMaybe<Scalars['String']['input']>
+  date?: InputMaybe<Scalars['String']['input']>
+  email?: InputMaybe<Scalars['String']['input']>
+  message?: InputMaybe<Scalars['String']['input']>
+  paymentType?: InputMaybe<DonationUpdate_PaymentType_MutationInput>
+  status?: InputMaybe<DonationUpdate_Status_MutationInput>
+  stripePaymentIntentId?: InputMaybe<Scalars['String']['input']>
   updatedAt?: InputMaybe<Scalars['String']['input']>
 }
 
@@ -6488,8 +11662,12 @@ export type MutationMediaUpdateInput = {
 export type MutationPageInput = {
   _status?: InputMaybe<Page__Status_MutationInput>
   createdAt?: InputMaybe<Scalars['String']['input']>
+  hero: MutationPage_HeroInput
   layout?: InputMaybe<Scalars['JSON']['input']>
+  meta?: InputMaybe<MutationPage_MetaInput>
+  publishedAt?: InputMaybe<Scalars['String']['input']>
   slug?: InputMaybe<Scalars['String']['input']>
+  slugLock?: InputMaybe<Scalars['Boolean']['input']>
   title: Scalars['String']['input']
   updatedAt?: InputMaybe<Scalars['String']['input']>
 }
@@ -6497,10 +11675,124 @@ export type MutationPageInput = {
 export type MutationPageUpdateInput = {
   _status?: InputMaybe<PageUpdate__Status_MutationInput>
   createdAt?: InputMaybe<Scalars['String']['input']>
+  hero: MutationPageUpdate_HeroInput
   layout?: InputMaybe<Scalars['JSON']['input']>
+  meta?: InputMaybe<MutationPageUpdate_MetaInput>
+  publishedAt?: InputMaybe<Scalars['String']['input']>
   slug?: InputMaybe<Scalars['String']['input']>
+  slugLock?: InputMaybe<Scalars['Boolean']['input']>
   title?: InputMaybe<Scalars['String']['input']>
   updatedAt?: InputMaybe<Scalars['String']['input']>
+}
+
+export type MutationPageUpdate_HeroInput = {
+  links?: InputMaybe<Array<InputMaybe<MutationPageUpdate_Hero_LinksInput>>>
+  media?: InputMaybe<Scalars['String']['input']>
+  richText?: InputMaybe<Scalars['JSON']['input']>
+  type: PageUpdate_Hero_Type_MutationInput
+}
+
+export type MutationPageUpdate_Hero_LinksInput = {
+  id?: InputMaybe<Scalars['String']['input']>
+  link?: InputMaybe<MutationPageUpdate_Hero_Links_LinkInput>
+}
+
+export type MutationPageUpdate_Hero_Links_LinkInput = {
+  appearance?: InputMaybe<PageUpdate_Hero_Links_Link_Appearance_MutationInput>
+  label: Scalars['String']['input']
+  newTab?: InputMaybe<Scalars['Boolean']['input']>
+  reference?: InputMaybe<PageUpdate_Hero_Links_Link_ReferenceRelationshipInput>
+  type?: InputMaybe<Scalars['String']['input']>
+  url?: InputMaybe<Scalars['String']['input']>
+}
+
+export type MutationPageUpdate_MetaInput = {
+  description?: InputMaybe<Scalars['String']['input']>
+  image?: InputMaybe<Scalars['String']['input']>
+  title?: InputMaybe<Scalars['String']['input']>
+}
+
+export type MutationPage_HeroInput = {
+  links?: InputMaybe<Array<InputMaybe<MutationPage_Hero_LinksInput>>>
+  media?: InputMaybe<Scalars['String']['input']>
+  richText?: InputMaybe<Scalars['JSON']['input']>
+  type: Page_Hero_Type_MutationInput
+}
+
+export type MutationPage_Hero_LinksInput = {
+  id?: InputMaybe<Scalars['String']['input']>
+  link?: InputMaybe<MutationPage_Hero_Links_LinkInput>
+}
+
+export type MutationPage_Hero_Links_LinkInput = {
+  appearance?: InputMaybe<Page_Hero_Links_Link_Appearance_MutationInput>
+  label: Scalars['String']['input']
+  newTab?: InputMaybe<Scalars['Boolean']['input']>
+  reference?: InputMaybe<Page_Hero_Links_Link_ReferenceRelationshipInput>
+  type?: InputMaybe<Scalars['String']['input']>
+  url?: InputMaybe<Scalars['String']['input']>
+}
+
+export type MutationPage_MetaInput = {
+  description?: InputMaybe<Scalars['String']['input']>
+  image?: InputMaybe<Scalars['String']['input']>
+  title?: InputMaybe<Scalars['String']['input']>
+}
+
+export type MutationPayloadJobInput = {
+  completedAt?: InputMaybe<Scalars['String']['input']>
+  createdAt?: InputMaybe<Scalars['String']['input']>
+  error?: InputMaybe<Scalars['JSON']['input']>
+  hasError?: InputMaybe<Scalars['Boolean']['input']>
+  input?: InputMaybe<Scalars['JSON']['input']>
+  log?: InputMaybe<Array<InputMaybe<MutationPayloadJob_LogInput>>>
+  processing?: InputMaybe<Scalars['Boolean']['input']>
+  queue?: InputMaybe<Scalars['String']['input']>
+  taskSlug?: InputMaybe<PayloadJob_TaskSlug_MutationInput>
+  taskStatus?: InputMaybe<Scalars['JSON']['input']>
+  totalTried?: InputMaybe<Scalars['Float']['input']>
+  updatedAt?: InputMaybe<Scalars['String']['input']>
+  waitUntil?: InputMaybe<Scalars['String']['input']>
+}
+
+export type MutationPayloadJobUpdateInput = {
+  completedAt?: InputMaybe<Scalars['String']['input']>
+  createdAt?: InputMaybe<Scalars['String']['input']>
+  error?: InputMaybe<Scalars['JSON']['input']>
+  hasError?: InputMaybe<Scalars['Boolean']['input']>
+  input?: InputMaybe<Scalars['JSON']['input']>
+  log?: InputMaybe<Array<InputMaybe<MutationPayloadJobUpdate_LogInput>>>
+  processing?: InputMaybe<Scalars['Boolean']['input']>
+  queue?: InputMaybe<Scalars['String']['input']>
+  taskSlug?: InputMaybe<PayloadJobUpdate_TaskSlug_MutationInput>
+  taskStatus?: InputMaybe<Scalars['JSON']['input']>
+  totalTried?: InputMaybe<Scalars['Float']['input']>
+  updatedAt?: InputMaybe<Scalars['String']['input']>
+  waitUntil?: InputMaybe<Scalars['String']['input']>
+}
+
+export type MutationPayloadJobUpdate_LogInput = {
+  completedAt: Scalars['String']['input']
+  error?: InputMaybe<Scalars['JSON']['input']>
+  executedAt: Scalars['String']['input']
+  id?: InputMaybe<Scalars['String']['input']>
+  input?: InputMaybe<Scalars['JSON']['input']>
+  output?: InputMaybe<Scalars['JSON']['input']>
+  state: Scalars['String']['input']
+  taskID: Scalars['String']['input']
+  taskSlug: PayloadJobUpdate_Log_TaskSlug_MutationInput
+}
+
+export type MutationPayloadJob_LogInput = {
+  completedAt: Scalars['String']['input']
+  error?: InputMaybe<Scalars['JSON']['input']>
+  executedAt: Scalars['String']['input']
+  id?: InputMaybe<Scalars['String']['input']>
+  input?: InputMaybe<Scalars['JSON']['input']>
+  output?: InputMaybe<Scalars['JSON']['input']>
+  state: Scalars['String']['input']
+  taskID: Scalars['String']['input']
+  taskSlug: PayloadJob_Log_TaskSlug_MutationInput
 }
 
 export type MutationPayloadLockedDocumentInput = {
@@ -6546,6 +11838,7 @@ export type MutationUserInput = {
   resetPasswordExpiration?: InputMaybe<Scalars['String']['input']>
   resetPasswordToken?: InputMaybe<Scalars['String']['input']>
   salt?: InputMaybe<Scalars['String']['input']>
+  sessions?: InputMaybe<Array<InputMaybe<MutationUser_SessionsInput>>>
   updatedAt?: InputMaybe<Scalars['String']['input']>
 }
 
@@ -6560,7 +11853,20 @@ export type MutationUserUpdateInput = {
   resetPasswordExpiration?: InputMaybe<Scalars['String']['input']>
   resetPasswordToken?: InputMaybe<Scalars['String']['input']>
   salt?: InputMaybe<Scalars['String']['input']>
+  sessions?: InputMaybe<Array<InputMaybe<MutationUserUpdate_SessionsInput>>>
   updatedAt?: InputMaybe<Scalars['String']['input']>
+}
+
+export type MutationUserUpdate_SessionsInput = {
+  createdAt?: InputMaybe<Scalars['String']['input']>
+  expiresAt: Scalars['String']['input']
+  id: Scalars['String']['input']
+}
+
+export type MutationUser_SessionsInput = {
+  createdAt?: InputMaybe<Scalars['String']['input']>
+  expiresAt: Scalars['String']['input']
+  id: Scalars['String']['input']
 }
 
 export type PagesAccess = {
@@ -6581,6 +11887,24 @@ export type PagesDocAccess = {
   read?: Maybe<PagesReadDocAccess>
   readVersions?: Maybe<PagesReadVersionsDocAccess>
   update?: Maybe<PagesUpdateDocAccess>
+}
+
+export type Payload_JobsAccess = {
+  __typename?: 'payload_jobsAccess'
+  create?: Maybe<PayloadJobsCreateAccess>
+  delete?: Maybe<PayloadJobsDeleteAccess>
+  fields?: Maybe<PayloadJobsFields>
+  read?: Maybe<PayloadJobsReadAccess>
+  update?: Maybe<PayloadJobsUpdateAccess>
+}
+
+export type Payload_JobsDocAccess = {
+  __typename?: 'payload_jobsDocAccess'
+  create?: Maybe<PayloadJobsCreateDocAccess>
+  delete?: Maybe<PayloadJobsDeleteDocAccess>
+  fields?: Maybe<PayloadJobsDocAccessFields>
+  read?: Maybe<PayloadJobsReadDocAccess>
+  update?: Maybe<PayloadJobsUpdateDocAccess>
 }
 
 export type Payload_Locked_DocumentsAccess = {
@@ -6673,6 +11997,259 @@ export type UsersResetPassword = {
   __typename?: 'usersResetPassword'
   token?: Maybe<Scalars['String']['output']>
   user?: Maybe<User>
+}
+
+export type VersionsAnnouncement_Autosave_Operator = {
+  equals?: InputMaybe<Scalars['Boolean']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  not_equals?: InputMaybe<Scalars['Boolean']['input']>
+}
+
+export type VersionsAnnouncement_CreatedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  greater_than?: InputMaybe<Scalars['DateTime']['input']>
+  greater_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  less_than?: InputMaybe<Scalars['DateTime']['input']>
+  less_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  like?: InputMaybe<Scalars['DateTime']['input']>
+  not_equals?: InputMaybe<Scalars['DateTime']['input']>
+}
+
+export type VersionsAnnouncement_Id_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  contains?: InputMaybe<Scalars['String']['input']>
+  equals?: InputMaybe<Scalars['String']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  like?: InputMaybe<Scalars['String']['input']>
+  not_equals?: InputMaybe<Scalars['String']['input']>
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+}
+
+export type VersionsAnnouncement_Latest_Operator = {
+  equals?: InputMaybe<Scalars['Boolean']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  not_equals?: InputMaybe<Scalars['Boolean']['input']>
+}
+
+export type VersionsAnnouncement_Parent_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>
+  equals?: InputMaybe<Scalars['JSON']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>
+  not_equals?: InputMaybe<Scalars['JSON']['input']>
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>
+}
+
+export enum VersionsAnnouncement_PublishedLocale_Input {
+  En = 'en',
+  Nl = 'nl',
+  Tr = 'tr',
+}
+
+export type VersionsAnnouncement_PublishedLocale_Operator = {
+  all?: InputMaybe<Array<InputMaybe<VersionsAnnouncement_PublishedLocale_Input>>>
+  equals?: InputMaybe<VersionsAnnouncement_PublishedLocale_Input>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  in?: InputMaybe<Array<InputMaybe<VersionsAnnouncement_PublishedLocale_Input>>>
+  not_equals?: InputMaybe<VersionsAnnouncement_PublishedLocale_Input>
+  not_in?: InputMaybe<Array<InputMaybe<VersionsAnnouncement_PublishedLocale_Input>>>
+}
+
+export type VersionsAnnouncement_Snapshot_Operator = {
+  equals?: InputMaybe<Scalars['Boolean']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  not_equals?: InputMaybe<Scalars['Boolean']['input']>
+}
+
+export type VersionsAnnouncement_UpdatedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  greater_than?: InputMaybe<Scalars['DateTime']['input']>
+  greater_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  less_than?: InputMaybe<Scalars['DateTime']['input']>
+  less_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  like?: InputMaybe<Scalars['DateTime']['input']>
+  not_equals?: InputMaybe<Scalars['DateTime']['input']>
+}
+
+export enum VersionsAnnouncement_Version___Status_Input {
+  Draft = 'draft',
+  Published = 'published',
+}
+
+export type VersionsAnnouncement_Version___Status_Operator = {
+  all?: InputMaybe<Array<InputMaybe<VersionsAnnouncement_Version___Status_Input>>>
+  equals?: InputMaybe<VersionsAnnouncement_Version___Status_Input>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  in?: InputMaybe<Array<InputMaybe<VersionsAnnouncement_Version___Status_Input>>>
+  not_equals?: InputMaybe<VersionsAnnouncement_Version___Status_Input>
+  not_in?: InputMaybe<Array<InputMaybe<VersionsAnnouncement_Version___Status_Input>>>
+}
+
+export type VersionsAnnouncement_Version__Content_Operator = {
+  contains?: InputMaybe<Scalars['JSON']['input']>
+  equals?: InputMaybe<Scalars['JSON']['input']>
+  like?: InputMaybe<Scalars['JSON']['input']>
+  not_equals?: InputMaybe<Scalars['JSON']['input']>
+}
+
+export type VersionsAnnouncement_Version__CreatedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  greater_than?: InputMaybe<Scalars['DateTime']['input']>
+  greater_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  less_than?: InputMaybe<Scalars['DateTime']['input']>
+  less_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  like?: InputMaybe<Scalars['DateTime']['input']>
+  not_equals?: InputMaybe<Scalars['DateTime']['input']>
+}
+
+export type VersionsAnnouncement_Version__Description_Operator = {
+  contains?: InputMaybe<Scalars['String']['input']>
+  equals?: InputMaybe<Scalars['String']['input']>
+  like?: InputMaybe<Scalars['String']['input']>
+  not_equals?: InputMaybe<Scalars['String']['input']>
+}
+
+export type VersionsAnnouncement_Version__Image_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>
+  equals?: InputMaybe<Scalars['JSON']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>
+  not_equals?: InputMaybe<Scalars['JSON']['input']>
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>
+}
+
+export type VersionsAnnouncement_Version__PublishedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  greater_than?: InputMaybe<Scalars['DateTime']['input']>
+  greater_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  less_than?: InputMaybe<Scalars['DateTime']['input']>
+  less_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  like?: InputMaybe<Scalars['DateTime']['input']>
+  not_equals?: InputMaybe<Scalars['DateTime']['input']>
+}
+
+export type VersionsAnnouncement_Version__Slug_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  contains?: InputMaybe<Scalars['String']['input']>
+  equals?: InputMaybe<Scalars['String']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  like?: InputMaybe<Scalars['String']['input']>
+  not_equals?: InputMaybe<Scalars['String']['input']>
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+}
+
+export type VersionsAnnouncement_Version__Title_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  contains?: InputMaybe<Scalars['String']['input']>
+  equals?: InputMaybe<Scalars['String']['input']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  like?: InputMaybe<Scalars['String']['input']>
+  not_equals?: InputMaybe<Scalars['String']['input']>
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+}
+
+export type VersionsAnnouncement_Version__UpdatedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  greater_than?: InputMaybe<Scalars['DateTime']['input']>
+  greater_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  less_than?: InputMaybe<Scalars['DateTime']['input']>
+  less_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  like?: InputMaybe<Scalars['DateTime']['input']>
+  not_equals?: InputMaybe<Scalars['DateTime']['input']>
+}
+
+export type VersionsAnnouncement_Where = {
+  AND?: InputMaybe<Array<InputMaybe<VersionsAnnouncement_Where_And>>>
+  OR?: InputMaybe<Array<InputMaybe<VersionsAnnouncement_Where_Or>>>
+  autosave?: InputMaybe<VersionsAnnouncement_Autosave_Operator>
+  createdAt?: InputMaybe<VersionsAnnouncement_CreatedAt_Operator>
+  id?: InputMaybe<VersionsAnnouncement_Id_Operator>
+  latest?: InputMaybe<VersionsAnnouncement_Latest_Operator>
+  parent?: InputMaybe<VersionsAnnouncement_Parent_Operator>
+  publishedLocale?: InputMaybe<VersionsAnnouncement_PublishedLocale_Operator>
+  snapshot?: InputMaybe<VersionsAnnouncement_Snapshot_Operator>
+  updatedAt?: InputMaybe<VersionsAnnouncement_UpdatedAt_Operator>
+  version___status?: InputMaybe<VersionsAnnouncement_Version___Status_Operator>
+  version__content?: InputMaybe<VersionsAnnouncement_Version__Content_Operator>
+  version__createdAt?: InputMaybe<VersionsAnnouncement_Version__CreatedAt_Operator>
+  version__description?: InputMaybe<VersionsAnnouncement_Version__Description_Operator>
+  version__image?: InputMaybe<VersionsAnnouncement_Version__Image_Operator>
+  version__publishedAt?: InputMaybe<VersionsAnnouncement_Version__PublishedAt_Operator>
+  version__slug?: InputMaybe<VersionsAnnouncement_Version__Slug_Operator>
+  version__title?: InputMaybe<VersionsAnnouncement_Version__Title_Operator>
+  version__updatedAt?: InputMaybe<VersionsAnnouncement_Version__UpdatedAt_Operator>
+}
+
+export type VersionsAnnouncement_Where_And = {
+  AND?: InputMaybe<Array<InputMaybe<VersionsAnnouncement_Where_And>>>
+  OR?: InputMaybe<Array<InputMaybe<VersionsAnnouncement_Where_Or>>>
+  autosave?: InputMaybe<VersionsAnnouncement_Autosave_Operator>
+  createdAt?: InputMaybe<VersionsAnnouncement_CreatedAt_Operator>
+  id?: InputMaybe<VersionsAnnouncement_Id_Operator>
+  latest?: InputMaybe<VersionsAnnouncement_Latest_Operator>
+  parent?: InputMaybe<VersionsAnnouncement_Parent_Operator>
+  publishedLocale?: InputMaybe<VersionsAnnouncement_PublishedLocale_Operator>
+  snapshot?: InputMaybe<VersionsAnnouncement_Snapshot_Operator>
+  updatedAt?: InputMaybe<VersionsAnnouncement_UpdatedAt_Operator>
+  version___status?: InputMaybe<VersionsAnnouncement_Version___Status_Operator>
+  version__content?: InputMaybe<VersionsAnnouncement_Version__Content_Operator>
+  version__createdAt?: InputMaybe<VersionsAnnouncement_Version__CreatedAt_Operator>
+  version__description?: InputMaybe<VersionsAnnouncement_Version__Description_Operator>
+  version__image?: InputMaybe<VersionsAnnouncement_Version__Image_Operator>
+  version__publishedAt?: InputMaybe<VersionsAnnouncement_Version__PublishedAt_Operator>
+  version__slug?: InputMaybe<VersionsAnnouncement_Version__Slug_Operator>
+  version__title?: InputMaybe<VersionsAnnouncement_Version__Title_Operator>
+  version__updatedAt?: InputMaybe<VersionsAnnouncement_Version__UpdatedAt_Operator>
+}
+
+export type VersionsAnnouncement_Where_Or = {
+  AND?: InputMaybe<Array<InputMaybe<VersionsAnnouncement_Where_And>>>
+  OR?: InputMaybe<Array<InputMaybe<VersionsAnnouncement_Where_Or>>>
+  autosave?: InputMaybe<VersionsAnnouncement_Autosave_Operator>
+  createdAt?: InputMaybe<VersionsAnnouncement_CreatedAt_Operator>
+  id?: InputMaybe<VersionsAnnouncement_Id_Operator>
+  latest?: InputMaybe<VersionsAnnouncement_Latest_Operator>
+  parent?: InputMaybe<VersionsAnnouncement_Parent_Operator>
+  publishedLocale?: InputMaybe<VersionsAnnouncement_PublishedLocale_Operator>
+  snapshot?: InputMaybe<VersionsAnnouncement_Snapshot_Operator>
+  updatedAt?: InputMaybe<VersionsAnnouncement_UpdatedAt_Operator>
+  version___status?: InputMaybe<VersionsAnnouncement_Version___Status_Operator>
+  version__content?: InputMaybe<VersionsAnnouncement_Version__Content_Operator>
+  version__createdAt?: InputMaybe<VersionsAnnouncement_Version__CreatedAt_Operator>
+  version__description?: InputMaybe<VersionsAnnouncement_Version__Description_Operator>
+  version__image?: InputMaybe<VersionsAnnouncement_Version__Image_Operator>
+  version__publishedAt?: InputMaybe<VersionsAnnouncement_Version__PublishedAt_Operator>
+  version__slug?: InputMaybe<VersionsAnnouncement_Version__Slug_Operator>
+  version__title?: InputMaybe<VersionsAnnouncement_Version__Title_Operator>
+  version__updatedAt?: InputMaybe<VersionsAnnouncement_Version__UpdatedAt_Operator>
+}
+
+export type VersionsAnnouncements = {
+  __typename?: 'versionsAnnouncements'
+  docs: Array<AnnouncementVersion>
+  hasNextPage: Scalars['Boolean']['output']
+  hasPrevPage: Scalars['Boolean']['output']
+  limit: Scalars['Int']['output']
+  nextPage?: Maybe<Scalars['Int']['output']>
+  offset?: Maybe<Scalars['Int']['output']>
+  page: Scalars['Int']['output']
+  pagingCounter: Scalars['Int']['output']
+  prevPage?: Maybe<Scalars['Int']['output']>
+  totalDocs: Scalars['Int']['output']
+  totalPages: Scalars['Int']['output']
+}
+
+export type VersionsPage_Autosave_Operator = {
+  equals?: InputMaybe<Scalars['Boolean']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  not_equals?: InputMaybe<Scalars['Boolean']['input']>
 }
 
 export type VersionsPage_CreatedAt_Operator = {
@@ -6769,6 +12346,155 @@ export type VersionsPage_Version__CreatedAt_Operator = {
   not_equals?: InputMaybe<Scalars['DateTime']['input']>
 }
 
+export type VersionsPage_Version__Hero__Links__Id_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  contains?: InputMaybe<Scalars['String']['input']>
+  equals?: InputMaybe<Scalars['String']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  like?: InputMaybe<Scalars['String']['input']>
+  not_equals?: InputMaybe<Scalars['String']['input']>
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+}
+
+export enum VersionsPage_Version__Hero__Links__Link__Appearance_Input {
+  Default = 'default',
+  Outline = 'outline',
+}
+
+export type VersionsPage_Version__Hero__Links__Link__Appearance_Operator = {
+  all?: InputMaybe<Array<InputMaybe<VersionsPage_Version__Hero__Links__Link__Appearance_Input>>>
+  equals?: InputMaybe<VersionsPage_Version__Hero__Links__Link__Appearance_Input>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  in?: InputMaybe<Array<InputMaybe<VersionsPage_Version__Hero__Links__Link__Appearance_Input>>>
+  not_equals?: InputMaybe<VersionsPage_Version__Hero__Links__Link__Appearance_Input>
+  not_in?: InputMaybe<Array<InputMaybe<VersionsPage_Version__Hero__Links__Link__Appearance_Input>>>
+}
+
+export type VersionsPage_Version__Hero__Links__Link__Label_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  contains?: InputMaybe<Scalars['String']['input']>
+  equals?: InputMaybe<Scalars['String']['input']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  like?: InputMaybe<Scalars['String']['input']>
+  not_equals?: InputMaybe<Scalars['String']['input']>
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+}
+
+export type VersionsPage_Version__Hero__Links__Link__NewTab_Operator = {
+  equals?: InputMaybe<Scalars['Boolean']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  not_equals?: InputMaybe<Scalars['Boolean']['input']>
+}
+
+export type VersionsPage_Version__Hero__Links__Link__Reference_Relation = {
+  relationTo?: InputMaybe<VersionsPage_Version__Hero__Links__Link__Reference_Relation_RelationTo>
+  value?: InputMaybe<Scalars['JSON']['input']>
+}
+
+export enum VersionsPage_Version__Hero__Links__Link__Reference_Relation_RelationTo {
+  Pages = 'pages',
+}
+
+export enum VersionsPage_Version__Hero__Links__Link__Type_Input {
+  Custom = 'custom',
+  Reference = 'reference',
+}
+
+export type VersionsPage_Version__Hero__Links__Link__Type_Operator = {
+  contains?: InputMaybe<VersionsPage_Version__Hero__Links__Link__Type_Input>
+  equals?: InputMaybe<VersionsPage_Version__Hero__Links__Link__Type_Input>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  like?: InputMaybe<VersionsPage_Version__Hero__Links__Link__Type_Input>
+  not_equals?: InputMaybe<VersionsPage_Version__Hero__Links__Link__Type_Input>
+}
+
+export type VersionsPage_Version__Hero__Links__Link__Url_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  contains?: InputMaybe<Scalars['String']['input']>
+  equals?: InputMaybe<Scalars['String']['input']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  like?: InputMaybe<Scalars['String']['input']>
+  not_equals?: InputMaybe<Scalars['String']['input']>
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+}
+
+export type VersionsPage_Version__Hero__Media_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>
+  equals?: InputMaybe<Scalars['JSON']['input']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>
+  not_equals?: InputMaybe<Scalars['JSON']['input']>
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>
+}
+
+export type VersionsPage_Version__Hero__RichText_Operator = {
+  contains?: InputMaybe<Scalars['JSON']['input']>
+  equals?: InputMaybe<Scalars['JSON']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  like?: InputMaybe<Scalars['JSON']['input']>
+  not_equals?: InputMaybe<Scalars['JSON']['input']>
+}
+
+export enum VersionsPage_Version__Hero__Type_Input {
+  HighImpact = 'highImpact',
+  LowImpact = 'lowImpact',
+  MediumImpact = 'mediumImpact',
+  None = 'none',
+}
+
+export type VersionsPage_Version__Hero__Type_Operator = {
+  all?: InputMaybe<Array<InputMaybe<VersionsPage_Version__Hero__Type_Input>>>
+  equals?: InputMaybe<VersionsPage_Version__Hero__Type_Input>
+  in?: InputMaybe<Array<InputMaybe<VersionsPage_Version__Hero__Type_Input>>>
+  not_equals?: InputMaybe<VersionsPage_Version__Hero__Type_Input>
+  not_in?: InputMaybe<Array<InputMaybe<VersionsPage_Version__Hero__Type_Input>>>
+}
+
+export type VersionsPage_Version__Meta__Description_Operator = {
+  contains?: InputMaybe<Scalars['String']['input']>
+  equals?: InputMaybe<Scalars['String']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  like?: InputMaybe<Scalars['String']['input']>
+  not_equals?: InputMaybe<Scalars['String']['input']>
+}
+
+export type VersionsPage_Version__Meta__Image_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>
+  equals?: InputMaybe<Scalars['JSON']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>
+  not_equals?: InputMaybe<Scalars['JSON']['input']>
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['JSON']['input']>>>
+}
+
+export type VersionsPage_Version__Meta__Title_Operator = {
+  all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  contains?: InputMaybe<Scalars['String']['input']>
+  equals?: InputMaybe<Scalars['String']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+  like?: InputMaybe<Scalars['String']['input']>
+  not_equals?: InputMaybe<Scalars['String']['input']>
+  not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
+}
+
+export type VersionsPage_Version__PublishedAt_Operator = {
+  equals?: InputMaybe<Scalars['DateTime']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  greater_than?: InputMaybe<Scalars['DateTime']['input']>
+  greater_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  less_than?: InputMaybe<Scalars['DateTime']['input']>
+  less_than_equal?: InputMaybe<Scalars['DateTime']['input']>
+  like?: InputMaybe<Scalars['DateTime']['input']>
+  not_equals?: InputMaybe<Scalars['DateTime']['input']>
+}
+
+export type VersionsPage_Version__SlugLock_Operator = {
+  equals?: InputMaybe<Scalars['Boolean']['input']>
+  exists?: InputMaybe<Scalars['Boolean']['input']>
+  not_equals?: InputMaybe<Scalars['Boolean']['input']>
+}
+
 export type VersionsPage_Version__Slug_Operator = {
   all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>
   contains?: InputMaybe<Scalars['String']['input']>
@@ -6804,6 +12530,7 @@ export type VersionsPage_Version__UpdatedAt_Operator = {
 export type VersionsPage_Where = {
   AND?: InputMaybe<Array<InputMaybe<VersionsPage_Where_And>>>
   OR?: InputMaybe<Array<InputMaybe<VersionsPage_Where_Or>>>
+  autosave?: InputMaybe<VersionsPage_Autosave_Operator>
   createdAt?: InputMaybe<VersionsPage_CreatedAt_Operator>
   id?: InputMaybe<VersionsPage_Id_Operator>
   latest?: InputMaybe<VersionsPage_Latest_Operator>
@@ -6813,7 +12540,22 @@ export type VersionsPage_Where = {
   updatedAt?: InputMaybe<VersionsPage_UpdatedAt_Operator>
   version___status?: InputMaybe<VersionsPage_Version___Status_Operator>
   version__createdAt?: InputMaybe<VersionsPage_Version__CreatedAt_Operator>
+  version__hero__links__id?: InputMaybe<VersionsPage_Version__Hero__Links__Id_Operator>
+  version__hero__links__link__appearance?: InputMaybe<VersionsPage_Version__Hero__Links__Link__Appearance_Operator>
+  version__hero__links__link__label?: InputMaybe<VersionsPage_Version__Hero__Links__Link__Label_Operator>
+  version__hero__links__link__newTab?: InputMaybe<VersionsPage_Version__Hero__Links__Link__NewTab_Operator>
+  version__hero__links__link__reference?: InputMaybe<VersionsPage_Version__Hero__Links__Link__Reference_Relation>
+  version__hero__links__link__type?: InputMaybe<VersionsPage_Version__Hero__Links__Link__Type_Operator>
+  version__hero__links__link__url?: InputMaybe<VersionsPage_Version__Hero__Links__Link__Url_Operator>
+  version__hero__media?: InputMaybe<VersionsPage_Version__Hero__Media_Operator>
+  version__hero__richText?: InputMaybe<VersionsPage_Version__Hero__RichText_Operator>
+  version__hero__type?: InputMaybe<VersionsPage_Version__Hero__Type_Operator>
+  version__meta__description?: InputMaybe<VersionsPage_Version__Meta__Description_Operator>
+  version__meta__image?: InputMaybe<VersionsPage_Version__Meta__Image_Operator>
+  version__meta__title?: InputMaybe<VersionsPage_Version__Meta__Title_Operator>
+  version__publishedAt?: InputMaybe<VersionsPage_Version__PublishedAt_Operator>
   version__slug?: InputMaybe<VersionsPage_Version__Slug_Operator>
+  version__slugLock?: InputMaybe<VersionsPage_Version__SlugLock_Operator>
   version__title?: InputMaybe<VersionsPage_Version__Title_Operator>
   version__updatedAt?: InputMaybe<VersionsPage_Version__UpdatedAt_Operator>
 }
@@ -6821,6 +12563,7 @@ export type VersionsPage_Where = {
 export type VersionsPage_Where_And = {
   AND?: InputMaybe<Array<InputMaybe<VersionsPage_Where_And>>>
   OR?: InputMaybe<Array<InputMaybe<VersionsPage_Where_Or>>>
+  autosave?: InputMaybe<VersionsPage_Autosave_Operator>
   createdAt?: InputMaybe<VersionsPage_CreatedAt_Operator>
   id?: InputMaybe<VersionsPage_Id_Operator>
   latest?: InputMaybe<VersionsPage_Latest_Operator>
@@ -6830,7 +12573,22 @@ export type VersionsPage_Where_And = {
   updatedAt?: InputMaybe<VersionsPage_UpdatedAt_Operator>
   version___status?: InputMaybe<VersionsPage_Version___Status_Operator>
   version__createdAt?: InputMaybe<VersionsPage_Version__CreatedAt_Operator>
+  version__hero__links__id?: InputMaybe<VersionsPage_Version__Hero__Links__Id_Operator>
+  version__hero__links__link__appearance?: InputMaybe<VersionsPage_Version__Hero__Links__Link__Appearance_Operator>
+  version__hero__links__link__label?: InputMaybe<VersionsPage_Version__Hero__Links__Link__Label_Operator>
+  version__hero__links__link__newTab?: InputMaybe<VersionsPage_Version__Hero__Links__Link__NewTab_Operator>
+  version__hero__links__link__reference?: InputMaybe<VersionsPage_Version__Hero__Links__Link__Reference_Relation>
+  version__hero__links__link__type?: InputMaybe<VersionsPage_Version__Hero__Links__Link__Type_Operator>
+  version__hero__links__link__url?: InputMaybe<VersionsPage_Version__Hero__Links__Link__Url_Operator>
+  version__hero__media?: InputMaybe<VersionsPage_Version__Hero__Media_Operator>
+  version__hero__richText?: InputMaybe<VersionsPage_Version__Hero__RichText_Operator>
+  version__hero__type?: InputMaybe<VersionsPage_Version__Hero__Type_Operator>
+  version__meta__description?: InputMaybe<VersionsPage_Version__Meta__Description_Operator>
+  version__meta__image?: InputMaybe<VersionsPage_Version__Meta__Image_Operator>
+  version__meta__title?: InputMaybe<VersionsPage_Version__Meta__Title_Operator>
+  version__publishedAt?: InputMaybe<VersionsPage_Version__PublishedAt_Operator>
   version__slug?: InputMaybe<VersionsPage_Version__Slug_Operator>
+  version__slugLock?: InputMaybe<VersionsPage_Version__SlugLock_Operator>
   version__title?: InputMaybe<VersionsPage_Version__Title_Operator>
   version__updatedAt?: InputMaybe<VersionsPage_Version__UpdatedAt_Operator>
 }
@@ -6838,6 +12596,7 @@ export type VersionsPage_Where_And = {
 export type VersionsPage_Where_Or = {
   AND?: InputMaybe<Array<InputMaybe<VersionsPage_Where_And>>>
   OR?: InputMaybe<Array<InputMaybe<VersionsPage_Where_Or>>>
+  autosave?: InputMaybe<VersionsPage_Autosave_Operator>
   createdAt?: InputMaybe<VersionsPage_CreatedAt_Operator>
   id?: InputMaybe<VersionsPage_Id_Operator>
   latest?: InputMaybe<VersionsPage_Latest_Operator>
@@ -6847,7 +12606,22 @@ export type VersionsPage_Where_Or = {
   updatedAt?: InputMaybe<VersionsPage_UpdatedAt_Operator>
   version___status?: InputMaybe<VersionsPage_Version___Status_Operator>
   version__createdAt?: InputMaybe<VersionsPage_Version__CreatedAt_Operator>
+  version__hero__links__id?: InputMaybe<VersionsPage_Version__Hero__Links__Id_Operator>
+  version__hero__links__link__appearance?: InputMaybe<VersionsPage_Version__Hero__Links__Link__Appearance_Operator>
+  version__hero__links__link__label?: InputMaybe<VersionsPage_Version__Hero__Links__Link__Label_Operator>
+  version__hero__links__link__newTab?: InputMaybe<VersionsPage_Version__Hero__Links__Link__NewTab_Operator>
+  version__hero__links__link__reference?: InputMaybe<VersionsPage_Version__Hero__Links__Link__Reference_Relation>
+  version__hero__links__link__type?: InputMaybe<VersionsPage_Version__Hero__Links__Link__Type_Operator>
+  version__hero__links__link__url?: InputMaybe<VersionsPage_Version__Hero__Links__Link__Url_Operator>
+  version__hero__media?: InputMaybe<VersionsPage_Version__Hero__Media_Operator>
+  version__hero__richText?: InputMaybe<VersionsPage_Version__Hero__RichText_Operator>
+  version__hero__type?: InputMaybe<VersionsPage_Version__Hero__Type_Operator>
+  version__meta__description?: InputMaybe<VersionsPage_Version__Meta__Description_Operator>
+  version__meta__image?: InputMaybe<VersionsPage_Version__Meta__Image_Operator>
+  version__meta__title?: InputMaybe<VersionsPage_Version__Meta__Title_Operator>
+  version__publishedAt?: InputMaybe<VersionsPage_Version__PublishedAt_Operator>
   version__slug?: InputMaybe<VersionsPage_Version__Slug_Operator>
+  version__slugLock?: InputMaybe<VersionsPage_Version__SlugLock_Operator>
   version__title?: InputMaybe<VersionsPage_Version__Title_Operator>
   version__updatedAt?: InputMaybe<VersionsPage_Version__UpdatedAt_Operator>
 }
@@ -6858,11 +12632,11 @@ export type VersionsPages = {
   hasNextPage: Scalars['Boolean']['output']
   hasPrevPage: Scalars['Boolean']['output']
   limit: Scalars['Int']['output']
-  nextPage: Scalars['Int']['output']
+  nextPage?: Maybe<Scalars['Int']['output']>
   offset?: Maybe<Scalars['Int']['output']>
   page: Scalars['Int']['output']
   pagingCounter: Scalars['Int']['output']
-  prevPage: Scalars['Int']['output']
+  prevPage?: Maybe<Scalars['Int']['output']>
   totalDocs: Scalars['Int']['output']
   totalPages: Scalars['Int']['output']
 }
@@ -6879,36 +12653,6 @@ export type LoginMutation = {
     exp?: number | null
     token?: string | null
     user?: { __typename?: 'User'; email: any } | null
-  } | null
-}
-
-export type GetBlogsQueryVariables = Exact<{
-  draft?: InputMaybe<Scalars['Boolean']['input']>
-  where?: InputMaybe<Blog_Where>
-  limit?: InputMaybe<Scalars['Int']['input']>
-  page?: InputMaybe<Scalars['Int']['input']>
-  sort?: InputMaybe<Scalars['String']['input']>
-}>
-
-export type GetBlogsQuery = {
-  __typename?: 'Query'
-  Blogs?: {
-    __typename?: 'Blogs'
-    hasNextPage: boolean
-    hasPrevPage: boolean
-    limit: number
-    offset?: number | null
-    page: number
-    pagingCounter: number
-    prevPage: number
-    totalDocs: number
-    totalPages: number
-    docs: Array<{
-      __typename?: 'Blog'
-      id: string
-      title?: string | null
-      author?: { __typename?: 'User'; id: string; name?: string | null } | null
-    }>
   } | null
 }
 
@@ -6944,65 +12688,6 @@ export const useLoginMutation = <TError = unknown, TContext = unknown>(
 
 useLoginMutation.fetcher = (variables: LoginMutationVariables, options?: RequestInit['headers']) =>
   fetcher<LoginMutation, LoginMutationVariables>(LoginDocument, variables, options)
-
-export const GetBlogsDocument = `
-    query GetBlogs($draft: Boolean, $where: Blog_where, $limit: Int, $page: Int, $sort: String) {
-  Blogs(draft: $draft, where: $where, limit: $limit, page: $page, sort: $sort) {
-    docs {
-      id
-      title
-      author {
-        id
-        name
-      }
-    }
-    hasNextPage
-    hasPrevPage
-    limit
-    offset
-    page
-    pagingCounter
-    prevPage
-    totalDocs
-    totalPages
-  }
-}
-    `
-
-export const useGetBlogsQuery = <TData = GetBlogsQuery, TError = unknown>(
-  variables?: GetBlogsQueryVariables,
-  options?: Omit<UseQueryOptions<GetBlogsQuery, TError, TData>, 'queryKey'> & {
-    queryKey?: UseQueryOptions<GetBlogsQuery, TError, TData>['queryKey']
-  },
-) => {
-  return useQuery<GetBlogsQuery, TError, TData>({
-    queryFn: fetcher<GetBlogsQuery, GetBlogsQueryVariables>(GetBlogsDocument, variables),
-    queryKey: variables === undefined ? ['GetBlogs'] : ['GetBlogs', variables],
-    ...options,
-  })
-}
-
-useGetBlogsQuery.getKey = (variables?: GetBlogsQueryVariables) =>
-  variables === undefined ? ['GetBlogs'] : ['GetBlogs', variables]
-
-export const useSuspenseGetBlogsQuery = <TData = GetBlogsQuery, TError = unknown>(
-  variables?: GetBlogsQueryVariables,
-  options?: Omit<UseSuspenseQueryOptions<GetBlogsQuery, TError, TData>, 'queryKey'> & {
-    queryKey?: UseSuspenseQueryOptions<GetBlogsQuery, TError, TData>['queryKey']
-  },
-) => {
-  return useSuspenseQuery<GetBlogsQuery, TError, TData>({
-    queryFn: fetcher<GetBlogsQuery, GetBlogsQueryVariables>(GetBlogsDocument, variables),
-    queryKey: variables === undefined ? ['GetBlogsSuspense'] : ['GetBlogsSuspense', variables],
-    ...options,
-  })
-}
-
-useSuspenseGetBlogsQuery.getKey = (variables?: GetBlogsQueryVariables) =>
-  variables === undefined ? ['GetBlogsSuspense'] : ['GetBlogsSuspense', variables]
-
-useGetBlogsQuery.fetcher = (variables?: GetBlogsQueryVariables, options?: RequestInit['headers']) =>
-  fetcher<GetBlogsQuery, GetBlogsQueryVariables>(GetBlogsDocument, variables, options)
 
 export const GetAllMediaDocument = `
     query GetAllMedia {

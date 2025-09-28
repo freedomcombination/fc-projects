@@ -10,10 +10,10 @@
     "./*": "./*.ts"
   },
   "dependencies": {
-    "payload": "^3.39.1"
+    "payload": "^3.57.0"
   },
   "devDependencies": {
     "@fc/config-eslint": "workspace:*",
-    "typescript": "5.7.3"
+    "typescript": "5.9.2"
   }
 }

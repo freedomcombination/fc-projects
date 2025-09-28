@@ -1,12 +1,13 @@
-import config from '@payload-config'
 import { headers } from 'next/headers'
 import { BasePayload, getPayload } from 'payload'
 import { Stripe } from 'stripe'
 
+import config from '@/payload-config'
+
 import { Donation } from '../../../../payload-types'
 
 const stripe = new Stripe(process.env.STRIPE_KEY!, {
-  apiVersion: '2025-03-31.basil',
+  apiVersion: '2025-08-27.basil',
 })
 
 async function createOrUpdateDonation(
