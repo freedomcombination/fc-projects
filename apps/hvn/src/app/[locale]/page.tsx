@@ -43,21 +43,6 @@ export default async function HomePage({ params }: Args) {
 
   const applicationForm = formsResponse.docs.find((f) => f.title === 'Application Form')
 
-  const response = await fetch('https://www.harmonievannederland.com/api/form-submissions', {
-    headers: {
-      Authorization: `Bearer ${process.env.PAYLOAD_SECRET}`,
-    },
-  })
-
-  const formsRealData = await response.json()
-
-  console.log('formsResponse', formsRealData)
-  // console.log("form docs", formsResponse.docs)
-  //   const applicationFormReal = formsRealData.docs.find((f) => f.title === 'Application Form')
-  //   console.log('applicationFormReal 111', applicationFormReal)
-  //   const applicationFormFields = applicationFormReal?.fields
-  //   console.log('applicationFormReal 22', applicationFormFields)
-
   return (
     <main className="relative">
       {/* Hero section */}
