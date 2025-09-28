@@ -10,6 +10,7 @@ const nextConfig = getNextConfig({
   images: {
     deviceSizes: deviceSizes,
     imageSizes: imageSizes,
+    qualities: [50, 80, 90, 100],
     remotePatterns: [
       {
         hostname: 'localhost',

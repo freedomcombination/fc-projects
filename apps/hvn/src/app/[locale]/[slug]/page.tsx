@@ -5,7 +5,6 @@ import { type CmsBlock, RenderBlocks } from '@fc/ui/blocks/RenderBlocks'
 
 import type { Metadata } from 'next'
 
-import configPromise from '@payload-config'
 import { draftMode } from 'next/headers'
 import { getPayload, TypedLocale } from 'payload'
 
@@ -13,6 +12,7 @@ import { LivePreviewListener } from '@/components/LivePreviewListener'
 import { homeStatic } from '@/data/homeStatic'
 import { RenderHero } from '@/heros/RenderHero'
 import { LOCALES } from '@/i18n/locales'
+import configPromise from '@/payload-config'
 import { generateMeta } from '@/utilities/generateMeta'
 
 type Args = {

@@ -4,6 +4,8 @@ import React, { useEffect } from 'react'
 import { MediaElement } from '@fc/ui/components/MediaElement'
 import RichText from '@fc/ui/components/RichText'
 
+import { DefaultTypedEditorState } from '@payloadcms/richtext-lexical'
+
 import type { Page } from '@/payload-types'
 
 import { CMSLink } from '@/components/Link'
@@ -20,7 +22,7 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
     <div className="relative -mt-[10.4rem] flex items-center justify-center text-white" data-theme="dark">
       <div className="container relative z-10 mb-8 flex items-center justify-center">
         <div className="max-w-[36.5rem] md:text-center">
-          {richText && <RichText className="mb-6" data={richText} enableGutter={false} />}
+          {richText && <RichText className="mb-6" data={richText as DefaultTypedEditorState} enableGutter={false} />}
           {Array.isArray(links) && links.length > 0 && (
             <ul className="flex gap-4 md:justify-center">
               {links.map(({ link }, i) => {

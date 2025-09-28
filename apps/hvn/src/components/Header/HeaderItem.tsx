@@ -16,7 +16,7 @@ export const HeaderItem = ({ children, className, href }: HeaderItemProps) => {
         'nav-item group relative',
         'text-lg transition-colors duration-300',
         'hover:text-primary',
-        'md:text-base',
+        'font-semibold md:text-base',
         className,
       )}
       href={href}

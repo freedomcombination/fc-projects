@@ -1,6 +1,6 @@
-import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 
+import configPromise from '@/payload-config'
 import { Form } from '@/payload-types'
 import { getMe } from '@/utilities/getMe'
 

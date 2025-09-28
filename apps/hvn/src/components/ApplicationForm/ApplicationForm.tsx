@@ -213,7 +213,7 @@ export const ApplicationForm: FC<ApplicationFormProps> = ({ applicationForm }) =
                 required
               />
 
-              {isUnder18State && (
+              {isUnder18State && eventLabel && (
                 <FormCheckbox
                   description={t.rich('acceptParent.description', {
                     eventLabel,

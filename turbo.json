@@ -36,7 +36,8 @@
       "persistent": true
     },
     "type-check": {
-      "dependsOn": ["^type-check"]
+      "dependsOn": ["^type-check"],
+      "cache": false
     },
     "codegen": {
       "dependsOn": ["^codegen"],

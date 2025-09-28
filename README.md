@@ -9,9 +9,7 @@ pnpm dev
 
 ### Projects
 
-- PayloadCMS http://localhost:1337
-- Lotus http://localhost:3000
-- HVN http://localhost:3001
+- HVN http://localhost:3000
 
 ### Adding components
 
