@@ -4,6 +4,8 @@ import configPromise from '@/payload-config'
 import { Form } from '@/payload-types'
 import { getMe } from '@/utilities/getMe'
 
+import { Table } from './table'
+
 export default async function FormApplicationsPage() {
   const payload = await getPayload({ config: configPromise })
 
@@ -34,31 +36,9 @@ export default async function FormApplicationsPage() {
 
   return (
     <main className="relative">
-      <section className="container mx-auto mt-16 px-4">
-        <table className="w-full table-auto border-collapse border border-gray-300">
-          <thead>
-            <tr>
-              {fields?.map((field, index) => (
-                <th className="break-all border border-gray-300 p-2" key={index}>
-                  {field}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {formData.map((data, index) => {
-              return (
-                <tr key={index}>
-                  {Object.values(data).map((value, index) => (
-                    <td className="break-all border border-gray-300 px-2" key={index}>
-                      {value}
-                    </td>
-                  ))}
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
+      <section className="container mx-auto my-24 overflow-x-auto">
+        <h1 className="mb-4 text-2xl font-bold">Form Applications</h1>
+        <Table fields={fields} formData={formData} />
       </section>
     </main>
   )

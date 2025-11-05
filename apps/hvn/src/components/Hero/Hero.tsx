@@ -28,7 +28,7 @@ export const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="container relative mx-auto">
+      <div className="relative container mx-auto">
         <motion.div
           animate={{ opacity: 1, y: 0 }}
           className="relative z-10 flex h-screen items-center justify-center px-4"

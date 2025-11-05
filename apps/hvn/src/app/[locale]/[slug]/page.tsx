@@ -90,7 +90,7 @@ export default async function Page({ params }: Args) {
   const { hero, layout } = page as unknown as { hero: object; layout: CmsBlock[] }
 
   return (
-    <article className="pb-24 pt-16">
+    <article className="pt-16 pb-24">
       {draft && <LivePreviewListener />}
 
       <RenderHero type="highImpact" {...hero} />

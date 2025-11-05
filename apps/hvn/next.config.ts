@@ -34,6 +34,7 @@ const nextConfig = getNextConfig({
       },
     ],
   },
+  reactCompiler: true,
   transpilePackages: ['@fc/ui'],
   turbopack: {
     resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.json'],

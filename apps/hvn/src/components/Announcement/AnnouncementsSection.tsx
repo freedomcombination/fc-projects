@@ -11,7 +11,6 @@ import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import { Announcement, Media } from '@/payload-types'
-
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/css'

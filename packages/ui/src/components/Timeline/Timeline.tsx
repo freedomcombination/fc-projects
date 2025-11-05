@@ -33,7 +33,7 @@ const TimelineConnector: FC<EventTimelineConnectorProps> = ({ date }) => {
   const status = compareDesc(new Date(), new Date(date))
 
   return (
-    <div className="relative text-center after:absolute after:bottom-0 after:top-0 after:z-0 after:inline-block after:w-0.5 after:bg-gray-200 after:content-['']">
+    <div className="relative text-center after:absolute after:top-0 after:bottom-0 after:z-0 after:inline-block after:w-0.5 after:bg-gray-200 after:content-['']">
       <TimelineIndicator status={status} />
     </div>
   )
@@ -47,7 +47,7 @@ const TimelineContent: FC<EventTimelineContentProps> = ({ date, description, tit
       <p className="text-sm">{description}</p>
       <div
         className={clsx(
-          'bg-primary/5 -z-1 absolute right-0 top-0 h-36 w-36 translate-x-1/2 translate-y-[-50%] transform rounded-full',
+          'bg-primary/5 absolute top-0 right-0 -z-1 h-36 w-36 translate-x-1/2 translate-y-[-50%] transform rounded-full',
         )}
       ></div>
     </div>

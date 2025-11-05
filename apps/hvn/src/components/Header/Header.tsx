@@ -65,7 +65,7 @@ export const Header = () => {
   }, [isMenuOpen])
 
   return (
-    <header className="bg-background/80 fixed left-0 right-0 top-0 z-50 backdrop-blur-sm">
+    <header className="bg-background/80 fixed top-0 right-0 left-0 z-50 backdrop-blur-sm">
       <div className="container mx-auto px-4">
         <nav className="flex h-16 items-center justify-between">
           <Logo />
@@ -87,7 +87,7 @@ export const Header = () => {
         {isMenuOpen && (
           <motion.div
             animate={{ opacity: 1, x: 0 }}
-            className="fixed right-0 top-16 h-[calc(100vh-4rem)] w-[full] bg-transparent md:hidden"
+            className="fixed top-16 right-0 h-[calc(100vh-4rem)] w-[full] bg-transparent md:hidden"
             exit={{ opacity: 0, x: 300 }}
             initial={{ opacity: 0, x: 300 }}
             ref={mobileMenuRef}
