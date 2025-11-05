@@ -49,7 +49,7 @@ export const FormRadioGroup = <T extends FieldValues = FieldValues, N extends Fi
               onValueChange={field.onChange}
             >
               {options.map((option) => (
-                <FormItem className="flex items-center space-x-3 space-y-0" key={option.value}>
+                <FormItem className="flex items-center space-y-0 space-x-3" key={option.value}>
                   <FormControl>
                     <RadioGroupItem className="peer" disabled={disabled} value={option.value} />
                   </FormControl>

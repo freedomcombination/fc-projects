@@ -40,7 +40,7 @@ function PhoneInput({ className, onChange, ...props }: PhoneInputProps) {
 }
 
 function InputComponent({ className, ...props }: React.ComponentProps<'input'>) {
-  return <Input className={cn('rounded-e-lg rounded-s-none', className)} {...props} />
+  return <Input className={cn('rounded-s-none rounded-e-lg', className)} {...props} />
 }
 
 type CountryEntry = { label: string; value: RPNInput.Country | undefined }
@@ -57,7 +57,7 @@ const CountrySelect = ({ disabled, onChange, options: countryList, value: select
     <Popover>
       <PopoverTrigger asChild>
         <Button
-          className="flex gap-1 rounded-e-none rounded-s-lg border-r-0 px-3 focus:z-10"
+          className="flex gap-1 rounded-s-lg rounded-e-none border-r-0 px-3 focus:z-10"
           disabled={disabled}
           type="button"
           variant="outline"

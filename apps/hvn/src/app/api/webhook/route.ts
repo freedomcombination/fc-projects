@@ -7,7 +7,7 @@ import config from '@/payload-config'
 import { Donation } from '../../../../payload-types'
 
 const stripe = new Stripe(process.env.STRIPE_KEY!, {
-  apiVersion: '2025-08-27.basil',
+  apiVersion: '2025-10-29.clover',
 })
 
 async function createOrUpdateDonation(

@@ -43,7 +43,7 @@ export const FormCheckboxGroup = <T extends FieldValues = FieldValues, N extends
                     : field.onChange(field.value?.filter((value: string) => value !== option.value))
                 }
                 return (
-                  <FormItem className="flex flex-row items-start space-x-3 space-y-0" key={option.value}>
+                  <FormItem className="flex flex-row items-start space-y-0 space-x-3" key={option.value}>
                     <FormControl>
                       <Checkbox
                         checked={field.value?.includes(option.value)}

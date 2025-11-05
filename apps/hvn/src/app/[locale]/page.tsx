@@ -51,7 +51,7 @@ export default async function HomePage({ params }: Args) {
       </section>
       {/* Announcements section */}
       {announcements && announcements.length > 0 && (
-        <section className="border-b border-t bg-gradient-to-b from-zinc-100 py-16" id="announcements">
+        <section className="border-t border-b bg-gradient-to-b from-zinc-100 py-16" id="announcements">
           <AnnouncementsSection announcements={announcements as Announcement[]} />
         </section>
       )}
@@ -62,7 +62,7 @@ export default async function HomePage({ params }: Args) {
 
       {/* Application section */}
       {applicationForm && (
-        <section className="border-b border-t bg-gradient-to-b from-zinc-100 py-16" id="application">
+        <section className="border-t border-b bg-gradient-to-b from-zinc-100 py-16" id="application">
           <ApplicationForm applicationForm={applicationForm} />
         </section>
       )}
