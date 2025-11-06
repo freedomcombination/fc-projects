@@ -3,6 +3,7 @@ import eslintConfigPrettier from 'eslint-config-prettier'
 import onlyWarn from 'eslint-plugin-only-warn'
 import perfectionist from 'eslint-plugin-perfectionist'
 import turboPlugin from 'eslint-plugin-turbo'
+import { defineConfig } from 'eslint/config'
 import tseslint from 'typescript-eslint'
 
 /**
@@ -10,7 +11,7 @@ import tseslint from 'typescript-eslint'
  *
  * @type {import("eslint").Linter.Config}
  * */
-export const config = [
+export const config = defineConfig([
   js.configs.recommended,
   eslintConfigPrettier,
   ...tseslint.configs.recommended,
@@ -67,6 +68,6 @@ export const config = [
     },
   },
   {
-    ignores: ['dist/**'],
+    ignores: ['dist/**', '.next/**'],
   },
-]
+])

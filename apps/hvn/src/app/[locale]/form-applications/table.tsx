@@ -36,12 +36,6 @@ export const Table: React.FC<TableProps> = ({ fields, formData }) => {
         )
         .join('\n')
       navigator.clipboard.writeText([headerText, cellsText].join('\n'))
-
-      const timer = setTimeout(() => {
-        setSelected(false)
-      }, 1000)
-
-      return () => clearTimeout(timer)
     } else {
       toast.error('No table found')
     }

@@ -1,3 +1,5 @@
+import { Suspense } from 'react'
+
 import { getPayload } from 'payload'
 
 import configPromise from '@/payload-config'
@@ -38,7 +40,9 @@ export default async function FormApplicationsPage() {
     <main className="relative">
       <section className="container mx-auto my-24 overflow-x-auto">
         <h1 className="mb-4 text-2xl font-bold">Form Applications</h1>
-        <Table fields={fields} formData={formData} />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Table fields={fields} formData={formData} />
+        </Suspense>
       </section>
     </main>
   )

@@ -3,6 +3,7 @@ import pluginNext from '@next/eslint-plugin-next'
 import eslintConfigPrettier from 'eslint-config-prettier'
 import pluginReact from 'eslint-plugin-react'
 import pluginReactHooks from 'eslint-plugin-react-hooks'
+import { defineConfig } from 'eslint/config'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
@@ -13,7 +14,7 @@ import { config as baseConfig } from './base.js'
  *
  * @type {import("eslint").Linter.Config}
  * */
-export const nextJsConfig = [
+export const nextJsConfig = defineConfig([
   ...baseConfig,
   js.configs.recommended,
   eslintConfigPrettier,
@@ -47,4 +48,4 @@ export const nextJsConfig = [
     },
     settings: { react: { version: 'detect' } },
   },
-]
+])
