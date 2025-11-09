@@ -19,19 +19,23 @@ export default async function FormApplicationsPage() {
   })
 
   const formConfig = form.docs.find((doc) => (doc.form as Form).title === 'Application Form')?.form as Form
-  const fields = formConfig?.fields?.map((field) => field.blockName) as string[]
+  const fields = ['createdAt', ...(formConfig?.fields?.map((field) => field.blockName) || [])] as string[]
 
   // Extract formData from form.docs
   type FormField = string
   type FormDataRow = { id: string } & { [key: string]: string }
 
   const formData: FormDataRow[] = form.docs.map((doc: any) => {
-    const row: { [key: string]: string } = {}
+    const row: { [key: string]: string } = {
+      createdAt: doc.createdAt,
+    }
 
-    fields?.forEach((field: FormField) => {
-      const found = doc.submissionData?.find((item: any) => item.field === field)
-      row[field] = found ? found.value : ''
-    })
+    fields
+      .filter((field) => field !== 'createdAt')
+      ?.forEach((field: FormField) => {
+        const found = doc.submissionData?.find((item: any) => item.field === field)
+        row[field] = found ? found.value : ''
+      })
 
     return row as FormDataRow
   })
