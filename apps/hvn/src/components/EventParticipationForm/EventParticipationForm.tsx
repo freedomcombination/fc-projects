@@ -1,8 +1,7 @@
-"use client"
+'use client'
 
 import { FC, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
 
 import { Link } from '@fc/intl/navigation'
 import { Button } from '@fc/ui/base/button'
@@ -14,12 +13,14 @@ import { FormPhoneInput } from '@fc/ui/components/form/form-phone-input'
 import { FormSelect } from '@fc/ui/components/form/form-select'
 import { FormTextarea } from '@fc/ui/components/form/form-textarea'
 
+import { Box } from '@chakra-ui/react'
+import { yupResolver } from '@hookform/resolvers/yup'
 import { useTranslations } from 'next-intl'
 import { toast } from 'sonner'
 
 import { Form as FormType } from '../../../payload-types'
 import { cityOptions } from '../ApplicationForm/cityOptions'
-import { useEventParticipationSchema, EventParticipationFormData } from './schema'
+import { EventParticipationFormData, useEventParticipationSchema } from './schema'
 
 type EventParticipationFormProps = {
   applicationForm?: FormType
@@ -52,7 +53,7 @@ export const EventParticipationForm: FC<EventParticipationFormProps> = ({ applic
       participationType: '',
       phone: '',
     },
-    resolver: yupResolver(schema as any),
+    resolver: yupResolver(schema),
   })
 
   const participationOptions = applicationForm?.fields?.flatMap((field) => {
@@ -95,14 +96,15 @@ export const EventParticipationForm: FC<EventParticipationFormProps> = ({ applic
     const birthDate = new Date(dateOfBirth || '')
     if (!dateOfBirth) return setIsUnder18State(false)
     const eighteenthBirthday = new Date(birthDate.getFullYear() + 18, birthDate.getMonth(), birthDate.getDate() + 1)
-    const isAdult = isFinite(eighteenthBirthday.getTime()) && (today > eighteenthBirthday || +today === +eighteenthBirthday)
+    const isAdult =
+      isFinite(eighteenthBirthday.getTime()) && (today > eighteenthBirthday || +today === +eighteenthBirthday)
     setIsUnder18State(!isAdult)
   }, [dateOfBirth])
 
   const participationType = form.watch('participationType')
 
   return (
-    <div className="container mx-auto max-w-3xl px-4">
+    <Box maxW="3xl" mx="auto" px={4}>
       <Card>
         <CardHeader>
           <CardTitle className="text-2xl">{t('title')}</CardTitle>
@@ -131,7 +133,12 @@ export const EventParticipationForm: FC<EventParticipationFormProps> = ({ applic
                 required
               />
 
-              <FormSelect label={t('event')} name="event" options={[{ label: 'HVN - Amsterdam', value: 'hvn_amsterdam' }]} required />
+              <FormSelect
+                label={t('event')}
+                name="event"
+                options={[{ label: 'HVN - Amsterdam', value: 'hvn_amsterdam' }]}
+                required
+              />
 
               <FormSelect
                 label={tParticipation('label')}
@@ -147,7 +154,7 @@ export const EventParticipationForm: FC<EventParticipationFormProps> = ({ applic
 
               {isUnder18State && (
                 <>
-                  <hr />
+                  <Box as="hr" my={4} />
                   <CardTitle className="text-lg">{t('parent.title')}</CardTitle>
                   <FormInput label={t('parent.fullName')} name="parentFullName" required />
                   <FormInput label={t('parent.email')} name="parentEmail" required />
@@ -199,7 +206,7 @@ export const EventParticipationForm: FC<EventParticipationFormProps> = ({ applic
           </Form>
         </CardContent>
       </Card>
-    </div>
+    </Box>
   )
 }
 

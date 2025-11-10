@@ -1,7 +1,26 @@
-import * as yup from 'yup'
 import { isValidPhoneNumber } from 'react-phone-number-input'
 
-export const useEventParticipationSchema = (isUnder18: boolean) => {
+import * as yup from 'yup'
+
+export type EventParticipationFormData = {
+  acceptConditions: boolean
+  acceptEventConditions: boolean
+  acceptParent?: boolean
+  city: string
+  dateOfBirth: string
+  email: string
+  event: string
+  fullName: string
+  message: string
+  otherParticipation?: string | null
+  parentEmail?: string
+  parentFullName?: string
+  parentPhone?: string
+  participationType: string
+  phone: string
+}
+
+export const useEventParticipationSchema = (isUnder18: boolean): yup.ObjectSchema<EventParticipationFormData> => {
   const base = {
     acceptConditions: yup.boolean().oneOf([true], 'You must accept the conditions'),
     acceptEventConditions: yup.boolean().oneOf([true], 'You must accept the event conditions'),
@@ -29,13 +48,11 @@ export const useEventParticipationSchema = (isUnder18: boolean) => {
       parentPhone: yup
         .string()
         .required('Parent phone is required')
-        .test('is-phone', 'Invalid parent phone number format', (value) => isValidPhoneNumber((value as string) || '')),
-    })
+        .test('is-phone', 'Invalid parent phone number format', (value?: unknown) =>
+          isValidPhoneNumber(String(value || '')),
+        ),
+    }) as yup.ObjectSchema<EventParticipationFormData>
   }
 
-  return yup.object().shape(base)
-}
-
-export type EventParticipationFormData = {
-  [k: string]: any
+  return yup.object().shape(base) as yup.ObjectSchema<EventParticipationFormData>
 }

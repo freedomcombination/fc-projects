@@ -1,5 +1,5 @@
 import * as React from 'react'
-import * as RPNInput from 'react-phone-number-input'
+import RPNInput from 'react-phone-number-input'
 import flags from 'react-phone-number-input/flags'
 
 import { Button } from '@fc/ui/base/button'
@@ -12,13 +12,16 @@ import { cn } from '@fc/ui/lib/utils'
 import { CheckIcon, ChevronsUpDown } from 'lucide-react'
 
 type PhoneInputProps = {
-  onChange?: (value: RPNInput.Value) => void
+  // Use a simple string type for onChange to avoid coupling to external library types
+  onChange?: (value: string) => void
 } & Omit<React.ComponentProps<'input'>, 'onChange' | 'ref' | 'value'> &
-  Omit<RPNInput.Props<typeof RPNInput.default>, 'onChange'>
+  Record<string, unknown>
 
 function PhoneInput({ className, onChange, ...props }: PhoneInputProps) {
+  const RPN = RPNInput as any
+
   return (
-    <RPNInput.default
+    <RPN
       className={cn('flex', className)}
       countrySelectComponent={CountrySelect}
       flagComponent={FlagComponent}
@@ -32,7 +35,7 @@ function PhoneInput({ className, onChange, ...props }: PhoneInputProps) {
        *
        * @param {E164Number | undefined} value - The entered value
        */
-      onChange={(value) => onChange?.(value || ('' as RPNInput.Value))}
+      onChange={(value: any) => onChange?.(value || '')}
       smartCaret={false}
       {...props}
     />
@@ -43,13 +46,13 @@ function InputComponent({ className, ...props }: React.ComponentProps<'input'>) 
   return <Input className={cn('rounded-s-none rounded-e-lg', className)} {...props} />
 }
 
-type CountryEntry = { label: string; value: RPNInput.Country | undefined }
+type CountryEntry = { label: string; value: string | undefined }
 
 type CountrySelectProps = {
   disabled?: boolean
-  onChange: (country: RPNInput.Country) => void
+  onChange: (country: string) => void
   options: CountryEntry[]
-  value: RPNInput.Country
+  value: string
 }
 
 const CountrySelect = ({ disabled, onChange, options: countryList, value: selectedCountry }: CountrySelectProps) => {
@@ -93,9 +96,11 @@ const CountrySelect = ({ disabled, onChange, options: countryList, value: select
   )
 }
 
-interface CountrySelectOptionProps extends RPNInput.FlagProps {
-  onChange: (country: RPNInput.Country) => void
-  selectedCountry: RPNInput.Country
+interface CountrySelectOptionProps {
+  country: string
+  countryName?: string
+  onChange: (country: string) => void
+  selectedCountry: string
 }
 
 const CountrySelectOption = ({ country, countryName, onChange, selectedCountry }: CountrySelectOptionProps) => {
@@ -103,14 +108,14 @@ const CountrySelectOption = ({ country, countryName, onChange, selectedCountry }
     <CommandItem className="gap-2" onSelect={() => onChange(country)}>
       <FlagComponent country={country} countryName={countryName} />
       <span className="flex-1 text-sm">{countryName}</span>
-      <span className="text-foreground/50 text-sm">{`+${RPNInput.getCountryCallingCode(country)}`}</span>
+      <span className="text-foreground/50 text-sm">{`+${(RPNInput as any).getCountryCallingCode(country)}`}</span>
       <CheckIcon className={`ml-auto size-4 ${country === selectedCountry ? 'opacity-100' : 'opacity-0'}`} />
     </CommandItem>
   )
 }
 
-const FlagComponent = ({ country, countryName }: RPNInput.FlagProps) => {
-  const Flag = flags[country]
+const FlagComponent = ({ country, countryName }: { country?: string; countryName?: string }) => {
+  const Flag = (flags as any)[country as string]
 
   return (
     <span className="bg-foreground/20 flex h-4 w-6 overflow-hidden rounded-sm [&_svg]:!h-full [&_svg]:!w-full">
