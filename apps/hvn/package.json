@@ -17,6 +17,9 @@
     "update-component": "cd src/blocks/Component/ && chmod +x update.sh && update.sh"
   },
   "dependencies": {
+    "@chakra-ui/react": "^3.29.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
     "@fc/ui": "workspace:*",
     "@hookform/resolvers": "^5.2.2",
     "@payloadcms/db-mongodb": "^3.62.1",
@@ -60,7 +63,8 @@
     "sharp": "0.34.4",
     "sonner": "^2.0.7",
     "stripe": "19.2.1",
-    "swiper": "^12.0.3"
+    "swiper": "^12.0.3",
+    "yup": "^1.7.1"
   },
   "devDependencies": {
     "@fc/codegen": "workspace:*",
